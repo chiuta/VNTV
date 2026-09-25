@@ -1,0 +1,78 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: VideoNeat Index 1.1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Accepted PeerTube instances"
+msgstr ""
+
+msgid "Catalog generated"
+msgstr ""
+
+msgid "Comma-separated."
+msgstr ""
+
+msgid "Coverage"
+msgstr ""
+
+msgid "Duration and image from PeerTube"
+msgstr ""
+
+msgid "Indexed"
+msgstr ""
+
+msgid "JSON catalog for VNTV, the Stremio addon and other trade-free clients:"
+msgstr ""
+
+msgid "Newest posts without a PeerTube trailer"
+msgstr ""
+
+msgid "No trailer"
+msgstr ""
+
+msgid "Published posts"
+msgstr ""
+
+msgid "Reindex all posts"
+msgstr ""
+
+msgid "Reindexing: %1$d / %2$d posts. Reload the page to see progress."
+msgstr ""
+
+msgid "Runs in the background, %d posts at a time."
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Static file"
+msgstr ""
+
+msgid "With a PeerTube trailer (playable in VNTV)"
+msgstr ""
+
+msgid "With trailer duration"
+msgstr ""
+
+msgid "With year / with source"
+msgstr ""
+
+msgid "YouTube trailer only (not playable)"
+msgstr ""
+
+msgid "also write"
+msgstr ""
+
+msgid "not yet"
+msgstr ""
+
+msgid ""
+"read them from the PeerTube API (needed for the synchronized broadcast)"
+msgstr ""
+
+msgid "titles"
+msgstr ""

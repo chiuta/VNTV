@@ -1,0 +1,821 @@
+{
+ "en": {
+  "n": "English",
+  "desc": "Science documentaries, films and courses curated by VideoNeat.com (TROM, trade-free). Catalog by category, search, trailers from videos.trom.tf and links to the official sources.",
+  "latest": "Latest",
+  "len": "Length",
+  "src": "Source",
+  "page": "Page",
+  "srcCat": "Source",
+  "hls": "▶ Trailer (HLS, adaptive quality)",
+  "mp4": "▶ Trailer {r} (MP4)",
+  "web": "▶ Trailer in the browser (videos.trom.tf)",
+  "open": "🌐 Open the page on videoneat.com",
+  "off": "🌐 Official source: {s}",
+  "offN": "Official source",
+  "install": "Install in Stremio",
+  "pick": "Language",
+  "hint": "Or paste the address above into Stremio → Addons → search field.",
+  "trNote": "Titles and descriptions: automatic translation",
+  "ch": [
+   [
+    "VNTV",
+    "The whole collection"
+   ],
+   [
+    "Documentaries",
+    "All documentaries"
+   ],
+   [
+    "Astronomy",
+    "Cosmos & universe"
+   ],
+   [
+    "Nature",
+    "The living planet"
+   ],
+   [
+    "Biology",
+    "Life under the microscope"
+   ],
+   [
+    "Society",
+    "People & world"
+   ],
+   [
+    "Technology",
+    "Engineering & future"
+   ],
+   [
+    "Health",
+    "Medicine & body"
+   ],
+   [
+    "Archaeology",
+    "Paleontology & the past"
+   ],
+   [
+    "Maths & physics",
+    "Laws of nature"
+   ],
+   [
+    "Chemistry",
+    "Matter & reactions"
+   ],
+   [
+    "Geology",
+    "Deep Earth"
+   ],
+   [
+    "Movies",
+    "Films of ideas"
+   ],
+   [
+    "Courses",
+    "Lessons & lectures"
+   ],
+   [
+    "Favorites",
+    "Your selection"
+   ]
+  ],
+  "cats": {
+   "2": "Documentary",
+   "3": "Society",
+   "7": "Astronomy",
+   "15": "Technology",
+   "21": "Biology",
+   "26": "Nature",
+   "31": "Chemistry",
+   "34": "Maths & physics",
+   "42": "Geology",
+   "126": "Health & medicine",
+   "128": "Archaeology & paleontology",
+   "129": "Movie",
+   "156": "Course"
+  },
+  "lw": {
+   "part": "part",
+   "parts": "parts",
+   "episode": "episode",
+   "episodes": "episodes",
+   "minute": "minute",
+   "minutes": "minutes",
+   "hour": "hour",
+   "hours": "hours",
+   "season": "season",
+   "seasons": "seasons",
+   "lecture": "lecture",
+   "lectures": "lectures",
+   "lesson": "lesson",
+   "lessons": "lessons",
+   "and": "and"
+  },
+  "fullHls": "▶ Full video (HLS, adaptive quality)",
+  "fullMp4": "▶ Full video {r} (MP4)",
+  "lic": "Licence",
+  "openPT": "🌐 Watch on PeerTube"
+ },
+ "ro": {
+  "n": "Română",
+  "desc": "Documentare, filme și cursuri de știință curatoriate de VideoNeat.com (TROM, trade-free). Catalog pe categorii, căutare, trailere de pe videos.trom.tf și linkuri către sursele oficiale.",
+  "latest": "Noutăți",
+  "len": "Durată",
+  "src": "Sursă",
+  "page": "Pagina",
+  "srcCat": "Sursa",
+  "hls": "▶ Trailer (HLS, calitate adaptivă)",
+  "mp4": "▶ Trailer {r} (MP4)",
+  "web": "▶ Trailer în browser (videos.trom.tf)",
+  "open": "🌐 Deschide pagina pe videoneat.com",
+  "off": "🌐 Sursa oficială: {s}",
+  "offN": "Sursa oficială",
+  "install": "Instalează în Stremio",
+  "pick": "Limbă",
+  "hint": "Sau copiază adresa de mai sus în Stremio → Addons → câmpul de căutare.",
+  "trNote": "Titluri și descrieri: traducere automată",
+  "ch": [
+   [
+    "VNTV",
+    "Toată colecția"
+   ],
+   [
+    "Documentare",
+    "Toate documentarele"
+   ],
+   [
+    "Astronomie",
+    "Cosmos & univers"
+   ],
+   [
+    "Natură",
+    "Planeta vie"
+   ],
+   [
+    "Biologie",
+    "Viața la microscop"
+   ],
+   [
+    "Societate",
+    "Oameni & lume"
+   ],
+   [
+    "Tehnologie",
+    "Inginerie & viitor"
+   ],
+   [
+    "Sănătate",
+    "Medicină & corp"
+   ],
+   [
+    "Arheologie",
+    "Paleontologie & trecut"
+   ],
+   [
+    "Matematică & fizică",
+    "Legile naturii"
+   ],
+   [
+    "Chimie",
+    "Materie & reacții"
+   ],
+   [
+    "Geologie",
+    "Pământul adânc"
+   ],
+   [
+    "Filme",
+    "Ficțiune de idei"
+   ],
+   [
+    "Cursuri",
+    "Lecții & prelegeri"
+   ],
+   [
+    "Favorite",
+    "Selecția ta"
+   ]
+  ],
+  "cats": {
+   "2": "Documentar",
+   "3": "Societate",
+   "7": "Astronomie",
+   "15": "Tehnologie",
+   "21": "Biologie",
+   "26": "Natură",
+   "31": "Chimie",
+   "34": "Matematică & fizică",
+   "42": "Geologie",
+   "126": "Sănătate & medicină",
+   "128": "Arheologie & paleontologie",
+   "129": "Film",
+   "156": "Curs"
+  },
+  "lw": {
+   "part": "parte",
+   "parts": "părți",
+   "episode": "episod",
+   "episodes": "episoade",
+   "minute": "minut",
+   "minutes": "minute",
+   "hour": "oră",
+   "hours": "ore",
+   "season": "sezon",
+   "seasons": "sezoane",
+   "lecture": "prelegere",
+   "lectures": "prelegeri",
+   "lesson": "lecție",
+   "lessons": "lecții",
+   "and": "și"
+  },
+  "fullHls": "▶ Video complet (HLS, calitate adaptivă)",
+  "fullMp4": "▶ Video complet {r} (MP4)",
+  "lic": "Licență",
+  "openPT": "🌐 Vezi pe PeerTube"
+ },
+ "fr": {
+  "n": "Français",
+  "desc": "Documentaires, films et cours de science sélectionnés par VideoNeat.com (TROM, trade-free). Catalogue par catégorie, recherche, bandes-annonces de videos.trom.tf et liens vers les sources officielles.",
+  "latest": "Nouveautés",
+  "len": "Durée",
+  "src": "Source",
+  "page": "Page",
+  "srcCat": "Source",
+  "hls": "▶ Bande-annonce (HLS, qualité adaptative)",
+  "mp4": "▶ Bande-annonce {r} (MP4)",
+  "web": "▶ Bande-annonce dans le navigateur (videos.trom.tf)",
+  "open": "🌐 Ouvrir la page sur videoneat.com",
+  "off": "🌐 Source officielle : {s}",
+  "offN": "Source officielle",
+  "install": "Installer dans Stremio",
+  "pick": "Langue",
+  "hint": "Ou collez l'adresse ci-dessus dans Stremio → Addons → champ de recherche.",
+  "trNote": "Titres et descriptions : traduction automatique",
+  "ch": [
+   [
+    "VNTV",
+    "Toute la collection"
+   ],
+   [
+    "Documentaires",
+    "Tous les documentaires"
+   ],
+   [
+    "Astronomie",
+    "Cosmos & univers"
+   ],
+   [
+    "Nature",
+    "La planète vivante"
+   ],
+   [
+    "Biologie",
+    "La vie au microscope"
+   ],
+   [
+    "Société",
+    "Humains & monde"
+   ],
+   [
+    "Technologie",
+    "Ingénierie & avenir"
+   ],
+   [
+    "Santé",
+    "Médecine & corps"
+   ],
+   [
+    "Archéologie",
+    "Paléontologie & passé"
+   ],
+   [
+    "Maths & physique",
+    "Les lois de la nature"
+   ],
+   [
+    "Chimie",
+    "Matière & réactions"
+   ],
+   [
+    "Géologie",
+    "La Terre profonde"
+   ],
+   [
+    "Films",
+    "Fictions d'idées"
+   ],
+   [
+    "Cours",
+    "Leçons & conférences"
+   ],
+   [
+    "Favoris",
+    "Votre sélection"
+   ]
+  ],
+  "cats": {
+   "2": "Documentaire",
+   "3": "Société",
+   "7": "Astronomie",
+   "15": "Technologie",
+   "21": "Biologie",
+   "26": "Nature",
+   "31": "Chimie",
+   "34": "Maths & physique",
+   "42": "Géologie",
+   "126": "Santé & médecine",
+   "128": "Archéologie & paléontologie",
+   "129": "Film",
+   "156": "Cours"
+  },
+  "lw": {
+   "part": "partie",
+   "parts": "parties",
+   "episode": "épisode",
+   "episodes": "épisodes",
+   "minute": "minute",
+   "minutes": "minutes",
+   "hour": "heure",
+   "hours": "heures",
+   "season": "saison",
+   "seasons": "saisons",
+   "lecture": "conférence",
+   "lectures": "conférences",
+   "lesson": "leçon",
+   "lessons": "leçons",
+   "and": "et"
+  },
+  "fullHls": "▶ Vidéo complète (HLS, qualité adaptative)",
+  "fullMp4": "▶ Vidéo complète {r} (MP4)",
+  "lic": "Licence",
+  "openPT": "🌐 Voir sur PeerTube"
+ },
+ "es": {
+  "n": "Español",
+  "desc": "Documentales, películas y cursos de ciencia seleccionados por VideoNeat.com (TROM, trade-free). Catálogo por categorías, búsqueda, tráileres de videos.trom.tf y enlaces a las fuentes oficiales.",
+  "latest": "Novedades",
+  "len": "Duración",
+  "src": "Fuente",
+  "page": "Página",
+  "srcCat": "Fuente",
+  "hls": "▶ Tráiler (HLS, calidad adaptativa)",
+  "mp4": "▶ Tráiler {r} (MP4)",
+  "web": "▶ Tráiler en el navegador (videos.trom.tf)",
+  "open": "🌐 Abrir la página en videoneat.com",
+  "off": "🌐 Fuente oficial: {s}",
+  "offN": "Fuente oficial",
+  "install": "Instalar en Stremio",
+  "pick": "Idioma",
+  "hint": "O pega la dirección de arriba en Stremio → Addons → campo de búsqueda.",
+  "trNote": "Títulos y descripciones: traducción automática",
+  "ch": [
+   [
+    "VNTV",
+    "Toda la colección"
+   ],
+   [
+    "Documentales",
+    "Todos los documentales"
+   ],
+   [
+    "Astronomía",
+    "Cosmos y universo"
+   ],
+   [
+    "Naturaleza",
+    "El planeta vivo"
+   ],
+   [
+    "Biología",
+    "La vida al microscopio"
+   ],
+   [
+    "Sociedad",
+    "Personas y mundo"
+   ],
+   [
+    "Tecnología",
+    "Ingeniería y futuro"
+   ],
+   [
+    "Salud",
+    "Medicina y cuerpo"
+   ],
+   [
+    "Arqueología",
+    "Paleontología y pasado"
+   ],
+   [
+    "Matemáticas y física",
+    "Las leyes de la naturaleza"
+   ],
+   [
+    "Química",
+    "Materia y reacciones"
+   ],
+   [
+    "Geología",
+    "La Tierra profunda"
+   ],
+   [
+    "Películas",
+    "Ficción de ideas"
+   ],
+   [
+    "Cursos",
+    "Lecciones y conferencias"
+   ],
+   [
+    "Favoritos",
+    "Tu selección"
+   ]
+  ],
+  "cats": {
+   "2": "Documental",
+   "3": "Sociedad",
+   "7": "Astronomía",
+   "15": "Tecnología",
+   "21": "Biología",
+   "26": "Naturaleza",
+   "31": "Química",
+   "34": "Matemáticas y física",
+   "42": "Geología",
+   "126": "Salud y medicina",
+   "128": "Arqueología y paleontología",
+   "129": "Película",
+   "156": "Curso"
+  },
+  "lw": {
+   "part": "parte",
+   "parts": "partes",
+   "episode": "episodio",
+   "episodes": "episodios",
+   "minute": "minuto",
+   "minutes": "minutos",
+   "hour": "hora",
+   "hours": "horas",
+   "season": "temporada",
+   "seasons": "temporadas",
+   "lecture": "conferencia",
+   "lectures": "conferencias",
+   "lesson": "lección",
+   "lessons": "lecciones",
+   "and": "y"
+  },
+  "fullHls": "▶ Vídeo completo (HLS, calidad adaptativa)",
+  "fullMp4": "▶ Vídeo completo {r} (MP4)",
+  "lic": "Licencia",
+  "openPT": "🌐 Ver en PeerTube"
+ },
+ "de": {
+  "n": "Deutsch",
+  "desc": "Wissenschaftsdokus, Filme und Kurse, kuratiert von VideoNeat.com (TROM, trade-free). Katalog nach Kategorien, Suche, Trailer von videos.trom.tf und Links zu den offiziellen Quellen.",
+  "latest": "Neu",
+  "len": "Länge",
+  "src": "Quelle",
+  "page": "Seite",
+  "srcCat": "Quelle",
+  "hls": "▶ Trailer (HLS, adaptive Qualität)",
+  "mp4": "▶ Trailer {r} (MP4)",
+  "web": "▶ Trailer im Browser (videos.trom.tf)",
+  "open": "🌐 Seite auf videoneat.com öffnen",
+  "off": "🌐 Offizielle Quelle: {s}",
+  "offN": "Offizielle Quelle",
+  "install": "In Stremio installieren",
+  "pick": "Sprache",
+  "hint": "Oder die Adresse oben in Stremio → Addons → Suchfeld einfügen.",
+  "trNote": "Titel und Beschreibungen: automatische Übersetzung",
+  "ch": [
+   [
+    "VNTV",
+    "Die ganze Sammlung"
+   ],
+   [
+    "Dokumentationen",
+    "Alle Dokus"
+   ],
+   [
+    "Astronomie",
+    "Kosmos & Universum"
+   ],
+   [
+    "Natur",
+    "Der lebendige Planet"
+   ],
+   [
+    "Biologie",
+    "Leben unter dem Mikroskop"
+   ],
+   [
+    "Gesellschaft",
+    "Menschen & Welt"
+   ],
+   [
+    "Technik",
+    "Ingenieurwesen & Zukunft"
+   ],
+   [
+    "Gesundheit",
+    "Medizin & Körper"
+   ],
+   [
+    "Archäologie",
+    "Paläontologie & Vergangenheit"
+   ],
+   [
+    "Mathe & Physik",
+    "Naturgesetze"
+   ],
+   [
+    "Chemie",
+    "Materie & Reaktionen"
+   ],
+   [
+    "Geologie",
+    "Die tiefe Erde"
+   ],
+   [
+    "Filme",
+    "Ideenkino"
+   ],
+   [
+    "Kurse",
+    "Lektionen & Vorlesungen"
+   ],
+   [
+    "Favoriten",
+    "Deine Auswahl"
+   ]
+  ],
+  "cats": {
+   "2": "Dokumentation",
+   "3": "Gesellschaft",
+   "7": "Astronomie",
+   "15": "Technik",
+   "21": "Biologie",
+   "26": "Natur",
+   "31": "Chemie",
+   "34": "Mathe & Physik",
+   "42": "Geologie",
+   "126": "Gesundheit & Medizin",
+   "128": "Archäologie & Paläontologie",
+   "129": "Film",
+   "156": "Kurs"
+  },
+  "lw": {
+   "part": "Teil",
+   "parts": "Teile",
+   "episode": "Folge",
+   "episodes": "Folgen",
+   "minute": "Minute",
+   "minutes": "Minuten",
+   "hour": "Stunde",
+   "hours": "Stunden",
+   "season": "Staffel",
+   "seasons": "Staffeln",
+   "lecture": "Vorlesung",
+   "lectures": "Vorlesungen",
+   "lesson": "Lektion",
+   "lessons": "Lektionen",
+   "and": "und"
+  },
+  "fullHls": "▶ Ganzes Video (HLS, adaptive Qualität)",
+  "fullMp4": "▶ Ganzes Video {r} (MP4)",
+  "lic": "Lizenz",
+  "openPT": "🌐 Auf PeerTube ansehen"
+ },
+ "it": {
+  "n": "Italiano",
+  "desc": "Documentari, film e corsi di scienza selezionati da VideoNeat.com (TROM, trade-free). Catalogo per categorie, ricerca, trailer da videos.trom.tf e link alle fonti ufficiali.",
+  "latest": "Novità",
+  "len": "Durata",
+  "src": "Fonte",
+  "page": "Pagina",
+  "srcCat": "Fonte",
+  "hls": "▶ Trailer (HLS, qualità adattiva)",
+  "mp4": "▶ Trailer {r} (MP4)",
+  "web": "▶ Trailer nel browser (videos.trom.tf)",
+  "open": "🌐 Apri la pagina su videoneat.com",
+  "off": "🌐 Fonte ufficiale: {s}",
+  "offN": "Fonte ufficiale",
+  "install": "Installa in Stremio",
+  "pick": "Lingua",
+  "hint": "Oppure incolla l'indirizzo qui sopra in Stremio → Addons → campo di ricerca.",
+  "trNote": "Titoli e descrizioni: traduzione automatica",
+  "ch": [
+   [
+    "VNTV",
+    "Tutta la collezione"
+   ],
+   [
+    "Documentari",
+    "Tutti i documentari"
+   ],
+   [
+    "Astronomia",
+    "Cosmo e universo"
+   ],
+   [
+    "Natura",
+    "Il pianeta vivente"
+   ],
+   [
+    "Biologia",
+    "La vita al microscopio"
+   ],
+   [
+    "Società",
+    "Persone e mondo"
+   ],
+   [
+    "Tecnologia",
+    "Ingegneria e futuro"
+   ],
+   [
+    "Salute",
+    "Medicina e corpo"
+   ],
+   [
+    "Archeologia",
+    "Paleontologia e passato"
+   ],
+   [
+    "Matematica e fisica",
+    "Le leggi della natura"
+   ],
+   [
+    "Chimica",
+    "Materia e reazioni"
+   ],
+   [
+    "Geologia",
+    "La Terra profonda"
+   ],
+   [
+    "Film",
+    "Cinema di idee"
+   ],
+   [
+    "Corsi",
+    "Lezioni e conferenze"
+   ],
+   [
+    "Preferiti",
+    "La tua selezione"
+   ]
+  ],
+  "cats": {
+   "2": "Documentario",
+   "3": "Società",
+   "7": "Astronomia",
+   "15": "Tecnologia",
+   "21": "Biologia",
+   "26": "Natura",
+   "31": "Chimica",
+   "34": "Matematica e fisica",
+   "42": "Geologia",
+   "126": "Salute e medicina",
+   "128": "Archeologia e paleontologia",
+   "129": "Film",
+   "156": "Corso"
+  },
+  "lw": {
+   "part": "parte",
+   "parts": "parti",
+   "episode": "episodio",
+   "episodes": "episodi",
+   "minute": "minuto",
+   "minutes": "minuti",
+   "hour": "ora",
+   "hours": "ore",
+   "season": "stagione",
+   "seasons": "stagioni",
+   "lecture": "conferenza",
+   "lectures": "conferenze",
+   "lesson": "lezione",
+   "lessons": "lezioni",
+   "and": "e"
+  },
+  "fullHls": "▶ Video completo (HLS, qualità adattiva)",
+  "fullMp4": "▶ Video completo {r} (MP4)",
+  "lic": "Licenza",
+  "openPT": "🌐 Guarda su PeerTube"
+ },
+ "pt": {
+  "n": "Português",
+  "desc": "Documentários, filmes e cursos de ciência selecionados pela VideoNeat.com (TROM, trade-free). Catálogo por categorias, pesquisa, trailers de videos.trom.tf e ligações para as fontes oficiais.",
+  "latest": "Novidades",
+  "len": "Duração",
+  "src": "Fonte",
+  "page": "Página",
+  "srcCat": "Fonte",
+  "hls": "▶ Trailer (HLS, qualidade adaptativa)",
+  "mp4": "▶ Trailer {r} (MP4)",
+  "web": "▶ Trailer no navegador (videos.trom.tf)",
+  "open": "🌐 Abrir a página em videoneat.com",
+  "off": "🌐 Fonte oficial: {s}",
+  "offN": "Fonte oficial",
+  "install": "Instalar no Stremio",
+  "pick": "Idioma",
+  "hint": "Ou cole o endereço acima no Stremio → Addons → campo de pesquisa.",
+  "trNote": "Títulos e descrições: tradução automática",
+  "ch": [
+   [
+    "VNTV",
+    "Toda a coleção"
+   ],
+   [
+    "Documentários",
+    "Todos os documentários"
+   ],
+   [
+    "Astronomia",
+    "Cosmos e universo"
+   ],
+   [
+    "Natureza",
+    "O planeta vivo"
+   ],
+   [
+    "Biologia",
+    "A vida ao microscópio"
+   ],
+   [
+    "Sociedade",
+    "Pessoas e mundo"
+   ],
+   [
+    "Tecnologia",
+    "Engenharia e futuro"
+   ],
+   [
+    "Saúde",
+    "Medicina e corpo"
+   ],
+   [
+    "Arqueologia",
+    "Paleontologia e passado"
+   ],
+   [
+    "Matemática e física",
+    "As leis da natureza"
+   ],
+   [
+    "Química",
+    "Matéria e reações"
+   ],
+   [
+    "Geologia",
+    "A Terra profunda"
+   ],
+   [
+    "Filmes",
+    "Ficção de ideias"
+   ],
+   [
+    "Cursos",
+    "Aulas e palestras"
+   ],
+   [
+    "Favoritos",
+    "A sua seleção"
+   ]
+  ],
+  "cats": {
+   "2": "Documentário",
+   "3": "Sociedade",
+   "7": "Astronomia",
+   "15": "Tecnologia",
+   "21": "Biologia",
+   "26": "Natureza",
+   "31": "Química",
+   "34": "Matemática e física",
+   "42": "Geologia",
+   "126": "Saúde e medicina",
+   "128": "Arqueologia e paleontologia",
+   "129": "Filme",
+   "156": "Curso"
+  },
+  "lw": {
+   "part": "parte",
+   "parts": "partes",
+   "episode": "episódio",
+   "episodes": "episódios",
+   "minute": "minuto",
+   "minutes": "minutos",
+   "hour": "hora",
+   "hours": "horas",
+   "season": "temporada",
+   "seasons": "temporadas",
+   "lecture": "palestra",
+   "lectures": "palestras",
+   "lesson": "aula",
+   "lessons": "aulas",
+   "and": "e"
+  },
+  "fullHls": "▶ Vídeo completo (HLS, qualidade adaptativa)",
+  "fullMp4": "▶ Vídeo completo {r} (MP4)",
+  "lic": "Licença",
+  "openPT": "🌐 Ver no PeerTube"
+ }
+}

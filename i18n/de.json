@@ -1,0 +1,339 @@
+{
+ "_n": "Deutsch",
+ "_loc": "de-DE",
+ "live": "AUF SENDUNG",
+ "skipNext": "Zum nächsten",
+ "upNextIn": "Als Nächstes in {s} s",
+ "ticker": "ALS NÄCHSTES",
+ "ident": "Wissenschaft · trade-free",
+ "unmute": "🔊 Ton einschalten",
+ "pos": "Position",
+ "vol": "Lautstärke",
+ "tPrev": "Zurück (←)",
+ "tPlay": "Wiedergabe / Pause (Leertaste)",
+ "tNext": "Weiter (→)",
+ "tMute": "Ton (M)",
+ "tCh": "Kanal (↑ ↓ oder Zifferntasten)",
+ "tFav": "Favorit (S)",
+ "tInfo": "Details (I)",
+ "tGuide": "TV-Programm (G)",
+ "tLayers": "Ebenen & Effekte (O)",
+ "tFull": "Vollbild (F)",
+ "guide": "TV-Programm",
+ "searchPh": "Thema suchen und daraus einen Kanal machen…",
+ "search": "Suchen",
+ "kCh": "Kanal",
+ "kClip": "Clip",
+ "kDirect": "Kanal direkt",
+ "kGuide": "Programm",
+ "kLayers": "Ebenen",
+ "kInfo": "Details",
+ "kClean": "leerer Bildschirm",
+ "kFull": "Vollbild",
+ "layers": "Ebenen",
+ "nowOn": "Jetzt auf VNTV",
+ "close": "Schließen",
+ "splashP": "Eine Dauersendung mit den Trailern der VideoNeat-Sammlung: Wissenschaftsdokus, Filme und Kurse. Die Kategorien sind Kanäle, und jede Bildschirmebene lässt sich ein- und ausschalten.",
+ "go": "Sendung starten",
+ "mobile": "Auf dem Handy: ↔ wischen für Clips, ↕ für Kanäle, Bildschirm antippen für die Steuerung.",
+ "srcC": "Inhalte",
+ "srcT": "Trailer",
+ "srcP": "TROM-Projekte, trade-free",
+ "ch": [
+  [
+   "VNTV",
+   "Die ganze Sammlung"
+  ],
+  [
+   "Dokumentationen",
+   "Alle Dokus"
+  ],
+  [
+   "Astronomie",
+   "Kosmos & Universum"
+  ],
+  [
+   "Natur",
+   "Der lebendige Planet"
+  ],
+  [
+   "Biologie",
+   "Leben unter dem Mikroskop"
+  ],
+  [
+   "Gesellschaft",
+   "Menschen & Welt"
+  ],
+  [
+   "Technik",
+   "Ingenieurwesen & Zukunft"
+  ],
+  [
+   "Gesundheit",
+   "Medizin & Körper"
+  ],
+  [
+   "Archäologie",
+   "Paläontologie & Vergangenheit"
+  ],
+  [
+   "Mathe & Physik",
+   "Naturgesetze"
+  ],
+  [
+   "Chemie",
+   "Materie & Reaktionen"
+  ],
+  [
+   "Geologie",
+   "Die tiefe Erde"
+  ],
+  [
+   "Filme",
+   "Ideenkino"
+  ],
+  [
+   "Kurse",
+   "Lektionen & Vorlesungen"
+  ],
+  [
+   "Favoriten",
+   "Deine Auswahl"
+  ]
+ ],
+ "cats": {
+  "2": "Dokumentation",
+  "3": "Gesellschaft",
+  "7": "Astronomie",
+  "15": "Technik",
+  "21": "Biologie",
+  "26": "Natur",
+  "31": "Chemie",
+  "34": "Mathe & Physik",
+  "42": "Geologie",
+  "126": "Gesundheit & Medizin",
+  "128": "Archäologie & Paläontologie",
+  "129": "Film",
+  "156": "Kurs"
+ },
+ "gPre": "Voreinstellungen",
+ "gBroad": "Sendung",
+ "gCine": "Kino",
+ "gPlay": "Wiedergabe",
+ "gLang": "Sprache",
+ "ov": {
+  "logo": [
+   "VNTV-Logo",
+   "Senderlogo in der Ecke"
+  ],
+  "clock": [
+   "Uhr & „Auf Sendung“",
+   "Aktuelle Uhrzeit, oben links"
+  ],
+  "lower": [
+   "Titel-Bauchbinde",
+   "Titel, Jahr, Länge und Quelle zu Clipbeginn"
+  ],
+  "upnext": [
+   "Als Nächstes",
+   "Vorschau auf den nächsten Clip"
+  ],
+  "ticker": [
+   "Laufband",
+   "Kommende Titel, laufend"
+  ],
+  "progress": [
+   "Fortschrittsbalken",
+   "Dünne Linie am unteren Rand"
+  ],
+  "idents": [
+   "Idents zwischen Clips",
+   "Animiertes VNTV-Logo bei jedem Wechsel"
+  ],
+  "ambient": [
+   "Umgebungslicht",
+   "Die Farben des Clips strahlen ums Bild herum"
+  ],
+  "letterbox": [
+   "CinemaScope",
+   "Schwarze Balken 2.39:1"
+  ],
+  "vignette": [
+   "Vignette",
+   "Abgedunkelte Ränder wie im Kinosaal"
+  ],
+  "grain": [
+   "Filmkorn",
+   "35-mm-Filmtextur"
+  ],
+  "scan": [
+   "CRT-Zeilen",
+   "Look eines Röhrenfernsehers"
+  ],
+  "fill": [
+   "Bildschirm füllen",
+   "Beschneidet das Bild, um den ganzen Bildschirm zu füllen"
+  ],
+  "subs": [
+   "Untertitel",
+   "Von PeerTube, übersetzt, wenn es deine Sprache nicht gibt"
+  ]
+ },
+ "pre": {
+  "tv": [
+   "Fernsehen",
+   "Alle Sendeelemente"
+  ],
+  "cinema": [
+   "Kino",
+   "CinemaScope, Film, Ruhe"
+  ],
+  "retro": [
+   "Retro-CRT",
+   "Omas Fernseher"
+  ],
+  "clean": [
+   "Leerer Bildschirm",
+   "Nur das Bild"
+  ]
+ },
+ "shuf": [
+  "Zufallswiedergabe",
+  "Mischt das Programm jedes Kanals"
+ ],
+ "quality": "Videoqualität",
+ "qAuto": "Automatisch",
+ "errList": "Liste von videoneat.com kann nicht geladen werden ({e})",
+ "noTr": "Auf diesem Kanal gibt es keine Trailer.",
+ "slow": "Clip lädt langsam — weiter zum nächsten",
+ "unavail": "Clip nicht verfügbar — weiter zum nächsten",
+ "noFavs": "Noch keine Favoriten — drücke ★ während eines Clips.",
+ "favAdd": "★ Zu Favoriten hinzugefügt (Kanal {n})",
+ "favRem": "Aus Favoriten entfernt",
+ "preset": "Voreinstellung: {n}",
+ "shufOn": "Zufall an — gilt ab dem nächsten Kanalwechsel",
+ "shufOff": "Chronologisch — gilt ab dem nächsten Kanalwechsel",
+ "qualT": "Qualität: {q} — ab dem nächsten Clip",
+ "layersBack": "Ebenen wieder aktiv",
+ "cleanOn": "Leerer Bildschirm — H drücken, um zurückzukehren",
+ "source": "Quelle",
+ "trailer": "Trailer",
+ "now": "JETZT",
+ "earlier": "ZUVOR",
+ "upnext": "DANACH",
+ "loadingProg": "Programm wird geladen…",
+ "noTrCh": "Keine Trailer auf diesem Kanal.",
+ "more": "Mehr Programm laden",
+ "searchCh": "Suchkanal",
+ "searchPre": "Suche: ",
+ "srchShort": "SUCHE",
+ "srchBug": "Suche",
+ "year": "Jahr",
+ "dur": "Länge",
+ "watch": "Auf VideoNeat ansehen ↗",
+ "official": "Offizielle Quelle",
+ "inFav": "★ In Favoriten",
+ "addFav": "☆ Zu Favoriten",
+ "note": "VNTV zeigt die Trailer. Den ganzen Film findest du auf der VideoNeat-Seite oder bei der offiziellen Quelle.",
+ "trOn": [
+  "Titel und Beschreibungen übersetzen",
+  "Automatische Übersetzung der VideoNeat-Inhalte"
+ ],
+ "trEngine": "Übersetzungsdienst",
+ "trAuto": "Automatisch",
+ "trBrowser": "Browser (auf dem Gerät)",
+ "trUrl": "LibreTranslate-Server",
+ "trKey": "API-Schlüssel (optional)",
+ "trSave": "Speichern",
+ "trStatus": "Aktiver Dienst: {e}",
+ "trNone": "Kein Übersetzungsdienst verfügbar — es werden die Originale angezeigt",
+ "trDl": "Übersetzungsmodell wird auf das Gerät geladen…",
+ "trQuota": "Tageslimit von MyMemory erreicht — es werden die Originale angezeigt",
+ "autoTr": "Automatische Übersetzung aus dem Englischen",
+ "showOrig": "Original zeigen",
+ "showTr": "Übersetzung zeigen",
+ "trHint": "Die Übersetzung auf dem Gerät ist privat und funktioniert in Chrome und Edge auf dem Computer. LibreTranslate ist freie Software, die du selbst hosten kannst, z. B. auf YunoHost. MyMemory ist ein kommerzieller Onlinedienst und wird nur verwendet, wenn du ihn wählst.",
+ "lw": {
+  "part": "Teil",
+  "parts": "Teile",
+  "episode": "Folge",
+  "episodes": "Folgen",
+  "minute": "Minute",
+  "minutes": "Minuten",
+  "hour": "Stunde",
+  "hours": "Stunden",
+  "season": "Staffel",
+  "seasons": "Staffeln",
+  "lecture": "Vorlesung",
+  "lectures": "Vorlesungen",
+  "lesson": "Lektion",
+  "lessons": "Lektionen",
+  "and": "und"
+ },
+ "a2hs": "Für echtes Vollbild: Teilen → Zum Home-Bildschirm",
+ "rotate": "Dreh dein Handy quer für das volle Bild",
+ "tCast": "Streamen / AirPlay (C)",
+ "tPip": "Bild im Bild (P)",
+ "noCast": "Kein Gerät zum Streamen gefunden",
+ "fullVideo": "Ganzes Video",
+ "nonstop": "NONSTOP",
+ "liveTip": "Synchronisierte Sendung: Alle auf diesem Kanal sehen gerade denselben Clip",
+ "nonstopTip": "Deine eigene Playlist — nicht mit anderen Zuschauern synchronisiert",
+ "backLive": "Live",
+ "tBrowse": "Sammlung durchsuchen (B)",
+ "browse": "Stöbern",
+ "browseAll": "Sammlung durchsuchen",
+ "browsePh": "Titel, Themen suchen…",
+ "kBrowse": "stöbern",
+ "moreB": "Mehr laden",
+ "mmWarn": "MyMemory ist ein kommerzieller Onlinedienst: Die Titel und Beschreibungen, die du ansiehst, werden dorthin gesendet. Wähle ihn nur, wenn du damit einverstanden bist.",
+ "syncT": [
+  "Synchronisierte Sendung",
+  "Alle auf demselben Kanal sehen denselben Clip zur selben Zeit, wie im Fernsehen"
+ ],
+ "syncNeedsIndex": "Die synchronisierte Sendung braucht den offiziellen VideoNeat-Katalog (JSON). Bis dahin spielt VNTV deine eigene Nonstop-Playlist.",
+ "netT": "Übertragung",
+ "netAuto": "Automatisch",
+ "netP2P": "P2P (PeerTube-Player)",
+ "netDirect": "Direkte Datei",
+ "netHint": "P2P verteilt die Last auf die Zuschauer und senkt die Serverkosten von TROM, macht aber deine IP-Adresse für andere Zuschauer sichtbar. Direkte Wiedergabe ermöglicht Bild im Bild, AirPlay und Chromecast.",
+ "netNow": "Aktuell: {m}.",
+ "ecoT": "Sparmodus",
+ "on": "An",
+ "off": "Aus",
+ "ecoHint": "Schaltet Unschärfe und animierte Effekte ab, spart Akku und läuft flüssig auf einfachen Geräten.",
+ "ecoIsOn": "Derzeit an.",
+ "ecoIsOff": "Derzeit aus.",
+ "gSrc": "Quellen",
+ "catIndex": "Katalog: offizielle VideoNeat-Liste ({n} Titel mit Trailer).",
+ "catWP": "Katalog: von der VideoNeat-Website gelesen (langsamer; keine synchronisierte Sendung).",
+ "remove": "Entfernen",
+ "noSrc": "Noch keine zusätzlichen Kanäle.",
+ "addSrc": "PeerTube-Kanal hinzufügen",
+ "add": "Hinzufügen",
+ "srcHint": "Füge PeerTube-Kanäle mit frei lizenzierten Wissenschaftsvideos hinzu — sie werden zu neuen Kanälen mit vollständigen Videos. Beispiel: https://instanz/c/kanal",
+ "advanced": "Erweitert",
+ "idxUrl": "Katalogadresse (JSON)",
+ "kioskHint": "Öffentliche Bildschirme: ?kiosk=1 an die Adresse anhängen (optional &ch=3&lang=de&preset=cinema&muted=0). Dreimal K drücken zum Beenden.",
+ "srcBad": "Das sieht nicht nach einer PeerTube-Kanaladresse aus (https://…/c/name oder /a/name).",
+ "srcDup": "Dieser Kanal ist schon hinzugefügt.",
+ "srcEmpty": "Dieser Kanal hat keine Videos.",
+ "srcAdded": "„{n}“ als Kanal {ch} mit {c} Videos hinzugefügt.",
+ "srcErr": "Kanal konnte nicht gelesen werden ({e}).",
+ "licence": "Lizenz",
+ "playNow": "Jetzt auf VNTV abspielen",
+ "noTrailer": "Kein abspielbares Video",
+ "watchPT": "Auf PeerTube ansehen ↗",
+ "back": "Zurück",
+ "nTitles": "{n} Titel",
+ "noRes": "Nichts gefunden.",
+ "p2pFallback": "Der PeerTube-Player reagiert nicht — auf direkte Wiedergabe umgeschaltet.",
+ "p2pNote": "Der P2P-Modus teilt das Video mit anderen Zuschauern und senkt so die Serverkosten von TROM. Wie bei jedem P2P wird deine IP-Adresse für die Zuschauer sichtbar, mit denen du Daten austauschst.",
+ "p2pKeep": "OK, P2P behalten",
+ "p2pDirect": "Direkte Datei verwenden",
+ "subSize": "Untertitelgröße",
+ "showAll": "Alle Einstellungen zeigen",
+ "showLess": "Weniger Einstellungen",
+ "tChDn": "Vorheriger Kanal (↓)",
+ "tChUp": "Nächster Kanal (↑)"
+}

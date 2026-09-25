@@ -1,0 +1,339 @@
+{
+ "_n": "English",
+ "_loc": "en-GB",
+ "live": "ON AIR",
+ "skipNext": "Skip to next",
+ "upNextIn": "Up next in {s}s",
+ "ticker": "COMING UP",
+ "ident": "science · trade-free",
+ "unmute": "🔊 Turn sound on",
+ "pos": "Position",
+ "vol": "Volume",
+ "tPrev": "Previous (←)",
+ "tPlay": "Play / pause (Space)",
+ "tNext": "Next (→)",
+ "tMute": "Sound (M)",
+ "tCh": "Channel (↑ ↓ or number keys)",
+ "tFav": "Favorite (S)",
+ "tInfo": "Details (I)",
+ "tGuide": "TV guide (G)",
+ "tLayers": "Layers & effects (O)",
+ "tFull": "Fullscreen (F)",
+ "guide": "TV Guide",
+ "searchPh": "Search a topic to create a channel…",
+ "search": "Search",
+ "kCh": "channel",
+ "kClip": "clip",
+ "kDirect": "direct channel",
+ "kGuide": "guide",
+ "kLayers": "layers",
+ "kInfo": "details",
+ "kClean": "clean screen",
+ "kFull": "fullscreen",
+ "layers": "Layers",
+ "nowOn": "Now on VNTV",
+ "close": "Close",
+ "splashP": "A non-stop broadcast of trailers from the VideoNeat collection: science documentaries, films and courses. Categories are channels, and every on-screen layer can be switched on or off.",
+ "go": "Start broadcast",
+ "mobile": "On a phone: swipe ↔ for clips, ↕ for channels, tap the screen for controls.",
+ "srcC": "Content",
+ "srcT": "trailers",
+ "srcP": "TROM projects, trade-free",
+ "ch": [
+  [
+   "VNTV",
+   "The whole collection"
+  ],
+  [
+   "Documentaries",
+   "All documentaries"
+  ],
+  [
+   "Astronomy",
+   "Cosmos & universe"
+  ],
+  [
+   "Nature",
+   "The living planet"
+  ],
+  [
+   "Biology",
+   "Life under the microscope"
+  ],
+  [
+   "Society",
+   "People & world"
+  ],
+  [
+   "Technology",
+   "Engineering & future"
+  ],
+  [
+   "Health",
+   "Medicine & body"
+  ],
+  [
+   "Archaeology",
+   "Paleontology & the past"
+  ],
+  [
+   "Maths & physics",
+   "Laws of nature"
+  ],
+  [
+   "Chemistry",
+   "Matter & reactions"
+  ],
+  [
+   "Geology",
+   "Deep Earth"
+  ],
+  [
+   "Movies",
+   "Films of ideas"
+  ],
+  [
+   "Courses",
+   "Lessons & lectures"
+  ],
+  [
+   "Favorites",
+   "Your selection"
+  ]
+ ],
+ "cats": {
+  "2": "Documentary",
+  "3": "Society",
+  "7": "Astronomy",
+  "15": "Technology",
+  "21": "Biology",
+  "26": "Nature",
+  "31": "Chemistry",
+  "34": "Maths & physics",
+  "42": "Geology",
+  "126": "Health & medicine",
+  "128": "Archaeology & paleontology",
+  "129": "Movie",
+  "156": "Course"
+ },
+ "gPre": "Presets",
+ "gBroad": "Broadcast",
+ "gCine": "Cinema",
+ "gPlay": "Playback",
+ "gLang": "Language",
+ "ov": {
+  "logo": [
+   "VNTV logo",
+   "Channel logo in the corner"
+  ],
+  "clock": [
+   "Clock & “On air”",
+   "Current time, top left"
+  ],
+  "lower": [
+   "Title strap",
+   "Title, year, length and source when a clip starts"
+  ],
+  "upnext": [
+   "Up next",
+   "Preview of the next clip"
+  ],
+  "ticker": [
+   "News ticker",
+   "Upcoming titles, scrolling"
+  ],
+  "progress": [
+   "Progress bar",
+   "Thin line along the bottom"
+  ],
+  "idents": [
+   "Idents between clips",
+   "Animated VNTV logo at every change"
+  ],
+  "ambient": [
+   "Ambient light",
+   "The clip's colors spill around the picture"
+  ],
+  "letterbox": [
+   "CinemaScope",
+   "2.39:1 black bars"
+  ],
+  "vignette": [
+   "Vignette",
+   "Darkened edges, like in a theater"
+  ],
+  "grain": [
+   "Film grain",
+   "35 mm film texture"
+  ],
+  "scan": [
+   "CRT lines",
+   "Old tube-TV look"
+  ],
+  "fill": [
+   "Fill the screen",
+   "Crops the picture to cover the whole screen"
+  ],
+  "subs": [
+   "Subtitles",
+   "From PeerTube, translated when your language isn't available"
+  ]
+ },
+ "pre": {
+  "tv": [
+   "Television",
+   "All broadcast elements"
+  ],
+  "cinema": [
+   "Cinema",
+   "CinemaScope, film, quiet"
+  ],
+  "retro": [
+   "Retro CRT",
+   "Grandma's TV set"
+  ],
+  "clean": [
+   "Clean screen",
+   "Just the picture"
+  ]
+ },
+ "shuf": [
+  "Shuffle",
+  "Mix up each channel's schedule"
+ ],
+ "quality": "Video quality",
+ "qAuto": "Auto",
+ "errList": "Can't load the list from videoneat.com ({e})",
+ "noTr": "This channel has no trailers available.",
+ "slow": "Clip is loading slowly — skipping ahead",
+ "unavail": "Clip unavailable — moving on to the next one",
+ "noFavs": "No favorites yet — press ★ while a clip is playing.",
+ "favAdd": "★ Added to favorites (channel {n})",
+ "favRem": "Removed from favorites",
+ "preset": "Preset: {n}",
+ "shufOn": "Shuffle on — applies from the next channel change",
+ "shufOff": "Chronological order — applies from the next channel change",
+ "qualT": "Quality: {q} — from the next clip",
+ "layersBack": "Layers restored",
+ "cleanOn": "Clean screen — press H to go back",
+ "source": "Source",
+ "trailer": "Trailer",
+ "now": "NOW",
+ "earlier": "EARLIER",
+ "upnext": "UP NEXT",
+ "loadingProg": "Loading the schedule…",
+ "noTrCh": "No trailers on this channel.",
+ "more": "Load more of the schedule",
+ "searchCh": "Search channel",
+ "searchPre": "Search: ",
+ "srchShort": "SRCH",
+ "srchBug": "search",
+ "year": "Year",
+ "dur": "Length",
+ "watch": "Watch on VideoNeat ↗",
+ "official": "Official source",
+ "inFav": "★ In favorites",
+ "addFav": "☆ Add to favorites",
+ "note": "VNTV plays the trailers. The full film is on the VideoNeat page or at the official source.",
+ "trOn": [
+  "Translate titles & descriptions",
+  "Automatic translation of the VideoNeat content"
+ ],
+ "trEngine": "Translation engine",
+ "trAuto": "Auto",
+ "trBrowser": "Browser (on-device)",
+ "trUrl": "LibreTranslate server",
+ "trKey": "API key (optional)",
+ "trSave": "Save",
+ "trStatus": "Active engine: {e}",
+ "trNone": "No translation engine available — originals are shown",
+ "trDl": "Downloading the on-device translation model…",
+ "trQuota": "MyMemory's daily limit was reached — originals are shown",
+ "autoTr": "Automatic translation from English",
+ "showOrig": "Show original",
+ "showTr": "Show translation",
+ "trHint": "On-device translation is private and works in Chrome and Edge on computers. LibreTranslate is free software you can host yourself, e.g. on YunoHost. MyMemory is a commercial online service and is used only if you pick it.",
+ "lw": {
+  "part": "part",
+  "parts": "parts",
+  "episode": "episode",
+  "episodes": "episodes",
+  "minute": "minute",
+  "minutes": "minutes",
+  "hour": "hour",
+  "hours": "hours",
+  "season": "season",
+  "seasons": "seasons",
+  "lecture": "lecture",
+  "lectures": "lectures",
+  "lesson": "lesson",
+  "lessons": "lessons",
+  "and": "and"
+ },
+ "a2hs": "For true full screen: Share → Add to Home Screen",
+ "rotate": "Turn your phone sideways for the full picture",
+ "tCast": "Cast / AirPlay (C)",
+ "tPip": "Picture in picture (P)",
+ "noCast": "Nothing to cast to was found",
+ "fullVideo": "Full video",
+ "nonstop": "NON-STOP",
+ "liveTip": "Synchronized broadcast: everyone watching this channel sees the same clip right now",
+ "nonstopTip": "Your own playlist — not synchronized with other viewers",
+ "backLive": "Live",
+ "tBrowse": "Browse the collection (B)",
+ "browse": "Browse",
+ "browseAll": "Browse the collection",
+ "browsePh": "Search titles, topics…",
+ "kBrowse": "browse",
+ "moreB": "Load more",
+ "mmWarn": "MyMemory is a commercial online service: the titles and descriptions you view are sent to it. Choose it only if you accept that.",
+ "syncT": [
+  "Synchronized broadcast",
+  "Everyone on the same channel sees the same clip at the same time, like real TV"
+ ],
+ "syncNeedsIndex": "The synchronized broadcast needs the official VideoNeat catalog (JSON). Until it is published, VNTV plays your own non-stop playlist.",
+ "netT": "Streaming",
+ "netAuto": "Auto",
+ "netP2P": "P2P (PeerTube player)",
+ "netDirect": "Direct file",
+ "netHint": "P2P shares the load between viewers and lowers TROM's server costs, but makes your IP address visible to other viewers. Direct playback allows picture-in-picture, AirPlay and Chromecast.",
+ "netNow": "Now: {m}.",
+ "ecoT": "Eco mode",
+ "on": "On",
+ "off": "Off",
+ "ecoHint": "Turns off blur and animated effects to save battery and run smoothly on modest devices.",
+ "ecoIsOn": "Currently on.",
+ "ecoIsOff": "Currently off.",
+ "gSrc": "Sources",
+ "catIndex": "Catalog: official VideoNeat list ({n} titles with trailers).",
+ "catWP": "Catalog: read from the VideoNeat website (slower; the synchronized broadcast is unavailable).",
+ "remove": "Remove",
+ "noSrc": "No extra channels yet.",
+ "addSrc": "Add a PeerTube channel",
+ "add": "Add",
+ "srcHint": "Add PeerTube channels with openly licensed science videos — they become new channels with full-length videos. Example: https://instance/c/channel",
+ "advanced": "Advanced",
+ "idxUrl": "Catalog address (JSON)",
+ "kioskHint": "Public screens: add ?kiosk=1 to the address (optionally &ch=3&lang=en&preset=cinema&muted=0). Press K three times to exit.",
+ "srcBad": "That doesn't look like a PeerTube channel address (https://…/c/name or /a/name).",
+ "srcDup": "This channel is already added.",
+ "srcEmpty": "This channel has no videos.",
+ "srcAdded": "“{n}” added as channel {ch} with {c} videos.",
+ "srcErr": "Couldn't read the channel ({e}).",
+ "licence": "Licence",
+ "playNow": "Play now on VNTV",
+ "noTrailer": "No playable video",
+ "watchPT": "Watch on PeerTube ↗",
+ "back": "Back",
+ "nTitles": "{n} titles",
+ "noRes": "Nothing found.",
+ "p2pFallback": "The PeerTube player isn't responding — switched to direct playback.",
+ "p2pNote": "P2P mode shares the video with other viewers to reduce TROM's server costs. Like any P2P, it makes your IP address visible to the viewers you exchange data with.",
+ "p2pKeep": "OK, keep P2P",
+ "p2pDirect": "Use direct file",
+ "subSize": "Subtitle size",
+ "showAll": "Show all settings",
+ "showLess": "Fewer settings",
+ "tChDn": "Previous channel (↓)",
+ "tChUp": "Next channel (↑)"
+}

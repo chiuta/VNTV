@@ -1,0 +1,94 @@
+<div id="app">
+  <div id="ambient"></div>
+  <video id="v" playsinline webkit-playsinline preload="auto" x-webkit-airplay="allow"></video>
+  <iframe id="frame" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen sandbox="allow-same-origin allow-scripts allow-popups" title="PeerTube"></iframe>
+  <div id="shield"></div>
+  <div id="letterbox"></div>
+  <div id="vignette"></div>
+  <div id="scan"></div>
+  <div id="grain"></div>
+  <div id="spin"></div>
+  <div class="ripple l" id="ripL">« 10 s</div><div class="ripple r" id="ripR">10 s »</div>
+  <div id="rotate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M3 12a9 9 0 0 0 5 8M21 12a9 9 0 0 0-5-8"/></svg><span data-i="rotate"></span></div>
+
+  <div id="clock" class="ov"><span class="live" id="livelab">ON AIR</span><span class="t" id="clk">--:--</span></div>
+  <div id="bug" class="ov"><div class="vntv"><span class="vn">VN</span><span class="tv">TV</span></div><div class="chn" id="bugch"></div></div>
+
+  <div id="subs" class="ov" aria-live="off"><span id="subt"></span></div>
+  <div id="lower" class="ov"><div class="tag" id="ltag">VNTV</div><div class="box"><h1 id="ltitle"></h1><div class="m" id="lmeta"></div></div></div>
+  <div id="upnext" class="ov" data-it="skipNext"><div class="th" id="unth"></div><div><small id="uncount"></small><b id="untitle"></b></div></div>
+  <div id="ticker" class="ov"><div class="lab" data-i="ticker">COMING UP</div><div class="run"><div class="tr" id="tick"></div></div></div>
+  <div id="bar" class="ov"><i id="bari"></i></div>
+
+  <canvas id="static" width="160" height="90"></canvas>
+  <div id="ident"><div><div class="vntv"><span class="vn">VN</span><span class="tv">TV</span></div><p data-i="ident"></p></div></div>
+  <div id="osd"><div class="n" id="osdn">01</div><div class="nm" id="osdnm"></div></div>
+  <button class="btn pri" id="unmute" data-i="unmute"></button>
+
+  <div id="ctl">
+    <div class="seek"><span id="tcur">0:00</span><input type="range" id="seek" min="0" max="1000" value="0" data-ia="pos"><span id="tdur">0:00</span></div>
+    <div class="row">
+      <button class="ib hide-s" id="bprev" data-it="tPrev"></button>
+      <button class="ib big" id="bplay" data-it="tPlay"></button>
+      <button class="ib" id="bnext" data-it="tNext"></button>
+      <button class="ib" id="bmute" data-it="tMute"></button>
+      <input type="range" id="vol" min="0" max="100" value="100" data-ia="vol">
+      <button class="livebtn" id="blive" hidden><i></i><span data-i="backLive"></span></button>
+      <div class="nowbox"><small id="nowch"></small><b id="nowt"></b></div>
+      <div class="sp"></div>
+      <div class="chbtn" data-it="tCh"><button class="ib" id="chdn" data-it="tChDn"></button><span id="chno">CH 01</span><button class="ib" id="chup" data-it="tChUp"></button></div>
+      <button class="ib" id="bfav" data-it="tFav"></button>
+      <button class="ib hide-s" id="binfo" data-it="tInfo"></button>
+      <button class="ib hide-s" id="bbrowse" data-it="tBrowse"></button>
+      <button class="ib" id="bguide" data-it="tGuide"></button>
+      <button class="ib" id="blayers" data-it="tLayers"></button>
+      <button class="ib" id="bcast" data-it="tCast" hidden></button>
+      <button class="ib" id="bpip" data-it="tPip" hidden></button>
+      <button class="ib" id="bfull" data-it="tFull"></button>
+    </div>
+  </div>
+
+  <aside id="guide" class="panel" data-ia="guide">
+    <header><div class="vntv"><span class="vn">VN</span><span class="tv">TV</span></div><h2 data-i="guide"></h2>
+      <button class="btn" id="gbrowse" data-i="browse"></button><button class="x" data-close data-ia="close">×</button></header>
+    <form class="gsearch" id="gform"><input id="gq" type="search" data-ip="searchPh" autocomplete="off"><button class="btn pri" data-i="search"></button></form>
+    <div class="cols"><div id="chlist"></div><div id="qlist"></div></div>
+    <div class="hint" id="ghint"></div>
+  </aside>
+
+  <aside id="layers" class="panel" data-ia="tLayers">
+    <header><h2 data-i="layers"></h2><button class="x" data-close data-ia="close">×</button></header>
+    <div class="body" id="lbody"></div>
+  </aside>
+
+  <aside id="info" class="panel" data-ia="tInfo">
+    <header><h2 data-i="nowOn"></h2><button class="x" data-close data-ia="close">×</button></header>
+    <div class="body" id="ibody"></div>
+  </aside>
+
+  <section id="browse" class="panel" data-ia="browse">
+    <header><div class="vntv"><span class="vn">VN</span><span class="tv">TV</span></div><h2 data-i="browse"></h2><button class="x" data-close data-ia="close">×</button></header>
+    <form class="gsearch" id="bform"><input id="bq" type="search" data-ip="browsePh" autocomplete="off"><button class="btn pri" data-i="search"></button></form>
+    <div class="bcats" id="bcats"></div>
+    <div class="body" id="bbody"><div class="bstat" id="bstat"></div><div class="bgrid" id="bgrid"></div><div class="bmore"><button class="btn" id="bmore" data-i="moreB" hidden></button></div></div>
+    <div id="bdet" hidden></div>
+  </section>
+
+  <div id="splash">
+    <div>
+      <div class="vntv"><span class="vn">VN</span><span class="tv">TV</span></div>
+      <h2>VideoNeat Television</h2>
+      <p data-i="splashP"></p>
+      <div class="gorow">
+        <button id="go"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span data-i="go"></span></button>
+        <button id="gobrowse" class="btn" data-i="browseAll"></button>
+      </div>
+      <div class="langs" id="slangs"></div>
+      <div class="keys" id="skeys"></div>
+    </div>
+    <div class="src"><span data-i="srcC"></span>: <a href="https://www.videoneat.com/" target="_blank" rel="noopener">videoneat.com</a> · <span data-i="srcT"></span>: <a href="https://videos.trom.tf/video-channels/videoneat" target="_blank" rel="noopener">videos.trom.tf</a> · <span data-i="srcP"></span></div>
+  </div>
+  <div id="p2pnote" role="dialog" aria-live="polite" hidden><p data-i="p2pNote"></p>
+    <div class="acts"><button class="btn pri" id="p2pKeep" data-i="p2pKeep"></button><button class="btn" id="p2pDirect" data-i="p2pDirect"></button></div></div>
+  <div id="toast" role="status"></div>
+</div>

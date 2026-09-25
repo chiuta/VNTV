@@ -1,0 +1,339 @@
+{
+ "_n": "Română",
+ "_loc": "ro-RO",
+ "live": "ÎN EMISIE",
+ "skipNext": "Treci la următorul",
+ "upNextIn": "Urmează în {s}s",
+ "ticker": "ÎN CONTINUARE",
+ "ident": "știință · trade-free",
+ "unmute": "🔊 Pornește sunetul",
+ "pos": "Poziție",
+ "vol": "Volum",
+ "tPrev": "Anterior (←)",
+ "tPlay": "Pauză / redare (Spațiu)",
+ "tNext": "Următorul (→)",
+ "tMute": "Sunet (M)",
+ "tCh": "Canal (↑ ↓ sau cifre)",
+ "tFav": "Favorit (S)",
+ "tInfo": "Detalii (I)",
+ "tGuide": "Ghid TV (G)",
+ "tLayers": "Straturi & efecte (O)",
+ "tFull": "Ecran complet (F)",
+ "guide": "Ghid TV",
+ "searchPh": "Caută un subiect și creează un canal…",
+ "search": "Caută",
+ "kCh": "canal",
+ "kClip": "clip",
+ "kDirect": "canal direct",
+ "kGuide": "ghid",
+ "kLayers": "straturi",
+ "kInfo": "detalii",
+ "kClean": "ecran curat",
+ "kFull": "ecran complet",
+ "layers": "Straturi",
+ "nowOn": "Acum pe VNTV",
+ "close": "Închide",
+ "splashP": "Emisie continuă cu trailerele colecției VideoNeat: documentare, filme și cursuri de știință. Canalele sunt categoriile, iar straturile de pe ecran le pornești sau le oprești cum vrei.",
+ "go": "Pornește emisia",
+ "mobile": "Pe telefon: glisează ↔ pentru clip, ↕ pentru canal, atinge ecranul pentru comenzi.",
+ "srcC": "Conținut",
+ "srcT": "trailere",
+ "srcP": "proiecte TROM, trade-free",
+ "ch": [
+  [
+   "VNTV",
+   "Toată colecția"
+  ],
+  [
+   "Documentare",
+   "Toate documentarele"
+  ],
+  [
+   "Astronomie",
+   "Cosmos & univers"
+  ],
+  [
+   "Natură",
+   "Planeta vie"
+  ],
+  [
+   "Biologie",
+   "Viața la microscop"
+  ],
+  [
+   "Societate",
+   "Oameni & lume"
+  ],
+  [
+   "Tehnologie",
+   "Inginerie & viitor"
+  ],
+  [
+   "Sănătate",
+   "Medicină & corp"
+  ],
+  [
+   "Arheologie",
+   "Paleontologie & trecut"
+  ],
+  [
+   "Matematică & fizică",
+   "Legile naturii"
+  ],
+  [
+   "Chimie",
+   "Materie & reacții"
+  ],
+  [
+   "Geologie",
+   "Pământul adânc"
+  ],
+  [
+   "Filme",
+   "Ficțiune de idei"
+  ],
+  [
+   "Cursuri",
+   "Lecții & prelegeri"
+  ],
+  [
+   "Favorite",
+   "Selecția ta"
+  ]
+ ],
+ "cats": {
+  "2": "Documentar",
+  "3": "Societate",
+  "7": "Astronomie",
+  "15": "Tehnologie",
+  "21": "Biologie",
+  "26": "Natură",
+  "31": "Chimie",
+  "34": "Matematică & fizică",
+  "42": "Geologie",
+  "126": "Sănătate & medicină",
+  "128": "Arheologie & paleontologie",
+  "129": "Film",
+  "156": "Curs"
+ },
+ "gPre": "Presetări",
+ "gBroad": "Emisie",
+ "gCine": "Cinema",
+ "gPlay": "Redare",
+ "gLang": "Limbă",
+ "ov": {
+  "logo": [
+   "Sigla VNTV",
+   "Sigla canalului în colț"
+  ],
+  "clock": [
+   "Ceas & „În emisie”",
+   "Ora curentă, în stânga sus"
+  ],
+  "lower": [
+   "Bandă cu titlul",
+   "Titlu, an, durată și sursă la începutul clipului"
+  ],
+  "upnext": [
+   "Urmează",
+   "Previzualizarea clipului următor"
+  ],
+  "ticker": [
+   "Banda de știri",
+   "Titlurile care urmează, în derulare"
+  ],
+  "progress": [
+   "Bară de progres",
+   "Linia subțire de la baza ecranului"
+  ],
+  "idents": [
+   "Ident-uri între clipuri",
+   "Sigla animată VNTV la fiecare trecere"
+  ],
+  "ambient": [
+   "Lumină ambientală",
+   "Culorile clipului se revarsă în jurul imaginii"
+  ],
+  "letterbox": [
+   "Format cinemascope",
+   "Benzi negre 2.39:1"
+  ],
+  "vignette": [
+   "Vignetă",
+   "Margini întunecate, ca în sală"
+  ],
+  "grain": [
+   "Granulație de peliculă",
+   "Textura filmului de 35 mm"
+  ],
+  "scan": [
+   "Linii CRT",
+   "Aspect de televizor cu tub"
+  ],
+  "fill": [
+   "Umple ecranul",
+   "Decupează imaginea ca să acopere tot ecranul"
+  ],
+  "subs": [
+   "Subtitrări",
+   "Din PeerTube, traduse când nu există în limba ta"
+  ]
+ },
+ "pre": {
+  "tv": [
+   "Televizor",
+   "Toate elementele de emisie"
+  ],
+  "cinema": [
+   "Cinema",
+   "Cinemascope, peliculă, liniște"
+  ],
+  "retro": [
+   "Retro CRT",
+   "Televizorul bunicilor"
+  ],
+  "clean": [
+   "Ecran curat",
+   "Doar imaginea"
+  ]
+ },
+ "shuf": [
+  "Ordine aleatorie",
+  "Amestecă programul fiecărui canal"
+ ],
+ "quality": "Calitate video",
+ "qAuto": "Automată",
+ "errList": "Nu pot încărca lista de pe videoneat.com ({e})",
+ "noTr": "Canalul nu are trailere disponibile.",
+ "slow": "Clipul se încarcă greu — trec mai departe",
+ "unavail": "Clip indisponibil — trec la următorul",
+ "noFavs": "Nu ai încă favorite — apasă ★ în timpul unui clip.",
+ "favAdd": "★ Adăugat la favorite (canalul {n})",
+ "favRem": "Scos din favorite",
+ "preset": "Presetare: {n}",
+ "shufOn": "Ordine aleatorie — se aplică la următoarea schimbare de canal",
+ "shufOff": "Ordine cronologică — se aplică la următoarea schimbare de canal",
+ "qualT": "Calitate: {q} — de la clipul următor",
+ "layersBack": "Straturi reactivate",
+ "cleanOn": "Ecran curat — apasă H pentru a reveni",
+ "source": "Sursă",
+ "trailer": "Trailer",
+ "now": "ACUM",
+ "earlier": "ANTERIOR",
+ "upnext": "URMEAZĂ",
+ "loadingProg": "Se încarcă programul…",
+ "noTrCh": "Niciun trailer pe acest canal.",
+ "more": "Încarcă mai mult din program",
+ "searchCh": "Canal de căutare",
+ "searchPre": "Căutare: ",
+ "srchShort": "CĂUT.",
+ "srchBug": "căutare",
+ "year": "An",
+ "dur": "Durată",
+ "watch": "Vezi pe VideoNeat ↗",
+ "official": "Sursa oficială",
+ "inFav": "★ În favorite",
+ "addFav": "☆ Adaugă la favorite",
+ "note": "VNTV redă trailerele. Filmul complet îl găsești pe pagina VideoNeat sau la sursa oficială.",
+ "trOn": [
+  "Tradu titlurile și descrierile",
+  "Traducere automată a conținutului VideoNeat"
+ ],
+ "trEngine": "Motor de traducere",
+ "trAuto": "Automat",
+ "trBrowser": "Browser (pe dispozitiv)",
+ "trUrl": "Server LibreTranslate",
+ "trKey": "Cheie API (opțional)",
+ "trSave": "Salvează",
+ "trStatus": "Motor activ: {e}",
+ "trNone": "Niciun motor de traducere disponibil — se afișează originalele",
+ "trDl": "Se descarcă modelul de traducere pe dispozitiv…",
+ "trQuota": "S-a atins limita zilnică MyMemory — se afișează originalele",
+ "autoTr": "Traducere automată din engleză",
+ "showOrig": "Arată originalul",
+ "showTr": "Arată traducerea",
+ "trHint": "Traducerea pe dispozitiv e privată și merge în Chrome și Edge pe calculator. LibreTranslate e software liber pe care îl poți găzdui singur, de exemplu pe YunoHost. MyMemory e un serviciu online comercial și se folosește doar dacă îl alegi.",
+ "lw": {
+  "part": "parte",
+  "parts": "părți",
+  "episode": "episod",
+  "episodes": "episoade",
+  "minute": "minut",
+  "minutes": "minute",
+  "hour": "oră",
+  "hours": "ore",
+  "season": "sezon",
+  "seasons": "sezoane",
+  "lecture": "prelegere",
+  "lectures": "prelegeri",
+  "lesson": "lecție",
+  "lessons": "lecții",
+  "and": "și"
+ },
+ "a2hs": "Pentru ecran complet: Partajare → Adaugă pe ecranul principal",
+ "rotate": "Întoarce telefonul orizontal pentru imaginea completă",
+ "tCast": "Trimite la TV / AirPlay (C)",
+ "tPip": "Imagine în imagine (P)",
+ "noCast": "Nu am găsit niciun dispozitiv pe care să trimit",
+ "fullVideo": "Video complet",
+ "nonstop": "NON-STOP",
+ "liveTip": "Emisie sincronizată: toți cei care urmăresc acest canal văd acum același clip",
+ "nonstopTip": "Lista ta proprie — nesincronizată cu alți spectatori",
+ "backLive": "În direct",
+ "tBrowse": "Răsfoiește colecția (B)",
+ "browse": "Răsfoiește",
+ "browseAll": "Răsfoiește colecția",
+ "browsePh": "Caută titluri, subiecte…",
+ "kBrowse": "răsfoire",
+ "moreB": "Încarcă mai multe",
+ "mmWarn": "MyMemory e un serviciu online comercial: titlurile și descrierile pe care le vezi îi sunt trimise. Alege-l doar dacă accepți asta.",
+ "syncT": [
+  "Emisie sincronizată",
+  "Toți cei de pe același canal văd același clip în același moment, ca la televizor"
+ ],
+ "syncNeedsIndex": "Emisia sincronizată are nevoie de catalogul oficial VideoNeat (JSON). Până e publicat, VNTV rulează lista ta proprie, non-stop.",
+ "netT": "Transmisie",
+ "netAuto": "Automat",
+ "netP2P": "P2P (playerul PeerTube)",
+ "netDirect": "Fișier direct",
+ "netHint": "P2P împarte traficul între spectatori și scade costurile serverului TROM, dar îți face adresa IP vizibilă altor spectatori. Redarea directă permite imagine în imagine, AirPlay și Chromecast.",
+ "netNow": "Acum: {m}.",
+ "ecoT": "Mod eco",
+ "on": "Pornit",
+ "off": "Oprit",
+ "ecoHint": "Oprește estompările și efectele animate, ca să economisească bateria și să meargă fluent pe aparate modeste.",
+ "ecoIsOn": "Acum e pornit.",
+ "ecoIsOff": "Acum e oprit.",
+ "gSrc": "Surse",
+ "catIndex": "Catalog: lista oficială VideoNeat ({n} titluri cu trailer).",
+ "catWP": "Catalog: citit de pe site-ul VideoNeat (mai lent; emisia sincronizată nu e disponibilă).",
+ "remove": "Elimină",
+ "noSrc": "Încă nu ai canale suplimentare.",
+ "addSrc": "Adaugă un canal PeerTube",
+ "add": "Adaugă",
+ "srcHint": "Adaugă canale PeerTube cu videouri de știință sub licențe libere — devin canale noi, cu videouri complete. Exemplu: https://instanta/c/canal",
+ "advanced": "Avansat",
+ "idxUrl": "Adresa catalogului (JSON)",
+ "kioskHint": "Ecrane publice: adaugă ?kiosk=1 la adresă (opțional &ch=3&lang=ro&preset=cinema&muted=0). Apasă K de trei ori ca să ieși.",
+ "srcBad": "Nu pare adresa unui canal PeerTube (https://…/c/nume sau /a/nume).",
+ "srcDup": "Canalul e deja adăugat.",
+ "srcEmpty": "Canalul nu are videouri.",
+ "srcAdded": "„{n}” a fost adăugat ca programul {ch}, cu {c} videouri.",
+ "srcErr": "Nu am putut citi canalul ({e}).",
+ "licence": "Licență",
+ "playNow": "Redă acum pe VNTV",
+ "noTrailer": "Nu are video redabil",
+ "watchPT": "Vezi pe PeerTube ↗",
+ "back": "Înapoi",
+ "nTitles": "{n} titluri",
+ "noRes": "Nu am găsit nimic.",
+ "p2pFallback": "Playerul PeerTube nu răspunde — am trecut la redarea directă.",
+ "p2pNote": "Modul P2P împarte videoul cu alți spectatori ca să scadă costurile serverului TROM. Ca orice P2P, adresa ta IP devine vizibilă spectatorilor cu care schimbi date.",
+ "p2pKeep": "Bine, păstrez P2P",
+ "p2pDirect": "Folosește fișierul direct",
+ "subSize": "Mărimea subtitrărilor",
+ "showAll": "Arată toate setările",
+ "showLess": "Mai puține setări",
+ "tChDn": "Canalul anterior (↓)",
+ "tChUp": "Canalul următor (↑)"
+}

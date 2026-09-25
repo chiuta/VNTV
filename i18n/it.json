@@ -1,0 +1,339 @@
+{
+ "_n": "Italiano",
+ "_loc": "it-IT",
+ "live": "IN ONDA",
+ "skipNext": "Passa al successivo",
+ "upNextIn": "A seguire tra {s} s",
+ "ticker": "A SEGUIRE",
+ "ident": "scienza · trade-free",
+ "unmute": "🔊 Attiva l'audio",
+ "pos": "Posizione",
+ "vol": "Volume",
+ "tPrev": "Precedente (←)",
+ "tPlay": "Riproduci / pausa (Spazio)",
+ "tNext": "Successivo (→)",
+ "tMute": "Audio (M)",
+ "tCh": "Canale (↑ ↓ o numeri)",
+ "tFav": "Preferito (S)",
+ "tInfo": "Dettagli (I)",
+ "tGuide": "Guida TV (G)",
+ "tLayers": "Livelli ed effetti (O)",
+ "tFull": "Schermo intero (F)",
+ "guide": "Guida TV",
+ "searchPh": "Cerca un argomento per creare un canale…",
+ "search": "Cerca",
+ "kCh": "canale",
+ "kClip": "clip",
+ "kDirect": "canale diretto",
+ "kGuide": "guida",
+ "kLayers": "livelli",
+ "kInfo": "dettagli",
+ "kClean": "schermo pulito",
+ "kFull": "schermo intero",
+ "layers": "Livelli",
+ "nowOn": "Ora su VNTV",
+ "close": "Chiudi",
+ "splashP": "Una trasmissione continua dei trailer della collezione VideoNeat: documentari, film e corsi di scienza. Le categorie sono canali e ogni livello sullo schermo si può attivare o disattivare.",
+ "go": "Avvia la trasmissione",
+ "mobile": "Sul telefono: scorri ↔ per cambiare clip, ↕ per cambiare canale, tocca lo schermo per i comandi.",
+ "srcC": "Contenuti",
+ "srcT": "trailer",
+ "srcP": "progetti TROM, trade-free",
+ "ch": [
+  [
+   "VNTV",
+   "Tutta la collezione"
+  ],
+  [
+   "Documentari",
+   "Tutti i documentari"
+  ],
+  [
+   "Astronomia",
+   "Cosmo e universo"
+  ],
+  [
+   "Natura",
+   "Il pianeta vivente"
+  ],
+  [
+   "Biologia",
+   "La vita al microscopio"
+  ],
+  [
+   "Società",
+   "Persone e mondo"
+  ],
+  [
+   "Tecnologia",
+   "Ingegneria e futuro"
+  ],
+  [
+   "Salute",
+   "Medicina e corpo"
+  ],
+  [
+   "Archeologia",
+   "Paleontologia e passato"
+  ],
+  [
+   "Matematica e fisica",
+   "Le leggi della natura"
+  ],
+  [
+   "Chimica",
+   "Materia e reazioni"
+  ],
+  [
+   "Geologia",
+   "La Terra profonda"
+  ],
+  [
+   "Film",
+   "Cinema di idee"
+  ],
+  [
+   "Corsi",
+   "Lezioni e conferenze"
+  ],
+  [
+   "Preferiti",
+   "La tua selezione"
+  ]
+ ],
+ "cats": {
+  "2": "Documentario",
+  "3": "Società",
+  "7": "Astronomia",
+  "15": "Tecnologia",
+  "21": "Biologia",
+  "26": "Natura",
+  "31": "Chimica",
+  "34": "Matematica e fisica",
+  "42": "Geologia",
+  "126": "Salute e medicina",
+  "128": "Archeologia e paleontologia",
+  "129": "Film",
+  "156": "Corso"
+ },
+ "gPre": "Preimpostazioni",
+ "gBroad": "Trasmissione",
+ "gCine": "Cinema",
+ "gPlay": "Riproduzione",
+ "gLang": "Lingua",
+ "ov": {
+  "logo": [
+   "Logo VNTV",
+   "Logo del canale nell'angolo"
+  ],
+  "clock": [
+   "Orologio e «In onda»",
+   "Ora attuale, in alto a sinistra"
+  ],
+  "lower": [
+   "Sottopancia col titolo",
+   "Titolo, anno, durata e fonte all'inizio della clip"
+  ],
+  "upnext": [
+   "A seguire",
+   "Anteprima della clip successiva"
+  ],
+  "ticker": [
+   "Barra scorrevole",
+   "I prossimi titoli, in scorrimento"
+  ],
+  "progress": [
+   "Barra di avanzamento",
+   "Linea sottile in fondo allo schermo"
+  ],
+  "idents": [
+   "Sigle tra le clip",
+   "Logo VNTV animato a ogni cambio"
+  ],
+  "ambient": [
+   "Luce d'ambiente",
+   "I colori della clip si espandono attorno all'immagine"
+  ],
+  "letterbox": [
+   "CinemaScope",
+   "Bande nere 2.39:1"
+  ],
+  "vignette": [
+   "Vignettatura",
+   "Bordi scuriti, come in sala"
+  ],
+  "grain": [
+   "Grana della pellicola",
+   "Texture di pellicola 35 mm"
+  ],
+  "scan": [
+   "Linee CRT",
+   "Aspetto da televisore a tubo"
+  ],
+  "fill": [
+   "Riempi lo schermo",
+   "Ritaglia l'immagine per coprire tutto lo schermo"
+  ],
+  "subs": [
+   "Sottotitoli",
+   "Da PeerTube, tradotti se la tua lingua non è disponibile"
+  ]
+ },
+ "pre": {
+  "tv": [
+   "Televisione",
+   "Tutti gli elementi di trasmissione"
+  ],
+  "cinema": [
+   "Cinema",
+   "CinemaScope, pellicola, silenzio"
+  ],
+  "retro": [
+   "Retro CRT",
+   "La TV dei nonni"
+  ],
+  "clean": [
+   "Schermo pulito",
+   "Solo l'immagine"
+  ]
+ },
+ "shuf": [
+  "Ordine casuale",
+  "Mescola il palinsesto di ogni canale"
+ ],
+ "quality": "Qualità video",
+ "qAuto": "Automatica",
+ "errList": "Impossibile caricare l'elenco da videoneat.com ({e})",
+ "noTr": "Questo canale non ha trailer disponibili.",
+ "slow": "La clip si carica lentamente — passo alla successiva",
+ "unavail": "Clip non disponibile — passo alla successiva",
+ "noFavs": "Nessun preferito — premi ★ durante una clip.",
+ "favAdd": "★ Aggiunto ai preferiti (canale {n})",
+ "favRem": "Rimosso dai preferiti",
+ "preset": "Preimpostazione: {n}",
+ "shufOn": "Casuale — vale dal prossimo cambio di canale",
+ "shufOff": "Ordine cronologico — vale dal prossimo cambio di canale",
+ "qualT": "Qualità: {q} — dalla clip successiva",
+ "layersBack": "Livelli riattivati",
+ "cleanOn": "Schermo pulito — premi H per tornare",
+ "source": "Fonte",
+ "trailer": "Trailer",
+ "now": "ORA",
+ "earlier": "PRIMA",
+ "upnext": "A SEGUIRE",
+ "loadingProg": "Caricamento del palinsesto…",
+ "noTrCh": "Nessun trailer su questo canale.",
+ "more": "Carica altro palinsesto",
+ "searchCh": "Canale di ricerca",
+ "searchPre": "Ricerca: ",
+ "srchShort": "CERCA",
+ "srchBug": "ricerca",
+ "year": "Anno",
+ "dur": "Durata",
+ "watch": "Guarda su VideoNeat ↗",
+ "official": "Fonte ufficiale",
+ "inFav": "★ Nei preferiti",
+ "addFav": "☆ Aggiungi ai preferiti",
+ "note": "VNTV trasmette i trailer. Il film completo è sulla pagina VideoNeat o presso la fonte ufficiale.",
+ "trOn": [
+  "Traduci titoli e descrizioni",
+  "Traduzione automatica dei contenuti VideoNeat"
+ ],
+ "trEngine": "Motore di traduzione",
+ "trAuto": "Automatico",
+ "trBrowser": "Browser (sul dispositivo)",
+ "trUrl": "Server LibreTranslate",
+ "trKey": "Chiave API (facoltativa)",
+ "trSave": "Salva",
+ "trStatus": "Motore attivo: {e}",
+ "trNone": "Nessun motore di traduzione disponibile — vengono mostrati gli originali",
+ "trDl": "Download del modello di traduzione locale…",
+ "trQuota": "Raggiunto il limite giornaliero di MyMemory — vengono mostrati gli originali",
+ "autoTr": "Traduzione automatica dall'inglese",
+ "showOrig": "Mostra l'originale",
+ "showTr": "Mostra la traduzione",
+ "trHint": "La traduzione sul dispositivo è privata e funziona in Chrome ed Edge su computer. LibreTranslate è software libero che puoi ospitare tu stesso, ad esempio su YunoHost. MyMemory è un servizio online commerciale e si usa solo se lo scegli.",
+ "lw": {
+  "part": "parte",
+  "parts": "parti",
+  "episode": "episodio",
+  "episodes": "episodi",
+  "minute": "minuto",
+  "minutes": "minuti",
+  "hour": "ora",
+  "hours": "ore",
+  "season": "stagione",
+  "seasons": "stagioni",
+  "lecture": "conferenza",
+  "lectures": "conferenze",
+  "lesson": "lezione",
+  "lessons": "lezioni",
+  "and": "e"
+ },
+ "a2hs": "Per il vero schermo intero: Condividi → Aggiungi alla schermata Home",
+ "rotate": "Ruota il telefono in orizzontale per l'immagine intera",
+ "tCast": "Trasmetti / AirPlay (C)",
+ "tPip": "Immagine nell'immagine (P)",
+ "noCast": "Nessun dispositivo trovato per la trasmissione",
+ "fullVideo": "Video completo",
+ "nonstop": "NON-STOP",
+ "liveTip": "Trasmissione sincronizzata: chi guarda questo canale vede ora la stessa clip",
+ "nonstopTip": "La tua playlist personale — non sincronizzata con gli altri spettatori",
+ "backLive": "In diretta",
+ "tBrowse": "Sfoglia la collezione (B)",
+ "browse": "Sfoglia",
+ "browseAll": "Sfoglia la collezione",
+ "browsePh": "Cerca titoli, argomenti…",
+ "kBrowse": "sfoglia",
+ "moreB": "Carica altri",
+ "mmWarn": "MyMemory è un servizio online commerciale: i titoli e le descrizioni che guardi gli vengono inviati. Sceglilo solo se lo accetti.",
+ "syncT": [
+  "Trasmissione sincronizzata",
+  "Tutti sullo stesso canale vedono la stessa clip nello stesso momento, come in TV"
+ ],
+ "syncNeedsIndex": "La trasmissione sincronizzata richiede il catalogo ufficiale VideoNeat (JSON). Nel frattempo VNTV riproduce la tua playlist non-stop.",
+ "netT": "Trasmissione",
+ "netAuto": "Automatico",
+ "netP2P": "P2P (player PeerTube)",
+ "netDirect": "File diretto",
+ "netHint": "Il P2P distribuisce il carico tra gli spettatori e riduce i costi del server di TROM, ma rende il tuo indirizzo IP visibile agli altri spettatori. La riproduzione diretta consente picture-in-picture, AirPlay e Chromecast.",
+ "netNow": "Ora: {m}.",
+ "ecoT": "Modalità eco",
+ "on": "Attiva",
+ "off": "Disattiva",
+ "ecoHint": "Disattiva sfocature ed effetti animati per risparmiare batteria e restare fluida sui dispositivi modesti.",
+ "ecoIsOn": "Ora è attiva.",
+ "ecoIsOff": "Ora è disattiva.",
+ "gSrc": "Fonti",
+ "catIndex": "Catalogo: elenco ufficiale VideoNeat ({n} titoli con trailer).",
+ "catWP": "Catalogo: letto dal sito VideoNeat (più lento; trasmissione sincronizzata non disponibile).",
+ "remove": "Rimuovi",
+ "noSrc": "Nessun canale aggiuntivo.",
+ "addSrc": "Aggiungi un canale PeerTube",
+ "add": "Aggiungi",
+ "srcHint": "Aggiungi canali PeerTube con video scientifici a licenza libera: diventano nuovi canali con video completi. Esempio: https://istanza/c/canale",
+ "advanced": "Avanzate",
+ "idxUrl": "Indirizzo del catalogo (JSON)",
+ "kioskHint": "Schermi pubblici: aggiungi ?kiosk=1 all'indirizzo (facoltativo &ch=3&lang=it&preset=cinema&muted=0). Premi K tre volte per uscire.",
+ "srcBad": "Non sembra l'indirizzo di un canale PeerTube (https://…/c/nome o /a/nome).",
+ "srcDup": "Questo canale è già stato aggiunto.",
+ "srcEmpty": "Questo canale non ha video.",
+ "srcAdded": "«{n}» aggiunto come canale {ch}, con {c} video.",
+ "srcErr": "Impossibile leggere il canale ({e}).",
+ "licence": "Licenza",
+ "playNow": "Riproduci ora su VNTV",
+ "noTrailer": "Nessun video riproducibile",
+ "watchPT": "Guarda su PeerTube ↗",
+ "back": "Indietro",
+ "nTitles": "{n} titoli",
+ "noRes": "Nessun risultato.",
+ "p2pFallback": "Il player PeerTube non risponde: passo alla riproduzione diretta.",
+ "p2pNote": "La modalità P2P condivide il video con altri spettatori per ridurre i costi del server di TROM. Come ogni P2P, rende il tuo indirizzo IP visibile agli spettatori con cui scambi dati.",
+ "p2pKeep": "Va bene, mantieni il P2P",
+ "p2pDirect": "Usa il file diretto",
+ "subSize": "Dimensione sottotitoli",
+ "showAll": "Mostra tutte le impostazioni",
+ "showLess": "Meno impostazioni",
+ "tChDn": "Canale precedente (↓)",
+ "tChUp": "Canale successivo (↑)"
+}

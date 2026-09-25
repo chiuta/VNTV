@@ -1,0 +1,81 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: VideoNeat Index 1.1.0\n"
+"Language: ro_RO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < 20)) ? 1 : 2);\n"
+
+msgid "Accepted PeerTube instances"
+msgstr "Instanțe PeerTube acceptate"
+
+msgid "Catalog generated"
+msgstr "Catalog generat"
+
+msgid "Comma-separated."
+msgstr "Separate prin virgulă."
+
+msgid "Coverage"
+msgstr "Acoperire"
+
+msgid "Duration and image from PeerTube"
+msgstr "Durata și imaginea din PeerTube"
+
+msgid "Indexed"
+msgstr "Indexate"
+
+msgid "JSON catalog for VNTV, the Stremio addon and other trade-free clients:"
+msgstr "Catalog JSON pentru VNTV, addonul Stremio și alți clienți trade-free:"
+
+msgid "Newest posts without a PeerTube trailer"
+msgstr "Cele mai noi articole fără trailer PeerTube"
+
+msgid "No trailer"
+msgstr "Fără trailer"
+
+msgid "Published posts"
+msgstr "Articole publicate"
+
+msgid "Reindex all posts"
+msgstr "Reindexează toate articolele"
+
+msgid "Reindexing: %1$d / %2$d posts. Reload the page to see progress."
+msgstr ""
+"Reindexare în curs: %1$d / %2$d articole. Reîncarcă pagina pentru progres."
+
+msgid "Runs in the background, %d posts at a time."
+msgstr "Rulează în fundal, câte %d articole o dată."
+
+msgid "Save"
+msgstr "Salvează"
+
+msgid "Settings"
+msgstr "Setări"
+
+msgid "Static file"
+msgstr "Fișier static"
+
+msgid "With a PeerTube trailer (playable in VNTV)"
+msgstr "Cu trailer PeerTube (redabile în VNTV)"
+
+msgid "With trailer duration"
+msgstr "Cu durata trailerului"
+
+msgid "With year / with source"
+msgstr "Cu an / cu sursă"
+
+msgid "YouTube trailer only (not playable)"
+msgstr "Doar trailer YouTube (nu se redau)"
+
+msgid "also write"
+msgstr "scrie și"
+
+msgid "not yet"
+msgstr "nu încă"
+
+msgid ""
+"read them from the PeerTube API (needed for the synchronized broadcast)"
+msgstr "completează din API-ul PeerTube (necesar pentru emisia sincronizată)"
+
+msgid "titles"
+msgstr "titluri"

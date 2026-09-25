@@ -1,0 +1,24 @@
+{
+  "name": "vntv",
+  "version": "2.1.0",
+  "description": "VNTV — a non-stop, trade-free science TV channel built from the VideoNeat.com collection (single-file HTML app + Stremio addon + WordPress index plugin)",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "lint": "node build.mjs && node tools/lint.mjs",
+    "test": "node build.mjs && node tests/run.mjs",
+    "test:php": "php wp-plugin/tests/parser-test.php && php wp-plugin/tests/plugin-smoke.php",
+    "test:addon": "cd stremio-addon && node test.js",
+    "test:all": "npm run lint && npm test && npm run test:php && npm run test:addon",
+    "coverage": "node tools/coverage.mjs --csv coverage.csv",
+    "check": "node tools/structure-check.mjs"
+  },
+  "license": "MIT",
+  "author": "Alexio",
+  "devDependencies": {
+    "eslint": "^9.39.5",
+    "globals": "^15.15.0",
+    "playwright": "1.56.0"
+  }
+}

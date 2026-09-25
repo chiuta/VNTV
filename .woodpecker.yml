@@ -1,0 +1,8 @@
+# Codeberg CI (Woodpecker) — aceeași verificare ca pe GitHub
+steps:
+  test:
+    image: mcr.microsoft.com/playwright:v1.56.0-noble
+    commands:
+      - apt-get update -qq && apt-get install -y -qq php-cli > /dev/null
+      - npm ci || npm install
+      - npm run test:all
