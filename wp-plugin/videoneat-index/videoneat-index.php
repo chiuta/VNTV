@@ -41,7 +41,10 @@ function vni_settings() {
 	) );
 }
 function vni_hosts() {
-	$h = array_filter( array_map( 'trim', explode( ',', strtolower( vni_settings()['hosts'] ) ) ) );
+	$h = array_filter( array_map( 'trim', explode( ',', strtolower( vni_settings()['hosts'] ) ) ), function ( $x ) {
+		// only plausible DNS host names: no user@, path, port, IP literals or localhost (SSRF hardening)
+		return (bool) preg_match( '/^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)+$/', $x ) && ! preg_match( '/^\d+(\.\d+){3}$/', $x ) && 'localhost' !== $x;
+	} );
 	return $h ? array_values( $h ) : array( 'videos.trom.tf' );
 }
 
@@ -67,7 +70,7 @@ function vni_index_post( $post_id, $peertube = null ) {
 	if ( ! $post || 'post' !== $post->post_type ) {
 		return null;
 	}
-	if ( 'publish' !== $post->post_status ) {
+	if ( 'publish' !== $post->post_status || ! empty( $post->post_password ) ) { // drafts, private and password-protected posts are never indexed
 		delete_post_meta( $post_id, VNI_META );
 		return null;
 	}
@@ -81,7 +84,7 @@ function vni_index_post( $post_id, $peertube = null ) {
 			$v = json_decode( wp_remote_retrieve_body( $r ), true );
 			if ( is_array( $v ) ) {
 				$d['trailer']['dur'] = isset( $v['duration'] ) ? (int) $v['duration'] : null;
-				if ( ! empty( $v['previewPath'] ) ) {
+				if ( ! empty( $v['previewPath'] ) && is_string( $v['previewPath'] ) && 0 === strpos( $v['previewPath'], '/' ) && 0 !== strpos( $v['previewPath'], '//' ) ) {
 					$d['trailer']['preview'] = 'https://' . $d['trailer']['host'] . $v['previewPath'];
 				}
 			}
@@ -127,6 +130,7 @@ function vni_build_index() {
 			'order'            => 'DESC',
 			'suppress_filters' => true,
 			'no_found_rows'    => true,
+			'has_password'     => false,
 		) );
 		foreach ( $ids as $id ) {
 			$d = get_post_meta( $id, VNI_META, true );
@@ -201,7 +205,7 @@ add_action( 'vni_rebuild_batch', function () {
 	$t0  = microtime( true );
 	$p   = get_option( 'vni_progress', array() );
 	$ids = get_posts( array(
-		'post_type' => 'post', 'post_status' => 'publish', 'fields' => 'ids', 'orderby' => 'ID', 'order' => 'ASC',
+		'post_type' => 'post', 'post_status' => 'publish', 'has_password' => false, 'fields' => 'ids', 'orderby' => 'ID', 'order' => 'ASC',
 		'posts_per_page' => VNI_BATCH, 'offset' => (int) ( $p['offset'] ?? 0 ), 'suppress_filters' => true,
 	) );
 	$n = 0;
@@ -234,8 +238,8 @@ register_deactivation_hook( __FILE__, function () {
 /* ---------------------------------------------------------------- statistics */
 function vni_stats() {
 	global $wpdb;
-	$total = (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$wpdb->posts} WHERE post_type='post' AND post_status='publish'" );
-	$rows  = $wpdb->get_col( $wpdb->prepare( "SELECT pm.meta_value FROM {$wpdb->postmeta} pm JOIN {$wpdb->posts} p ON p.ID=pm.post_id WHERE pm.meta_key=%s AND p.post_status='publish' AND p.post_type='post'", VNI_META ) );
+	$total = (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$wpdb->posts} WHERE post_type='post' AND post_status='publish' AND post_password=''" );
+	$rows  = $wpdb->get_col( $wpdb->prepare( "SELECT pm.meta_value FROM {$wpdb->postmeta} pm JOIN {$wpdb->posts} p ON p.ID=pm.post_id WHERE pm.meta_key=%s AND p.post_status='publish' AND p.post_type='post' AND p.post_password=''", VNI_META ) );
 	$s     = array( 'total' => $total, 'indexed' => 0, 'peertube' => 0, 'youtube_only' => 0, 'no_trailer' => 0, 'with_duration' => 0, 'with_year' => 0, 'with_source' => 0 );
 	foreach ( $rows as $r ) {
 		$d = maybe_unserialize( $r );
@@ -288,7 +292,7 @@ add_action( 'rest_api_init', function () {
 		'callback'            => function ( WP_REST_Request $req ) {
 			$id = (int) $req['id'];
 			$p  = get_post( $id );
-			if ( ! $p || 'publish' !== $p->post_status || 'post' !== $p->post_type ) {
+			if ( ! $p || 'publish' !== $p->post_status || 'post' !== $p->post_type || ! empty( $p->post_password ) ) {
 				return new WP_Error( 'not_found', 'Not found', array( 'status' => 404 ) );
 			}
 			$d = get_post_meta( $id, VNI_META, true );

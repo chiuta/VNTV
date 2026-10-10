@@ -8,8 +8,8 @@
 Hi Tio,
 
 I built **VNTV**, a non-stop "science TV channel" made from VideoNeat's trailers: channels by category, a TV guide,
-subtitles, 7 languages, phones, tablets, computers and TVs, plus a Stremio addon. No accounts, no tracking, no
-third-party requests. It is trade-free in the same spirit as VideoNeat, and it's open source (MIT).
+subtitles, 7 languages, phones, tablets, computers and TVs, plus a Stremio addon. No accounts, no tracking, and no
+requests to anyone but TROM's own hosts by default. It is trade-free in the same spirit as VideoNeat, and it's open source (MIT).
 
 I'd like to ask for three things, each independent:
 

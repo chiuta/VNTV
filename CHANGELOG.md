@@ -1,5 +1,11 @@
 # Changelog
 
+## Neversionat — audit de publicare 2026-10-08
+- Securitate: CSP în pagină (`<meta>`), adrese de imagine codificate în `url()` CSS (`cssUrl`), gazde PeerTube validate (`okHost`), `?index=` doar HTTPS, `<noscript>`.
+- Plugin WP: postările protejate cu parolă nu mai intră în catalog; gazdele acceptate sunt validate ca nume DNS; `previewPath` trebuie să înceapă cu `/`.
+- Addon Stremio: lista de gazde PeerTube permise (SSRF), expirare 15 s la cereri, `href` escapat în pagina de instalare.
+- Documentație: formularea „fără cereri către terți” precizată; LICENSE (MIT), README.ro.md, workflow GitHub Pages.
+
 ## 2.1.0 — 2026-09-25 · tot ce a scos la iveală a doua recenzie
 
 **Defecte reparate**

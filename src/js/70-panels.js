@@ -65,7 +65,7 @@ function renderQueue(keep){
     const when = S.live && it._start ? clkFmt.format(new Date(it._start)) : "";
     const tm = i === S.idx ? t("now") : i < S.idx ? t("earlier") : when || (i === S.idx + 1 ? t("upnext") : `+${i - S.idx}`);
     const kind = it.kind === "full" ? ` · ${t("fullVideo")}` : "";
-    b.innerHTML = `<div class="th" data-now="${esc(t("now"))}" style="background-image:url('${esc(it.preview || it.img || "")}')"></div>
+    b.innerHTML = `<div class="th" data-now="${esc(t("now"))}" style="background-image:url('${esc(cssUrl(it.preview || it.img))}')"></div>
       <div><div class="tm">${esc(tm)} · ${esc(catLabel(it).toUpperCase())}${esc(kind.toUpperCase())}</div><div class="tt">${esc(tr(it.title))}</div><div class="ex">${esc(tr(it.ex))}</div></div>`;
     b.onclick = () => { if (i !== S.idx){ leaveLive(); S._lowerShown = false; play(i, {offset:0}); } closePanels(); };
     el.appendChild(b);
@@ -196,7 +196,7 @@ function detailHTML(it, idp){
   const desc = it.desc || it.ex || "";
   const trn = P.lang !== "en" && P.trOn && (isTr(it.title) || isTr(desc) || S.showOrig)
     ? `<div class="trnote"><span>⟲ ${esc(t("autoTr"))}</span><button data-orig>${esc(S.showOrig ? t("showTr") : t("showOrig"))}</button></div>` : "";
-  return `<div class="pv" style="background-image:url('${esc(it.img || it.preview || "")}')"></div>
+  return `<div class="pv" style="background-image:url('${esc(cssUrl(it.img || it.preview))}')"></div>
     <h3>${esc(tr(it.title))}</h3><div class="meta">${pills}</div>${trn}
     <p class="d">${esc(tr(desc))}</p>
     <div class="acts">
@@ -274,7 +274,7 @@ function renderBrowse(){
   BR.shown = items;
   const total = BR.list ? BR.list.length : null;
   $("#bstat").textContent = total != null ? t("nTitles", {n:total}) : (items.length ? t("nTitles", {n:items.length + (more ? "+" : "")}) : t("noRes"));
-  g.innerHTML = items.map((it, i) => `<button class="card" data-i="${i}"><div class="im" style="background-image:url('${esc(it.img || it.preview || "")}')">${it.v ? '<span class="pl">▶</span>' : ""}${S.favs[it.key] ? '<span class="fv">★</span>' : ""}</div>
+  g.innerHTML = items.map((it, i) => `<button class="card" data-i="${i}"><div class="im" style="background-image:url('${esc(cssUrl(it.img || it.preview))}')">${it.v ? '<span class="pl">▶</span>' : ""}${S.favs[it.key] ? '<span class="fv">★</span>' : ""}</div>
     <div class="ct" data-t="${i}">${esc(tr(it.title))}</div><div class="cm">${esc([catLabel(it), it.year].filter(Boolean).join(" · "))}</div></button>`).join("");
   g.querySelectorAll(".card").forEach(c => c.onclick = () => showBrowseDetail(items[+c.dataset.i]));
   $("#bmore").hidden = !more;

@@ -10,6 +10,6 @@ links torrent/magnet files.
 **Takedown and problems:** if you own content shown in VNTV and want it removed, contact TROM
 (https://www.tromsite.com/contact/) — removing it from VideoNeat or videos.trom.tf removes it from VNTV automatically.
 
-**Privacy:** no accounts, no analytics, no cookies, no third-party requests by default. In P2P mode your IP address
+**Privacy:** no accounts, no analytics, no cookies, and by default no requests except to TROM's own hosts (www.videoneat.com and videos.trom.tf); other hosts are contacted only if the viewer adds a PeerTube channel, enters a LibreTranslate address or explicitly picks MyMemory. In P2P mode your IP address
 is visible to the other viewers you exchange video data with; the app says so before you use it and offers direct
 playback instead. Settings, favorites and translations stay in your browser.

@@ -13,7 +13,7 @@ function fromIndex(o){
   return {
     key:"vn:" + o.id, src:"vn", id:o.id, title:o.title || "", ex:o.excerpt || "", desc:o.desc || null, link:safeUrl(o.link),
     cats:o.cats || [], img:o.img || null, year:o.year || (o.date || "").slice(0, 4) || null, len:o.length || null,
-    source:o.source || null, sourceUrl:safeUrl(o.source_url), v: tr.id ? {host:tr.host || VN_HOST, id:tr.id} : null,
+    source:o.source || null, sourceUrl:safeUrl(o.source_url), v: tr.id && okHost(tr.host || VN_HOST) && /^[A-Za-z0-9_-]{1,64}$/.test(tr.id) ? {host:tr.host || VN_HOST, id:tr.id} : null,
     dur:+tr.dur || null, preview:tr.preview || null, kind:"trailer",
   };
 }
@@ -38,7 +38,7 @@ function parseContent(html){
   const r = {v:null, year:null, len:null, source:null, sourceUrl:null, desc:""};
   const ifr = [...doc.querySelectorAll("iframe")].map(f => f.getAttribute("src") || "")
     .find(s => /\/videos\/embed\/[A-Za-z0-9-]+/.test(s) && /videos\.trom\.tf/.test(s));
-  if (ifr){ const m = ifr.match(/https?:\/\/([^/]+)\/videos\/embed\/([A-Za-z0-9-]+)/); if (m) r.v = {host:m[1], id:m[2]}; }
+  if (ifr){ const m = ifr.match(/https?:\/\/([^/]+)\/videos\/embed\/([A-Za-z0-9-]+)/); if (m && okHost(m[1])) r.v = {host:m[1], id:m[2]}; }
   const blocks = [...doc.querySelectorAll(".elementor-widget-text-editor")];
   const info = blocks.find(b => /YEAR:/i.test(b.textContent));
   if (info){

@@ -54,7 +54,7 @@ if (!P.srcInit){ if (!P.sources.some(s => s.host === TROM_SRC.host && s.handle =
   if (QS.has("eco")) P.eco = QS.get("eco");
   if (QS.has("muted")) P.muted = QS.get("muted") !== "0"; else if (KIOSK) P.muted = true;
   const pr = QS.get("preset"); if (pr && PRESETS[pr]) Object.assign(O, PRESETS[pr].o);
-  if (QS.has("index")) P.indexUrl = QS.get("index");
+  if (QS.has("index")){ const u = safeUrl(QS.get("index")); if (u && u.startsWith("https:")) P.indexUrl = u; }   // doar HTTPS; o legătură ostilă nu poate impune o sursă de catalog nesigură
 })();
 if (!I18N[P.lang]) P.lang = "en";
 function savePrefs(){ store.set("prefs", P); }
@@ -75,6 +75,10 @@ function esc(s){ return String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","
 function safeUrl(u){ try{ const x = new URL(u); return /^https?:$/.test(x.protocol) ? x.href : null; }catch(e){ return null; } }
 function fmt(s){ s = Math.max(0, Math.floor(s || 0)); const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = String(s % 60).padStart(2, "0");
   return h ? `${h}:${String(m).padStart(2, "0")}:${x}` : `${m}:${x}`; }
+/* URL pentru CSS url('…'): doar http(s), cu ghilimele/paranteze/spații codificate (altfel o adresă ostilă ar putea închide șirul și injecta CSS) */
+function cssUrl(u){ const x = safeUrl(u); return x ? x.replace(/['"()\\\s]/g, ch => "%" + ch.charCodeAt(0).toString(16).toUpperCase().padStart(2, "0")) : ""; }
+/* nume de gazdă PeerTube plauzibil (fără utilizator@, cale sau caractere ciudate) */
+const okHost = h => typeof h === "string" && /^[a-z0-9]([a-z0-9.-]{0,251}[a-z0-9])?(:\d{1,5})?$/i.test(h);
 function pad2(n){ return String(n).padStart(2, "0"); }
 const within = (pr, ms) => Promise.race([pr, new Promise((_, rej) => setTimeout(() => rej(new Error("timeout")), ms))]);
 function toast(m, ms = 2600){ const el = $("#toast"); el.textContent = m; el.classList.add("show"); clearTimeout(toast._t); toast._t = setTimeout(() => el.classList.remove("show"), ms); }

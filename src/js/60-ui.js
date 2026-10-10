@@ -32,7 +32,7 @@ function hideLower(){ $("#lower").classList.remove("show"); document.body.classL
 function showUpNext(sec){
   const nx = S.items[S.idx + 1]; if (!nx) return;
   $("#untitle").textContent = tr(nx.title); $("#uncount").textContent = t("upNextIn", {s:sec});
-  const img = nx.preview || nx.img; $("#unth").style.backgroundImage = img ? `url("${img}")` : "";
+  const img = nx.preview || nx.img; $("#unth").style.backgroundImage = img ? `url("${cssUrl(img)}")` : "";
   $("#upnext").classList.add("show");
 }
 function hideUpNext(){ $("#upnext").classList.remove("show"); }

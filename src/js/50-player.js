@@ -101,7 +101,7 @@ async function play(i, opt = {}){
     it.dur = info.duration || it.dur; it.preview = ptImage(info, it.v.host) || it.img;
     if (it.src === "pt" && !it.desc) it.desc = info.description || it.ex;
   }
-  if (it.preview || it.img) $("#ambient").style.backgroundImage = `url("${it.preview || it.img}")`;
+  if (it.preview || it.img) $("#ambient").style.backgroundImage = `url("${cssUrl(it.preview || it.img)}")`;
   loadSubs(it);
   if (!it.desc) ensureDesc(it).then(() => { if (tok === S.playTok){ requestTr(); if (isOpen("info")) renderInfo(); } });
 

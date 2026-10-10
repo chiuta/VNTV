@@ -44,6 +44,11 @@ function parseSource(url) {
 }
 const PT_SOURCES = (process.env.PEERTUBE_CHANNELS || "").split(",").map(parseSource).filter(Boolean)
   .map((s, i) => ({ ...s, id: "peertube-" + (i + 1), name: s.handle }));
+/* Gazde PeerTube pe care serverul are voie să le interogheze: instanța TROM + canalele configurate.
+   Fără această listă, un ID de forma "vnpt:<gazdă>:<uuid>" trimis de un client ar fi făcut serverul să acceseze orice gazdă HTTPS (SSRF). */
+const PT_HOSTS = new Set(["videos.trom.tf", ...PT_SOURCES.map(s => s.host.toLowerCase())]);
+const okPtHost = h => PT_HOSTS.has(String(h || "").toLowerCase());
+const okPtId = i => /^[A-Za-z0-9_-]{1,64}$/.test(String(i || ""));
 const LANGS = Object.keys(I18N);
 const DEF = "en";
 
@@ -92,7 +97,7 @@ async function cached(key, ttl, fn) {
   return val;
 }
 async function getJSON(url) {
-  const r = await fetch(url, { headers: { Accept: "application/json", "User-Agent": "stremio-videoneat/1.2" } });
+  const r = await fetch(url, { headers: { Accept: "application/json", "User-Agent": "stremio-videoneat/1.2" }, signal: AbortSignal.timeout(15000) });
   if (!r.ok) throw new Error(`HTTP ${r.status} for ${url}`);
   return r.json();
 }
@@ -298,7 +303,7 @@ async function vnRecord(wpId) {
       name: x.title, desc: (await indexDesc(idx, wpId)) || x.excerpt || "", link: httpUrl(x.link), cats: x.cats || [],
       poster: x.img || x.trailer?.preview, background: x.trailer?.preview || x.img, year: x.year || (x.date || "").slice(0, 4),
       length: x.length, minutes: minutesOf(x.length), source: x.source, sourceUrl: httpUrl(x.source_url),
-      trailer: x.trailer ? { host: x.trailer.host || "videos.trom.tf", id: x.trailer.id } : null,
+      trailer: x.trailer && okPtHost(x.trailer.host || "videos.trom.tf") && okPtId(x.trailer.id) ? { host: x.trailer.host || "videos.trom.tf", id: x.trailer.id } : null,
     };
   }
   const p = await post(wpId);
@@ -357,6 +362,7 @@ async function meta(lang, id) {
 }
 
 async function peertube(host, id) {
+  if (!okPtHost(host) || !okPtId(id)) throw new Error("PeerTube host or id not allowed");
   const url = `https://${host}/api/v1/videos/${encodeURIComponent(id)}`;
   return cached(url, TTL_ITEM, () => getJSON(url));
 }
@@ -422,7 +428,7 @@ code{display:block;margin-top:18px;padding:10px;background:#161a20;border:1px so
 </style></head><body><div class="c"><img src="${mf.logo}" alt=""><h1>VideoNeat</h1>
 <p>${escH(mf.description)}</p>
 <div class="ls"><small>${escH(T(lang, "pick"))}</small>${langs}</div>
-<a class="b" href="${deep}">${escH(T(lang, "install"))}</a>
+<a class="b" href="${escH(deep)}">${escH(T(lang, "install"))}</a>
 <a class="b s" href="https://web.stremio.com/#/addons?addon=${encodeURIComponent(m)}">Stremio Web</a>
 <code>${escH(m)}</code><p>${escH(T(lang, "hint"))}</p></div></body></html>`;
 }

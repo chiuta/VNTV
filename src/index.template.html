@@ -6,6 +6,7 @@
 <meta name="theme-color" content="#000000">
 <meta name="color-scheme" content="dark">
 <meta name="format-detection" content="telephone=no">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; font-src data:; img-src https: http: data: blob:; media-src https: http: blob: data:; connect-src https: http:; frame-src https:; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -24,6 +25,7 @@
 <body class="ui">
 <!-- VNTV {{VERSION}} · built {{BUILT}} · https://www.videoneat.com · trade-free, no tracking -->
 {{BODY}}
+<noscript><p style="position:fixed;inset:0;display:grid;place-items:center;margin:0;padding:24px;background:#000;color:#fff;font:18px/1.5 system-ui,sans-serif;text-align:center;z-index:99">VNTV needs JavaScript. / VNTV necesită JavaScript.</p></noscript>
 <script>
 "use strict";
 const BUILD = {{BUILD_JSON}};

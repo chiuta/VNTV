@@ -15,7 +15,7 @@ async function test(name, fn){
   catch(e){ results.push([name, "FAIL: " + e.message.split("\n")[0], Date.now() - t0]); console.log("✘", name, "\n   ", e.message.split("\n").slice(0, 3).join("\n    ")); }
 }
 const ok = (c, m) => { if (!c) throw new Error(m); };
-const browser = await chromium.launch({args:["--autoplay-policy=no-user-gesture-required"]});
+const browser = await chromium.launch({...(process.env.CHROMIUM_PATH ? {executablePath:process.env.CHROMIUM_PATH} : {}),args:["--autoplay-policy=no-user-gesture-required"]});
 async function open(ctxOpts = {}, mockOpts = {}, query = ""){
   const ctx = await browser.newContext({viewport:{width:1440, height:900}, ...ctxOpts});
   const page = await ctx.newPage();

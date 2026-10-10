@@ -2,7 +2,7 @@
 
 A non-stop, trade-free science TV channel built from the [VideoNeat.com](https://www.videoneat.com) collection:
 synchronized channels, a TV guide, a browsable catalog, translated subtitles, 7 languages, and it works on phones,
-tablets, computers and TVs. No accounts, no tracking, no third-party requests by default.
+tablets, computers and TVs. No accounts, no analytics, no cookies; by default the app talks only to TROM's own sites (videoneat.com and videos.trom.tf), see *Privacy and trade-free* below.
 
 *Română: rezumatul în limba română e la sfârșitul fișierului.*
 
@@ -44,10 +44,17 @@ tablets, computers and TVs. No accounts, no tracking, no third-party requests by
 
 ## Privacy and trade-free
 
+* Hosts contacted by default: `www.videoneat.com` (catalog, images) and `videos.trom.tf` (video data, files, P2P player, subtitles). Other hosts only when the viewer adds a PeerTube channel, enters a LibreTranslate address, or explicitly selects MyMemory. In P2P mode the PeerTube player also connects to other viewers (WebRTC). When the app is served from a host such as GitHub Pages, that host sees the visit as with any web page.
 * Fonts are embedded (Oswald, SIL OFL). No Google Fonts, no analytics, no cookies.
 * Translation of content: the browser's on-device translator, or your own **LibreTranslate**. The commercial
   MyMemory service is used **only if the viewer explicitly selects it**, with a warning.
 * Favorites, settings and translations stay in the viewer's browser.
+
+See also: [README.ro.md](README.ro.md) (Română, with a user manual and the exact list of network hosts).
+
+## Licence
+
+MIT, see [LICENSE](LICENSE). Embedded font: Oswald, SIL OFL 1.1 ([NOTICE.md](NOTICE.md)).
 
 ## Build and test
 
