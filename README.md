@@ -57,6 +57,14 @@ tablets, computers and TVs. No accounts, no analytics, no cookies; by default th
 
 See also: [README.ro.md](README.ro.md) (Română, with a user manual and the exact list of network hosts).
 
+## Changelog (2.1.1)
+
+Last updated: 11 October 2026 (version 2.1.1).
+
+* The app is now wrapped in a `<main>` landmark and the lower-third title is no longer an empty heading (axe-core: 0 violations at 1280 and 360 px).
+* The "can't load the list" message now says plainly that VNTV has no offline content and needs an internet connection (7 languages).
+* Version bumped to 2.1.1 (package.json, lockfile, generated service worker).
+
 ## Licence
 
 MIT, see [LICENSE](LICENSE). Embedded font: Oswald, SIL OFL 1.1 ([NOTICE.md](NOTICE.md)).
@@ -85,3 +93,6 @@ reloads daily. Press **K** three times to exit.
   Fără el, VNTV citește articolele (mai lent) și afișează sincer „NON-STOP” în loc de „ÎN EMISIE”.
 * `stremio-addon/` — addonul Stremio, acum cu lista oficială și canale PeerTube suplimentare.
 * Ghidurile sunt în `docs/`: găzduire (YunoHost), ghid pentru administratorii TROM, testare pe dispozitive reale, Android TV.
+
+---
+Last updated: 11 October 2026 (version 2.1.1). See [CHANGELOG.md](CHANGELOG.md).

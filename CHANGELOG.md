@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.1.1 — 2026-10-11 · runda de reparații
+- Accesibilitate: aplicația este încadrată în `<main>`, titlul din „lower third” nu mai e gol (axe-core: 0 violări la 1280 și 360 px).
+- Mesajul de eroare la încărcarea listei spune acum explicit că VNTV nu are conținut offline și cere internet (7 limbi).
+- Versiune ridicată la 2.1.1 (package.json, package-lock.json, sw.js generat).
+
 ## Neversionat — audit de publicare 2026-10-08
 - Securitate: CSP în pagină (`<meta>`), adrese de imagine codificate în `url()` CSS (`cssUrl`), gazde PeerTube validate (`okHost`), `?index=` doar HTTPS, `<noscript>`.
 - Plugin WP: postările protejate cu parolă nu mai intră în catalog; gazdele acceptate sunt validate ca nume DNS; `previewPath` trebuie să înceapă cu `/`.

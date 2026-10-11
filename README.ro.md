@@ -74,6 +74,15 @@ Deschide `index.html` direct în browser (necesită internet pentru catalog și 
 
 Publicare pe GitHub Pages: `Settings → Pages → Source: GitHub Actions`; workflow-ul `.github/workflows/pages.yml` construiește și publică `deploy/site` (plus `vntv.html` ca descărcare).
 
+## Istoric / Changelog (2.1.1)
+
+Ultima actualizare: 11 octombrie 2026 (versiunea 2.1.1).
+
+- Aplicația este încadrată în `<main>`, iar titlul „lower third” nu mai e un titlu gol (axe-core: 0 violări la 1280 și 360 px).
+- Mesajul „Nu pot încărca lista” precizează acum că VNTV nu are conținut offline și cere internet (7 limbi).
+- Versiune ridicată la 2.1.1 (package.json, package-lock.json, sw.js generat).
+- Fără rețea, catalogul lipsește: nu am putut verifica redarea reală în acest mediu (limită declarată).
+
 ## Licență
 
 MIT, vezi [LICENSE](LICENSE). Fontul Oswald este sub SIL Open Font License 1.1 (`src/fonts/OFL-Oswald.txt`, detalii în [NOTICE.md](NOTICE.md)).

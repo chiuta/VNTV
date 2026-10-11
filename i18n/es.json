@@ -203,7 +203,7 @@
  ],
  "quality": "Calidad de vídeo",
  "qAuto": "Automática",
- "errList": "No se puede cargar la lista de videoneat.com ({e})",
+ "errList": "No se puede cargar la lista de videoneat.com ({e}). VNTV no tiene contenido sin conexión: necesita internet para cargar el catálogo y los vídeos.",
  "noTr": "Este canal no tiene tráileres disponibles.",
  "slow": "El clip carga despacio — pasamos al siguiente",
  "unavail": "Clip no disponible — pasamos al siguiente",

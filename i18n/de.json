@@ -203,7 +203,7 @@
  ],
  "quality": "Videoqualität",
  "qAuto": "Automatisch",
- "errList": "Liste von videoneat.com kann nicht geladen werden ({e})",
+ "errList": "Liste von videoneat.com kann nicht geladen werden ({e}). VNTV hat keine Offline-Inhalte: Katalog und Videos brauchen eine Internetverbindung.",
  "noTr": "Auf diesem Kanal gibt es keine Trailer.",
  "slow": "Clip lädt langsam — weiter zum nächsten",
  "unavail": "Clip nicht verfügbar — weiter zum nächsten",

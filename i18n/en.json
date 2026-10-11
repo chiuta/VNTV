@@ -203,7 +203,7 @@
  ],
  "quality": "Video quality",
  "qAuto": "Auto",
- "errList": "Can't load the list from videoneat.com ({e})",
+ "errList": "Can't load the list from videoneat.com ({e}). VNTV has no offline content: it needs an internet connection to load the catalog and videos.",
  "noTr": "This channel has no trailers available.",
  "slow": "Clip is loading slowly — skipping ahead",
  "unavail": "Clip unavailable — moving on to the next one",

@@ -203,7 +203,7 @@
  ],
  "quality": "Calitate video",
  "qAuto": "Automată",
- "errList": "Nu pot încărca lista de pe videoneat.com ({e})",
+ "errList": "Nu pot încărca lista de pe videoneat.com ({e}). VNTV nu are conținut offline: are nevoie de internet pentru catalog și videoclipuri.",
  "noTr": "Canalul nu are trailere disponibile.",
  "slow": "Clipul se încarcă greu — trec mai departe",
  "unavail": "Clip indisponibil — trec la următorul",

@@ -203,7 +203,7 @@
  ],
  "quality": "Qualité vidéo",
  "qAuto": "Auto",
- "errList": "Impossible de charger la liste depuis videoneat.com ({e})",
+ "errList": "Impossible de charger la liste depuis videoneat.com ({e}). VNTV n’a pas de contenu hors ligne : une connexion internet est nécessaire pour le catalogue et les vidéos.",
  "noTr": "Cette chaîne n'a aucune bande-annonce disponible.",
  "slow": "Le clip charge lentement — on passe au suivant",
  "unavail": "Clip indisponible — passage au suivant",
