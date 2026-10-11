@@ -67,13 +67,19 @@ function buildSchedule(ch, all, now){
 function canSync(ch){ return P.sync && ch.type !== "fav" && ch.type !== "search"; }
 
 /* ---- acordarea unui canal ---- */
+/* eroare la încărcarea listei: pe ecranul de start apare în pagină (nu se suprapune peste sigla VNTV), altfel ca notificare */
+function listError(e){
+  S.netFail = true;
+  const m = t("errList", {e:e.message}), sp = $("#splash"), n = $("#neterr");
+  if (sp && n && !sp.classList.contains("hide")){ n.textContent = m; n.hidden = false; } else toast(m, 4000);
+}
 async function tune(opts = {}){
   const ch = S.search || S.ch;
   const tok = ++S.token;
   S.items = []; S.idx = -1; S.pager = null; S.live = false; S.loading = true;
   renderLists();
   let all = null;
-  try{ all = await channelAll(ch); }catch(e){ toast(t("errList", {e:e.message}), 4000); }
+  try{ all = await channelAll(ch); }catch(e){ listError(e); }
   if (tok !== S.token) return false;
   S.loading = false;
   if (all){
@@ -119,7 +125,7 @@ function loadMore(){
         if (P.shuffle) shuffle(batch);
         S.items.push(...batch); added += batch.length;
       }
-    }catch(e){ if (tok === S.token) toast(t("errList", {e:e.message}), 4000); }
+    }catch(e){ if (tok === S.token) listError(e); }
     finally{ if (tok === S.token){ S.loading = false; pg.p = null; renderLists(); } }
   })();
   return pg.p;

@@ -40,7 +40,13 @@ applyPlatform(); applyOverlays(); applyLang(); syncPlay(); syncVol(); syncFav();
 V.volume = P.vol; V.muted = P.muted;
 $("#bpip").hidden = !CAN_PIP;
 if (!CAN_FS && STANDALONE) $("#bfull").hidden = true;
-S.ready = (async () => {
+async function bootCatalog(){
+  if (navigator.onLine === false){   // fără rețea: nu încerca cereri care oricum eșuează; reîncearcă la „online”
+    S.netFail = true;
+    const l0 = channelList(); S.chIdx = Math.min(Math.max(0, P.ch), l0.length - 1); S.ch = l0[S.chIdx]; renderChannels();
+    return;
+  }
+  S.netFail = false; $("#neterr").hidden = true;
   await loadIndex();
   const list = channelList();
   S.chIdx = Math.min(Math.max(0, P.ch), list.length - 1); S.ch = list[S.chIdx];
@@ -49,7 +55,9 @@ S.ready = (async () => {
   renderChannels(); if (isOpen("layers")) renderLayers();
   const f = S.items[0];
   if (f) getVideo(f.v).then(v => { S.firstSrc = pickSrc(v); f.dur = v.duration || f.dur; f.preview = ptImage(v, f.v.host) || f.img; }).catch(() => {});
-})();
+}
+S.ready = bootCatalog();
+addEventListener("online", () => { if (S.netFail && !S.items.length){ const was = S.started; S.ready = bootCatalog(); if (was) S.ready.then(() => { if (!S.items.length) switchChannel(S.chIdx); else play(0, {offset:S.firstOffset || 0}); }); } });
 
 /* ---- mod chioșc: ?kiosk=1 (&ch=3&lang=ro&preset=cinema&muted=0&reload=24) ---- */
 if (KIOSK){

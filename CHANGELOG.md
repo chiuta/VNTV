@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.1.3 — 2026-10-11 · runda 7
+- UX: eroarea „nu pot încărca lista” de pe ecranul de start apare acum în pagină (sub text), nu ca notificare suprapusă peste sigla VNTV pe ecrane de 360 px; după pornire rămâne notificare.
+- Fără rețea (`navigator.onLine === false`) catalogul nu mai încearcă la pornire cereri care oricum eșuează; se reîncarcă singur la revenirea conexiunii (evenimentul `online`).
+- Versiune ridicată la 2.1.3 (package.json, package-lock.json, sw.js generat).
+
 ## 2.1.2 — 2026-10-11 · runda 6
 - Securitate: CSP cu hash SHA-256 pentru scriptul inline (`build.mjs`), fără `'unsafe-inline'` în `script-src`.
 - Ecranul de start avertizează (7 limbi) când browserul raportează că nu are rețea.

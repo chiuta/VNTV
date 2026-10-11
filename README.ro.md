@@ -74,9 +74,11 @@ Deschide `index.html` direct în browser (necesită internet pentru catalog și 
 
 Publicare pe GitHub Pages: `Settings → Pages → Source: GitHub Actions`; workflow-ul `.github/workflows/pages.yml` construiește și publică `deploy/site` (plus `vntv.html` ca descărcare).
 
-## Istoric / Changelog (2.1.2)
+## Istoric / Changelog (2.1.3)
 
-Ultima actualizare: 11 octombrie 2026 (versiunea 2.1.2).
+Ultima actualizare: 11 octombrie 2026 (versiunea 2.1.3).
+
+- Ecranul de start: mesajul „nu pot încărca lista” apare în pagină, sub text, și nu mai este o notificare suprapusă peste sigla VNTV pe ecrane de 360 px; cât timp browserul raportează că este offline, cererea către catalog nu se mai încearcă la pornire (reîncearcă singură la evenimentul `online`).
 
 - CSP: scriptul inline este permis prin hash SHA-256 (calculat de `build.mjs` la fiecare build); `script-src` nu mai conține `'unsafe-inline'`.
 - Ecranul de start afișează o notă (7 limbi) când browserul raportează că este offline, fiindcă VNTV nu are conținut offline.

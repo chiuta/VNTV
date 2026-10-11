@@ -256,6 +256,7 @@ kbd{font:600 11px/1 var(--ui);background:rgba(255,255,255,.12);border:1px solid 
 #splash .keys{margin-top:26px;color:var(--mut);font-size:12px;line-height:2}
 #splash .src{position:absolute;bottom:calc(16px + var(--safe-b));left:0;right:0;color:#6d7885;font-size:12px}
 #splash .src a{color:#9fb0c2}
+@media (max-height:800px){#splash{display:flex;flex-direction:column;align-items:center}#splash>div:first-child{margin-block:auto;padding-top:12px}#splash .src{position:static;padding:14px 16px calc(16px + var(--safe-b))}}
 
 #toast{position:absolute;z-index:50;left:50%;top:calc(20px + var(--safe-t));transform:translate(-50%,-20px);background:var(--glass);border:1px solid var(--line);
   -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);padding:10px 18px;border-radius:999px;opacity:0;transition:.3s;pointer-events:none;font-weight:600;font-size:14px;max-width:90vw;text-align:center}
