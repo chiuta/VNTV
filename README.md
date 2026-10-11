@@ -1,5 +1,10 @@
 # VNTV — VideoNeat Television
 
+**Live / demo:** https://chiuta.github.io/VNTV/
+
+![VNTV — captură de ecran / screenshot](screenshot.png)
+
+
 A non-stop, trade-free science TV channel built from the [VideoNeat.com](https://www.videoneat.com) collection:
 synchronized channels, a TV guide, a browsable catalog, translated subtitles, 7 languages, and it works on phones,
 tablets, computers and TVs. No accounts, no analytics, no cookies; by default the app talks only to TROM's own sites (videoneat.com and videos.trom.tf), see *Privacy and trade-free* below.
