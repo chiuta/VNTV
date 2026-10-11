@@ -1,4 +1,5 @@
 // Construiește VNTV dintr-o singură sursă în două variante:
+//   index.html              — același fișier, în rădăcină (GitHub Pages „main /root”)
 //   dist/vntv.html          — un singur fișier, merge offline, se deschide direct din telefon sau calculator
 //   deploy/site/index.html  — pentru găzduire pe HTTPS, cu manifest, pictograme și lucru offline (sw.js)
 import fs from "node:fs";
@@ -42,9 +43,10 @@ fs.mkdirSync(path.join(root, "dist"), {recursive:true});
 fs.mkdirSync(path.join(root, "deploy/site"), {recursive:true});
 const single = build("single", `<link rel="apple-touch-icon" id="appleicon" href="">`);
 fs.writeFileSync(path.join(root, "dist/vntv.html"), single);
+fs.writeFileSync(path.join(root, "index.html"), single);
 const hosted = build("hosted", `<link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" id="appleicon" href="icons/icon-180.png">
 <link rel="icon" type="image/png" sizes="64x64" href="icons/favicon-64.png">`);
 fs.writeFileSync(path.join(root, "deploy/site/index.html"), hosted);
 fs.writeFileSync(path.join(root, "deploy/site/sw.js"), rd("src/sw.template.js").split("{{VERSION}}").join(pkg.version));
-console.log(`VNTV ${pkg.version}: dist/vntv.html (${(single.length / 1024).toFixed(0)} KB), deploy/site/index.html`);
+console.log(`VNTV ${pkg.version}: index.html + dist/vntv.html (${(single.length / 1024).toFixed(0)} KB), deploy/site/index.html`);

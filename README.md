@@ -15,7 +15,7 @@ tablets, computers and TVs. No accounts, no analytics, no cookies; by default th
 
 | Folder | What it is |
 |---|---|
-| `dist/vntv.html` | **The app as one file.** Open it in a browser. Works from a phone's Downloads folder too. |
+| `index.html`, `dist/vntv.html` | **The app as one file.** Open it in a browser. Works from a phone's Downloads folder too. |
 | `deploy/site/` | The app for hosting on HTTPS: installable (home screen / app), works offline, icons, service worker. |
 | `wp-plugin/videoneat-index/` | **WordPress plugin for videoneat.com**: publishes the official JSON catalog VNTV and the addon use. |
 | `stremio-addon/` | Stremio addon (7 languages, official catalog, extra PeerTube channels, optional LibreTranslate). |
@@ -64,7 +64,7 @@ MIT, see [LICENSE](LICENSE). Embedded font: Oswald, SIL OFL 1.1 ([NOTICE.md](NOT
 ## Build and test
 
 ```bash
-node build.mjs                 # dist/vntv.html + deploy/site/index.html + sw.js
+node build.mjs                 # index.html + dist/vntv.html + deploy/site/index.html + sw.js
 npm install                    # ESLint + Playwright (dev only)
 npx playwright install chromium
 npm run test:all               # lint + 25 end-to-end + 30 PHP + 33 addon tests, all offline

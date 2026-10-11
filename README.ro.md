@@ -18,7 +18,7 @@ Depozitul conține trei componente:
 
 | Componentă | Ce este |
 |---|---|
-| `dist/vntv.html`, `deploy/site/` | Aplicația: un singur fișier, respectiv varianta găzduită pe HTTPS (instalabilă, cu `sw.js` pentru lucru offline) |
+| `index.html` (= `dist/vntv.html`), `deploy/site/` | Aplicația: un singur fișier, respectiv varianta găzduită pe HTTPS (instalabilă, cu `sw.js` pentru lucru offline) |
 | `wp-plugin/videoneat-index/` | Plugin WordPress care publică catalogul JSON folosit de aplicație și de addon |
 | `stremio-addon/` | Addon Stremio (Node ≥ 18, fără dependențe) |
 
@@ -67,10 +67,10 @@ Verificate în cod:
 ## Rulare locală / offline
 
 ```bash
-node build.mjs          # generează dist/vntv.html și deploy/site/ (nu cere npm install)
+node build.mjs          # generează index.html, dist/vntv.html și deploy/site/ (nu cere npm install)
 ```
 
-Deschide `dist/vntv.html` direct în browser (necesită internet pentru catalog și video). Pentru testele complete: `npm install`, `npm run test:all` (Playwright, PHP și Node; toate rulează cu date simulate).
+Deschide `index.html` direct în browser (necesită internet pentru catalog și video). Pentru testele complete: `npm install`, `npm run test:all` (Playwright, PHP și Node; toate rulează cu date simulate).
 
 Publicare pe GitHub Pages: `Settings → Pages → Source: GitHub Actions`; workflow-ul `.github/workflows/pages.yml` construiește și publică `deploy/site` (plus `vntv.html` ca descărcare).
 
