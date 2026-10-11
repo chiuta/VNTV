@@ -136,6 +136,7 @@ function playEmbed(it, offset){
     p2p:"1", muted:P.muted ? "1" : "0", loop:"0"});
   if (offset > 1) q.set("start", String(Math.floor(offset)));
   frame.style.display = "block";
+  frame.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");   // atributul se pune doar când se folosește playerul PeerTube
   frame.src = `https://${it.v.host}/videos/embed/${encodeURIComponent(it.v.id)}?${q}`;
   frame.onload = () => { embReset(); $("#spin").classList.remove("show"); setTimeout(() => { if (!PL.started) onPlaying(); }, 1500); };
   // dacă API-ul playerului nu răspunde în 10 s, trecem la redarea directă (fără bară de progres nu merită riscul)

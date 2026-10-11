@@ -4,6 +4,7 @@
 //   deploy/site/index.html  — pentru găzduire pe HTTPS, cu manifest, pictograme și lucru offline (sw.js)
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
 
 const root = path.dirname(new URL(import.meta.url).pathname);
 const rd = f => fs.readFileSync(path.join(root, f), "utf8");
@@ -27,9 +28,17 @@ unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+
 const jsFiles = fs.readdirSync(path.join(root, "src/js")).filter(f => f.endsWith(".js")).sort();
 const js = jsFiles.map(f => `/* ---- ${f} ---- */\n` + rd(`src/js/${f}`)).join("\n");
 
+// CSP: scriptul inline este permis prin hash SHA-256 (fără 'unsafe-inline' pentru script); recalculat la fiecare build
+function withScriptHash(html){
+  const hashes = [...html.matchAll(/<script(?![^>]*\bsrc=)([^>]*)>([\s\S]*?)<\/script>/g)]
+    .filter(m => !/type=["'](?!module|text\/javascript)/.test(m[1]))
+    .map(m => `'sha256-${crypto.createHash("sha256").update(m[2], "utf8").digest("base64")}'`);
+  if (!hashes.length || !html.includes("script-src 'unsafe-inline'")) throw new Error("CSP: nu am găsit script-src 'unsafe-inline' sau niciun script inline");
+  return html.replace("script-src 'unsafe-inline'", () => "script-src " + hashes.join(" "));
+}
 function build(target, headLinks){
   const built = new Date().toISOString().slice(0, 10);
-  return rd("src/index.template.html")
+  return withScriptHash(rd("src/index.template.html")
     .replace("{{HEAD_LINKS}}", headLinks)
     .replace("{{FONTS}}", () => fonts)
     .replace("{{CSS}}", () => rd("src/styles.css"))
@@ -37,7 +46,7 @@ function build(target, headLinks){
     .replace("{{VERSION}}", pkg.version).replace("{{BUILT}}", built)
     .replace("{{BUILD_JSON}}", JSON.stringify({version:pkg.version, target, built}))
     .replace("{{I18N}}", () => JSON.stringify(i18n))
-    .replace("{{JS}}", () => js);
+    .replace("{{JS}}", () => js));
 }
 fs.mkdirSync(path.join(root, "dist"), {recursive:true});
 fs.mkdirSync(path.join(root, "deploy/site"), {recursive:true});

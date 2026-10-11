@@ -1,7 +1,7 @@
 <main id="app">
   <div id="ambient"></div>
   <video id="v" playsinline webkit-playsinline preload="auto" x-webkit-airplay="allow"></video>
-  <iframe id="frame" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen sandbox="allow-same-origin allow-scripts allow-popups" title="PeerTube"></iframe>
+  <iframe id="frame" allowfullscreen sandbox="allow-same-origin allow-scripts allow-popups" title="PeerTube"></iframe>
   <div id="shield"></div>
   <div id="letterbox"></div>
   <div id="vignette"></div>
@@ -79,6 +79,7 @@
       <div class="vntv"><span class="vn">VN</span><span class="tv">TV</span></div>
       <h2>VideoNeat Television</h2>
       <p data-i="splashP"></p>
+      <p class="offnote" id="offnote" data-i="offNote" role="status" hidden></p>
       <div class="gorow">
         <button id="go"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span data-i="go"></span></button>
         <button id="gobrowse" class="btn" data-i="browseAll"></button>

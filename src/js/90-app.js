@@ -31,6 +31,10 @@ $("#p2pDirect").onclick = () => { P.net = "direct"; P.p2pAck = true; savePrefs()
   if (S.items[S.idx]) play(S.idx, {offset: S.live ? undefined : curTime()}); if (isOpen("layers")) renderLayers(); };
 $("#gobrowse").onclick = () => { openPanel("browse"); start({keepPanel:true}); };   // canalul pornește în spatele panoului de răsfoire
 
+/* ---- avertisment dacă browserul raportează că nu are rețea (VNTV nu are conținut offline) ---- */
+function syncOffNote(){ $("#offnote").hidden = navigator.onLine !== false; }
+addEventListener("online", syncOffNote); addEventListener("offline", syncOffNote); syncOffNote();
+
 /* ---- inițializare ---- */
 applyPlatform(); applyOverlays(); applyLang(); syncPlay(); syncVol(); syncFav(); pickEngine(false);
 V.volume = P.vol; V.muted = P.muted;

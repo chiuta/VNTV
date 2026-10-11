@@ -74,14 +74,19 @@ Deschide `index.html` direct în browser (necesită internet pentru catalog și 
 
 Publicare pe GitHub Pages: `Settings → Pages → Source: GitHub Actions`; workflow-ul `.github/workflows/pages.yml` construiește și publică `deploy/site` (plus `vntv.html` ca descărcare).
 
-## Istoric / Changelog (2.1.1)
+## Istoric / Changelog (2.1.2)
 
-Ultima actualizare: 11 octombrie 2026 (versiunea 2.1.1).
+Ultima actualizare: 11 octombrie 2026 (versiunea 2.1.2).
+
+- CSP: scriptul inline este permis prin hash SHA-256 (calculat de `build.mjs` la fiecare build); `script-src` nu mai conține `'unsafe-inline'`.
+- Ecranul de start afișează o notă (7 limbi) când browserul raportează că este offline, fiindcă VNTV nu are conținut offline.
+- Suita proprie de teste (Playwright, rețea simulată) a putut fi rulată în acest mediu: 25/25 reușite la rularea finală (la prima rulare un test, sincronizarea între doi spectatori, sensibil la timp, a eșuat și a trecut la reluare).
+- Atributul `allow` al iframe-ului PeerTube se setează doar când iframe-ul e folosit (dispar trei avertismente din consolă la pornire).
 
 - Aplicația este încadrată în `<main>`, iar titlul „lower third” nu mai e un titlu gol (axe-core: 0 violări la 1280 și 360 px).
 - Mesajul „Nu pot încărca lista” precizează acum că VNTV nu are conținut offline și cere internet (7 limbi).
 - Versiune ridicată la 2.1.1 (package.json, package-lock.json, sw.js generat).
-- Fără rețea, catalogul lipsește: nu am putut verifica redarea reală în acest mediu (limită declarată).
+- Fără rețea reală, catalogul lipsește; redarea a fost verificată doar cu rețeaua simulată din teste, nu cu videoneat.com (limită declarată).
 
 ## Licență
 

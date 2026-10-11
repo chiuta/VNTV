@@ -35,6 +35,7 @@
  "close": "Fermer",
  "splashP": "Une diffusion continue des bandes-annonces de la collection VideoNeat : documentaires, films et cours de science. Les catégories sont des chaînes, et chaque élément à l'écran s'active ou se désactive à volonté.",
  "go": "Lancer la diffusion",
+ "offNote": "Vous semblez être hors ligne. VNTV diffuse du contenu de VideoNeat et nécessite une connexion Internet : reconnectez-vous, puis appuyez sur « Lancer la diffusion ».",
  "mobile": "Sur téléphone : glissez ↔ pour changer de clip, ↕ pour changer de chaîne, touchez l'écran pour les commandes.",
  "srcC": "Contenu",
  "srcT": "bandes-annonces",

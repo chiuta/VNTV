@@ -35,6 +35,7 @@
  "close": "Close",
  "splashP": "A non-stop broadcast of trailers from the VideoNeat collection: science documentaries, films and courses. Categories are channels, and every on-screen layer can be switched on or off.",
  "go": "Start broadcast",
+ "offNote": "You appear to be offline. VNTV streams from VideoNeat and needs an internet connection: reconnect, then press “Start broadcast”.",
  "mobile": "On a phone: swipe ↔ for clips, ↕ for channels, tap the screen for controls.",
  "srcC": "Content",
  "srcT": "trailers",

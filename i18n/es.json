@@ -35,6 +35,7 @@
  "close": "Cerrar",
  "splashP": "Una emisión continua de los tráileres de la colección VideoNeat: documentales, películas y cursos de ciencia. Las categorías son canales y cada capa en pantalla se puede activar o desactivar.",
  "go": "Iniciar emisión",
+ "offNote": "Parece que no tienes conexión. VNTV emite contenido de VideoNeat y necesita internet: vuelve a conectarte y pulsa «Iniciar emisión».",
  "mobile": "En el móvil: desliza ↔ para cambiar de clip, ↕ para cambiar de canal y toca la pantalla para ver los controles.",
  "srcC": "Contenido",
  "srcT": "tráileres",

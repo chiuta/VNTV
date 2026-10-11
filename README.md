@@ -57,9 +57,14 @@ tablets, computers and TVs. No accounts, no analytics, no cookies; by default th
 
 See also: [README.ro.md](README.ro.md) (Română, with a user manual and the exact list of network hosts).
 
-## Changelog (2.1.1)
+## Changelog (2.1.2)
 
-Last updated: 11 October 2026 (version 2.1.1).
+Last updated: 11 October 2026 (version 2.1.2).
+
+* CSP: the inline script is now allowed by SHA-256 hash (computed by `build.mjs` on every build); `script-src` no longer contains `'unsafe-inline'`.
+* The start screen shows a notice (7 languages) when the browser reports it is offline, since VNTV has no offline content.
+* The bundled test suite (Playwright, mocked network) now runs in this environment: 25/25 passed on the final run (a first run had one failure in the timing-sensitive two-viewer sync test, which passed on re-run).
+* The PeerTube iframe's `allow` attribute is set only when the iframe is used (removes three console warnings at start-up).
 
 * The app is now wrapped in a `<main>` landmark and the lower-third title is no longer an empty heading (axe-core: 0 violations at 1280 and 360 px).
 * The "can't load the list" message now says plainly that VNTV has no offline content and needs an internet connection (7 languages).
@@ -95,4 +100,4 @@ reloads daily. Press **K** three times to exit.
 * Ghidurile sunt în `docs/`: găzduire (YunoHost), ghid pentru administratorii TROM, testare pe dispozitive reale, Android TV.
 
 ---
-Last updated: 11 October 2026 (version 2.1.1). See [CHANGELOG.md](CHANGELOG.md).
+Last updated: 11 October 2026 (version 2.1.2). See [CHANGELOG.md](CHANGELOG.md).

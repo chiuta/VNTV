@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.1.2 — 2026-10-11 · runda 6
+- Securitate: CSP cu hash SHA-256 pentru scriptul inline (`build.mjs`), fără `'unsafe-inline'` în `script-src`.
+- Ecranul de start avertizează (7 limbi) când browserul raportează că nu are rețea.
+- Versiune ridicată la 2.1.2 (package.json, package-lock.json, sw.js generat).
+
 ## 2.1.1 — 2026-10-11 · runda de reparații
 - Accesibilitate: aplicația este încadrată în `<main>`, titlul din „lower third” nu mai e gol (axe-core: 0 violări la 1280 și 360 px).
 - Mesajul de eroare la încărcarea listei spune acum explicit că VNTV nu are conținut offline și cere internet (7 limbi).
