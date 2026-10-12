@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.4 — 2026-10-12
+- 2.1.4 — 2026-10-12: versiunea și data ultimei actualizări sunt afișate în aplicație (panoul Straturi/Layers, în toate cele 7 limbi) și în `<meta name="application-version">` / `<meta name="last-updated">`; `package.json` are acum câmpul `updated`, folosit de `build.mjs` ca dată a construcției.
+- Versiune ridicată la 2.1.4 (package.json, package-lock.json, sw.js generat).
+
 ## 2.1.3 — 2026-10-11 · runda 7
 - UX: eroarea „nu pot încărca lista” de pe ecranul de start apare acum în pagină (sub text), nu ca notificare suprapusă peste sigla VNTV pe ecrane de 360 px; după pornire rămâne notificare.
 - Fără rețea (`navigator.onLine === false`) catalogul nu mai încearcă la pornire cereri care oricum eșuează; se reîncarcă singur la revenirea conexiunii (evenimentul `online`).

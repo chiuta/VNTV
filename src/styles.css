@@ -193,6 +193,7 @@ kbd{font:600 11px/1 var(--ui);background:rgba(255,255,255,.12);border:1px solid 
 #layers{right:0;width:min(400px,100vw);padding-right:var(--safe-r);border-left:1px solid var(--line);transform:translateX(102%)}
 #layers.open,#info.open{transform:none}
 #layers .body,#info .body{overflow:auto;padding:8px 18px 18px;flex:1}
+.verline{flex:none;padding:6px 18px 12px;font-size:12px;color:var(--mut);border-top:1px solid var(--line,transparent)}
 .grp{margin:14px 0 6px;color:var(--acc);font:800 11px/1 var(--ui);letter-spacing:.16em;text-transform:uppercase}
 .tg{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06);cursor:pointer}
 .tg .l{flex:1}

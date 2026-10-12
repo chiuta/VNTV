@@ -37,13 +37,13 @@ function withScriptHash(html){
   return html.replace("script-src 'unsafe-inline'", () => "script-src " + hashes.join(" "));
 }
 function build(target, headLinks){
-  const built = new Date().toISOString().slice(0, 10);
+  const built = pkg.updated || new Date().toISOString().slice(0, 10);
   return withScriptHash(rd("src/index.template.html")
     .replace("{{HEAD_LINKS}}", headLinks)
     .replace("{{FONTS}}", () => fonts)
     .replace("{{CSS}}", () => rd("src/styles.css"))
     .replace("{{BODY}}", () => rd("src/body.html"))
-    .replace("{{VERSION}}", pkg.version).replace("{{BUILT}}", built)
+    .split("{{VERSION}}").join(pkg.version).split("{{BUILT}}").join(built)
     .replace("{{BUILD_JSON}}", JSON.stringify({version:pkg.version, target, built}))
     .replace("{{I18N}}", () => JSON.stringify(i18n))
     .replace("{{JS}}", () => js));

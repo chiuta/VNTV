@@ -1,5 +1,7 @@
 # VNTV — VideoNeat Television
 
+**Version:** 2.1.4 · **Last updated:** 12 October 2026
+
 **Live / demo:** https://chiuta.github.io/VNTV/
 
 ![VNTV — captură de ecran / screenshot](screenshot.png)
@@ -57,10 +59,9 @@ tablets, computers and TVs. No accounts, no analytics, no cookies; by default th
 
 See also: [README.ro.md](README.ro.md) (Română, with a user manual and the exact list of network hosts).
 
-## Changelog (2.1.3)
+## Changelog (2.1.4)
 
-Last updated: 11 October 2026 (version 2.1.3).
-
+* 2.1.4 — 2026-10-12: the version and the last-updated date are now shown in the app (Layers panel).
 * Start screen: the "can't load the list" message is now shown inline under the intro text instead of a toast that overlapped the VNTV logo at 360 px; while the browser reports it is offline, the catalogue request is no longer attempted at start-up (it retries by itself on the `online` event).
 
 * CSP: the inline script is now allowed by SHA-256 hash (computed by `build.mjs` on every build); `script-src` no longer contains `'unsafe-inline'`.
@@ -102,4 +103,4 @@ reloads daily. Press **K** three times to exit.
 * Ghidurile sunt în `docs/`: găzduire (YunoHost), ghid pentru administratorii TROM, testare pe dispozitive reale, Android TV.
 
 ---
-Last updated: 11 October 2026 (version 2.1.3). See [CHANGELOG.md](CHANGELOG.md).
+See [CHANGELOG.md](CHANGELOG.md).

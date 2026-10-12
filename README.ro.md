@@ -1,5 +1,7 @@
 # VNTV — VideoNeat Television
 
+**Versiune:** 2.1.4 · **Ultima actualizare:** 12 octombrie 2026
+
 Canal TV de știință non-stop, fără urmărire, construit din colecția [VideoNeat.com](https://www.videoneat.com): aplicație web (un singur fișier HTML), plugin WordPress pentru catalog și addon Stremio.
 
 **Live:** https://chiuta.github.io/VNTV/
@@ -74,10 +76,9 @@ Deschide `index.html` direct în browser (necesită internet pentru catalog și 
 
 Publicare pe GitHub Pages: `Settings → Pages → Source: GitHub Actions`; workflow-ul `.github/workflows/pages.yml` construiește și publică `deploy/site` (plus `vntv.html` ca descărcare).
 
-## Istoric / Changelog (2.1.3)
+## Istoric / Changelog (2.1.4)
 
-Ultima actualizare: 11 octombrie 2026 (versiunea 2.1.3).
-
+- 2.1.4 — 2026-10-12: versiunea și data ultimei actualizări sunt afișate în aplicație (panoul Straturi)
 - Ecranul de start: mesajul „nu pot încărca lista” apare în pagină, sub text, și nu mai este o notificare suprapusă peste sigla VNTV pe ecrane de 360 px; cât timp browserul raportează că este offline, cererea către catalog nu se mai încearcă la pornire (reîncearcă singură la evenimentul `online`).
 
 - CSP: scriptul inline este permis prin hash SHA-256 (calculat de `build.mjs` la fiecare build); `script-src` nu mai conține `'unsafe-inline'`.

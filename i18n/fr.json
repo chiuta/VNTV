@@ -336,5 +336,6 @@
  "showAll": "Afficher tous les réglages",
  "showLess": "Moins de réglages",
  "tChDn": "Chaîne précédente (↓)",
- "tChUp": "Chaîne suivante (↑)"
+ "tChUp": "Chaîne suivante (↑)",
+ "verLabel": "Version"
 }

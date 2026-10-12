@@ -336,5 +336,6 @@
  "showAll": "Show all settings",
  "showLess": "Fewer settings",
  "tChDn": "Previous channel (↓)",
- "tChUp": "Next channel (↑)"
+ "tChUp": "Next channel (↑)",
+ "verLabel": "Version"
 }

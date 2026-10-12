@@ -307,6 +307,7 @@ function applyLang(){
   $$("[data-it]").forEach(e => { e.title = t(e.dataset.it); if (e.tagName === "BUTTON" && !e.textContent.trim()) e.setAttribute("aria-label", t(e.dataset.it).replace(/\s*\([^)]*\)$/, "")); });
   $$("[data-ia]").forEach(e => e.setAttribute("aria-label", t(e.dataset.ia)));
   $$("[data-ip]").forEach(e => e.placeholder = t(e.dataset.ip));
+  $("#app-version").textContent = t("verLabel") + ": v " + VERSION + " · " + BUILD.built;
   $("#ghint").innerHTML = [kb(["↑","↓"], t("kCh")), kb(["←","→"], t("kClip")), kb(["1","9"], t("kDirect")), kb(["G"], t("kGuide")), kb(["B"], t("kBrowse")),
     kb(["O"], t("kLayers")), kb(["I"], t("kInfo")), kb(["H"], t("kClean")), kb(["F"], t("kFull"))].join(" · ");
   $("#skeys").innerHTML = `<span class="kbd-only">` + [kb(["↑","↓"], t("kCh")), kb(["←","→"], t("kClip")), kb(["G"], t("kGuide")), kb(["B"], t("kBrowse")), kb(["O"], t("kLayers")), kb(["H"], t("kClean"))].join(" &nbsp; ")

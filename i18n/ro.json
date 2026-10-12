@@ -336,5 +336,6 @@
  "showAll": "Arată toate setările",
  "showLess": "Mai puține setări",
  "tChDn": "Canalul anterior (↓)",
- "tChUp": "Canalul următor (↑)"
+ "tChUp": "Canalul următor (↑)",
+ "verLabel": "Versiune"
 }
