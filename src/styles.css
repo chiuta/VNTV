@@ -364,11 +364,12 @@ body:not(.touch) .touch-only{display:none!important}
   #clock .t{font-size:18px}
   .vntv{font-size:17px}
 }
+@media (pointer:coarse) and (max-height:500px){ #bshare{display:none} }   /* telefon orizontal: „Distribuie” rămâne în panoul de informații */
 @media (max-width:520px){
-  .nowbox,#bmute,#bfav,#bprev{display:none}
+  .nowbox,#bmute,#bfav,#bprev,#bshare{display:none}   /* pe telefon, „Distribuie” e în panoul de informații */
   .row{gap:0;justify-content:space-between}
   .row .sp{display:none}
-  .ib{width:38px;height:38px}
+  .ib{width:33px;height:38px}
   .chbtn{padding:2px}
   .chbtn .ib{width:28px;height:30px}
   #binfo.hide-s{display:grid!important}
@@ -433,7 +434,7 @@ details.adv summary{cursor:pointer;color:var(--mut);font-size:13px}
 .bcats{flex:none;display:flex;gap:6px;overflow-x:auto;padding:10px calc(18px + var(--safe-r)) 10px calc(18px + var(--safe-l));border-bottom:1px solid var(--line);scrollbar-width:thin;touch-action:pan-x}
 .bc{flex:none;border:1px solid var(--line);background:rgba(255,255,255,.06);border-radius:999px;padding:7px 14px;font-size:13px;white-space:nowrap}
 .bc.on{background:var(--acc);color:#04130d;border-color:var(--acc);font-weight:700}
-#bbody{padding:12px calc(18px + var(--safe-r)) calc(24px + var(--safe-b)) calc(18px + var(--safe-l))}
+#bbody{flex:1 1 auto;min-height:0;overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;padding:12px calc(18px + var(--safe-r)) calc(24px + var(--safe-b)) calc(18px + var(--safe-l))}
 .bstat{color:var(--mut);font-size:13px;margin-bottom:10px}
 .bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
 .card{display:flex;flex-direction:column;text-align:left;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;overflow:hidden;padding:0;transition:transform .15s,border-color .15s}

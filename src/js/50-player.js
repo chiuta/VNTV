@@ -10,12 +10,16 @@ function onWifi(){ const c = navigator.connection; return !!(c && (c.type === "w
 function netMode(){
   if (S.p2pBroken) return "direct";                  // playerul PeerTube nu a răspuns: redare directă până la reîncărcare
   if (P.net === "direct" || P.net === "p2p") return P.net;
-  if (IS_IOS) return "direct";                       // iOS: imagine în imagine și AirPlay cer redare directă
+  if (p2pRecentlyBad()) return "direct";             // pe acest browser playerul P2P a eșuat de curând (ex. Edge cu WebRTC blocat): nu mai așteptăm degeaba
+  if (IS_IOS) return "direct";                     // iOS: imagine în imagine și AirPlay cer redare directă
   return (!TOUCH || onWifi()) ? "p2p" : "direct";    // automat: P2P pe calculator/TV și pe telefoanele Android conectate la Wi-Fi
 }
 
 /* ---- API-ul playerului PeerTube încorporat ---- */
-const EMB = { win:null, ready:false, id:1, q:[], ping:0 };
+const EMB = { win:null, ready:false, id:1, q:[], ping:0, wd:0 };
+const P2P_BAD_MS = 7 * 864e5;                          // câte zile se evită P2P după un eșec
+function p2pRecentlyBad(){ const t0 = store.get("p2pBad", 0); return !!t0 && Date.now() - t0 < P2P_BAD_MS; }
+function markP2pBroken(){ S.p2pBroken = true; store.set("p2pBad", Date.now()); }
 function embPost(m){ try{ EMB.win && EMB.win.postMessage(JSON.stringify(m), "*"); }catch(e){} }
 function embCall(method, params){ const m = {id:EMB.id++, method:"peertube::" + method, params}; if (EMB.ready) embPost(m); else EMB.q.push(m); }
 function embReset(){
@@ -86,6 +90,7 @@ async function play(i, opt = {}){
   if (S.live && opt.offset === undefined){ i = liveCatchUp(i); }
   const offset = opt.offset ?? (S.live ? liveOffset(i) : 0);
   S.idx = i; const it = S.items[i]; const tok = ++S.playTok; S.clipCount++;
+  setAnchor(it);
   if (S.pager && S.items.length - i < 5) loadMore();
   clearTimeout(fallbackTimer); clearTimeout(stallTimer);
   hideUpNext(); hideLower(); subsReset();
@@ -129,7 +134,7 @@ function playDirect(it, src, offset){
   $("#bpip").hidden = !CAN_PIP;
 }
 function playEmbed(it, offset){
-  PL.mode = "p2p"; PL.pos = offset; PL.dur = it.dur || 0; PL.paused = false; PL.started = false;
+  PL.mode = "p2p"; PL.pos = offset; PL.dur = it.dur || 0; PL.paused = false; PL.started = false; PL.lastUpd = 0;
   V.pause(); V.removeAttribute("src"); V.load(); V.style.display = "none";
   document.body.classList.add("p2p");
   const q = new URLSearchParams({api:"1", autoplay:"1", controls:"0", controlBar:"0", title:"0", warningTitle:"0", peertubeLink:"0",
@@ -143,9 +148,20 @@ function playEmbed(it, offset){
   const tok = S.playTok;
   setTimeout(() => {
     if (tok !== S.playTok || PL.mode !== "p2p" || EMB.ready || !it._src) return;
-    S.p2pBroken = true; toast(t("p2pFallback"), 4500);
+    markP2pBroken(); toast(t("p2pFallback"), 4500);
     play(S.idx, {offset: S.live ? undefined : PL.pos});
   }, 10000);
+  // watchdog: API-ul a răspuns, dar playerul nu redă (ex. Edge: „The player is not compatible with your web browser”,
+  // WebRTC blocat de o extensie) → după 12 s fără nicio stare de redare, trecem la redarea directă
+  clearInterval(EMB.wd); const t0 = Date.now();
+  EMB.wd = setInterval(() => {
+    if (tok !== S.playTok || PL.mode !== "p2p"){ clearInterval(EMB.wd); return; }
+    if (!it._src || PL.paused || S.userPaused || document.hidden) return;
+    if (Date.now() - (PL.lastUpd || t0) < 12000) return;
+    clearInterval(EMB.wd);
+    markP2pBroken(); toast(t("p2pFallback"), 4500);
+    play(S.idx, {offset: S.live ? undefined : PL.pos});
+  }, 2000);
   armFallback(Math.max(20, (it.dur || 150) - offset + 10));
   $("#bpip").hidden = true; $("#bcast").hidden = true;
 }

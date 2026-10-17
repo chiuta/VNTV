@@ -204,11 +204,13 @@ function detailHTML(it, idp){
       ${it.link ? `<a class="btn ${idp === "b" ? "" : "pri"}" href="${esc(it.link)}" target="_blank" rel="noopener">${esc(it.src === "pt" ? t("watchPT") : t("watch"))}</a>` : ""}
       ${it.sourceUrl && it.src === "vn" ? `<a class="btn" href="${esc(it.sourceUrl)}" target="_blank" rel="noopener">${esc(t("official"))}${it.source ? " (" + esc(it.source) + ")" : ""} ↗</a>` : ""}
       <button class="btn ${fav ? "on" : ""}" data-fav>${esc(fav ? t("inFav") : t("addFav"))}</button>
+      ${shareUrl(it) ? `<button class="btn" data-share>${esc(t("shareBtn"))}</button>` : ""}
     </div>
     ${it.kind === "trailer" ? `<p class="note">${esc(t("note"))}</p>` : ""}`;
 }
 function bindDetail(root, it){
   root.querySelector("[data-fav]").onclick = () => { toggleFav(it); if (root.id !== "ibody") showBrowseDetail(it, true); };
+  const sh = root.querySelector("[data-share]"); if (sh) sh.onclick = () => shareItem(it);
   const o = root.querySelector("[data-orig]"); if (o) o.onclick = () => { S.showOrig = !S.showOrig; applyLang(); if (!S.showOrig) requestTr(); };
   const pn = root.querySelector("[data-playnow]"); if (pn) pn.onclick = () => { closePanels(); if (!S.started) start({noplay:true}); playItemNow(it); };
 }

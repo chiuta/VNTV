@@ -53,7 +53,7 @@ $("#vol").addEventListener("input", e => { const v = e.target.value / 100; P.vol
 $("#bplay").onclick = togglePlay; $("#bnext").onclick = () => next(); $("#bprev").onclick = prev; $("#bmute").onclick = toggleMute;
 $("#bfull").onclick = () => toggleFull(); $("#bpip").onclick = togglePip; $("#bcast").onclick = cast;
 $("#bguide").onclick = () => openPanel("guide"); $("#blayers").onclick = () => openPanel("layers"); $("#bbrowse").onclick = () => openPanel("browse");
-$("#binfo").onclick = () => openPanel("info"); $("#bfav").onclick = () => toggleFav();
+$("#binfo").onclick = () => openPanel("info"); $("#bfav").onclick = () => toggleFav(); $("#bsubs").onclick = () => toggleSubs(); $("#bshare").onclick = () => shareItem();
 $("#chup").onclick = () => switchChannel(S.chIdx + (S.search ? 0 : 1)); $("#chdn").onclick = () => switchChannel(S.chIdx - (S.search ? 0 : 1));
 $("#upnext").onclick = () => next(); $("#blive").onclick = backToLive;
 $("#unmute").onclick = () => setMuted(false);
@@ -126,6 +126,8 @@ document.addEventListener("keydown", e => {
     case "ChannelUp": case "PageUp": if (inPanel) return; e.preventDefault(); switchChannel(S.chIdx + 1); break;
     case "ChannelDown": case "PageDown": if (inPanel) return; e.preventDefault(); switchChannel(S.chIdx - 1); break;
     case "c": case "C": if (!$("#bcast").hidden) cast(); break;
+    case "t": case "T": toggleSubs(); break;
+    case "e": case "E": shareItem(); break;
     case "p": case "P": if (CAN_PIP) togglePip(); break;
     case "m": case "M": toggleMute(); break;
     case "f": case "F": toggleFull(); break;

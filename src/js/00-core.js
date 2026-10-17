@@ -54,10 +54,13 @@ if (!P.srcInit){ if (!P.sources.some(s => s.host === TROM_SRC.host && s.handle =
   if (QS.has("eco")) P.eco = QS.get("eco");
   if (QS.has("muted")) P.muted = QS.get("muted") !== "0"; else if (KIOSK) P.muted = true;
   const pr = QS.get("preset"); if (pr && PRESETS[pr]) Object.assign(O, PRESETS[pr].o);
+  if (QS.has("subs")) O.subs = QS.get("subs") !== "0" ? 1 : 0;   // ?subs=0 oprește subtitrările pentru această vizită
   if (QS.has("index")){ const u = safeUrl(QS.get("index")); if (u && u.startsWith("https:")) P.indexUrl = u; }   // doar HTTPS; o legătură ostilă nu poate impune o sursă de catalog nesigură
 })();
 if (!I18N[P.lang]) P.lang = "en";
 function savePrefs(){ store.set("prefs", P); }
+// subtitrările pornesc automat: o singură dată se corectează și preferințele salvate de versiunile vechi; apoi se respectă alegerea spectatorului (butonul CC / tasta T)
+if (!P.subsInit){ P.subsInit = 1; if (!QS.has("subs")){ O.subs = 1; store.set("ov", O); } savePrefs(); }
 
 /* ---------- limbă ---------- */
 const L = () => I18N[P.lang] || I18N.en;

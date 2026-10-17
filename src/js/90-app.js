@@ -22,7 +22,9 @@ async function start(opts = {}){
   if (opts.noplay) return;
   osd(); noise(500);
   await S.ready;
-  if (S.items.length) play(0, {offset:S.firstOffset || 0}); else switchChannel(S.chIdx);
+  const opened = !KIOSK && await openDeepLink(true);       // link cu ancoră (#v=…): deschide direct acel video
+  if (opened){ /* playItemNow a pornit deja videoul */ }
+  else if (S.items.length) play(0, {offset:S.firstOffset || 0}); else switchChannel(S.chIdx);
   if (!opts.keepPanel) kickUI();
 }
 $("#go").onclick = () => start();

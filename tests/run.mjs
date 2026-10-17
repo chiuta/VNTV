@@ -10,12 +10,15 @@ const APP = "file://" + path.join(root, "dist/vntv.html");
 
 const results = [];
 async function test(name, fn){
+  if (process.env.ONLY && !name.includes(process.env.ONLY)) return;
   const t0 = Date.now();
   try{ await fn(); results.push([name, "OK", Date.now() - t0]); console.log("✔", name); }
   catch(e){ results.push([name, "FAIL: " + e.message.split("\n")[0], Date.now() - t0]); console.log("✘", name, "\n   ", e.message.split("\n").slice(0, 3).join("\n    ")); }
 }
 const ok = (c, m) => { if (!c) throw new Error(m); };
 const browser = await chromium.launch({...(process.env.CHROMIUM_PATH ? {executablePath:process.env.CHROMIUM_PATH} : {}),args:["--autoplay-policy=no-user-gesture-required"]});
+// așteaptă să se termine animațiile de intrare (ecranul de start); altfel click-ul pe „Start” poate nimeri alt loc și testul pică intermitent
+const settle = page => page.waitForFunction(() => document.getAnimations().every(a => { const e = a.effect && a.effect.getComputedTiming(); return !e || !isFinite(e.endTime) || a.playState === "finished"; }), null, {timeout:6000}).catch(() => {});
 async function open(ctxOpts = {}, mockOpts = {}, query = ""){
   const ctx = await browser.newContext({viewport:{width:1440, height:900}, ...ctxOpts});
   const page = await ctx.newPage();
@@ -25,6 +28,7 @@ async function open(ctxOpts = {}, mockOpts = {}, query = ""){
   // implicit în teste: informarea P2P deja acceptată și toate setările vizibile (testele dedicate le verifică separat)
   if (!mockOpts.fresh) await page.addInitScript(() => { try{ if (!localStorage.getItem("vntv.prefs")) localStorage.setItem("vntv.prefs", JSON.stringify({p2pAck:true, adv:true})); }catch{ /* fără localStorage */ } });
   await page.goto(APP + query);
+  await settle(page);
   return {ctx, page, log, errors};
 }
 const state = page => page.evaluate(() => ({mode:DATA.mode, live:S.live, idx:S.idx, key:S.items[S.idx]?.key, pl:PL.mode, pos:curTime(),
@@ -42,7 +46,7 @@ await test("Pornire pe desktop: catalog oficial, emisie sincronizată, P2P prin 
   ok(s.pos > 0, "poziția nu avansează în P2P");
   ok(await page.isVisible("#frame"), "playerul P2P nu e vizibil");
   const before = s.key;
-  await page.waitForTimeout(7000);
+  await page.waitForFunction(k => S.items[S.idx]?.key !== k, before, {timeout:20000}).catch(() => {});
   ok((await state(page)).key !== before, "nu a trecut singur la clipul următor după „ended”");
   ok(!errors.length, "erori: " + errors.join(" | "));
   await ctx.close();
@@ -75,7 +79,7 @@ await test("Telefon (Pixel): redare directă din fișier, cu subtitrări", async
 await test("Subtitrări traduse (română, prin LibreTranslate)", async () => {
   const {ctx, page, log} = await open({...devices["Pixel 7"]});
   await page.evaluate(() => { P.lang = "ro"; P.trEngine = "libre"; P.trUrl = "https://translate.test"; savePrefs(); });
-  await page.reload(); await page.tap("#go"); await page.waitForTimeout(1500);
+  await page.reload(); await settle(page); await page.tap("#go"); await page.waitForTimeout(1500);
   let sub = "";
   for (let i = 0; i < 20 && !/^\[ro\]/.test(sub); i++){ await page.waitForTimeout(250); sub = await page.textContent("#subt"); }
   const title = await page.textContent("#nowt");
@@ -105,9 +109,12 @@ await test("Răsfoire: grilă, detalii, „Redă acum”, ieșire și revenire �
   await page.locator("#bgrid .card").nth(3).click(); await page.waitForTimeout(400);
   ok(await page.isVisible("#bdet"), "detaliile nu s-au deschis");
   const pick = await page.evaluate(() => BR.cur.key);
-  await page.click("[data-playnow]"); await page.waitForTimeout(1500);
+  // clipurile de test sunt scurte și direct-ul poate începe aproape de final: verificăm că titlul ales A FOST pornit, nu că încă rulează
+  await page.evaluate(() => { window.__played = []; const pl = window.play; window.play = function(){ const r = pl.apply(this, arguments); window.__played.push(S.items[S.idx]?.key); return r; }; });
+  await page.click("[data-playnow]");
+  await page.waitForFunction(k => window.__played.includes(k), pick, {timeout:15000}).catch(() => {});
   const s = await state(page);
-  ok(s.key === pick, "nu rulează titlul ales");
+  ok(await page.evaluate(() => window.__played[0]) === pick, "nu rulează titlul ales: " + JSON.stringify({pick, played:await page.evaluate(() => window.__played)}));
   ok(!s.live && await page.isVisible("#blive"), "trebuia să iasă din direct și să arate butonul „Live”");
   await page.keyboard.press("o"); await page.waitForTimeout(500);
   ok(await page.evaluate(() => $("#app").scrollLeft === 0 && $("#app").scrollTop === 0), "ecranul s-a deplasat la deschiderea panoului");
@@ -121,6 +128,8 @@ await test("Canal PeerTube adăugat de spectator (videouri complete, licență l
   const {ctx, page} = await open();
   await page.click("#go"); await page.waitForTimeout(1200);
   await page.keyboard.press("o"); await page.waitForTimeout(400);
+  // Modul simplu al setărilor ascunde sursele: se deschid cu „Arată toate setările”.
+  if (!(await page.isVisible("#srcUrl"))){ await page.click("#advT"); await page.waitForTimeout(300); }
   await page.fill("#srcUrl", "https://peertube.example/c/openscience");
   await page.click("#srcAdd"); await page.waitForTimeout(1200);
   const n = await page.evaluate(() => channelList().length);
@@ -222,14 +231,80 @@ await test("P2P care nu răspunde → trecere automată la redarea directă", as
 
 await test("Informare P2P (IP vizibil) cu alegere: „Folosește fișierul direct”", async () => {
   const {ctx, page} = await open({}, {fresh:true});
-  await page.click("#go"); await page.waitForTimeout(3200);
+  await page.click("#go");
+  await page.waitForSelector("#p2pnote", {state:"visible", timeout:15000}).catch(() => {});
   ok(await page.isVisible("#p2pnote"), "informarea P2P nu apare");
-  await page.click("#p2pDirect"); await page.waitForTimeout(1500);
+  await page.click("#p2pDirect");
+  await page.waitForFunction(() => PL.mode === "direct", null, {timeout:15000}).catch(() => {});
   const s = await state(page);
   ok(s.pl === "direct" && await page.evaluate(() => P.net === "direct" && P.p2pAck), "alegerea nu a fost aplicată");
-  await page.reload(); await page.click("#go"); await page.waitForTimeout(3200);
+  await page.reload(); await settle(page); await page.click("#go"); await page.waitForTimeout(3200);
   ok(!(await page.isVisible("#p2pnote")), "informarea reapare după ce a fost acceptată");
   await ctx.close();
+});
+
+await test("Răsfoire: lista de carduri se derulează vertical (rotiță)", async () => {
+  const {ctx, page} = await open({viewport:{width:900, height:420}});
+  await page.click("#go"); await page.waitForTimeout(1200);
+  await page.keyboard.press("b"); await page.waitForTimeout(900);
+  const r = await page.evaluate(() => { const b = $("#bbody"); return {sh:b.scrollHeight, ch:b.clientHeight, oy:getComputedStyle(b).overflowY}; });
+  ok(r.oy === "auto" && r.sh > r.ch, "lista nu poate fi derulată: " + JSON.stringify(r));
+  await page.mouse.move(450, 300); await page.mouse.wheel(0, 400); await page.waitForTimeout(400);
+  ok(await page.evaluate(() => $("#bbody").scrollTop > 0), "rotița nu derulează lista de carduri");
+  await ctx.close();
+});
+
+await test("Subtitrări: pornite implicit (și pentru preferințe vechi), comutator CC și tasta T", async () => {
+  const {ctx, page} = await open({}, {fresh:true});
+  await page.evaluate(() => { localStorage.setItem("vntv.ov", JSON.stringify({subs:0})); localStorage.setItem("vntv.prefs", JSON.stringify({p2pAck:true, adv:true})); });
+  await page.reload(); await settle(page); await page.click("#go"); await page.waitForTimeout(1500);
+  ok(await page.evaluate(() => O.subs === 1), "subtitrările trebuiau pornite automat");
+  ok(await page.getAttribute("#bsubs", "aria-pressed") === "true", "butonul CC trebuia să fie apăsat");
+  await page.evaluate(() => $("#bsubs").click()); await page.waitForTimeout(300);
+  ok(await page.evaluate(() => O.subs === 0 && !$("#subs").classList.contains("on")), "butonul CC nu a oprit subtitrările");
+  ok(await page.getAttribute("#bsubs", "aria-pressed") === "false", "aria-pressed trebuia să fie false");
+  await page.reload(); await settle(page); await page.click("#go"); await page.waitForTimeout(1200);
+  ok(await page.evaluate(() => O.subs === 0), "alegerea (oprit) nu s-a păstrat după reîncărcare");
+  await page.keyboard.press("t"); await page.waitForTimeout(300);
+  ok(await page.evaluate(() => O.subs === 1), "tasta T nu a pornit subtitrările");
+  await ctx.close();
+});
+
+await test("Player PeerTube încărcat dar fără redare (ca în Edge) → redare directă automat", async () => {
+  const {ctx, page} = await open({}, {brokenPlayer:true});
+  await page.click("#go");
+  await page.waitForFunction(() => PL.mode === "p2p", null, {timeout:15000}).catch(() => {});
+  ok((await state(page)).pl === "p2p", "trebuia să înceapă în P2P");
+  await page.waitForFunction(() => PL.mode === "direct" && S.p2pBroken, null, {timeout:40000}).catch(() => {});
+  const s = await state(page);
+  ok(s.pl === "direct" && await page.evaluate(() => S.p2pBroken && !!localStorage.getItem("vntv.p2pBad")), "nu a trecut la redarea directă: " + JSON.stringify(s));
+  await ctx.close();
+});
+
+await test("Distribuire: ancoră #v= la fiecare video, buton Distribuie (share + clipboard) și link care deschide videoul", async () => {
+  const {ctx, page} = await open();
+  await page.click("#go");
+  await page.waitForFunction(() => PL.started && S.items[S.idx], null, {timeout:15000}).catch(() => {});
+  const cur = await page.evaluate(() => ({h:location.hash, v:S.items[S.idx].v}));
+  ok(cur.h === `#v=${cur.v.host}/${cur.v.id}`, "ancora nu se actualizează la video: " + cur.h);
+  // 1) meniul de partajare al sistemului
+  await page.evaluate(() => { navigator.share = async d => { window.__shared = d; }; });
+  await page.evaluate(() => $("#bshare").click()); await page.waitForTimeout(300);
+  const sh = await page.evaluate(() => window.__shared);
+  ok(sh && sh.url && sh.url.endsWith(cur.h) && /VNTV/.test(sh.title), "navigator.share nu a primit linkul: " + JSON.stringify(sh));
+  // 2) fără share: copiere în clipboard
+  await page.evaluate(() => { navigator.share = undefined; Object.defineProperty(navigator, "clipboard", {value:{writeText: async t => { window.__clip = t; }}, configurable:true}); });
+  await page.keyboard.press("e"); await page.waitForTimeout(300);
+  const clip = await page.evaluate(() => window.__clip);
+  ok(clip && clip.endsWith(cur.h), "linkul nu a fost copiat: " + clip);
+  // 3) un link cu ancoră deschide direct acel video
+  const other = await page.evaluate(() => { const x = S.items.find((it, i) => i !== S.idx && it.v); return x && {host:x.v.host, id:x.v.id}; });
+  ok(other, "nu există alt video pentru testul de link");
+  const b = await open({}, {}, `#v=${other.host}/${other.id}`);
+  await b.page.click("#go");
+  await b.page.waitForFunction(id => S.items[S.idx]?.v.id === id, other.id, {timeout:15000}).catch(() => {});
+  ok(await b.page.evaluate(id => S.items[S.idx]?.v.id === id, other.id), "linkul cu ancoră nu a deschis videoul cerut");
+  await b.ctx.close(); await ctx.close();
 });
 
 await test("Accesibilitate: toate butoanele-pictogramă au nume accesibil", async () => {

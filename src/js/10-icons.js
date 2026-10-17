@@ -13,8 +13,10 @@ const IC = {
   cast:'<path d="M1 18v3h3a3 3 0 0 0-3-3zm0-4v2a5 5 0 0 1 5 5h2a7 7 0 0 0-7-7zm0-4v2a9 9 0 0 1 9 9h2A11 11 0 0 0 1 10zm20-7H3a2 2 0 0 0-2 2v3h2V5h18v14h-7v2h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/>',
   pip:'<path d="M19 7h-8v6h8zm2-4H3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm0 16H3V5h18z"/>',
   browse:'<path d="M3 3h8v8H3zm2 2v4h4V5zm8-2h8v8h-8zm2 2v4h4V5zM3 13h8v8H3zm2 2v4h4v-4zm8-2h8v8h-8zm2 2v4h4v-4z"/>',
-  up:'<path d="m7 14 5-5 5 5z"/>', down:'<path d="m7 10 5 5 5-5z"/>'
+  up:'<path d="m7 14 5-5 5 5z"/>', down:'<path d="m7 10 5 5 5-5z"/>',
+  share:'<path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>',
+  cc:'<path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 7H9.5v-.5h-2v3h2V13H11v1c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1zm7 0h-1.5v-.5h-2v3h2V13H18v1c0 .55-.45 1-1 1h-3c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1z"/>'
 };
 const icon = n => `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">${IC[n]}</svg>`;
 [["bprev","prev"],["bnext","next"],["bfull","full"],["bcast","cast"],["bpip","pip"],["bguide","guide"],["blayers","layers"],
- ["binfo","info"],["bbrowse","browse"],["chup","up"],["chdn","down"]].forEach(([id, n]) => { const e = $("#" + id); if (e) e.innerHTML = icon(n); });
+ ["binfo","info"],["bbrowse","browse"],["bsubs","cc"],["bshare","share"],["chup","up"],["chdn","down"]].forEach(([id, n]) => { const e = $("#" + id); if (e) e.innerHTML = icon(n); });

@@ -72,6 +72,7 @@ function applyOverlays(){
   for (const x of OVERLAYS) if (x.k) document.body.classList.toggle("ov-" + x.k, !!O[x.k]);
   store.set("ov", O);
   if (!O.subs) subsAt(0);
+  syncSubsBtn();
 }
 
 /* ---- ceas ---- */

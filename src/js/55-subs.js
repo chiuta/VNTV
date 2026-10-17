@@ -19,6 +19,19 @@ async function loadSubs(it){
     if (SUB.lang !== P.lang && TX.kind !== "mymemory") need(SUB.cues.map(c => c.text));
   }catch(e){}
 }
+/* comutator rapid (butonul CC și tasta T): pornit/oprit, cu reîncărcarea subtitrărilor clipului curent */
+function syncSubsBtn(){
+  const b = $("#bsubs"); if (!b) return;
+  b.classList.toggle("on", !!O.subs); b.setAttribute("aria-pressed", O.subs ? "true" : "false");
+}
+function toggleSubs(){
+  O.subs = O.subs ? 0 : 1;
+  applyOverlays();
+  const it = S.items[S.idx];
+  if (O.subs && it){ SUB.last = null; loadSubs(it); }
+  if (isOpen("layers")) renderLayers();
+  toast(t(O.subs ? "subsOn" : "subsOff"), 1800);
+}
 function subsAt(time){
   const el = $("#subs");
   if (!O.subs || !SUB.cues.length){ if (SUB.last !== null){ SUB.last = null; $("#subt").textContent = ""; el.classList.remove("on"); } return; }
