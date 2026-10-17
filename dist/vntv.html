@@ -8,7 +8,7 @@
 <meta name="last-updated" content="2026-10-12">
 <meta name="color-scheme" content="dark">
 <meta name="format-detection" content="telephone=no">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-eut0w5EPEbQBo2ZmZmkyqgLRdtz0ohV8BIpONKYsw7w='; style-src 'unsafe-inline'; font-src data:; img-src https: http: data: blob:; media-src https: http: blob: data:; connect-src https: http:; frame-src https:; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-qktwY8gghwb+rShxgxKupV/Guzx62rZHqmWttuXT0tg='; style-src 'unsafe-inline'; font-src data:; img-src https: http: data: blob:; media-src https: http: blob: data:; connect-src https: http:; frame-src https:; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -2179,7 +2179,7 @@ async function start(opts = {}){
   // iOS/Android: primul play() pornește direct din atingere, ca să meargă și sunetul
   if (S.firstSrc && netMode() === "direct" && !V.getAttribute("src") && !opts.noplay){ V.src = S.firstSrc; V.volume = P.vol; V.muted = P.muted; V.play().catch(() => {}); }
   $("#splash").classList.add("hide");
-  if (!KIOSK && (TOUCH || innerWidth < 900) && !opts.noplay) toggleFull(true);
+  if (!KIOSK && !STANDALONE && (TOUCH || innerWidth < 900) && !opts.noplay) toggleFull(true);   // aplicația instalată are deja ecran fără bare: nu cerem ecran complet (evită mesajul Android „pentru a ieși…”)
   setTimeout(() => $("#rotate").classList.add("gone"), 7000);
   reTranslate(true);
   keepAwake(); applyOverlays(); syncVol(); syncFav(); updateLiveUI();

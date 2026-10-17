@@ -14,7 +14,7 @@ async function start(opts = {}){
   // iOS/Android: primul play() pornește direct din atingere, ca să meargă și sunetul
   if (S.firstSrc && netMode() === "direct" && !V.getAttribute("src") && !opts.noplay){ V.src = S.firstSrc; V.volume = P.vol; V.muted = P.muted; V.play().catch(() => {}); }
   $("#splash").classList.add("hide");
-  if (!KIOSK && (TOUCH || innerWidth < 900) && !opts.noplay) toggleFull(true);
+  if (!KIOSK && !STANDALONE && (TOUCH || innerWidth < 900) && !opts.noplay) toggleFull(true);   // aplicația instalată are deja ecran fără bare: nu cerem ecran complet (evită mesajul Android „pentru a ieși…”)
   setTimeout(() => $("#rotate").classList.add("gone"), 7000);
   reTranslate(true);
   keepAwake(); applyOverlays(); syncVol(); syncFav(); updateLiveUI();
