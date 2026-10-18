@@ -1,7 +1,7 @@
 /* VNTV — lucru offline (doar pentru varianta găzduită).
    Aplicația (index.html, manifest, pictograme) se păstrează local; catalogul se reîmprospătează în fundal;
    videourile și API-urile PeerTube merg mereu direct la rețea, nu se stochează. */
-const CACHE = "vntv-2.1.4";
+const CACHE = "vntv-2.2.0";
 const SHELL = ["./", "index.html", "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png", "icons/icon-180.png", "icons/favicon-64.png"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", e => {

@@ -51,7 +51,7 @@ $("#seek").addEventListener("change", e => { if (curDur()){ leaveLive(); seekTo(
 $("#vol").addEventListener("input", e => { const v = e.target.value / 100; P.vol = v || P.vol; savePrefs();
   if (PL.mode === "p2p"){ P.muted = v === 0; embCall("setVolume", v); syncVol(); } else { V.volume = v; V.muted = v === 0; P.muted = V.muted; } });
 $("#bplay").onclick = togglePlay; $("#bnext").onclick = () => next(); $("#bprev").onclick = prev; $("#bmute").onclick = toggleMute;
-$("#bfull").onclick = () => toggleFull(); $("#bpip").onclick = togglePip; $("#bcast").onclick = cast;
+$("#bfull").onclick = () => toggleFull(); $("#bpip").onclick = togglePip; $("#bcast").onclick = cast; $("#bscreen").onclick = () => openPanel("screen");
 $("#bguide").onclick = () => openPanel("guide"); $("#blayers").onclick = () => openPanel("layers"); $("#bbrowse").onclick = () => openPanel("browse");
 $("#binfo").onclick = () => openPanel("info"); $("#bfav").onclick = () => toggleFav(); $("#bsubs").onclick = () => toggleSubs(); $("#bshare").onclick = () => shareItem();
 $("#chup").onclick = () => switchChannel(S.chIdx + (S.search ? 0 : 1)); $("#chdn").onclick = () => switchChannel(S.chIdx - (S.search ? 0 : 1));

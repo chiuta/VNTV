@@ -5,6 +5,7 @@ const IC = {
   vol:'<path d="M4 9v6h4l5 5V4L8 9zM16.5 12A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4z"/>',
   mute:'<path d="M4 9v6h4l5 5V4L8 9z"/><path d="m16 9 5 6m0-6-5 6" stroke="currentColor" stroke-width="2" fill="none"/>',
   full:'<path d="M4 4h6v2H6v4H4zm16 0v6h-2V6h-4V4zM4 20v-6h2v4h4v2zm16 0h-6v-2h4v-4h2z"/>',
+  screen:'<rect x="3" y="4" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 20h8m-4-4v4" stroke="currentColor" stroke-width="2" fill="none"/><path d="M7 11.5h10" stroke="currentColor" stroke-width="2"/>',
   guide:'<path d="M3 5h18v2H3zm0 6h18v2H3zm0 6h12v2H3z"/>',
   layers:'<path d="m12 3 9 5-9 5-9-5zm-9 9.5 2-1.1 7 3.9 7-3.9 2 1.1-9 5z"/>',
   info:'<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M11 10h2v7h-2zm0-3h2v2h-2z"/>',
@@ -18,5 +19,5 @@ const IC = {
   cc:'<path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 7H9.5v-.5h-2v3h2V13H11v1c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1zm7 0h-1.5v-.5h-2v3h2V13H18v1c0 .55-.45 1-1 1h-3c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1z"/>'
 };
 const icon = n => `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">${IC[n]}</svg>`;
-[["bprev","prev"],["bnext","next"],["bfull","full"],["bcast","cast"],["bpip","pip"],["bguide","guide"],["blayers","layers"],
+[["bprev","prev"],["bnext","next"],["bfull","full"],["bscreen","screen"],["bcast","cast"],["bpip","pip"],["bguide","guide"],["blayers","layers"],
  ["binfo","info"],["bbrowse","browse"],["bsubs","cc"],["bshare","share"],["chup","up"],["chdn","down"]].forEach(([id, n]) => { const e = $("#" + id); if (e) e.innerHTML = icon(n); });

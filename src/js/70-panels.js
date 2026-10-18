@@ -8,7 +8,7 @@ function openPanel(id){
   if (isOpen(id)){ closePanels(); return; }
   $$(".panel.open").forEach(p => p.classList.remove("open"));
   $("#" + id).classList.add("open"); showUI(true);
-  if (id === "guide") renderLists(); if (id === "info") renderInfo(); if (id === "layers") renderLayers(); if (id === "browse") openBrowse();
+  if (id === "guide") renderLists(); if (id === "info") renderInfo(); if (id === "layers") renderLayers(); if (id === "screen") renderScreen(); if (id === "browse") openBrowse();
   if (history.state?.vntv !== "panel") try{ history.pushState({vntv:"panel"}, ""); }catch(e){}
   if (!TOUCH) setTimeout(() => { const p = $("#" + id);
     (p.querySelector(".q.now, .ch.on, .bc.on, .tg, .presets button, .btn, button:not(.x)") || p.querySelector(".x"))?.focus({preventScroll:true}); }, 60);
@@ -87,7 +87,7 @@ function tgl(key, on, n, d, attr = "data-p"){ return `<div class="tg ${on ? "on"
 const DONATE_PILL = `<div id="tf-donate" role="complementary" aria-label="Buy Me a Coffee"><style>#tf-donate{box-sizing:border-box;display:flex;justify-content:center;width:100%;padding:18px 12px calc(18px + env(safe-area-inset-bottom,0px));margin:0;position:relative;z-index:2147483000;background:none;color:inherit;font:600 13px/1 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;clear:both;flex:0 0 auto}#tf-donate.tf-lift{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}#tf-donate.tf-fx{position:fixed;width:auto;padding:0;margin:0}#tf-donate.tf-br{right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px))}#tf-donate.tf-bl{left:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px))}#tf-donate.tf-tr{right:12px;top:12px}#tf-donate.tf-tl{left:12px;top:12px}#tf-donate a{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;background:#ffdd00;color:#1a1a1a;text-decoration:none;font:inherit;font-weight:700;box-shadow:0 1px 6px rgba(0,0,0,.25)}#tf-donate a:hover{filter:brightness(1.06)}#tf-donate a:focus-visible{outline:2px solid #4a90d9;outline-offset:2px}#tf-donate svg{width:16px;height:16px;display:block}@media print{#tf-donate{display:none}}</style><a href="https://buymeacoffee.com/echo.of.the.strings" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h11v6.5a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V8z"/><path d="M16 9.5h2.2a2.3 2.3 0 0 1 0 4.6H16"/><path d="M7.5 4.5V3M11.5 4.5V3"/></svg>Buy Me a Coffee</a></div>`;
 function renderLayers(){
   const b = $("#lbody");
-  let h = `<div class="grp">${esc(t("gLang"))}</div><div class="langs" id="llangs"></div>`;
+  let h = `<button class="btn" id="goScreen">${icon("screen")} ${esc(t("screenT"))}</button><div class="grp">${esc(t("gLang"))}</div><div class="langs" id="llangs"></div>`;
   if (P.lang !== "en"){
     h += tgl("trOn", P.trOn, L().trOn[0], L().trOn[1]);
     if (P.trOn && P.adv){

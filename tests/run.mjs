@@ -389,6 +389,40 @@ for (const [name, dev] of [["iPhone 13", devices["iPhone 13"]], ["iPhone 13 oriz
   });
 }
 
+await test("Ecran: panou cu Cast/PiP/fereastră separată/link chioșc + QR (găzduit) și notă pe fișier local", async () => {
+  // 1) copia dintr-un singur fișier: fără link (nu s-ar deschide pe alt dispozitiv), dar celelalte opțiuni există
+  const {ctx, page, errors} = await open();
+  await page.evaluate(() => openPanel("screen"));
+  await page.waitForSelector("#screen.open");
+  ok(await page.evaluate(() => !!$("#scWin") && !$("#scUrl") && /fișier|file/i.test($("#scbody").textContent)), "varianta fișier: lipsește nota sau butonul de fereastră");
+  ok(await page.evaluate(() => !!$("#screen #tf-donate")), "lipsește butonul Buy Me a Coffee din panou");
+  ok(errors.length === 0, "erori de pagină: " + errors.join("|"));
+  await ctx.close();
+  // 2) varianta găzduită (http): link kiosk cu canalul curent, QR desenat, comutator de sunet
+  const http = await import("node:http"), fs = await import("node:fs");
+  const siteDir = path.join(root, "deploy/site");
+  const srv = http.createServer((q, r) => {
+    const f = path.join(siteDir, decodeURIComponent(new URL(q.url, "http://x").pathname.replace(/\/$/, "/index.html")));
+    if (!f.startsWith(siteDir) || !fs.existsSync(f)){ r.writeHead(404); r.end(); return; }
+    r.writeHead(200, {"content-type": {".html":"text/html", ".js":"text/javascript", ".webmanifest":"application/manifest+json", ".png":"image/png"}[path.extname(f)] || "application/octet-stream"}); r.end(fs.readFileSync(f));
+  }).listen(8798);
+  const c2 = await browser.newContext({viewport:{width:390, height:780}}); const pg = await c2.newPage();
+  await pg.route(/videoneat\.com|videos\.trom\.tf/, r => r.abort());
+  try{
+    await pg.goto("http://localhost:8798/"); await pg.waitForTimeout(1200);
+    await pg.addStyleTag({content:"#splash{display:none!important}"}); await pg.evaluate(() => openPanel("screen")); await pg.waitForSelector("#screen.open");
+    const r = await pg.evaluate(() => { const c = $("#scQr"), d = c.getContext("2d").getImageData(0, 0, c.width, c.height).data; let dark = 0; for (let i = 0; i < d.length; i += 4) if (d[i] < 128) dark++;
+      const u = new URL($("#scUrl").value); return {kiosk:u.searchParams.get("kiosk"), ch:u.searchParams.get("ch"), muted:u.searchParams.get("muted"), dark, w:c.width, hs:document.documentElement.scrollWidth, iw:innerWidth}; });
+    ok(r.kiosk === "1" && /^\d+$/.test(r.ch) && r.muted === "1", "link chioșc greșit: " + JSON.stringify(r));
+    ok(r.dark > r.w * r.w * 0.15 && r.dark < r.w * r.w * 0.7, "QR nedesenat sau gol: " + r.dark);
+    ok(r.hs <= r.iw, "depășire orizontală pe mobil");
+    await pg.click("label[for=scSnd]");
+    ok(await pg.evaluate(() => new URL($("#scUrl").value).searchParams.get("muted")) === "0", "comutatorul „Cu sunet” nu schimbă linkul");
+    const box = await pg.evaluate(() => { const r = $("#scQr").getBoundingClientRect(), p = $("#screen").getBoundingClientRect(); return r.right <= p.right + 1 && r.left >= p.left - 1; });
+    ok(box, "QR în afara panoului");
+  } finally { await c2.close(); srv.close(); }
+});
+
 await browser.close();
 const failed = results.filter(r => r[1] !== "OK");
 console.log(`\n${results.length - failed.length}/${results.length} teste trecute`);

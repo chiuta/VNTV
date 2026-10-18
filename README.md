@@ -1,6 +1,6 @@
 # VNTV — VideoNeat Television
 
-**Version:** 2.1.4 · **Last updated:** 12 October 2026
+**Version:** 2.2.0 · **Last updated:** 18 October 2026
 
 **Live / demo:** https://chiuta.github.io/VNTV/
 
@@ -59,7 +59,9 @@ tablets, computers and TVs. No accounts, no analytics, no cookies; by default th
 
 See also: [README.ro.md](README.ro.md) (Română, with a user manual and the exact list of network hosts).
 
-## Changelog (2.1.4)
+## Changelog (2.2.0)
+
+* 2.2.0 — 2026-10-18: new **Screen** panel — Cast / AirPlay, picture-in-picture, separate window (second monitor) and a kiosk link + QR code for a TV or any other screen.
 
 * 2.1.4 — 2026-10-12: the version and the last-updated date are now shown in the app (Layers panel).
 * Start screen: the "can't load the list" message is now shown inline under the intro text instead of a toast that overlapped the VNTV logo at 360 px; while the browser reports it is offline, the catalogue request is no longer attempted at start-up (it retries by itself on the `online` event).

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.2.0 — 2026-10-18
+- Nou: panoul **Ecran** (butonul monitor din bara de comenzi; pe telefon, din panoul Straturi) cu toate variantele de trimitere pe alt ecran: Cast / AirPlay (când browserul îl permite), imagine în imagine, fereastră separată (se deschide pe al doilea monitor dacă browserul permite `getScreenDetails`) și link de chioșc + cod QR pentru TV / alt dispozitiv (același canal, pe tot ecranul, sincronizat cu programul; comutator „Cu sunet”).
+- Linkul și QR-ul apar doar în varianta găzduită (HTTPS); copia dintr-un fișier local explică de ce nu au sens.
+- 7 limbi (15 chei noi), test automat nou (`Ecran: …`), buton Buy Me a Coffee în panou.
+- Versiune ridicată la 2.2.0.
+
 ## 2.1.4 — 2026-10-12
 - 2.1.4 — 2026-10-12: versiunea și data ultimei actualizări sunt afișate în aplicație (panoul Straturi/Layers, în toate cele 7 limbi) și în `<meta name="application-version">` / `<meta name="last-updated">`; `package.json` are acum câmpul `updated`, folosit de `build.mjs` ca dată a construcției.
 - Versiune ridicată la 2.1.4 (package.json, package-lock.json, sw.js generat).
