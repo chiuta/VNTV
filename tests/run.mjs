@@ -456,7 +456,7 @@ await test("Reziliență: offline → așteaptă rețeaua, nu consumă programul
   const {ctx, page} = await startDirect({});
   await page.waitForFunction(() => PL.mode === "direct" && V.currentTime > 0.2, null, {timeout:20000});
   await ctx.setOffline(true);
-  await page.evaluate(() => { const it = S.items[S.idx]; window.__i = S.idx; directFail("error", 2); });
+  await page.evaluate(() => { window.__i = S.idx; directFail("error", 2); });
   await page.waitForFunction(() => S.waitOnline, null, {timeout:5000});
   ok(await page.evaluate(() => S.idx === window.__i && S.errChain === 0 && !$("#errbar").hidden), "a sărit clipul sau lipsește mesajul offline");
   await ctx.setOffline(false);
