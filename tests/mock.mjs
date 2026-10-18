@@ -79,7 +79,7 @@ export async function install(page, opts = {}){
     }
     if (u.host === "videos.trom.tf" || u.host === "peertube.example"){
       if (u.pathname.startsWith("/videos/embed/")) return route.fulfill({status:200, headers:{"content-type":"text/html"}, body: opts.deadEmbed ? "<!doctype html><body style='background:#321'>silent embed</body>"
-        : opts.brokenPlayer ? EMBED.replace('send({method:"peertube::playbackStatusUpdate"', 'void ({method:"peertube::playbackStatusUpdate"') : EMBED});   // brokenPlayer: API-ul răspunde, dar playerul nu redă (ca în Edge)
+        : opts.autoplayBlocked ? EMBED.replace('state="playing", ready=false','state="paused", ready=false').replace('if(meth==="play") state="playing";','') : opts.brokenPlayer ? EMBED.replace('send({method:"peertube::playbackStatusUpdate"', 'void ({method:"peertube::playbackStatusUpdate"') : EMBED});   // brokenPlayer: API-ul răspunde, dar playerul nu redă (ca în Edge)
       const cm = u.pathname.match(/\/api\/v1\/videos\/([^/]+)\/captions$/);
       if (cm) return J(route, {total:1, data:[{language:{id:"en", label:"English"}, captionPath:"/lazy-static/video-captions/x-en.vtt"}]});
       if (u.pathname.endsWith(".vtt")) return route.fulfill({status:200, headers:{"content-type":"text/vtt", "access-control-allow-origin":"*"}, body:VTT});

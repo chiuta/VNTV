@@ -44,6 +44,7 @@ addEventListener("message", e => {
 function onEmbStatus(st){
   if (PL.mode !== "p2p") return;
   PL.lastUpd = Date.now();
+  if (st.playbackState) PL.state = st.playbackState;
   if (typeof st.position === "number") PL.pos = st.position;
   if (typeof st.duration === "number" && st.duration > 0) PL.dur = st.duration;
   if (st.playbackState === "playing"){ if (PL.paused || !PL.started){ PL.paused = false; onPlaying(); } }
@@ -134,7 +135,7 @@ function playDirect(it, src, offset){
   $("#bpip").hidden = !CAN_PIP;
 }
 function playEmbed(it, offset){
-  PL.mode = "p2p"; PL.pos = offset; PL.dur = it.dur || 0; PL.paused = false; PL.started = false; PL.lastUpd = 0;
+  PL.mode = "p2p"; PL.pos = offset; PL.dur = it.dur || 0; PL.paused = false; PL.started = false; PL.lastUpd = 0; PL.state = "";
   V.pause(); V.removeAttribute("src"); V.load(); V.style.display = "none";
   document.body.classList.add("p2p");
   const q = new URLSearchParams({api:"1", autoplay:"1", controls:"0", controlBar:"0", title:"0", warningTitle:"0", peertubeLink:"0",
@@ -162,6 +163,15 @@ function playEmbed(it, offset){
     markP2pBroken(); toast(t("p2pFallback"), 4500);
     play(S.idx, {offset: S.live ? undefined : PL.pos});
   }, 2000);
+  // autoplay blocat (politica mai strictă din Firefox/ESR): playerul se încarcă, răspunde la API, dar rămâne în pauză, iar watchdog-ul
+  // de mai sus ignoră pauza → „Următorul” părea că nu face nimic. Întâi cerem din nou redarea, apoi trecem la redarea directă.
+  const stuck = () => tok === S.playTok && PL.mode === "p2p" && !S.userPaused && !document.hidden && PL.state !== "playing";
+  setTimeout(() => { if (stuck()) embCall("play"); }, 4000);
+  setTimeout(() => {
+    if (!stuck() || !it._src) return;
+    markP2pBroken(); toast(t("p2pFallback"), 4500);
+    play(S.idx, {offset: S.live ? undefined : PL.pos});
+  }, 9000);
   armFallback(Math.max(20, (it.dur || 150) - offset + 10));
   $("#bpip").hidden = true; $("#bcast").hidden = true;
 }

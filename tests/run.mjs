@@ -281,6 +281,17 @@ await test("Player PeerTube încărcat dar fără redare (ca în Edge) → redar
   await ctx.close();
 });
 
+await test("Autoplay blocat în playerul P2P (ca în Firefox): „Următorul” nu rămâne pe ecran înghețat → redare directă", async () => {
+  const {ctx, page} = await open({}, {autoplayBlocked:true});
+  await page.click("#go");
+  await page.waitForFunction(() => PL.mode === "p2p" && EMB.ready, null, {timeout:15000}).catch(() => {});
+  ok((await state(page)).pl === "p2p", "trebuia să înceapă în P2P");
+  await page.waitForFunction(() => PL.mode === "direct" && S.p2pBroken, null, {timeout:40000}).catch(() => {});
+  const s = await state(page);
+  ok(s.pl === "direct" && await page.evaluate(() => S.p2pBroken), "playerul blocat în pauză nu a dus la redare directă: " + JSON.stringify(s));
+  await ctx.close();
+});
+
 await test("Distribuire: ancoră #v= la fiecare video, buton Distribuie (share + clipboard) și link care deschide videoul", async () => {
   const {ctx, page} = await open();
   await page.click("#go");
