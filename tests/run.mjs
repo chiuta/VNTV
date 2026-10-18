@@ -423,6 +423,73 @@ await test("Ecran: panou cu Cast/PiP/fereastră separată/link chioșc + QR (gă
   } finally { await c2.close(); srv.close(); }
 });
 
+/* ---------- Reziliență la erori de redare ---------- */
+const direct = page => page.evaluate(() => { P.net = "direct"; P.p2pAck = true; savePrefs(); });
+const startDirect = async (mock, query = "") => {
+  const r = await open({}, mock, query); await direct(r.page); await r.page.click("#go");
+  return r;
+};
+await test("Reziliență: fișier stricat → trece la alt fișier (altă calitate) fără a sări clipul", async () => {
+  const {ctx, page, errors} = await startDirect({badTop:true});
+  await page.waitForFunction(() => PL.mode === "direct" && V.currentTime > 0.3 && !V.paused, null, {timeout:20000});
+  const r = await page.evaluate(() => ({ci:S.items[S.idx]._ci, log:JSON.parse(localStorage.getItem("vntv.errLog") || "[]").length, chain:S.errChain, src:V.currentSrc}));
+  ok(r.ci === 1 && /clip6/.test(r.src), "n-a trecut pe fișierul bun: " + JSON.stringify(r));
+  ok(r.log >= 1 && r.chain === 0, "jurnal/lanț greșit: " + JSON.stringify(r));
+  ok(!errors.length, errors.join("; ")); await ctx.close();
+});
+await test("Reziliență: toate sursele eșuează → clip marcat 24 h, sărit, jurnal completat", async () => {
+  const {ctx, page} = await startDirect({allBad:true});
+  await page.waitForFunction(() => S.errChain >= 1, null, {timeout:25000});
+  const r = await page.evaluate(() => ({bad:Object.keys(JSON.parse(localStorage.getItem("vntv.badVids") || "{}")).length, kinds:JSON.parse(localStorage.getItem("vntv.errLog") || "[]").map(e => e.kind)}));
+  ok(r.bad >= 1 && r.kinds.includes("giveup"), "clipul nu a fost marcat: " + JSON.stringify(r));
+  await ctx.close();
+});
+await test("Reziliență: după 5 clipuri la rând eșuate redarea se oprește cu bară de acțiuni", async () => {
+  const {ctx, page} = await startDirect({allBad:true});
+  await page.waitForFunction(() => S.halted, null, {timeout:60000});
+  ok(await page.evaluate(() => !$("#errbar").hidden && S.errChain >= 5 && $("#errmsg").textContent.length > 5), "bara de erori lipsește");
+  await page.click("#eRetry");
+  ok(await page.evaluate(() => !S.halted && S.errChain === 0 && $("#errbar").hidden), "„Reîncearcă” nu a resetat starea");
+  await ctx.close();
+});
+await test("Reziliență: offline → așteaptă rețeaua, nu consumă programul; la revenire reia", async () => {
+  const {ctx, page} = await startDirect({});
+  await page.waitForFunction(() => PL.mode === "direct" && V.currentTime > 0.2, null, {timeout:20000});
+  await ctx.setOffline(true);
+  await page.evaluate(() => { const it = S.items[S.idx]; window.__i = S.idx; directFail("error", 2); });
+  await page.waitForFunction(() => S.waitOnline, null, {timeout:5000});
+  ok(await page.evaluate(() => S.idx === window.__i && S.errChain === 0 && !$("#errbar").hidden), "a sărit clipul sau lipsește mesajul offline");
+  await ctx.setOffline(false);
+  await page.waitForFunction(() => !S.waitOnline && V.currentTime > 0 && !V.paused, null, {timeout:15000});
+  await ctx.close();
+});
+await test("Reziliență: lista neagră locală sare clipul fără a schimba programul sincronizat", async () => {
+  const {ctx, page} = await open({}, {}); await direct(page);
+  const before = await page.evaluate(() => { const it = S.items[0]; markBad(it); return {bad:isBadVid(it), key:it.key}; });
+  ok(before.bad, "markBad/isBadVid");
+  await page.click("#go");
+  await page.waitForFunction(() => PL.started, null, {timeout:15000});
+  ok(await page.evaluate(() => S.live && S.items.length > 1), "programul s-a schimbat");
+  await ctx.close();
+});
+await test("Reziliență: blocaj → plafon de calitate; clipuri curate îl relaxează", async () => {
+  const {ctx, page} = await open({}, {badTop:true}); await direct(page);
+  const r = await page.evaluate(() => { S.qCap = 480; const info = {files:[], streamingPlaylists:[{files:[{resolution:{id:1080}, fileUrl:"https://x/a.webm"}, {resolution:{id:720}, fileUrl:"https://x/b.webm"}, {resolution:{id:480}, fileUrl:"https://x/c.webm"}]}]};
+    P.quality = "auto"; const capped = srcList(info)[0].res; S.items[S.idx] = S.items[S.idx] || {}; S.clean = 3; S.items[S.idx]._tries = 0; clipEnded(); return {capped, cap:S.qCap}; });
+  ok(r.capped === 480 && r.cap === 0, "plafon/relaxare: " + JSON.stringify(r));
+  await ctx.close();
+});
+await test("Reziliență: butonul din Straturi copiază jurnalul local (fără telemetrie)", async () => {
+  const {ctx, page} = await open({}, {}); await page.addStyleTag({content:"#splash{display:none!important}"});
+  await page.evaluate(() => { logErr(S.items[0], "error", 4); openPanel("layers"); });
+  await page.waitForSelector("#goLog");
+  ok((await page.textContent("#goLog")).includes("1"), "contor lipsă");
+  await page.evaluate(() => { window.__c = null; window.copyText = async s => { window.__c = s; return true; }; });
+  await page.click("#goLog");
+  const c = await page.evaluate(() => window.__c); ok(c && JSON.parse(c)[0].code === 4, "jurnal necopiat: " + c);
+  await ctx.close();
+});
+
 await browser.close();
 const failed = results.filter(r => r[1] !== "OK");
 console.log(`\n${results.length - failed.length}/${results.length} teste trecute`);

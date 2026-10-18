@@ -365,5 +365,21 @@
  "scrShare": "Partilhar",
  "scrQr": "Código QR da ligação para o outro ecrã",
  "scrHost": "Esta cópia corre a partir de um ficheiro, por isso a ligação não abriria noutro dispositivo. Aloja a aplicação (HTTPS) ou usa as opções acima.",
- "splashTv": "Numa TV ou noutro ecrã: depois de Start, abre o painel Ecrã (ícone de monitor) para obter ligação e código QR."
+ "splashTv": "Numa TV ou noutro ecrã: depois de Start, abre o painel Ecrã (ícone de monitor) para obter ligação e código QR.",
+ "errNet": "Erro de rede",
+ "errDecode": "Não é possível descodificar o vídeo",
+ "errSrc": "Fonte indisponível ou formato não suportado",
+ "errAbort": "Reprodução interrompida",
+ "errStall": "Ligação lenta",
+ "errOffline": "Estás offline — a reprodução retoma quando a ligação voltar.",
+ "errChain": "Vários clipes seguidos não puderam ser reproduzidos. Escolhe uma ação:",
+ "errBtnLow": "Menor qualidade",
+ "errBtnEng": "Alternar P2P / direto",
+ "errBtnRetry": "Tentar de novo",
+ "errBtnSkip": "Clipe seguinte",
+ "logGrp": "Problemas de reprodução",
+ "logRow": "Copiar registo de erros ({n})",
+ "logHint": "Fica apenas neste dispositivo (últimos 60 eventos, sem dados pessoais); nada é enviado.",
+ "logCopied": "Registo copiado",
+ "logEmpty": "Nenhum erro registado"
 }

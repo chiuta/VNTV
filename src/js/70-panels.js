@@ -106,7 +106,7 @@ function renderLayers(){
   if (!A){
     const [n, d] = L().ov.subs; h += `<div class="grp">${esc(t("gBroad"))}</div>` + tgl("subs", O.subs, n, d, "data-k") + (O.subs ? subSeg : "");
     h += `<button class="btn more-set" id="advT">${esc(t("showAll"))} ▾</button>`;
-    b.innerHTML = h + DONATE_PILL; bindLayers(b); return;
+    b.innerHTML = h + errLogRow() + DONATE_PILL; bindLayers(b); return;
   }
   for (const x of OVERLAYS){
     if (x.g){ h += `<div class="grp">${esc(t(x.g))}</div>`; continue; }
@@ -137,7 +137,7 @@ function renderLayers(){
       <div class="hintp">VNTV ${esc(VERSION)} · ${esc(BUILD.target)}</div>
     </details>
     <button class="btn more-set" id="advT">${esc(t("showLess"))} ▴</button>`;
-  b.innerHTML = h + DONATE_PILL;
+  b.innerHTML = h + errLogRow() + DONATE_PILL;
   bindLayers(b);
 }
 function bindLayers(b){

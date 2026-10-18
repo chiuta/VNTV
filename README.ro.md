@@ -1,6 +1,6 @@
 # VNTV — VideoNeat Television
 
-**Versiune:** 2.2.0 · **Ultima actualizare:** 18 octombrie 2026
+**Versiune:** 2.3.0 · **Ultima actualizare:** 18 octombrie 2026
 
 Canal TV de știință non-stop, fără urmărire, construit din colecția [VideoNeat.com](https://www.videoneat.com): aplicație web (un singur fișier HTML), plugin WordPress pentru catalog și addon Stremio.
 
@@ -76,7 +76,9 @@ Deschide `index.html` direct în browser (necesită internet pentru catalog și 
 
 Publicare pe GitHub Pages: `Settings → Pages → Source: GitHub Actions`; workflow-ul `.github/workflows/pages.yml` construiește și publică `deploy/site` (plus `vntv.html` ca descărcare).
 
-## Istoric / Changelog (2.2.0)
+## Istoric / Changelog (2.3.0)
+
+* 2.3.0 — 2026-10-18: reziliență la erori de redare — reîncercare, alt format/calitate, P2P și altă instanță PeerTube, așteptare offline, listă neagră locală 24 h, bară de erori cu acțiuni, jurnal local exportabil (fără telemetrie).
 
 * 2.2.0 — 2026-10-18: panou nou **Ecran** — Cast / AirPlay, imagine în imagine, fereastră separată (al doilea monitor) și link de chioșc + cod QR pentru TV sau alt ecran.
 

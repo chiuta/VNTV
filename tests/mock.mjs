@@ -85,7 +85,10 @@ export async function install(page, opts = {}){
       if (u.pathname.endsWith(".vtt")) return route.fulfill({status:200, headers:{"content-type":"text/vtt", "access-control-allow-origin":"*"}, body:VTT});
       const vm = u.pathname.match(/\/api\/v1\/videos\/([^/]+)$/);
       if (vm) return J(route, {uuid:vm[1], shortUUID:vm[1], name:"x", duration:6, description:"PeerTube description.", thumbnails:[], previewPath:null,
-        streamingPlaylists:[{playlistUrl:`https://${u.host}/hls/master.m3u8`, files:[{resolution:{id:720, label:"720p"}, fileUrl:`https://${u.host}/static/clip6.webm`, hasVideo:true}]}], files:[]});
+        streamingPlaylists:[{playlistUrl:`https://${u.host}/hls/master.m3u8`, files: opts.allBad ? [{resolution:{id:720}, fileUrl:`https://${u.host}/static/bad720.webm`, hasVideo:true}]
+          : opts.badTop ? [{resolution:{id:720}, fileUrl:`https://${u.host}/static/bad720.webm`, hasVideo:true}, {resolution:{id:480}, fileUrl:`https://${u.host}/static/clip6.webm`, hasVideo:true}]
+          : [{resolution:{id:720, label:"720p"}, fileUrl:`https://${u.host}/static/clip6.webm`, hasVideo:true}]}], files:[]});
+      if (/bad\d+\.webm$/.test(u.pathname)) return route.fulfill({status:404, body:""});
       if (u.pathname.endsWith("clip6.webm")) return rangeReply(route, CLIP6);
       if (u.pathname.endsWith("clip30.webm")) return rangeReply(route, CLIP30);
       const ch = u.pathname.match(/\/api\/v1\/video-channels\/([^/]+)(\/videos)?$/);

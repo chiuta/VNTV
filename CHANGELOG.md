@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.3.0 — 2026-10-18
+- Nou: **reziliență la erori de redare** (totul local, fără telemetrie). Ordinea la o eroare/blocaj: aceeași sursă încă o dată → alt fișier/altă calitate → playerul P2P → aceeași înregistrare pe altă instanță PeerTube → abia apoi clipul se sare.
+- Se aleg doar formatele pe care browserul le poate reda; pe conexiune lentă / economisire de date se pornește cu calitate mai mică (plafon care se relaxează după 4 clipuri curate).
+- Fără rețea: se așteaptă revenirea conexiunii (programul sincronizat nu se consumă), apoi redarea reia.
+- Clipurile care au eșuat intră pe o listă neagră locală de 24 h (se sar fără așteptare; programul sincronizat rămâne același).
+- După 5 clipuri la rând eșuate, redarea se oprește și apare o **bară de erori** cu motivul și acțiuni: calitate mai mică, comută P2P/direct, reîncearcă, clipul următor.
+- Preîncărcare de metadate pentru clipul următor; jurnal local exportabil (ultimele 60 de evenimente) din panoul Straturi.
+- 7 limbi (17 chei noi), 7 teste noi (`Reziliență: …`); corectat: aceeași adresă de fișier nu se reîncărca după o eroare.
+
 ## 2.2.0 — 2026-10-18
 - Nou: panoul **Ecran** (butonul monitor din bara de comenzi; pe telefon, din panoul Straturi) cu toate variantele de trimitere pe alt ecran: Cast / AirPlay (când browserul îl permite), imagine în imagine, fereastră separată (se deschide pe al doilea monitor dacă browserul permite `getScreenDetails`) și link de chioșc + cod QR pentru TV / alt dispozitiv (același canal, pe tot ecranul, sincronizat cu programul; comutator „Cu sunet”).
 - Linkul și QR-ul apar doar în varianta găzduită (HTTPS); copia dintr-un fișier local explică de ce nu au sens.

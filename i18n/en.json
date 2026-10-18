@@ -365,5 +365,21 @@
  "scrShare": "Share",
  "scrQr": "QR code of the link for the other screen",
  "scrHost": "This copy runs from a file, so the link would not open on another device. Host the app (HTTPS) or use the options above.",
- "splashTv": "On a TV or another screen: after Start, open the Screen panel (monitor icon) for a link and QR code."
+ "splashTv": "On a TV or another screen: after Start, open the Screen panel (monitor icon) for a link and QR code.",
+ "errNet": "Network error",
+ "errDecode": "Video can't be decoded",
+ "errSrc": "Source unavailable or format not supported",
+ "errAbort": "Playback aborted",
+ "errStall": "Slow connection",
+ "errOffline": "You're offline — playback resumes when the connection returns.",
+ "errChain": "Several clips in a row failed to play. Pick an action:",
+ "errBtnLow": "Lower quality",
+ "errBtnEng": "Switch P2P / direct",
+ "errBtnRetry": "Retry",
+ "errBtnSkip": "Next clip",
+ "logGrp": "Playback problems",
+ "logRow": "Copy error log ({n})",
+ "logHint": "Stays on this device only (last 60 events, no personal data); nothing is sent anywhere.",
+ "logCopied": "Error log copied",
+ "logEmpty": "No errors logged"
 }

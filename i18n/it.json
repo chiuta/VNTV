@@ -365,5 +365,21 @@
  "scrShare": "Condividi",
  "scrQr": "Codice QR del link per l'altro schermo",
  "scrHost": "Questa copia gira da un file, quindi il link non si aprirebbe su un altro dispositivo. Ospita l'app (HTTPS) o usa le opzioni sopra.",
- "splashTv": "Su una TV o un altro schermo: dopo Start, apri il pannello Schermo (icona monitor) per link e codice QR."
+ "splashTv": "Su una TV o un altro schermo: dopo Start, apri il pannello Schermo (icona monitor) per link e codice QR.",
+ "errNet": "Errore di rete",
+ "errDecode": "Video non decodificabile",
+ "errSrc": "Sorgente non disponibile o formato non supportato",
+ "errAbort": "Riproduzione interrotta",
+ "errStall": "Connessione lenta",
+ "errOffline": "Sei offline: la riproduzione riprende al ritorno della connessione.",
+ "errChain": "Più clip di fila non sono stati riprodotti. Scegli un'azione:",
+ "errBtnLow": "Qualità inferiore",
+ "errBtnEng": "Cambia P2P / diretto",
+ "errBtnRetry": "Riprova",
+ "errBtnSkip": "Clip successivo",
+ "logGrp": "Problemi di riproduzione",
+ "logRow": "Copia il registro errori ({n})",
+ "logHint": "Resta solo su questo dispositivo (ultimi 60 eventi, nessun dato personale); non viene inviato nulla.",
+ "logCopied": "Registro copiato",
+ "logEmpty": "Nessun errore registrato"
 }

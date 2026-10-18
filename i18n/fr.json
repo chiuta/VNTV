@@ -365,5 +365,21 @@
  "scrShare": "Partager",
  "scrQr": "QR code du lien pour l'autre écran",
  "scrHost": "Cette copie s'exécute depuis un fichier, le lien ne s'ouvrirait donc pas sur un autre appareil. Héberge l'application (HTTPS) ou utilise les options ci-dessus.",
- "splashTv": "Sur une TV ou un autre écran : après Start, ouvre le panneau Écran (icône moniteur) pour un lien et un QR code."
+ "splashTv": "Sur une TV ou un autre écran : après Start, ouvre le panneau Écran (icône moniteur) pour un lien et un QR code.",
+ "errNet": "Erreur réseau",
+ "errDecode": "Vidéo impossible à décoder",
+ "errSrc": "Source indisponible ou format non pris en charge",
+ "errAbort": "Lecture interrompue",
+ "errStall": "Connexion lente",
+ "errOffline": "Hors ligne — la lecture reprendra au retour de la connexion.",
+ "errChain": "Plusieurs clips de suite n'ont pas pu être lus. Choisis une action :",
+ "errBtnLow": "Qualité réduite",
+ "errBtnEng": "Basculer P2P / direct",
+ "errBtnRetry": "Réessayer",
+ "errBtnSkip": "Clip suivant",
+ "logGrp": "Problèmes de lecture",
+ "logRow": "Copier le journal d'erreurs ({n})",
+ "logHint": "Reste uniquement sur cet appareil (60 derniers événements, aucune donnée personnelle) ; rien n'est envoyé.",
+ "logCopied": "Journal copié",
+ "logEmpty": "Aucune erreur enregistrée"
 }

@@ -91,6 +91,11 @@ async function play(i, opt = {}){
   if (S.live && opt.offset === undefined){ i = liveCatchUp(i); }
   const offset = opt.offset ?? (S.live ? liveOffset(i) : 0);
   S.idx = i; const it = S.items[i]; const tok = ++S.playTok; S.clipCount++;
+  if (opt.auto && isBadVid(it)){                                  // clip care a eșuat de curând: îl sărim fără să așteptăm (programul sincronizat rămâne neschimbat)
+    if (++S.badRun <= 6){ logErr(it, "skip-bad"); return next(true); }
+    store.set("badVids", {}); S.badRun = 0;                         // toate par stricate: probabil e problema rețelei, nu a clipurilor
+  }
+  resetItemErr(it);
   setAnchor(it);
   if (S.pager && S.items.length - i < 5) loadMore();
   clearTimeout(fallbackTimer); clearTimeout(stallTimer);
@@ -103,6 +108,7 @@ async function play(i, opt = {}){
   let info = null;
   try{ info = await getVideo(it.v); }catch(e){}
   if (tok !== S.playTok) return;
+  if (!info){ const alt = await videoFromAltHost(it); if (tok !== S.playTok) return; if (alt){ info = alt.info; it._h = alt.host; } }   // gazdă de rezervă (aceeași înregistrare pe altă instanță)
   if (info){
     it.dur = info.duration || it.dur; it.preview = ptImage(info, it.v.host) || it.img;
     if (it.src === "pt" && !it.desc) it.desc = info.description || it.ex;
@@ -111,21 +117,22 @@ async function play(i, opt = {}){
   loadSubs(it);
   if (!it.desc) ensureDesc(it).then(() => { if (tok === S.playTok){ requestTr(); if (isOpen("info")) renderInfo(); } });
 
-  const src = info && pickSrc(info);
+  it._cands = info ? srcList(info) : []; it._ci = it._preBad && it._cands.length > 1 ? 1 : 0;
+  const src = it._cands[it._ci]?.url || null;
   it._src = src || null;
   const mode = netMode();
   if (mode === "p2p" || !src) playEmbed(it, offset);
   else playDirect(it, src, offset);
   mediaSession(it);
   const nx = S.items[i + 1];
-  if (nx) getVideo(nx.v).then(v => { nx.preview = ptImage(v, nx.v.host) || nx.img; nx.dur = v.duration || nx.dur; }).catch(() => {});
+  if (nx) getVideo(nx.v).then(v => { nx.preview = ptImage(v, nx.v.host) || nx.img; nx.dur = v.duration || nx.dur; preloadNext(nx, v); }).catch(() => {});
 }
 function playDirect(it, src, offset){
   PL.mode = "direct"; PL.started = false;
   if (frame.style.display === "block"){ frame.style.display = "none"; frame.removeAttribute("src"); EMB.win = null; }
   document.body.classList.remove("p2p");
   V.style.display = "";
-  if (V.getAttribute("src") !== src){ V.src = src; }
+  if (V.getAttribute("src") !== src || V.error){ V.src = src; if (V.error) V.load(); }   // aceeași adresă după o eroare: reîncărcăm explicit
   V._offset = offset > 1 ? offset : 0;
   V.volume = P.vol; V.muted = P.muted;
   if (V._offset && V.readyState >= 1){ V.currentTime = V._offset; V._offset = 0; }
@@ -143,7 +150,7 @@ function playEmbed(it, offset){
   if (offset > 1) q.set("start", String(Math.floor(offset)));
   frame.style.display = "block";
   frame.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");   // atributul se pune doar când se folosește playerul PeerTube
-  frame.src = `https://${it.v.host}/videos/embed/${encodeURIComponent(it.v.id)}?${q}`;
+  frame.src = `https://${it._h || it.v.host}/videos/embed/${encodeURIComponent(it.v.id)}?${q}`;
   frame.onload = () => { embReset(); $("#spin").classList.remove("show"); setTimeout(() => { if (!PL.started) onPlaying(); }, 1500); };
   // dacă API-ul playerului nu răspunde în 10 s, trecem la redarea directă (fără bară de progres nu merită riscul)
   const tok = S.playTok;
@@ -176,16 +183,16 @@ function playEmbed(it, offset){
   $("#bpip").hidden = true; $("#bcast").hidden = true;
 }
 function onPlaying(){
-  PL.started = true;
+  PL.started = true; S.errChain = 0; S.badRun = 0; S.halted = false; hideErr();
   clearTimeout(stallTimer); $("#spin").classList.remove("show"); V.style.opacity = 1;
   if (!S._lowerShown){ S._lowerShown = true; setTimeout(() => showLower(S.items[S.idx]), 700); }
   syncPlay();
 }
 function next(auto){
-  if (auto){ if (S._adv === S.playTok) return; S._adv = S.playTok; }
-  else leaveLive();
+  if (auto){ if (S._adv === S.playTok || S.halted) return; S._adv = S.playTok; }
+  else { leaveLive(); S.halted = false; S.errChain = 0; }
   S._lowerShown = false;
-  return play(S.idx + 1, auto && S.live ? {} : {offset:0});
+  return play(S.idx + 1, auto && S.live ? {auto:true} : {offset:0, auto:!!auto});
 }
 function prev(){
   if (curTime() > 5){ leaveLive(); seekTo(0); return; }
@@ -206,10 +213,10 @@ V.addEventListener("loadstart", () => { S._lowerShown = false; });
 V.addEventListener("waiting", () => {
   if (PL.mode !== "direct") return;
   $("#spin").classList.add("show"); clearTimeout(stallTimer);
-  stallTimer = setTimeout(() => { toast(t("slow")); next(true); }, 20000);
+  stallTimer = setTimeout(() => directFail("stall"), 9000);          // întâi calitate mai mică / altă sursă; abia la urmă trecem la următorul clip
 });
-V.addEventListener("ended", () => { if (PL.mode === "direct") next(true); });
-V.addEventListener("error", () => { if (PL.mode !== "direct" || !V.getAttribute("src")) return; toast(t("unavail")); setTimeout(() => next(true), 900); });
+V.addEventListener("ended", () => { if (PL.mode === "direct"){ clipEnded(); next(true); } });
+V.addEventListener("error", () => { if (PL.mode !== "direct" || !V.getAttribute("src")) return; directFail("error", V.error && V.error.code); });
 V.addEventListener("pause", syncPlay);
 V.addEventListener("volumechange", syncVol);
 V.addEventListener("timeupdate", () => { if (PL.mode === "direct") onTime(V.currentTime || 0, isFinite(V.duration) ? V.duration : 0); });

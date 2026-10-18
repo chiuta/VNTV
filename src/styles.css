@@ -499,3 +499,9 @@ body.lower-on.ui #subs{bottom:calc(270px + var(--safe-b))}
 #goScreen svg{width:18px;height:18px;fill:currentColor}
 #splash .tvnote{margin:10px auto 0;max-width:420px;color:var(--mut);font-size:12px;line-height:1.5}
 @media (max-height:500px){#splash .tvnote{display:none}}
+#errbar{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(104px + var(--safe-b));z-index:26;width:min(560px,94vw);box-sizing:border-box;padding:12px 14px;border-radius:14px;
+  background:rgba(10,12,16,.94);border:1px solid var(--line);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);color:#fff;font:600 13px/1.4 var(--ui);text-align:center}
+#errbar[hidden]{display:none}
+#errbar .eacts{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+#errbar .btn{padding:8px 12px;font-size:12px}
+.kiosk #errbar{display:none!important}

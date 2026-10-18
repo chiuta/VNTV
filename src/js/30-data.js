@@ -102,21 +102,36 @@ function ptImage(info, host){
   const th = (info?.thumbnails || []).filter(x => x.fileUrl && x.aspectRatio !== "1:1").sort((a, b) => b.width - a.width)[0];
   return th?.fileUrl || (info?.previewPath ? `https://${host}${info.previewPath}` : null);
 }
-function pickSrc(info){
-  const hls = (info.streamingPlaylists || [])[0];
-  const files = [...(hls?.files || []), ...(info.files || [])].filter(f => f.fileUrl && f.hasVideo !== false)
-    .sort((a, b) => (b.resolution?.id || 0) - (a.resolution?.id || 0));
-  if (files.length){
-    const cn = navigator.connection || {};
-    const slow = cn.saveData || /(^|-)?(2g|3g)$/.test(cn.effectiveType || "");
-    let tgt = P.quality === "auto"
-      ? (slow ? 480 : Math.max(innerWidth, innerHeight) * Math.min(devicePixelRatio || 1, 2) >= 1700 ? 1080 : 720) : +P.quality;
-    if (ecoOn() && P.quality === "auto") tgt = Math.min(tgt, 720);
-    return (files.find(f => (f.resolution?.id || 0) <= tgt) || files[files.length - 1]).fileUrl;
-  }
-  if (hls?.playlistUrl && V.canPlayType("application/vnd.apple.mpegurl")) return hls.playlistUrl;
-  return null;
+// containerul trebuie să fie redabil de acest browser (altfel nu-l mai oferim deloc: mai bine alt fișier decât „eroare de redare”)
+function canPlayFile(u){
+  try{
+    const e = (new URL(u).pathname.match(/\.([a-z0-9]+)$/i) || [])[1];
+    const m = {mp4:"video/mp4", m4v:"video/mp4", webm:"video/webm", ogv:"video/ogg", mov:"video/mp4"}[(e || "").toLowerCase()];
+    return !m || V.canPlayType(m) !== "";
+  }catch(err){ return true; }
 }
+function slowNet(){
+  const cn = navigator.connection || {};
+  return !!(cn.saveData || /(^|-)?(2g|3g)$/.test(cn.effectiveType || "") || (cn.downlink && cn.downlink < 1.2) || cn.rtt > 900);
+}
+// lista ordonată de surse: întâi calitatea țintă, apoi calități tot mai mici, apoi cele mai mari; MP4 progresiv înaintea HLS la aceeași rezoluție
+function srcList(info){
+  const hls = (info.streamingPlaylists || [])[0];
+  const files = [...(info.files || []), ...(hls?.files || [])].filter(f => f.fileUrl && f.hasVideo !== false && canPlayFile(f.fileUrl))
+    .sort((a, b) => (b.resolution?.id || 0) - (a.resolution?.id || 0));
+  const out = [];
+  if (files.length){
+    let tgt = P.quality === "auto"
+      ? (slowNet() ? 480 : Math.max(innerWidth, innerHeight) * Math.min(devicePixelRatio || 1, 2) >= 1700 ? 1080 : 720) : +P.quality;
+    if (ecoOn() && P.quality === "auto") tgt = Math.min(tgt, 720);
+    if (P.quality === "auto" && S.qCap) tgt = Math.min(tgt, S.qCap);                // după un blocaj, rămânem la calitatea mai mică pentru câteva clipuri
+    let i = files.findIndex(f => (f.resolution?.id || 0) <= tgt); if (i < 0) i = files.length - 1;
+    for (const f of [...files.slice(i), ...files.slice(0, i).reverse()]) if (!out.some(o => o.url === f.fileUrl)) out.push({url:f.fileUrl, res:f.resolution?.id || 0});
+  }
+  if (hls?.playlistUrl && V.canPlayType("application/vnd.apple.mpegurl")) out.push({url:hls.playlistUrl, res:0});
+  return out;
+}
+function pickSrc(info){ return srcList(info)[0]?.url || null; }
 
 /* ---- canale PeerTube adăugate de spectator (videouri complete, de regulă cu licențe libere) ---- */
 function parseSource(url){

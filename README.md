@@ -1,6 +1,6 @@
 # VNTV — VideoNeat Television
 
-**Version:** 2.2.0 · **Last updated:** 18 October 2026
+**Version:** 2.3.0 · **Last updated:** 18 October 2026
 
 **Live / demo:** https://chiuta.github.io/VNTV/
 
@@ -59,7 +59,9 @@ tablets, computers and TVs. No accounts, no analytics, no cookies; by default th
 
 See also: [README.ro.md](README.ro.md) (Română, with a user manual and the exact list of network hosts).
 
-## Changelog (2.2.0)
+## Changelog (2.3.0)
+
+* 2.3.0 — 2026-10-18: playback-error resilience — retry, quality/format fallback, P2P and alternate PeerTube host, offline wait, 24 h local blacklist, error bar with actions, local exportable error log (no telemetry).
 
 * 2.2.0 — 2026-10-18: new **Screen** panel — Cast / AirPlay, picture-in-picture, separate window (second monitor) and a kiosk link + QR code for a TV or any other screen.
 

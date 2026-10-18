@@ -365,5 +365,21 @@
  "scrShare": "Distribuie",
  "scrQr": "Cod QR pentru linkul celuilalt ecran",
  "scrHost": "Această copie rulează dintr-un fișier, deci linkul nu s-ar deschide pe alt dispozitiv. Găzduiește aplicația (HTTPS) sau folosește opțiunile de mai sus.",
- "splashTv": "Pe TV sau alt ecran: după Start, deschide panoul Ecran (pictograma monitor) pentru link și cod QR."
+ "splashTv": "Pe TV sau alt ecran: după Start, deschide panoul Ecran (pictograma monitor) pentru link și cod QR.",
+ "errNet": "Eroare de rețea",
+ "errDecode": "Videoul nu poate fi decodat",
+ "errSrc": "Sursă indisponibilă sau format neacceptat",
+ "errAbort": "Redare întreruptă",
+ "errStall": "Conexiune lentă",
+ "errOffline": "Ești offline — redarea reia când revine conexiunea.",
+ "errChain": "Mai multe clipuri la rând nu au putut fi redate. Alege o acțiune:",
+ "errBtnLow": "Calitate mai mică",
+ "errBtnEng": "Schimbă P2P / direct",
+ "errBtnRetry": "Reîncearcă",
+ "errBtnSkip": "Clipul următor",
+ "logGrp": "Probleme de redare",
+ "logRow": "Copiază jurnalul de erori ({n})",
+ "logHint": "Rămâne doar pe acest dispozitiv (ultimele 60 de evenimente, fără date personale); nu se trimite nicăieri.",
+ "logCopied": "Jurnal copiat",
+ "logEmpty": "Niciun eveniment în jurnal"
 }
