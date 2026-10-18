@@ -364,5 +364,6 @@
  "scrCopy": "Copia link",
  "scrShare": "Condividi",
  "scrQr": "Codice QR del link per l'altro schermo",
- "scrHost": "Questa copia gira da un file, quindi il link non si aprirebbe su un altro dispositivo. Ospita l'app (HTTPS) o usa le opzioni sopra."
+ "scrHost": "Questa copia gira da un file, quindi il link non si aprirebbe su un altro dispositivo. Ospita l'app (HTTPS) o usa le opzioni sopra.",
+ "splashTv": "Su una TV o un altro schermo: dopo Start, apri il pannello Schermo (icona monitor) per link e codice QR."
 }

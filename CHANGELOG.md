@@ -3,6 +3,7 @@
 ## 2.2.0 — 2026-10-18
 - Nou: panoul **Ecran** (butonul monitor din bara de comenzi; pe telefon, din panoul Straturi) cu toate variantele de trimitere pe alt ecran: Cast / AirPlay (când browserul îl permite), imagine în imagine, fereastră separată (se deschide pe al doilea monitor dacă browserul permite `getScreenDetails`) și link de chioșc + cod QR pentru TV / alt dispozitiv (același canal, pe tot ecranul, sincronizat cu programul; comutator „Cu sunet”).
 - Linkul și QR-ul apar doar în varianta găzduită (HTTPS); copia dintr-un fișier local explică de ce nu au sens.
+- Notă scurtă pe ecranul de start despre linkul pentru TV.
 - 7 limbi (15 chei noi), test automat nou (`Ecran: …`), buton Buy Me a Coffee în panou.
 - Versiune ridicată la 2.2.0.
 

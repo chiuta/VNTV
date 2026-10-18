@@ -364,5 +364,6 @@
  "scrCopy": "Copiar ligação",
  "scrShare": "Partilhar",
  "scrQr": "Código QR da ligação para o outro ecrã",
- "scrHost": "Esta cópia corre a partir de um ficheiro, por isso a ligação não abriria noutro dispositivo. Aloja a aplicação (HTTPS) ou usa as opções acima."
+ "scrHost": "Esta cópia corre a partir de um ficheiro, por isso a ligação não abriria noutro dispositivo. Aloja a aplicação (HTTPS) ou usa as opções acima.",
+ "splashTv": "Numa TV ou noutro ecrã: depois de Start, abre o painel Ecrã (ícone de monitor) para obter ligação e código QR."
 }

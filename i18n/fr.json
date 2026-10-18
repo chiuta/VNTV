@@ -364,5 +364,6 @@
  "scrCopy": "Copier le lien",
  "scrShare": "Partager",
  "scrQr": "QR code du lien pour l'autre écran",
- "scrHost": "Cette copie s'exécute depuis un fichier, le lien ne s'ouvrirait donc pas sur un autre appareil. Héberge l'application (HTTPS) ou utilise les options ci-dessus."
+ "scrHost": "Cette copie s'exécute depuis un fichier, le lien ne s'ouvrirait donc pas sur un autre appareil. Héberge l'application (HTTPS) ou utilise les options ci-dessus.",
+ "splashTv": "Sur une TV ou un autre écran : après Start, ouvre le panneau Écran (icône moniteur) pour un lien et un QR code."
 }

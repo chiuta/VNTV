@@ -364,5 +364,6 @@
  "scrCopy": "Copiază linkul",
  "scrShare": "Distribuie",
  "scrQr": "Cod QR pentru linkul celuilalt ecran",
- "scrHost": "Această copie rulează dintr-un fișier, deci linkul nu s-ar deschide pe alt dispozitiv. Găzduiește aplicația (HTTPS) sau folosește opțiunile de mai sus."
+ "scrHost": "Această copie rulează dintr-un fișier, deci linkul nu s-ar deschide pe alt dispozitiv. Găzduiește aplicația (HTTPS) sau folosește opțiunile de mai sus.",
+ "splashTv": "Pe TV sau alt ecran: după Start, deschide panoul Ecran (pictograma monitor) pentru link și cod QR."
 }

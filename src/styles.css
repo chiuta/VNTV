@@ -497,3 +497,5 @@ body.lower-on.ui #subs{bottom:calc(270px + var(--safe-b))}
 .scqr{display:block;width:min(220px,70vw);height:auto;aspect-ratio:1;image-rendering:pixelated;border-radius:10px;background:#fff;margin:4px 0 6px}
 #goScreen{margin:6px 0 2px}
 #goScreen svg{width:18px;height:18px;fill:currentColor}
+#splash .tvnote{margin:10px auto 0;max-width:420px;color:var(--mut);font-size:12px;line-height:1.5}
+@media (max-height:500px){#splash .tvnote{display:none}}

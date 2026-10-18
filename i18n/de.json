@@ -364,5 +364,6 @@
  "scrCopy": "Link kopieren",
  "scrShare": "Teilen",
  "scrQr": "QR-Code des Links für den anderen Bildschirm",
- "scrHost": "Diese Kopie läuft aus einer Datei, der Link ließe sich auf anderen Geräten nicht öffnen. Hoste die App (HTTPS) oder nutze die obigen Optionen."
+ "scrHost": "Diese Kopie läuft aus einer Datei, der Link ließe sich auf anderen Geräten nicht öffnen. Hoste die App (HTTPS) oder nutze die obigen Optionen.",
+ "splashTv": "Auf TV oder anderem Bildschirm: Nach Start das Panel Bildschirm (Monitor-Symbol) öffnen – dort gibt es Link und QR-Code."
 }
