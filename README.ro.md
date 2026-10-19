@@ -1,6 +1,8 @@
 # VNTV — VideoNeat Television
 
-**Versiune:** 2.4.0 · **Ultima actualizare:** 19 octombrie 2026
+[English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
+
+**Versiune:** 2.4.0 · **Ultima actualizare:** 2026-10-19
 
 Canal TV de știință non-stop, fără urmărire, construit din colecția [VideoNeat.com](https://www.videoneat.com): aplicație web (un singur fișier HTML), plugin WordPress pentru catalog și addon Stremio.
 
@@ -23,6 +25,10 @@ Depozitul conține trei componente:
 | `index.html` (= `dist/vntv.html`), `deploy/site/` | Aplicația: un singur fișier, respectiv varianta găzduită pe HTTPS (instalabilă, cu `sw.js` pentru lucru offline) |
 | `wp-plugin/videoneat-index/` | Plugin WordPress care publică catalogul JSON folosit de aplicație și de addon |
 | `stremio-addon/` | Addon Stremio (Node ≥ 18, fără dependențe) |
+| `src/`, `i18n/` | Sursele. `node build.mjs` produce ambele variante ale aplicației. |
+| `tools/` | `coverage.mjs` (câte titluri se pot reda), `structure-check.mjs` (verificare săptămânală), `make-icons.py`. |
+| `tests/` | Teste automate (Playwright, simulări offline). `npm test`. |
+| `docs/` | Arhitectură, publicare, ghid pentru administratorii TROM, scrisoare-propunere către TROM, listă de verificare pe dispozitive reale, Android TV. |
 
 ## Funcții
 
@@ -47,6 +53,22 @@ Verificate în cod:
 5. Pentru altă limbă: Setări (O) → Limbă. Traducerea automată se poate opri din același loc.
 6. Pentru un canal PeerTube: Setări (O) → Arată tot → Surse → lipește adresa canalului (`https://instanță/c/canal`) → Adaugă.
 7. Dacă P2P nu merge sau nu vrei ca adresa ta IP să fie vizibilă altor spectatori: Setări → Rețea → **Direct**.
+
+## Cum își ia VNTV datele
+
+1. **Catalog oficial (preferat):** `https://www.videoneat.com/wp-json/videoneat/v1/index`, publicat de pluginul `videoneat-index`. Un singur fișier mic, în cache: rapid, fără parsare fragilă, și poartă duratele trailerelor, de care are nevoie **emisia sincronizată**.
+2. **Rezervă:** API-ul public WordPress, citind fiecare articol. Mai lent; aplicația arată sincer **NON-STOP** în loc de **ON AIR**, fiindcă fiecare primește propria listă de redare.
+3. **Surse suplimentare:** orice canal PeerTube cu videoclipuri cu licență deschisă poate fi adăugat cacanal (Straturi → Surse).
+
+## Redare
+
+* **P2P** (implicit pe computere și televizoare): playerul oficial PeerTube, care împarte sarcina între spectatori și reduce costurile serverului TROM. VNTV îl controlează prin API-ul de încorporare PeerTube.
+* **Directă** (implicit pe iOS și pe telefoane cu date mobile): fișierul MP4 într-un element `<video>` — necesar pentru imagine în imagine, AirPlay și Chromecast, și mai ușor pentru datele mobile.
+* Înainte de prima utilizare a P2P, VNTV explică faptul că P2P face adresa IP a spectatorului vizibilă altor spectatori și oferă redarea directă în loc. Dacă playerul PeerTube nu răspunde în 10 s, VNTV trece la redarea directă.
+
+## Canale
+
+Categoriile VideoNeat 1–14 (trailere) · 15 Favorite · **16 TROM** (documentarele complete ale TROM de pe videos.trom.tf) · 17+ orice canal PeerTube adăugat de spectator. Canalul 16 poate fi eliminat din Setări → Surse.
 
 ## Confidențialitate și rețea
 
@@ -74,6 +96,13 @@ node build.mjs          # generează index.html, dist/vntv.html și deploy/site/
 
 Deschide `index.html` direct în browser (necesită internet pentru catalog și video). Pentru testele complete: `npm install`, `npm run test:all` (Playwright, PHP și Node; toate rulează cu date simulate).
 
+```bash
+node build.mjs                 # index.html + dist/vntv.html + deploy/site/index.html + sw.js
+npm install                    # ESLint + Playwright (doar pentru dezvoltare)
+npx playwright install chromium
+npm run test:all               # lint + 25 end-to-end + 30 PHP + 33 teste addon, toate offline
+```
+
 Publicare pe GitHub Pages: `Settings → Pages → Source: GitHub Actions`; workflow-ul `.github/workflows/pages.yml` construiește și publică `deploy/site` (plus `vntv.html` ca descărcare).
 
 ## Istoric / Changelog (2.3.0)
@@ -95,9 +124,13 @@ Publicare pe GitHub Pages: `Settings → Pages → Source: GitHub Actions`; work
 - Versiune ridicată la 2.1.1 (package.json, package-lock.json, sw.js generat).
 - Fără rețea reală, catalogul lipsește; redarea a fost verificată doar cu rețeaua simulată din teste, nu cu videoneat.com (limită declarată).
 
+## Chioșc / ecrane publice
+
+`vntv.html?kiosk=1&ch=3&lang=en&preset=cinema&muted=0&reload=24` — pornește singură, fără controale, fără cursor, se reîncarcă zilnic. Apasă **K** de trei ori pentru a ieși.
+
 ## Licență
 
-MIT, vezi [LICENSE](LICENSE). Fontul Oswald este sub SIL Open Font License 1.1 (`src/fonts/OFL-Oswald.txt`, detalii în [NOTICE.md](NOTICE.md)).
+MIT, vezi [LICENSE](LICENSE). Fontul încorporat Oswald este sub SIL Open Font License 1.1 (`src/fonts/OFL-Oswald.txt`, detalii în [NOTICE.md](NOTICE.md)).
 
 ## Autor
 
@@ -106,3 +139,6 @@ Alexio — Alexandru-Ionuț Chiuță, contact: alexio@trom.tf
 ## English summary
 
 VNTV is a trade-free, non-stop science TV channel built from the VideoNeat.com trailer collection: a single-file web app (synchronized "on air" channels, TV guide, browsing, subtitles, 7 languages), a WordPress plugin that publishes the catalog as JSON, and a Stremio addon. No accounts, cookies or analytics; by default it contacts only videoneat.com and videos.trom.tf (in P2P mode also other viewers). Settings and favorites stay in the browser's localStorage. MIT licence.
+
+---
+Vezi [CHANGELOG.md](CHANGELOG.md).
