@@ -2,7 +2,9 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 2.4.0 · **Zuletzt aktualisiert:** 2026-10-19
+**Version:** 2.5.0 · **Zuletzt aktualisiert:** 2026-10-19
+
+Oberflächensprachen: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
 **Online / Demo:** https://chiuta.github.io/VNTV/
 
@@ -11,12 +13,12 @@
 *Der Screenshot wurde mit simulierten Testdaten (fiktive Titel, Beispielclip) erstellt, nicht mit dem echten Katalog.*
 
 Ein rund um die Uhr laufender, trade-free (kommerzfreier) Wissenschaftsfernsehkanal, aufgebaut aus der Sammlung von [VideoNeat.com](https://www.videoneat.com):
-synchronisierte Kanäle, ein TV-Guide, ein durchsuchbarer Katalog, übersetzte Untertitel, 7 Sprachen, und er funktioniert auf Telefonen,
+synchronisierte Kanäle, ein TV-Guide, ein durchsuchbarer Katalog, übersetzte Untertitel, 8 Sprachen, und er funktioniert auf Telefonen,
 Tablets, Computern und Fernsehern. Keine Konten, keine Analytics, keine Cookies; standardmäßig kommuniziert die App nur mit den eigenen Websites von TROM (videoneat.com und videos.trom.tf), siehe *Datenschutz und Trade-free* weiter unten.
 
 ## Was es ist
 
-VNTV spielt die **Trailer** der Dokumentarfilme der VideoNeat-Sammlung (gehostet von der PeerTube-Instanz von TROM, `videos.trom.tf`) wie einen Fernsehkanal ab: Kanäle nach Kategorien, TV-Guide, Durchsuchen des Katalogs, Untertitel und 7 Oberflächensprachen. Das Projekt hostet kein Video; es zeigt und verweist auf die offizielle Quelle. Auf dem TROM-Kanal und auf den PeerTube-Kanälen, die du selbst hinzufügst, laufen vollständige Videos.
+VNTV spielt die **Trailer** der Dokumentarfilme der VideoNeat-Sammlung (gehostet von der PeerTube-Instanz von TROM, `videos.trom.tf`) wie einen Fernsehkanal ab: Kanäle nach Kategorien, TV-Guide, Durchsuchen des Katalogs, Untertitel und 8 Oberflächensprachen. Das Projekt hostet kein Video; es zeigt und verweist auf die offizielle Quelle. Auf dem TROM-Kanal und auf den PeerTube-Kanälen, die du selbst hinzufügst, laufen vollständige Videos.
 
 ## Inhalt dieses Repositorys
 
@@ -39,7 +41,7 @@ Im Code überprüft:
 - **Synchronisierte Ausstrahlung** (ON AIR): Das Programm wird aus dem Datum berechnet, sodass alle Zuschauer desselben Kanals im selben Moment denselben Clip sehen (sie benötigt den JSON-Katalog mit Laufzeiten; ohne ihn zeigt die App „NON-STOP“, eine eigene Playlist).
 - TV-Guide, Durchsuchen der Sammlung mit Suche, Detailblatt, Favoriten, Suche als „Kanal“.
 - PeerTube-Untertitel (einschließlich automatischer Transkripte), automatische Übersetzung von Titeln, Beschreibungen und Untertiteln.
-- 7 Sprachen: Englisch, Rumänisch, Französisch, Spanisch, Deutsch, Italienisch, Portugiesisch.
+- 8 Sprachen: Englisch, Rumänisch, Französisch, Spanisch, Deutsch, Italienisch, Portugiesisch, Ungarisch.
 - Anzeigeebenen (Logo, Uhr, Banner, Fortschrittsbalken, „Retro“-Bildschirm usw.) und 4 Voreinstellungen: TV, Kino, Retro, Sauber.
 - **P2P**-Wiedergabe (der PeerTube-Player) oder **direkte** Wiedergabe (MP4-Datei); Bild-im-Bild, Senden an den Fernseher, Bildschirm bleibt an, Steuerung vom Sperrbildschirm.
 - Kioskmodus für öffentliche Bildschirme: `?kiosk=1&ch=3&lang=en&preset=cinema&muted=0&reload=24`.

@@ -2,7 +2,9 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 2.4.0 · **Utolsó frissítés:** 2026-10-19
+**Verzió:** 2.5.0 · **Utolsó frissítés:** 2026-10-19
+
+A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
 **Online / bemutató:** https://chiuta.github.io/VNTV/
 
@@ -11,12 +13,12 @@
 *A képernyőkép szimulált tesztadatokkal (kitalált címekkel, próbaklippel) készült, nem a valódi katalógussal.*
 
 Megszakítás nélkül sugárzó, trade-free (kereskedelemmentes) tudományos TV-csatorna, amely a [VideoNeat.com](https://www.videoneat.com) gyűjteményéből épül:
-szinkronizált csatornák, TV-műsorfüzet, böngészhető katalógus, lefordított feliratok, 7 nyelv, és működik telefonon,
+szinkronizált csatornák, TV-műsorfüzet, böngészhető katalógus, lefordított feliratok, 8 nyelv, és működik telefonon,
 táblagépen, számítógépen és tévén. Nincsenek fiókok, analitika és sütik; az alkalmazás alapértelmezés szerint csak a TROM saját oldalaival (videoneat.com és videos.trom.tf) kommunikál, lásd alább az *Adatvédelem és trade-free* szakaszt.
 
 ## Mi ez
 
-A VNTV a VideoNeat gyűjtemény dokumentumfilmjeinek **előzeteseit** (a TROM PeerTube-példányán, a `videos.trom.tf` címen tárolva) játssza le televíziós csatornaként: kategóriák szerinti csatornák, TV-műsorfüzet, katalógusböngészés, feliratok és 7 felületi nyelv. A projekt nem tárol videót; megmutatja és a hivatalos forrásra irányít. A TROM csatornán és az általad hozzáadott PeerTube-csatornákon teljes videók játszódnak le.
+A VNTV a VideoNeat gyűjtemény dokumentumfilmjeinek **előzeteseit** (a TROM PeerTube-példányán, a `videos.trom.tf` címen tárolva) játssza le televíziós csatornaként: kategóriák szerinti csatornák, TV-műsorfüzet, katalógusböngészés, feliratok és 8 felületi nyelv. A projekt nem tárol videót; megmutatja és a hivatalos forrásra irányít. A TROM csatornán és az általad hozzáadott PeerTube-csatornákon teljes videók játszódnak le.
 
 ## Mi van ebben a tárolóban
 
@@ -39,7 +41,7 @@ A kódban ellenőrizve:
 - **Szinkronizált adás** (ON AIR): a műsorrend a dátumból számítódik, így ugyanazon csatorna összes nézője ugyanabban a pillanatban ugyanazt a klipet látja (a időtartamokat tartalmazó JSON-katalógus szükséges hozzá; nélküle az alkalmazás a „NON-STOP” feliratot mutatja, saját lejátszási listával).
 - TV-műsorfüzet, a gyűjtemény böngészése kereséssel, részletlap, kedvencek, a keresés mint „csatorna”.
 - PeerTube-feliratok (az automatikus átiratokat is beleértve), a címek, leírások és feliratok automatikus fordítása.
-- 7 nyelv: angol, román, francia, spanyol, német, olasz, portugál.
+- 8 nyelv: angol, román, francia, spanyol, német, olasz, portugál, magyar.
 - Megjelenítési rétegek (logó, óra, szalag, folyamatjelző, „retro” képernyő stb.) és 4 előbeállítás: TV, Mozi, Retro, Tiszta.
 - **P2P** lejátszás (a PeerTube-lejátszó) vagy **közvetlen** lejátszás (MP4-fájl); kép a képben, küldés a tévére, bekapcsolva tartott képernyő, vezérlők a zárolási képernyőről.
 - Kioszk mód nyilvános képernyőkhöz: `?kiosk=1&ch=3&lang=en&preset=cinema&muted=0&reload=24`.

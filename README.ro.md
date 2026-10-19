@@ -2,7 +2,9 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 2.4.0 · **Ultima actualizare:** 2026-10-19
+**Versiune:** 2.5.0 · **Ultima actualizare:** 2026-10-19
+
+Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
 Canal TV de știință non-stop, fără urmărire, construit din colecția [VideoNeat.com](https://www.videoneat.com): aplicație web (un singur fișier HTML), plugin WordPress pentru catalog și addon Stremio.
 
@@ -16,7 +18,7 @@ English: see [README.md](README.md).
 
 ## Ce este
 
-VNTV redă **trailerele** documentarelor din colecția VideoNeat (găzduite de instanța PeerTube a TROM, `videos.trom.tf`) ca pe un canal de televiziune: canale pe categorii, ghid TV, răsfoirea catalogului, subtitrări și 7 limbi de interfață. Proiectul nu găzduiește video; arată și trimite spre sursa oficială. Pe canalul TROM și pe canalele PeerTube adăugate de tine rulează videoclipuri complete.
+VNTV redă **trailerele** documentarelor din colecția VideoNeat (găzduite de instanța PeerTube a TROM, `videos.trom.tf`) ca pe un canal de televiziune: canale pe categorii, ghid TV, răsfoirea catalogului, subtitrări și 8 limbi de interfață. Proiectul nu găzduiește video; arată și trimite spre sursa oficială. Pe canalul TROM și pe canalele PeerTube adăugate de tine rulează videoclipuri complete.
 
 Depozitul conține trei componente:
 
@@ -38,7 +40,7 @@ Verificate în cod:
 - **Emisie sincronizată** (ON AIR): programul se calculează din dată, deci toți spectatorii aceluiași canal văd același clip în același moment (cere catalogul JSON cu durate; fără el aplicația arată „NON-STOP”, listă proprie).
 - Ghid TV, răsfoirea colecției cu căutare, fișă de detalii, favorite, căutare ca „canal”.
 - Subtitrări PeerTube (inclusiv transcrieri automate), traducere automată a titlurilor, descrierilor și subtitrărilor.
-- 7 limbi: engleză, română, franceză, spaniolă, germană, italiană, portugheză.
+- 8 limbi: engleză, română, franceză, spaniolă, germană, italiană, portugheză, maghiară.
 - Straturi de afișaj (siglă, ceas, banner, bară de progres, ecran „retro” etc.) și 4 presetări: TV, Cinema, Retro, Curat.
 - Redare **P2P** (playerul PeerTube) sau **directă** (fișier MP4); imagine în imagine, trimitere pe TV, ecran aprins, controale de pe ecranul de blocare.
 - Mod chioșc pentru ecrane publice: `?kiosk=1&ch=3&lang=ro&preset=cinema&muted=0&reload=24`.
@@ -138,7 +140,7 @@ Alexio — Alexandru-Ionuț Chiuță, contact: alexio@trom.tf
 
 ## English summary
 
-VNTV is a trade-free, non-stop science TV channel built from the VideoNeat.com trailer collection: a single-file web app (synchronized "on air" channels, TV guide, browsing, subtitles, 7 languages), a WordPress plugin that publishes the catalog as JSON, and a Stremio addon. No accounts, cookies or analytics; by default it contacts only videoneat.com and videos.trom.tf (in P2P mode also other viewers). Settings and favorites stay in the browser's localStorage. MIT licence.
+VNTV is a trade-free, non-stop science TV channel built from the VideoNeat.com trailer collection: a single-file web app (synchronized "on air" channels, TV guide, browsing, subtitles, 8 languages), a WordPress plugin that publishes the catalog as JSON, and a Stremio addon. No accounts, cookies or analytics; by default it contacts only videoneat.com and videos.trom.tf (in P2P mode also other viewers). Settings and favorites stay in the browser's localStorage. MIT licence.
 
 ---
 Vezi [CHANGELOG.md](CHANGELOG.md).

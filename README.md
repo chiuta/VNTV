@@ -2,7 +2,9 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 2.4.0 · **Last updated:** 2026-10-19
+**Version:** 2.5.0 · **Last updated:** 2026-10-19
+
+Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
 **Live / demo:** https://chiuta.github.io/VNTV/
 
@@ -11,12 +13,12 @@
 *The screenshot was taken with simulated test data (fictitious titles, a sample clip), not with the real catalogue.*
 
 A non-stop, trade-free science TV channel built from the [VideoNeat.com](https://www.videoneat.com) collection:
-synchronized channels, a TV guide, a browsable catalog, translated subtitles, 7 languages, and it works on phones,
+synchronized channels, a TV guide, a browsable catalog, translated subtitles, 8 languages, and it works on phones,
 tablets, computers and TVs. No accounts, no analytics, no cookies; by default the app talks only to TROM's own sites (videoneat.com and videos.trom.tf), see *Privacy and trade-free* below.
 
 ## What it is
 
-VNTV plays the **trailers** of the documentaries in the VideoNeat collection (hosted by TROM's PeerTube instance, `videos.trom.tf`) like a television channel: channels by category, a TV guide, catalog browsing, subtitles and 7 interface languages. The project does not host video; it shows and points to the official source. Full videos play on the TROM channel and on the PeerTube channels you add yourself.
+VNTV plays the **trailers** of the documentaries in the VideoNeat collection (hosted by TROM's PeerTube instance, `videos.trom.tf`) like a television channel: channels by category, a TV guide, catalog browsing, subtitles and 8 interface languages. The project does not host video; it shows and points to the official source. Full videos play on the TROM channel and on the PeerTube channels you add yourself.
 
 ## What's in this repository
 
@@ -39,7 +41,7 @@ Verified in the code:
 - **Synchronized broadcast** (ON AIR): the schedule is computed from the date, so all viewers of the same channel see the same clip at the same moment (it needs the JSON catalog with durations; without it the app shows "NON-STOP", its own playlist).
 - TV guide, browsing the collection with search, a detail sheet, favorites, search as a "channel".
 - PeerTube subtitles (including automatic transcripts), automatic translation of titles, descriptions and subtitles.
-- 7 languages: English, Romanian, French, Spanish, German, Italian, Portuguese.
+- 8 languages: English, Romanian, French, Spanish, German, Italian, Portuguese, Hungarian.
 - Display layers (logo, clock, banner, progress bar, "retro" screen, etc.) and 4 presets: TV, Cinema, Retro, Clean.
 - **P2P** playback (the PeerTube player) or **direct** playback (MP4 file); picture-in-picture, casting to a TV, screen kept awake, lock-screen controls.
 - Kiosk mode for public screens: `?kiosk=1&ch=3&lang=en&preset=cinema&muted=0&reload=24`.
