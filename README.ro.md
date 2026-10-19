@@ -138,9 +138,9 @@ MIT, vezi [LICENSE](LICENSE). Fontul încorporat Oswald este sub SIL Open Font L
 
 Alexio — Alexandru-Ionuț Chiuță, contact: alexio@trom.tf
 
-## English summary
+## Rezumat
 
-VNTV is a trade-free, non-stop science TV channel built from the VideoNeat.com trailer collection: a single-file web app (synchronized "on air" channels, TV guide, browsing, subtitles, 8 languages), a WordPress plugin that publishes the catalog as JSON, and a Stremio addon. No accounts, cookies or analytics; by default it contacts only videoneat.com and videos.trom.tf (in P2P mode also other viewers). Settings and favorites stay in the browser's localStorage. MIT licence.
+VNTV este un canal TV științific non-stop, fără comerț, construit din colecția de trailere VideoNeat.com: o aplicație web într-un singur fișier (canale „în direct” sincronizate, ghid TV, navigare, subtitrări, 8 limbi), un plugin WordPress care publică catalogul ca JSON și un addon Stremio. Fără conturi, cookie-uri sau analitice; implicit contactează doar videoneat.com și videos.trom.tf (în modul P2P și alți spectatori). Setările și favoritele rămân în localStorage al browserului. Licență MIT.
 
 ---
 Vezi [CHANGELOG.md](CHANGELOG.md).
