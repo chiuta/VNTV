@@ -173,9 +173,9 @@ await test("Fără cereri către terți: zero Google Fonts, zero MyMemory (impli
   await ctx.close();
 });
 
-await test("7 limbi: interfața se schimbă complet, fără chei netraduse", async () => {
+await test("8 limbi: interfața se schimbă complet, fără chei netraduse", async () => {
   const {ctx, page} = await open();
-  for (const l of ["ro", "fr", "es", "de", "it", "pt", "en"]){
+  for (const l of ["ro", "fr", "es", "de", "it", "pt", "hu", "en"]){
     await page.evaluate(x => setLang(x), l); await page.waitForTimeout(150);
     const raw = await page.evaluate(() => [...document.querySelectorAll("[data-i],[data-it],[data-ip]")].filter(e =>
       (e.dataset.i && e.textContent === e.dataset.i) || (e.dataset.it && e.title === e.dataset.it) || (e.dataset.ip && e.placeholder === e.dataset.ip)).map(e => e.dataset.i || e.dataset.it || e.dataset.ip));

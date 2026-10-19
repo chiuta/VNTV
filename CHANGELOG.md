@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.5.0 — 2026-10-19
+- Nou: **limba maghiară (hu)** — interfața completă (toate cele 209 de chei, inclusiv lista de canale, categoriile și panourile), ca a opta limbă; `i18n/hu.json`, `build.mjs` (LANG_ORDER) și testul de limbi extins la 8.
+- Titlurile/descrierile VideoNeat rămân în engleză; traducerea automată (Translator API / LibreTranslate) le poate afișa în maghiară dacă motorul o acceptă.
+
 ## 2.4.0 — 2026-10-19
 - Kitul comun fff 1.1.1 (eticheta „Transparență”, copie de siguranță `.fff.json`), aplicat în `src/index.template.html`; după `node build.mjs` se rulează `fff-kit info` pe cele trei ieșiri pentru `fff-info`/`app.json`.
 

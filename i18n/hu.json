@@ -1,0 +1,385 @@
+{
+ "_n": "Magyar",
+ "_loc": "hu-HU",
+ "live": "ADÁSBAN",
+ "skipNext": "Ugrás a következőre",
+ "upNextIn": "Következik {s} mp múlva",
+ "ticker": "KÖVETKEZIK",
+ "ident": "tudomány · trade-free",
+ "unmute": "🔊 Hang bekapcsolása",
+ "pos": "Pozíció",
+ "vol": "Hangerő",
+ "tPrev": "Előző (←)",
+ "tPlay": "Lejátszás / szünet (szóköz)",
+ "tNext": "Következő (→)",
+ "tMute": "Hang (M)",
+ "tCh": "Csatorna (↑ ↓ vagy számbillentyűk)",
+ "tFav": "Kedvenc (S)",
+ "tInfo": "Részletek (I)",
+ "tGuide": "TV-műsor (G)",
+ "tLayers": "Rétegek és effektek (O)",
+ "tSubs": "Feliratok (T)",
+ "subsOn": "Feliratok bekapcsolva",
+ "subsOff": "Feliratok kikapcsolva",
+ "tShare": "Megosztás (E)",
+ "shareCopied": "Link kimásolva",
+ "shareBtn": "Megosztás",
+ "dlConfirm": "Ez a link egy videót nyit meg innen: {h}. Megnyitod? Az IP-címed látható lesz a szerver számára.",
+ "tFull": "Teljes képernyő (F)",
+ "guide": "TV-műsor",
+ "searchPh": "Keress egy témát, és hozz létre belőle csatornát…",
+ "search": "Keresés",
+ "kCh": "csatorna",
+ "kClip": "klip",
+ "kDirect": "közvetlen csatorna",
+ "kGuide": "műsor",
+ "kLayers": "rétegek",
+ "kInfo": "részletek",
+ "kClean": "tiszta kép",
+ "kFull": "teljes képernyő",
+ "layers": "Rétegek",
+ "nowOn": "Most a VNTV-n",
+ "close": "Bezárás",
+ "splashP": "Megszakítás nélküli adás a VideoNeat-gyűjtemény előzeteseiből: tudományos dokumentumfilmek, filmek és kurzusok. A kategóriák csatornák, és a képernyőn minden réteg ki- és bekapcsolható.",
+ "go": "Adás indítása",
+ "offNote": "Úgy tűnik, offline vagy. A VNTV a VideoNeat-ről streamel, ezért internetkapcsolat kell hozzá: csatlakozz újra, majd nyomd meg az „Adás indítása” gombot.",
+ "mobile": "Telefonon: húzd ↔ a klipekhez, ↕ a csatornákhoz, érintsd meg a képernyőt a vezérlőkért.",
+ "srcC": "Tartalom",
+ "srcT": "előzetesek",
+ "srcP": "TROM-projektek, trade-free",
+ "ch": [
+  [
+   "VNTV",
+   "A teljes gyűjtemény"
+  ],
+  [
+   "Dokumentumfilmek",
+   "Minden dokumentumfilm"
+  ],
+  [
+   "Csillagászat",
+   "Kozmosz és világegyetem"
+  ],
+  [
+   "Természet",
+   "Az élő bolygó"
+  ],
+  [
+   "Biológia",
+   "Élet a mikroszkóp alatt"
+  ],
+  [
+   "Társadalom",
+   "Emberek és világ"
+  ],
+  [
+   "Technológia",
+   "Mérnöki tudományok és jövő"
+  ],
+  [
+   "Egészség",
+   "Orvostudomány és test"
+  ],
+  [
+   "Régészet",
+   "Paleontológia és a múlt"
+  ],
+  [
+   "Matematika és fizika",
+   "A természet törvényei"
+  ],
+  [
+   "Kémia",
+   "Anyag és reakciók"
+  ],
+  [
+   "Földtan",
+   "A Föld mélye"
+  ],
+  [
+   "Filmek",
+   "Gondolatok filmjei"
+  ],
+  [
+   "Kurzusok",
+   "Leckék és előadások"
+  ],
+  [
+   "Kedvencek",
+   "Saját válogatásod"
+  ]
+ ],
+ "cats": {
+  "2": "Dokumentumfilm",
+  "3": "Társadalom",
+  "7": "Csillagászat",
+  "15": "Technológia",
+  "21": "Biológia",
+  "26": "Természet",
+  "31": "Kémia",
+  "34": "Matematika és fizika",
+  "42": "Földtan",
+  "126": "Egészség és orvostudomány",
+  "128": "Régészet és paleontológia",
+  "129": "Film",
+  "156": "Kurzus"
+ },
+ "gPre": "Előbeállítások",
+ "gBroad": "Adás",
+ "gCine": "Mozi",
+ "gPlay": "Lejátszás",
+ "gLang": "Nyelv",
+ "ov": {
+  "logo": [
+   "VNTV-logó",
+   "Csatornalogó a sarokban"
+  ],
+  "clock": [
+   "Óra és „Adásban”",
+   "Pontos idő, bal felül"
+  ],
+  "lower": [
+   "Címsáv",
+   "Cím, évszám, hossz és forrás a klip indulásakor"
+  ],
+  "upnext": [
+   "Következik",
+   "A következő klip előzetese"
+  ],
+  "ticker": [
+   "Hírsáv",
+   "Soron következő címek, görgetve"
+  ],
+  "progress": [
+   "Folyamatjelző",
+   "Vékony vonal az alsó szélen"
+  ],
+  "idents": [
+   "Csatornaváltó villanások",
+   "Animált VNTV-logó minden váltásnál"
+  ],
+  "ambient": [
+   "Környezeti fény",
+   "A klip színei a kép körül szétáradnak"
+  ],
+  "letterbox": [
+   "CinemaScope",
+   "2,39:1 fekete sávok"
+  ],
+  "vignette": [
+   "Vignettálás",
+   "Sötétített szélek, mint a moziban"
+  ],
+  "grain": [
+   "Filmszemcse",
+   "35 mm-es film textúrája"
+  ],
+  "scan": [
+   "CRT-sorok",
+   "Régi katódsugárcsöves tévé hatása"
+  ],
+  "fill": [
+   "Kitöltés",
+   "Úgy vágja a képet, hogy az egész képernyőt betöltse"
+  ],
+  "subs": [
+   "Feliratok",
+   "A PeerTube-ról, lefordítva, ha nincs a nyelveden"
+  ]
+ },
+ "pre": {
+  "tv": [
+   "Televízió",
+   "Minden adáselem"
+  ],
+  "cinema": [
+   "Mozi",
+   "CinemaScope, film, csendes"
+  ],
+  "retro": [
+   "Retró CRT",
+   "Nagymama tévéje"
+  ],
+  "clean": [
+   "Tiszta kép",
+   "Csak a kép"
+  ]
+ },
+ "shuf": [
+  "Keverés",
+  "Minden csatorna műsorának összekeverése"
+ ],
+ "quality": "Videóminőség",
+ "qAuto": "Automatikus",
+ "errList": "Nem sikerült betölteni a listát a videoneat.com-ról ({e}). A VNTV-nek nincs offline tartalma: a katalógus és a videók betöltéséhez internetkapcsolat kell.",
+ "noTr": "Ezen a csatornán nincs elérhető előzetes.",
+ "slow": "A klip lassan töltődik — továbbugrás",
+ "unavail": "A klip nem elérhető — ugrás a következőre",
+ "noFavs": "Még nincs kedvenc — nyomd meg a ★ gombot lejátszás közben.",
+ "favAdd": "★ Kedvencekhez adva ({n}. csatorna)",
+ "favRem": "Eltávolítva a kedvencek közül",
+ "preset": "Előbeállítás: {n}",
+ "shufOn": "Keverés bekapcsolva — a következő csatornaváltástól él",
+ "shufOff": "Időrendi sorrend — a következő csatornaváltástól él",
+ "qualT": "Minőség: {q} — a következő kliptől",
+ "layersBack": "Rétegek visszaállítva",
+ "cleanOn": "Tiszta kép — a H gombbal térhetsz vissza",
+ "source": "Forrás",
+ "trailer": "Előzetes",
+ "now": "MOST",
+ "earlier": "KORÁBBAN",
+ "upnext": "KÖVETKEZIK",
+ "loadingProg": "A műsor betöltése…",
+ "noTrCh": "Ezen a csatornán nincsenek előzetesek.",
+ "more": "A műsor további részének betöltése",
+ "searchCh": "Csatorna keresése",
+ "searchPre": "Keresés: ",
+ "srchShort": "KERES",
+ "srchBug": "keresés",
+ "year": "Év",
+ "dur": "Hossz",
+ "watch": "Megnézem a VideoNeaten ↗",
+ "official": "Hivatalos forrás",
+ "inFav": "★ A kedvencek között",
+ "addFav": "☆ Kedvencekhez adom",
+ "note": "A VNTV az előzeteseket játssza le. A teljes film a VideoNeat oldalán vagy a hivatalos forrásnál érhető el.",
+ "trOn": [
+  "Címek és leírások fordítása",
+  "A VideoNeat-tartalom automatikus fordítása"
+ ],
+ "trEngine": "Fordítómotor",
+ "trAuto": "Automatikus",
+ "trBrowser": "Böngésző (az eszközön)",
+ "trUrl": "LibreTranslate-kiszolgáló",
+ "trKey": "API-kulcs (opcionális)",
+ "trSave": "Mentés",
+ "trStatus": "Aktív motor: {e}",
+ "trNone": "Nincs elérhető fordítómotor — az eredeti szövegek látszanak",
+ "trDl": "Az eszközön futó fordítómodell letöltése…",
+ "trQuota": "A MyMemory napi korlátja elfogyott — az eredeti szövegek látszanak",
+ "autoTr": "Automatikus fordítás angolról",
+ "showOrig": "Eredeti megjelenítése",
+ "showTr": "Fordítás megjelenítése",
+ "trHint": "Az eszközön futó fordítás privát, és számítógépen Chrome-ban és Edge-ben működik. A LibreTranslate szabad szoftver, amelyet magad is üzemeltethetsz, például YunoHostón. A MyMemory kereskedelmi online szolgáltatás, és csak akkor használjuk, ha te választod.",
+ "lw": {
+  "part": "rész",
+  "parts": "rész",
+  "episode": "epizód",
+  "episodes": "epizód",
+  "minute": "perc",
+  "minutes": "perc",
+  "hour": "óra",
+  "hours": "óra",
+  "season": "évad",
+  "seasons": "évad",
+  "lecture": "előadás",
+  "lectures": "előadás",
+  "lesson": "lecke",
+  "lessons": "lecke",
+  "and": "és"
+ },
+ "a2hs": "Valódi teljes képernyőhöz: Megosztás → Hozzáadás a főképernyőhöz",
+ "rotate": "Fordítsd oldalra a telefont a teljes képért",
+ "tCast": "Vetítés / AirPlay (C)",
+ "tPip": "Kép a képben (P)",
+ "noCast": "Nem található vetítésre alkalmas eszköz",
+ "fullVideo": "Teljes videó",
+ "nonstop": "NON-STOP",
+ "liveTip": "Szinkronizált adás: mindenki, aki ezt a csatornát nézi, éppen ugyanazt a klipet látja",
+ "nonstopTip": "Saját lejátszási lista — nincs szinkronban más nézőkkel",
+ "backLive": "Élő",
+ "tBrowse": "A gyűjtemény böngészése (B)",
+ "browse": "Böngészés",
+ "browseAll": "A gyűjtemény böngészése",
+ "browsePh": "Címek, témák keresése…",
+ "kBrowse": "böngészés",
+ "moreB": "Továbbiak betöltése",
+ "mmWarn": "A MyMemory kereskedelmi online szolgáltatás: a megtekintett címeket és leírásokat elküldjük neki. Csak akkor válaszd, ha ezt elfogadod.",
+ "syncT": [
+  "Szinkronizált adás",
+  "Ugyanazon a csatornán mindenki ugyanazt a klipet látja ugyanabban az időben, mint a valódi tévében"
+ ],
+ "syncNeedsIndex": "A szinkronizált adáshoz a hivatalos VideoNeat-katalógus (JSON) szükséges. Amíg nincs közzétéve, a VNTV a saját non-stop lejátszási listádat játssza.",
+ "netT": "Streamelés",
+ "netAuto": "Automatikus",
+ "netP2P": "P2P (PeerTube-lejátszó)",
+ "netDirect": "Közvetlen fájl",
+ "netHint": "A P2P megosztja a terhelést a nézők között, és csökkenti a TROM szerverköltségeit, de az IP-címed látható lesz a többi néző számára. A közvetlen lejátszás lehetővé teszi a kép a képben módot, az AirPlayt és a Chromecastot.",
+ "netNow": "Jelenleg: {m}.",
+ "ecoT": "Takarékos mód",
+ "on": "Be",
+ "off": "Ki",
+ "ecoHint": "Kikapcsolja az elmosást és az animált effekteket, hogy kíméljen az akkumulátorral, és szerényebb eszközökön is gördülékeny legyen.",
+ "ecoIsOn": "Jelenleg be van kapcsolva.",
+ "ecoIsOff": "Jelenleg ki van kapcsolva.",
+ "gSrc": "Források",
+ "catIndex": "Katalógus: a hivatalos VideoNeat-lista ({n} cím előzetessel).",
+ "catWP": "Katalógus: a VideoNeat weboldaláról beolvasva (lassabb; a szinkronizált adás nem érhető el).",
+ "remove": "Eltávolítás",
+ "noSrc": "Még nincsenek további csatornák.",
+ "addSrc": "PeerTube-csatorna hozzáadása",
+ "add": "Hozzáadás",
+ "srcHint": "Adj hozzá szabad licencű tudományos videókat tartalmazó PeerTube-csatornákat — új csatornák lesznek belőlük teljes hosszúságú videókkal. Példa: https://instance/c/channel",
+ "advanced": "Speciális",
+ "idxUrl": "Katalógus címe (JSON)",
+ "kioskHint": "Nyilvános kijelzők: fűzd a címhez a ?kiosk=1 paramétert (opcionálisan &ch=3&lang=hu&preset=cinema&muted=0). A kilépéshez nyomd meg háromszor a K gombot.",
+ "srcBad": "Ez nem tűnik PeerTube-csatorna címének (https://…/c/nev vagy /a/nev).",
+ "srcDup": "Ez a csatorna már hozzá van adva.",
+ "srcEmpty": "Ezen a csatornán nincsenek videók.",
+ "srcAdded": "„{n}” hozzáadva {ch}. csatornaként, {c} videóval.",
+ "srcErr": "Nem sikerült beolvasni a csatornát ({e}).",
+ "licence": "Licenc",
+ "playNow": "Lejátszás most a VNTV-n",
+ "noTrailer": "Nincs lejátszható videó",
+ "watchPT": "Megnézem a PeerTube-on ↗",
+ "back": "Vissza",
+ "nTitles": "{n} cím",
+ "noRes": "Nincs találat.",
+ "p2pFallback": "A PeerTube-lejátszó nem válaszol — átváltottunk közvetlen lejátszásra.",
+ "p2pNote": "A P2P mód megosztja a videót más nézőkkel, hogy csökkentse a TROM szerverköltségeit. Mint minden P2P, ez is láthatóvá teszi az IP-címedet azok számára, akikkel adatot cserélsz.",
+ "p2pKeep": "Rendben, marad a P2P",
+ "p2pDirect": "Közvetlen fájl használata",
+ "subSize": "Felirat mérete",
+ "showAll": "Minden beállítás megjelenítése",
+ "showLess": "Kevesebb beállítás",
+ "tChDn": "Előző csatorna (↓)",
+ "tChUp": "Következő csatorna (↑)",
+ "verLabel": "Verzió",
+ "tScreen": "Kijelzők és vetítés",
+ "screenT": "Küldés kijelzőre",
+ "scrCastH": "Vetítés / AirPlay",
+ "scrCastD": "Küldd el ezt a videót a hálózatodon lévő Chromecastra, okostévére vagy AirPlay-eszközre.",
+ "scrCastBtn": "Eszköz kiválasztása",
+ "scrCastNo": "A közvetlen vetítés itt nem érhető el (böngésző, eszköz vagy a jelenlegi lejátszási mód miatt). Használd az alábbi linket vagy QR-kódot a tévén, vagy vetítsd a lapot a böngészőmenüből.",
+ "scrPipH": "Kép a képben",
+ "scrPipD": "A videó lebeg a többi ablak fölött.",
+ "scrPipBtn": "Váltás",
+ "scrWinH": "Külön ablak",
+ "scrWinD": "Nyisd meg a csatornát saját ablakban — húzd át egy második monitorra vagy kivetítőre.",
+ "scrWinBtn": "Ablak megnyitása",
+ "scrWinBlocked": "A böngésző letiltotta az előugró ablakot — engedélyezd az előugró ablakokat ezen az oldalon.",
+ "scrLinkH": "Másik kijelző (tévé, kiosk, digitális tábla)",
+ "scrLinkD": "Nyisd meg ezt a linket a másik kijelző böngészőjében: ugyanazt a csatornát játssza, teljes képernyőn, vezérlők nélkül, a műsorral szinkronban.",
+ "scrSound": "Hanggal",
+ "scrCopy": "Link másolása",
+ "scrShare": "Megosztás",
+ "scrQr": "A másik kijelzőhöz tartozó link QR-kódja",
+ "scrHost": "Ez a példány fájlból fut, ezért a link nem nyílna meg másik eszközön. Tedd közzé az alkalmazást (HTTPS), vagy használd a fenti lehetőségeket.",
+ "splashTv": "Tévén vagy másik kijelzőn: az Indítás után nyisd meg a Kijelző panelt (monitor ikon) a linkért és a QR-kódért.",
+ "errNet": "Hálózati hiba",
+ "errDecode": "A videó nem dekódolható",
+ "errSrc": "A forrás nem érhető el, vagy a formátum nem támogatott",
+ "errAbort": "A lejátszás megszakadt",
+ "errStall": "Lassú kapcsolat",
+ "errOffline": "Offline vagy — a lejátszás a kapcsolat visszatértekor folytatódik.",
+ "errChain": "Több egymást követő klip lejátszása sikertelen volt. Válassz egy műveletet:",
+ "errBtnLow": "Alacsonyabb minőség",
+ "errBtnEng": "Váltás P2P / közvetlen között",
+ "errBtnRetry": "Újra",
+ "errBtnSkip": "Következő klip",
+ "logGrp": "Lejátszási problémák",
+ "logRow": "Hibanapló másolása ({n})",
+ "logHint": "Csak ezen az eszközön marad (utolsó 60 esemény, személyes adatok nélkül); semmi nem kerül elküldésre.",
+ "logCopied": "Hibanapló kimásolva",
+ "logEmpty": "Nincs naplózott hiba"
+}

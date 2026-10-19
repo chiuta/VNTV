@@ -10,7 +10,7 @@ const root = path.dirname(new URL(import.meta.url).pathname);
 const rd = f => fs.readFileSync(path.join(root, f), "utf8");
 const pkg = JSON.parse(rd("package.json"));
 
-const LANG_ORDER = ["en", "ro", "fr", "es", "de", "it", "pt"];
+const LANG_ORDER = ["en", "ro", "fr", "es", "de", "it", "pt", "hu"];
 const i18n = {};
 for (const l of LANG_ORDER) i18n[l] = JSON.parse(rd(`i18n/${l}.json`));
 // verificare: toate limbile au toate cheile limbii engleze

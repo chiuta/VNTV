@@ -1,0 +1,96 @@
+{
+  "schema": 1,
+  "slug": "vntv",
+  "name": "VNTV — VideoNeat TV",
+  "version": "2.5.0",
+  "updated": "2026-10-19",
+  "description": "VNTV — a non-stop, trade-free science TV channel built from the VideoNeat.com collection.",
+  "egress": [
+    {
+      "host": "${it._h",
+      "via": [
+        "src="
+      ]
+    },
+    {
+      "host": "http:(orice gazdă)",
+      "via": [
+        "csp:connect-src",
+        "csp:img-src",
+        "csp:media-src"
+      ]
+    },
+    {
+      "host": "https:(orice gazdă)",
+      "via": [
+        "csp:connect-src",
+        "csp:frame-src",
+        "csp:img-src",
+        "csp:media-src"
+      ]
+    }
+  ],
+  "permissions": [
+    "navigator.share",
+    "clipboard",
+    "serviceWorker",
+    "localStorage"
+  ],
+  "storageKeys": [
+    "vntv."
+  ],
+  "sizeBytes": 385751,
+  "sha256": "511cd7c66bcf07b9c7be49de1eba221bae865dcb99451e49783b863f3b91c467",
+  "csp": {
+    "present": true,
+    "directives": {
+      "default-src": "'none'",
+      "script-src": "sha256×2",
+      "style-src": "'unsafe-inline'",
+      "font-src": "data:",
+      "img-src": "https: http: data: blob:",
+      "media-src": "https: http: blob: data:",
+      "connect-src": "https: http:",
+      "frame-src": "https:",
+      "manifest-src": "'self'",
+      "worker-src": "'self'",
+      "base-uri": "'none'",
+      "form-action": "'none'",
+      "object-src": "'none'"
+    },
+    "scriptInline": "hash",
+    "connect": "https: http:"
+  },
+  "features": {
+    "export": true,
+    "import": true,
+    "i18n": [
+      "ro",
+      "en",
+      "fr",
+      "it",
+      "es",
+      "pt",
+      "hu",
+      "de"
+    ],
+    "pwa": {
+      "manifest": true,
+      "serviceWorker": true
+    },
+    "modules": [
+      "core",
+      "label",
+      "bundle"
+    ]
+  },
+  "kit": {
+    "version": "1.1.1",
+    "modules": [
+      "core",
+      "label",
+      "bundle"
+    ]
+  },
+  "selfSerializing": false
+}
