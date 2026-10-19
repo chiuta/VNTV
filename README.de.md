@@ -8,7 +8,7 @@ Oberflächensprachen: **Română, English, Français, Italiano, Español, Portug
 
 **Online / Demo:** https://chiuta.github.io/VNTV/
 
-![VNTV — Screenshot: der TV-Guide (simulierte Testdaten)](screenshot.png)
+![VNTV — Screenshot: der TV-Guide (simulierte Testdaten)](screenshot.de.png)
 
 *Der Screenshot wurde mit simulierten Testdaten (fiktive Titel, Beispielclip) erstellt, nicht mit dem echten Katalog.*
 

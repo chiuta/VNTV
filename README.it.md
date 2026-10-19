@@ -8,7 +8,7 @@ Lingue dell'interfaccia: **Română, English, Français, Italiano, Español, Por
 
 **Online / demo:** https://chiuta.github.io/VNTV/
 
-![VNTV — schermata: la guida TV (dati di prova simulati)](screenshot.png)
+![VNTV — schermata: la guida TV (dati di prova simulati)](screenshot.it.png)
 
 *La schermata è stata realizzata con dati di prova simulati (titoli fittizi, clip di prova), non con il catalogo reale.*
 

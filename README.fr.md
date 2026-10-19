@@ -8,7 +8,7 @@ Langues de l'interface : **Română, English, Français, Italiano, Español, Por
 
 **En ligne / démo :** https://chiuta.github.io/VNTV/
 
-![VNTV — capture d'écran : le guide TV (données de test simulées)](screenshot.png)
+![VNTV — capture d'écran : le guide TV (données de test simulées)](screenshot.fr.png)
 
 *La capture a été réalisée avec des données de test simulées (titres fictifs, clip d'essai), et non avec le catalogue réel.*
 

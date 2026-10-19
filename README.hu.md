@@ -8,7 +8,7 @@ A felület nyelvei: **Română, English, Français, Italiano, Español, Portugu�
 
 **Online / bemutató:** https://chiuta.github.io/VNTV/
 
-![VNTV — képernyőkép: a TV-műsorfüzet (szimulált tesztadatok)](screenshot.png)
+![VNTV — képernyőkép: a TV-műsorfüzet (szimulált tesztadatok)](screenshot.hu.png)
 
 *A képernyőkép szimulált tesztadatokkal (kitalált címekkel, próbaklippel) készült, nem a valódi katalógussal.*
 

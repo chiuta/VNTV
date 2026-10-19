@@ -10,7 +10,7 @@ Canal TV de știință non-stop, fără urmărire, construit din colecția [Vide
 
 **Live:** https://chiuta.github.io/VNTV/
 
-![Captura de ecran: ghidul TV (date de test simulate)](screenshot.png)
+![Captura de ecran: ghidul TV (date de test simulate)](screenshot.ro.png)
 
 *Captura a fost făcută cu date de test simulate (titluri fictive, clip de probă), nu cu catalogul real.*
 

@@ -8,7 +8,7 @@ Interface languages: **Română, English, Français, Italiano, Español, Portugu
 
 **Live / demo:** https://chiuta.github.io/VNTV/
 
-![VNTV — screenshot: the TV guide (simulated test data)](screenshot.png)
+![VNTV — screenshot: the TV guide (simulated test data)](screenshot.en.png)
 
 *The screenshot was taken with simulated test data (fictitious titles, a sample clip), not with the real catalogue.*
 
