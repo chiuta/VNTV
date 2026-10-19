@@ -33,6 +33,8 @@ A VNTV a VideoNeat gyűjtemény dokumentumfilmjeinek **előzeteseit** (a TROM Pe
 | `tests/` | Automatizált tesztek (Playwright, offline szimulációk). `npm test`. |
 | `docs/` | Architektúra, üzemeltetés, útmutató a TROM adminisztrátorainak, javaslatlevél a TROM-nak, ellenőrzőlista valódi eszközökhöz, Android TV. |
 
+**Dokumentáció:** [Üzemeltetés](docs/DEPLOY.hu.md) · [Android TV](docs/ANDROID-TV.hu.md) · [Útmutató a TROM adminisztrátorainak](docs/TROM-ADMIN.md) (angolul) · [Architektúra](docs/ARCHITECTURE.md) (angolul)
+
 ## Funkciók
 
 A kódban ellenőrizve:

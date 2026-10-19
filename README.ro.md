@@ -32,6 +32,8 @@ Depozitul conține trei componente:
 | `tests/` | Teste automate (Playwright, simulări offline). `npm test`. |
 | `docs/` | Arhitectură, publicare, ghid pentru administratorii TROM, scrisoare-propunere către TROM, listă de verificare pe dispozitive reale, Android TV. |
 
+**Documentație:** [Publicare (găzduire)](docs/DEPLOY.md) · [Android TV](docs/ANDROID-TV.md) · [Ghid pentru administratorii TROM](docs/TROM-ADMIN.md) (în engleză) · [Arhitectură](docs/ARCHITECTURE.md) (în engleză)
+
 ## Funcții
 
 Verificate în cod:

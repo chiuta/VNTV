@@ -33,6 +33,8 @@ O VNTV reproduz os **trailers** dos documentários da coleção VideoNeat (aloja
 | `tests/` | Testes automáticos (Playwright, simulações offline). `npm test`. |
 | `docs/` | Arquitetura, publicação, guia para os administradores da TROM, carta de proposta à TROM, lista de verificação em dispositivos reais, Android TV. |
 
+**Documentação:** [Publicação](docs/DEPLOY.pt.md) · [Android TV](docs/ANDROID-TV.pt.md) · [Guia para os administradores da TROM](docs/TROM-ADMIN.md) (em inglês) · [Arquitetura](docs/ARCHITECTURE.md) (em inglês)
+
 ## Funcionalidades
 
 Verificadas no código:

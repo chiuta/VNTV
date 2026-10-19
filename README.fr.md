@@ -33,6 +33,8 @@ VNTV diffuse les **bandes-annonces** des documentaires de la collection VideoNea
 | `tests/` | Tests automatisés (Playwright, simulations hors ligne). `npm test`. |
 | `docs/` | Architecture, déploiement, guide des administrateurs TROM, lettre de proposition à TROM, liste de contrôle sur appareils réels, Android TV. |
 
+**Documentation:** [Déploiement](docs/DEPLOY.fr.md) · [Android TV](docs/ANDROID-TV.fr.md) · [Guide des administrateurs TROM](docs/TROM-ADMIN.md) (en anglais) · [Architecture](docs/ARCHITECTURE.md) (en anglais)
+
 ## Fonctions
 
 Vérifiées dans le code :

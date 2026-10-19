@@ -33,6 +33,8 @@ VNTV reproduce los **tráileres** de los documentales de la colección VideoNeat
 | `tests/` | Pruebas automáticas (Playwright, simulaciones sin conexión). `npm test`. |
 | `docs/` | Arquitectura, despliegue, guía para los administradores de TROM, carta de propuesta a TROM, lista de comprobación en dispositivos reales, Android TV. |
 
+**Documentación:** [Despliegue](docs/DEPLOY.es.md) · [Android TV](docs/ANDROID-TV.es.md) · [Guía para los administradores de TROM](docs/TROM-ADMIN.md) (en inglés) · [Arquitectura](docs/ARCHITECTURE.md) (en inglés)
+
 ## Funciones
 
 Verificadas en el código:

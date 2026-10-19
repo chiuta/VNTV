@@ -33,6 +33,8 @@ VNTV spielt die **Trailer** der Dokumentarfilme der VideoNeat-Sammlung (gehostet
 | `tests/` | Automatisierte Tests (Playwright, Offline-Simulationen). `npm test`. |
 | `docs/` | Architektur, Bereitstellung, Leitfaden für die TROM-Administratoren, Vorschlagsschreiben an TROM, Checkliste für echte Geräte, Android TV. |
 
+**Dokumentation:** [Bereitstellung](docs/DEPLOY.de.md) · [Android TV](docs/ANDROID-TV.de.md) · [Leitfaden für die TROM-Administratoren](docs/TROM-ADMIN.md) (auf Englisch) · [Architektur](docs/ARCHITECTURE.md) (auf Englisch)
+
 ## Funktionen
 
 Im Code überprüft:
