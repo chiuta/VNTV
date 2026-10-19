@@ -1,6 +1,6 @@
 # VNTV — VideoNeat Television
 
-**Versiune:** 2.3.0 · **Ultima actualizare:** 18 octombrie 2026
+**Versiune:** 2.4.0 · **Ultima actualizare:** 19 octombrie 2026
 
 Canal TV de știință non-stop, fără urmărire, construit din colecția [VideoNeat.com](https://www.videoneat.com): aplicație web (un singur fișier HTML), plugin WordPress pentru catalog și addon Stremio.
 

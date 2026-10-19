@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.4.0 — 2026-10-19
+- Kitul comun fff 1.1.1 (eticheta „Transparență”, copie de siguranță `.fff.json`), aplicat în `src/index.template.html`; după `node build.mjs` se rulează `fff-kit info` pe cele trei ieșiri pentru `fff-info`/`app.json`.
+
 ## 2.3.0 — 2026-10-18
 - Nou: **reziliență la erori de redare** (totul local, fără telemetrie). Ordinea la o eroare/blocaj: aceeași sursă încă o dată → alt fișier/altă calitate → playerul P2P → aceeași înregistrare pe altă instanță PeerTube → abia apoi clipul se sare.
 - Se aleg doar formatele pe care browserul le poate reda; pe conexiune lentă / economisire de date se pornește cu calitate mai mică (plafon care se relaxează după 4 clipuri curate).

@@ -1,6 +1,6 @@
 # VNTV — VideoNeat Television
 
-**Version:** 2.3.0 · **Last updated:** 18 October 2026
+**Version:** 2.4.0 · **Last updated:** 19 October 2026
 
 **Live / demo:** https://chiuta.github.io/VNTV/
 
