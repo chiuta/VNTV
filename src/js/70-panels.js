@@ -307,6 +307,7 @@ function renderLangs(el){
 function kb(keys, label){ return keys.map(k => `<kbd>${k}</kbd>`).join("") + " " + esc(label); }
 function applyLang(){
   document.documentElement.lang = P.lang;
+  { const md = document.querySelector('meta[name="description"]'); if (md) md.content = t("metaDesc"); }
   $$("[data-i]").forEach(e => e.textContent = t(e.dataset.i));
   $$("[data-it]").forEach(e => { e.title = t(e.dataset.it); if (e.tagName === "BUTTON" && !e.textContent.trim()) e.setAttribute("aria-label", t(e.dataset.it).replace(/\s*\([^)]*\)$/, "")); });
   $$("[data-ia]").forEach(e => e.setAttribute("aria-label", t(e.dataset.ia)));

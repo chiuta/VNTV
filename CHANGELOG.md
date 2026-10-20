@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.5.1 — 2026-10-19
+- Texte rămase: meta description urmează limba interfeței (cheie nouă `metaDesc`, în toate cele 8 limbi); mesajul `<noscript>` este în cele 8 limbi.
+
 ## 2.5.0 — 2026-10-19
 - Nou: **limba maghiară (hu)** — interfața completă (toate cele 209 de chei, inclusiv lista de canale, categoriile și panourile), ca a opta limbă; `i18n/hu.json`, `build.mjs` (LANG_ORDER) și testul de limbi extins la 8.
 - Titlurile/descrierile VideoNeat rămân în engleză; traducerea automată (Translator API / LibreTranslate) le poate afișa în maghiară dacă motorul o acceptă.
