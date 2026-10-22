@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 2.5.2 · **Zuletzt aktualisiert:** 2026-10-22
+**Version:** 2.5.3 · **Zuletzt aktualisiert:** 2026-10-22
 
 Oberflächensprachen: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -103,6 +103,7 @@ VideoNeat-Kategorien 1–14 (Trailer) · 15 Favoriten · **16 TROM** (die vollst
 
 ## Changelog (2.3.0)
 
+* 2.5.3 — 2026-10-22: das Transparenzlabel listet keinen beschädigten Host (`${it._h`) mehr; die `index.html` im Stammverzeichnis ist jetzt die gehostete Variante mit echtem `sw.js`, Manifest und Icons (Offline funktioniert auf der veröffentlichten Seite); Beschriftungen für die beiden Suchfelder; sichtbarer Tastaturfokus an allen Bedienelementen; Text ≥ 12 px, größere Fußzeilenlinks und keine Überbreite der Steuerleiste bei 360 px; die Bestätigung beim Öffnen eines Links nutzt den Dialog der Seite; wenn der Katalog nicht geladen werden kann, nennt die Meldung jede fehlgeschlagene Quelle (der offizielle Index antwortet auf videoneat.com mit 404/CORS).
 * 2.5.2 — 2026-10-22: Die Meldung „Liste kann nicht geladen werden“ auf dem Startbildschirm und die Beschreibung im fff-kit-Transparenzpanel folgen jetzt der Oberflächensprache, wenn diese gewechselt wird.
 
 * 2.3.0 — 2026-10-18: Robustheit bei Wiedergabefehlern — Wiederholung, Ausweichen auf andere Qualität/anderes Format, P2P und alternativer PeerTube-Host, Warten im Offlinezustand, lokale 24-Stunden-Sperrliste, Fehlerleiste mit Aktionen, lokales exportierbares Fehlerprotokoll (keine Telemetrie).

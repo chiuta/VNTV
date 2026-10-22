@@ -19,15 +19,21 @@ function fromIndex(o){
 }
 async function loadIndex(){
   const urls = [...new Set([P.indexUrl, ...DEFAULT_INDEX].filter(Boolean))];
+  const fails = [];   // stare per sursă, afișată dacă și rezerva WordPress eșuează
   for (const u of urls){
     try{
       const j = await getJSON(u, 9000);
       if (!Array.isArray(j.items)) continue;
       DATA.all = j.items.map(fromIndex).filter(x => x.v);
       DATA.mode = "index"; DATA.indexUrl = u; DATA.generated = j.generated || null;
+      DATA.idxFail = null;
       return true;
-    }catch(e){}
+    }catch(e){
+      let h = u; try{ const x = new URL(u); h = x.hostname + "/…/" + x.pathname.split("/").pop(); }catch(_){}
+      fails.push(h + ": " + (e && e.status ? "HTTP " + e.status : "network/CORS"));
+    }
   }
+  DATA.idxFail = fails.join("; ");
   DATA.mode = "wp";
   return false;
 }

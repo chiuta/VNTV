@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · **Português** · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versão:** 2.5.2 · **Última atualização:** 2026-10-22
+**Versão:** 2.5.3 · **Última atualização:** 2026-10-22
 
 Idiomas da interface: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -103,6 +103,7 @@ Categorias VideoNeat 1–14 (trailers) · 15 Favoritos · **16 TROM** (os docume
 
 ## Changelog (2.3.0)
 
+* 2.5.3 — 2026-10-22: a etiqueta de transparência já não lista um anfitrião corrompido (`${it._h`); o `index.html` da raiz é agora a versão alojada com `sw.js`, manifesto e ícones reais (o modo offline funciona na página publicada); etiquetas para os dois campos de pesquisa; foco de teclado visível em todos os controlos; texto ≥ 12 px, ligações do rodapé maiores e barra de controlos sem overflow a 360 px; a confirmação de abertura de ligação usa a caixa de diálogo da página; se o catálogo não carregar, a mensagem indica cada fonte que falhou (o índice oficial responde 404/CORS em videoneat.com).
 * 2.5.2 — 2026-10-22: a mensagem «não foi possível carregar a lista» do ecrã inicial e a descrição do painel de transparência fff-kit seguem agora o idioma da interface quando este é alterado.
 
 * 2.3.0 — 2026-10-18: resiliência a erros de reprodução — nova tentativa, alternativa de qualidade/formato, P2P e outro anfitrião PeerTube, espera offline, lista negra local de 24 h, barra de erros com ações, registo de erros local exportável (sem telemetria).

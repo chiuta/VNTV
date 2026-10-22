@@ -150,7 +150,8 @@ function playEmbed(it, offset){
   if (offset > 1) q.set("start", String(Math.floor(offset)));
   frame.style.display = "block";
   frame.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");   // atributul se pune doar când se folosește playerul PeerTube
-  frame.src = `https://${it._h || it.v.host}/videos/embed/${encodeURIComponent(it.v.id)}?${q}`;
+  const embHost = it._h || it.v.host;   // gazda se compune cu concat (nu șablon), ca eticheta de transparență să nu citească „${…” drept gazdă
+  frame.src = "https://".concat(embHost, "/videos/embed/", encodeURIComponent(it.v.id), "?", q);
   frame.onload = () => { embReset(); $("#spin").classList.remove("show"); setTimeout(() => { if (!PL.started) onPlaying(); }, 1500); };
   // dacă API-ul playerului nu răspunde în 10 s, trecem la redarea directă (fără bară de progres nu merită riscul)
   const tok = S.playTok;

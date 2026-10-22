@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · **Italiano** · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versione:** 2.5.2 · **Ultimo aggiornamento:** 2026-10-22
+**Versione:** 2.5.3 · **Ultimo aggiornamento:** 2026-10-22
 
 Lingue dell'interfaccia: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -103,6 +103,7 @@ Categorie VideoNeat 1–14 (trailer) · 15 Preferiti · **16 TROM** (i documenta
 
 ## Changelog (2.3.0)
 
+* 2.5.3 — 2026-10-22: l'etichetta di trasparenza non elenca più un host corrotto (`${it._h`); l'`index.html` nella radice è ora la versione ospitata con un vero `sw.js`, manifest e icone (l'offline funziona sulla pagina pubblicata); etichette per i due campi di ricerca; focus da tastiera visibile su tutti i controlli; testo ≥ 12 px, link del piè di pagina più grandi e barra dei comandi senza overflow a 360 px; la conferma di apertura di un link usa la finestra nella pagina; se il catalogo non si carica, il messaggio indica ogni fonte che ha fallito (l'indice ufficiale risponde 404/CORS su videoneat.com).
 * 2.5.2 — 2026-10-22: il messaggio « impossibile caricare l'elenco » nella schermata iniziale e la descrizione del pannello di trasparenza fff-kit seguono ora la lingua dell'interfaccia quando la si cambia.
 
 * 2.3.0 — 2026-10-18: resilienza agli errori di riproduzione — nuovo tentativo, ripiego su qualità/formato, P2P e host PeerTube alternativo, attesa offline, lista nera locale di 24 h, barra degli errori con azioni, registro errori locale esportabile (senza telemetria).

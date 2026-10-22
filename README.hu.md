@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 2.5.2 · **Utolsó frissítés:** 2026-10-22
+**Verzió:** 2.5.3 · **Utolsó frissítés:** 2026-10-22
 
 A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -103,6 +103,7 @@ A kódban ellenőrizve:
 
 ## Changelog (2.3.0)
 
+* 2.5.3 — 2026-10-22: az átláthatósági címke már nem sorol fel hibás gazdát (`${it._h`); a gyökér `index.html` mostantól a tárolt változat valódi `sw.js`-sel, manifesttel és ikonokkal (a kapcsolat nélküli működés a közzétett oldalon is megy); címkék a két keresőmezőhöz; látható billentyűzetfókusz minden vezérlőn; szöveg ≥ 12 px, nagyobb lábléc-hivatkozások és túlcsordulásmentes vezérlősáv 360 px-en; a hivatkozásmegnyitás megerősítése az oldalon belüli párbeszédablakot használja; ha a katalógus nem tölthető be, az üzenet megnevezi minden hibás forrást (a hivatalos index 404/CORS választ ad a videoneat.com-on).
 * 2.5.2 — 2026-10-22: a kezdőképernyő „nem sikerült betölteni a listát” üzenete és az fff-kit átláthatósági panel leírása mostantól a felület nyelvét követi, amikor azt megváltoztatják.
 
 * 2.3.0 — 2026-10-18: ellenállóság a lejátszási hibákkal szemben — újrapróbálkozás, minőségi/formátum-tartalék, P2P és másik PeerTube-gazdagép, offline várakozás, 24 órás helyi tiltólista, hibasáv műveletekkel, helyi, exportálható hibanapló (telemetria nélkül).

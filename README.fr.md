@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · **Français** · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version :** 2.5.2 · **Dernière mise à jour :** 2026-10-22
+**Version :** 2.5.3 · **Dernière mise à jour :** 2026-10-22
 
 Langues de l'interface : **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -103,6 +103,7 @@ Catégories VideoNeat 1–14 (bandes-annonces) · 15 Favoris · **16 TROM** (les
 
 ## Changelog (2.3.0)
 
+* 2.5.3 — 2026-10-22 : l'étiquette de transparence ne liste plus d'hôte corrompu (`${it._h`) ; l'`index.html` racine est désormais la version hébergée avec un vrai `sw.js`, un manifeste et des icônes (le hors-ligne fonctionne sur la page publiée) ; libellés des deux champs de recherche ; focus clavier visible sur tous les contrôles ; texte ≥ 12 px, liens du pied plus grands et barre de commandes sans débordement à 360 px ; la confirmation d'ouverture de lien utilise la boîte de dialogue de la page ; si le catalogue ne se charge pas, le message nomme chaque source en échec (l'index officiel répond 404/CORS sur videoneat.com).
 * 2.5.2 — 2026-10-22 : le message « impossible de charger la liste » de l'écran d'accueil et la description du panneau de transparence fff-kit suivent désormais la langue de l'interface lorsqu'on la change.
 
 * 2.3.0 — 2026-10-18 : résilience aux erreurs de lecture — nouvelle tentative, repli de qualité/format, P2P et autre hôte PeerTube, attente hors ligne, liste noire locale de 24 h, barre d'erreur avec actions, journal d'erreurs local exportable (sans télémétrie).

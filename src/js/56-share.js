@@ -38,7 +38,11 @@ async function itemFromDeepLink(dl){
   const same = x => x && x.v && x.v.host === dl.host && x.v.id === dl.id;
   const known = (S.items || []).find(same) || (DATA.all || []).find(same) || Object.values(DATA.pt || {}).flat().find(same);
   if (known) return {...known};
-  if (!trustedHost(dl.host) && !confirm(t("dlConfirm", {h:dl.host}))) return null;
+  if (!trustedHost(dl.host)){
+    const msg = t("dlConfirm", {h:dl.host});
+    const yes = (window.FFF && FFF.bundle && FFF.bundle.confirm) ? await FFF.bundle.confirm(msg, {danger:true}) : window.confirm(msg);
+    if (!yes) return null;
+  }
   try{
     const j = await getVideo(dl);
     if (!j || j.isLive || !(j.duration > 0) || j.nsfw) return null;

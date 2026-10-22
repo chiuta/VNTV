@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.5.3 — 2026-10-22
+- eticheta de transparență nu mai listează o gazdă coruptă (`${it._h`); `index.html` din rădăcină este acum varianta găzduită, cu `sw.js`, manifest și pictograme reale (offline funcționează pe pagina publicată); etichete pentru cele două câmpuri de căutare; focus de tastatură vizibil pe toate controalele; text ≥ 12 px, linkuri din subsol mai mari și bara de comenzi fără depășire la 360 px; confirmarea deschiderii unui link folosește dialogul din pagină; când catalogul nu se poate încărca, mesajul numește fiecare sursă care a eșuat (indexul oficial răspunde 404/CORS pe videoneat.com).
+
 ## 2.5.2 — 2026-10-22
 - Texte rămase: mesajul „nu pot încărca lista” de pe ecranul de start și descrierea din panoul de transparență fff-kit urmează limba interfeței (și la schimbarea ei).
 
