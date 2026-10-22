@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.5.8 — 2026-10-23
+- fff-kit 1.2.0 (modulele `store` și `dialog`): confirmarea de dinaintea deschiderii unui link direct către o gazdă video necunoscută folosește acum dialogul accesibil al kitului (`FFF.dialog.confirm`), nu alternativa cu `confirm` nativ a browserului. Cheile din browser erau deja prefixate (`vntv.*`), deci nu e nevoie de migrarea datelor.
+
 ## 2.5.6 — 2026-10-22
 - Teste: așteptări pe condiții în loc de timp real, deci suitele trec stabil sub încărcare. Comportamentul aplicației nu se schimbă.
 

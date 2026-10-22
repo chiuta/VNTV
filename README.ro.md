@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 2.5.7 · **Ultima actualizare:** 2026-10-23
+**Versiune:** 2.5.8 · **Ultima actualizare:** 2026-10-23
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -110,6 +110,9 @@ npm run test:all               # lint + 25 end-to-end + 30 PHP + 33 teste addon,
 Publicare pe GitHub Pages: `Settings → Pages → Source: GitHub Actions`; workflow-ul `.github/workflows/pages.yml` construiește și publică `deploy/site` (plus `vntv.html` ca descărcare).
 
 ## Istoric / Changelog (2.3.0)
+
+### 2.5.8 — 2026-10-23
+- fff-kit 1.2.0 (modulele `store` și `dialog`): confirmarea de dinaintea deschiderii unui link direct către o gazdă video necunoscută folosește acum dialogul accesibil al kitului (`FFF.dialog.confirm`), nu alternativa cu `confirm` nativ a browserului. Cheile din browser erau deja prefixate (`vntv.*`), deci nu e nevoie de migrarea datelor.
 
 ### 2.5.6 — 2026-10-22
 - Teste: așteptări pe condiții în loc de timp real, deci suitele trec stabil sub încărcare. Comportamentul aplicației nu se schimbă.

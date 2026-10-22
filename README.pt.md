@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · **Português** · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versão:** 2.5.7 · **Última atualização:** 2026-10-23
+**Versão:** 2.5.8 · **Última atualização:** 2026-10-23
 
 Idiomas da interface: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -102,6 +102,9 @@ Categorias VideoNeat 1–14 (trailers) · 15 Favoritos · **16 TROM** (os docume
 - A disponibilidade do P2P, do AirPlay e do Cast difere entre navegadores e dispositivos.
 
 ## Changelog (2.3.0)
+
+### 2.5.8 — 2026-10-23
+- fff-kit 1.2.0 (módulos `store` e `dialog`): a confirmação mostrada antes de abrir uma ligação direta para um anfitrião de vídeo desconhecido usa agora o diálogo acessível do kit (`FFF.dialog.confirm`) em vez da alternativa `confirm` nativa do navegador. As chaves do navegador já tinham prefixo (`vntv.*`), pelo que não é preciso migrar dados.
 
 ### 2.5.6 — 2026-10-22
 - Testes: esperas por condições em vez de tempo real, para que as suites passem de forma estável sob carga. Sem alterações no comportamento da aplicação.

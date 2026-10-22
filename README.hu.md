@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 2.5.7 · **Utolsó frissítés:** 2026-10-23
+**Verzió:** 2.5.8 · **Utolsó frissítés:** 2026-10-23
 
 A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -102,6 +102,9 @@ A kódban ellenőrizve:
 - A P2P, az AirPlay és a Cast elérhetősége böngészőnként és eszközönként eltér.
 
 ## Changelog (2.3.0)
+
+### 2.5.8 — 2026-10-23
+- fff-kit 1.2.0 (`store` és `dialog` modul): az ismeretlen videószerverre mutató közvetlen hivatkozás megnyitása előtti megerősítés mostantól a készlet akadálymentes párbeszédablakát (`FFF.dialog.confirm`) használja a böngésző natív `confirm` tartaléka helyett. A böngészőkulcsok már előtaggal rendelkeztek (`vntv.*`), ezért adatmigrációra nincs szükség.
 
 ### 2.5.6 — 2026-10-22
 - Tesztek: valós idő helyett feltételekre várakoznak, így a tesztcsomagok terhelés alatt is megbízhatóan lefutnak. Az alkalmazás viselkedése nem változik.

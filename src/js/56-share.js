@@ -40,7 +40,7 @@ async function itemFromDeepLink(dl){
   if (known) return {...known};
   if (!trustedHost(dl.host)){
     const msg = t("dlConfirm", {h:dl.host});
-    const yes = (window.FFF && FFF.bundle && FFF.bundle.confirm) ? await FFF.bundle.confirm(msg, {danger:true}) : window.confirm(msg);
+    const yes = await FFF.dialog.confirm(msg, {danger:true});
     if (!yes) return null;
   }
   try{

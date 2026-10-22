@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 2.5.7 · **Last updated:** 2026-10-23
+**Version:** 2.5.8 · **Last updated:** 2026-10-23
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -102,6 +102,9 @@ Verified in the code:
 - The availability of P2P, AirPlay and Cast differs between browsers and devices.
 
 ## Changelog (2.3.0)
+
+### 2.5.8 — 2026-10-23
+- fff-kit 1.2.0 (`store` and `dialog` modules): the confirmation shown before opening a direct link to an unknown video host now uses the kit's accessible dialog (`FFF.dialog.confirm`) instead of the browser's native `confirm` fallback. Browser keys were already prefixed (`vntv.*`), so no data migration is needed.
 
 ### 2.5.6 — 2026-10-22
 - Tests: waits on conditions instead of real time, so the suites pass reliably under load. No change in app behavior.
