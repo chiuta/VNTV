@@ -63,12 +63,23 @@
 .fff-chip:focus-visible{outline:2px solid currentColor;outline-offset:2px}
 @media (prefers-reduced-motion:no-preference){.fff-dlg[open]{animation:fff-in .12s ease-out}@keyframes fff-in{from{transform:translateY(6px)}to{transform:none}}}
 @media (prefers-reduced-motion:reduce){.fff-dlg,.fff-dlg *{animation:none!important;transition:none!important}}</style>
-<script id="fff-kit">/* fff-kit 1.1.1 */
+<script id="fff-kit">/* fff-kit 1.1.2 */
 /* ---- fff-kit/core ---- */
-/* fff-kit · core · v1.1.1 — fără rețea, fără dependențe. Definește window.FFF. */
+/* fff-kit · core · v1.1.2 — fără rețea, fără dependențe. Definește window.FFF. */
 (function () {
   'use strict';
-  var KIT_VERSION = '1.1.1';
+  /* anti-clickjacking: GitHub Pages nu trimite X-Frame-Options; dacă pagina e încadrată de o origine străină, o ascundem. */
+  try {
+    if (window.top !== window.self) {
+      var __cross = false;
+      try { void window.top.location.href; } catch (e) { __cross = true; }
+      if (__cross) {
+        document.documentElement.style.display = 'none';
+        try { window.top.location = window.self.location.href; } catch (e2) {}
+      }
+    }
+  } catch (e3) {}
+  var KIT_VERSION = '1.1.2';
   var F = (window.FFF = window.FFF || {});
   if (F.core && F.core.version) return; // idempotent la dublă încărcare
   var SUP = ['ro', 'en', 'fr', 'it', 'es', 'pt', 'hu', 'de'];
@@ -820,7 +831,7 @@
   var F = window.FFF;
   if (!F || F.bundle) return;
   var doc = document;
-  var SCHEMA = 1, ITER = 310000, MAX_BYTES = 64 * 1048576, MAX_KEYS = 20000;
+  var SCHEMA = 1, ITER = 600000, MAX_BYTES = 64 * 1048576, MAX_KEYS = 20000;
   function T(k, v) { return F.t('bundle', k, v); }
 
   function BErr(code, vars) {
