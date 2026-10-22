@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · **Español** · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versión:** 2.5.5 · **Última actualización:** 2026-10-22
+**Versión:** 2.5.6 · **Última actualización:** 2026-10-22
 
 Idiomas de la interfaz: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -102,6 +102,9 @@ Categorías de VideoNeat 1–14 (tráileres) · 15 Favoritos · **16 TROM** (los
 - La disponibilidad de P2P, AirPlay y Cast difiere entre navegadores y dispositivos.
 
 ## Changelog (2.3.0)
+
+### 2.5.6 — 2026-10-22
+- Pruebas: esperas basadas en condiciones en lugar de tiempo real, para que las suites pasen de forma estable bajo carga. Sin cambios en el comportamiento de la aplicación.
 
 ### 2.5.5 — 2026-10-22
 - fff-kit 1.1.4: objetivos táctiles y texto mínimo; objetivos táctiles/texto corregidos

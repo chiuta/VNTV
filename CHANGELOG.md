@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.5.6 — 2026-10-22
+- Teste: așteptări pe condiții în loc de timp real, deci suitele trec stabil sub încărcare. Comportamentul aplicației nu se schimbă.
+
 ## 2.5.5 — 2026-10-22
 - fff-kit 1.1.4: ținte tactile și text minim; ținte tactile/text corectate (săgețile `kbd` la 12 px).
 

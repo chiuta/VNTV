@@ -2,7 +2,7 @@
   "schema": 1,
   "slug": "vntv",
   "name": "VNTV — VideoNeat TV",
-  "version": "2.5.5",
+  "version": "2.5.6",
   "updated": "2026-10-22",
   "description": "VNTV — a non-stop, trade-free science TV channel built from the VideoNeat.com collection.",
   "egress": [
@@ -34,7 +34,7 @@
     "vntv."
   ],
   "sizeBytes": 412369,
-  "sha256": "eaf281518109fce316a0e6ca4b00c603a58f9edbf4dde8d64bade78651824ac5",
+  "sha256": "5a811f1d129ac5238f64e959a1d441439dc89566d3c78147b4916302b2c926ce",
   "csp": {
     "present": true,
     "directives": {
@@ -79,7 +79,7 @@
     ]
   },
   "kit": {
-    "version": "1.1.4",
+    "version": "1.2.0",
     "modules": [
       "core",
       "label",

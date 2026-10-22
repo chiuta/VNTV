@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 2.5.5 · **Zuletzt aktualisiert:** 2026-10-22
+**Version:** 2.5.6 · **Zuletzt aktualisiert:** 2026-10-22
 
 Oberflächensprachen: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -102,6 +102,9 @@ VideoNeat-Kategorien 1–14 (Trailer) · 15 Favoriten · **16 TROM** (die vollst
 - Die Verfügbarkeit von P2P, AirPlay und Cast unterscheidet sich je nach Browser und Gerät.
 
 ## Changelog (2.3.0)
+
+### 2.5.6 — 2026-10-22
+- Tests: Warten auf Bedingungen statt auf Echtzeit, damit die Suiten unter Last zuverlässig durchlaufen. Das Verhalten der App ändert sich nicht.
 
 ### 2.5.5 — 2026-10-22
 - fff-kit 1.1.4: Touch-Ziele und Mindestschriftgröße; Touch-Ziele/Text korrigiert
