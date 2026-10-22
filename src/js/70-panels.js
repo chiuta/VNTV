@@ -308,6 +308,11 @@ function kb(keys, label){ return keys.map(k => `<kbd>${k}</kbd>`).join("") + " "
 function applyLang(){
   document.documentElement.lang = P.lang;
   { const md = document.querySelector('meta[name="description"]'); if (md) md.content = t("metaDesc"); }
+  try{   // panoul de transparență fff-kit citește numele și descrierea din #fff-info: le aliniem la limba curentă
+    const fi = document.getElementById("fff-info");
+    if (fi){ const o = JSON.parse(fi.textContent); o.name = "VNTV — VideoNeat TV"; o.description = t("metaDesc"); fi.textContent = JSON.stringify(o); }
+  }catch(e){}
+  { const ne = document.getElementById("neterr"); if (ne && !ne.hidden && S.listErrMsg) ne.textContent = t("errList", {e:S.listErrMsg}); }   // mesajul de eroare rămâne în limba curentă la schimbarea limbii
   $$("[data-i]").forEach(e => e.textContent = t(e.dataset.i));
   $$("[data-it]").forEach(e => { e.title = t(e.dataset.it); if (e.tagName === "BUTTON" && !e.textContent.trim()) e.setAttribute("aria-label", t(e.dataset.it).replace(/\s*\([^)]*\)$/, "")); });
   $$("[data-ia]").forEach(e => e.setAttribute("aria-label", t(e.dataset.ia)));

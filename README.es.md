@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · **Español** · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versión:** 2.5.1 · **Última actualización:** 2026-10-19
+**Versión:** 2.5.2 · **Última actualización:** 2026-10-22
 
 Idiomas de la interfaz: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -102,6 +102,8 @@ Categorías de VideoNeat 1–14 (tráileres) · 15 Favoritos · **16 TROM** (los
 - La disponibilidad de P2P, AirPlay y Cast difiere entre navegadores y dispositivos.
 
 ## Changelog (2.3.0)
+
+* 2.5.2 — 2026-10-22: el mensaje «no se puede cargar la lista» de la pantalla de inicio y la descripción del panel de transparencia fff-kit siguen ahora el idioma de la interfaz cuando se cambia.
 
 * 2.3.0 — 2026-10-18: resiliencia ante errores de reproducción — reintento, alternativa de calidad/formato, P2P y otro host PeerTube, espera sin conexión, lista negra local de 24 h, barra de errores con acciones, registro de errores local exportable (sin telemetría).
 

@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 2.5.1 · **Ultima actualizare:** 2026-10-19
+**Versiune:** 2.5.2 · **Ultima actualizare:** 2026-10-22
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -110,6 +110,8 @@ npm run test:all               # lint + 25 end-to-end + 30 PHP + 33 teste addon,
 Publicare pe GitHub Pages: `Settings → Pages → Source: GitHub Actions`; workflow-ul `.github/workflows/pages.yml` construiește și publică `deploy/site` (plus `vntv.html` ca descărcare).
 
 ## Istoric / Changelog (2.3.0)
+
+* 2.5.2 — 2026-10-22: mesajul „nu pot încărca lista” de pe ecranul de start și descrierea din panoul de transparență fff-kit urmează acum limba interfeței când aceasta se schimbă.
 
 * 2.3.0 — 2026-10-18: reziliență la erori de redare — reîncercare, alt format/calitate, P2P și altă instanță PeerTube, așteptare offline, listă neagră locală 24 h, bară de erori cu acțiuni, jurnal local exportabil (fără telemetrie).
 

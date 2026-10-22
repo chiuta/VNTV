@@ -1,7 +1,7 @@
 {
   "name": "vntv",
-  "version": "2.5.1",
-  "updated": "2026-10-19",
+  "version": "2.5.2",
+  "updated": "2026-10-22",
   "description": "VNTV — a non-stop, trade-free science TV channel built from the VideoNeat.com collection (single-file HTML app + Stremio addon + WordPress index plugin)",
   "private": true,
   "type": "module",

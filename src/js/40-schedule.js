@@ -71,7 +71,7 @@ function canSync(ch){ return P.sync && ch.type !== "fav" && ch.type !== "search"
 function listError(e){
   S.netFail = true;
   const m = t("errList", {e:e.message}), sp = $("#splash"), n = $("#neterr");
-  if (sp && n && !sp.classList.contains("hide")){ n.textContent = m; n.hidden = false; } else toast(m, 4000);
+  if (sp && n && !sp.classList.contains("hide")){ S.listErrMsg = e.message; n.textContent = m; n.hidden = false; } else toast(m, 4000);
 }
 async function tune(opts = {}){
   const ch = S.search || S.ch;

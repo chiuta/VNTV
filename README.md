@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 2.5.1 · **Last updated:** 2026-10-19
+**Version:** 2.5.2 · **Last updated:** 2026-10-22
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -102,6 +102,8 @@ Verified in the code:
 - The availability of P2P, AirPlay and Cast differs between browsers and devices.
 
 ## Changelog (2.3.0)
+
+* 2.5.2 — 2026-10-22: the "can't load the list" message on the start screen and the description in the fff-kit transparency panel now follow the interface language when it is changed.
 
 * 2.3.0 — 2026-10-18: playback-error resilience — retry, quality/format fallback, P2P and alternate PeerTube host, offline wait, 24 h local blacklist, error bar with actions, local exportable error log (no telemetry).
 

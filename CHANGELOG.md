@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.5.2 — 2026-10-22
+- Texte rămase: mesajul „nu pot încărca lista” de pe ecranul de start și descrierea din panoul de transparență fff-kit urmează limba interfeței (și la schimbarea ei).
+
 ## 2.5.1 — 2026-10-19
 - Texte rămase: meta description urmează limba interfeței (cheie nouă `metaDesc`, în toate cele 8 limbi); mesajul `<noscript>` este în cele 8 limbi.
 
