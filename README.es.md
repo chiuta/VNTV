@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · **Español** · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versión:** 2.5.4 · **Última actualización:** 2026-10-22
+**Versión:** 2.5.5 · **Última actualización:** 2026-10-22
 
 Idiomas de la interfaz: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -102,6 +102,9 @@ Categorías de VideoNeat 1–14 (tráileres) · 15 Favoritos · **16 TROM** (los
 - La disponibilidad de P2P, AirPlay y Cast difiere entre navegadores y dispositivos.
 
 ## Changelog (2.3.0)
+
+### 2.5.5 — 2026-10-22
+- fff-kit 1.1.4: objetivos táctiles y texto mínimo; objetivos táctiles/texto corregidos
 
 * 2.5.4 — 2026-10-22: fff-kit 1.1.2: PBKDF2 con 600.000 iteraciones, protección anti-clickjacking.
 * 2.5.3 — 2026-10-22: la etiqueta de transparencia ya no lista un host corrupto (`${it._h`); el `index.html` de la raíz es ahora la versión alojada con un `sw.js`, manifiesto e iconos reales (el modo sin conexión funciona en la página publicada); etiquetas para los dos campos de búsqueda; foco de teclado visible en todos los controles; texto ≥ 12 px, enlaces del pie más grandes y barra de controles sin desbordamiento a 360 px; la confirmación de apertura de enlace usa el diálogo de la página; si el catálogo no se puede cargar, el mensaje nombra cada fuente que falló (el índice oficial responde 404/CORS en videoneat.com).

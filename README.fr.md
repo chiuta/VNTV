@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · **Français** · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version :** 2.5.4 · **Dernière mise à jour :** 2026-10-22
+**Version :** 2.5.5 · **Dernière mise à jour :** 2026-10-22
 
 Langues de l'interface : **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -102,6 +102,9 @@ Catégories VideoNeat 1–14 (bandes-annonces) · 15 Favoris · **16 TROM** (les
 - La disponibilité du P2P, d'AirPlay et de Cast diffère selon les navigateurs et les appareils.
 
 ## Changelog (2.3.0)
+
+### 2.5.5 — 2026-10-22
+- fff-kit 1.1.4 : cibles tactiles et taille de texte minimale; cibles tactiles/texte corrigés
 
 * 2.5.4 — 2026-10-22 : fff-kit 1.1.2 : PBKDF2 à 600 000 itérations, protection anti-clickjacking.
 * 2.5.3 — 2026-10-22 : l'étiquette de transparence ne liste plus d'hôte corrompu (`${it._h`) ; l'`index.html` racine est désormais la version hébergée avec un vrai `sw.js`, un manifeste et des icônes (le hors-ligne fonctionne sur la page publiée) ; libellés des deux champs de recherche ; focus clavier visible sur tous les contrôles ; texte ≥ 12 px, liens du pied plus grands et barre de commandes sans débordement à 360 px ; la confirmation d'ouverture de lien utilise la boîte de dialogue de la page ; si le catalogue ne se charge pas, le message nomme chaque source en échec (l'index officiel répond 404/CORS sur videoneat.com).

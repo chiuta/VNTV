@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.5.5 — 2026-10-22
+- fff-kit 1.1.4: ținte tactile și text minim; ținte tactile/text corectate (săgețile `kbd` la 12 px).
+
 ## 2.5.4 — 2026-10-22
 - fff-kit 1.1.2: PBKDF2 600 000 de iterații, protecție anti-clickjacking.
 

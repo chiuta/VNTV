@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 2.5.4 · **Last updated:** 2026-10-22
+**Version:** 2.5.5 · **Last updated:** 2026-10-22
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -102,6 +102,9 @@ Verified in the code:
 - The availability of P2P, AirPlay and Cast differs between browsers and devices.
 
 ## Changelog (2.3.0)
+
+### 2.5.5 — 2026-10-22
+- fff-kit 1.1.4: touch targets and minimum text size; touch targets/text fixed
 
 * 2.5.4 — 2026-10-22: fff-kit 1.1.2: PBKDF2 600,000 iterations, anti-clickjacking protection.
 * 2.5.3 — 2026-10-22: the transparency label no longer lists a corrupt host (`${it._h`); the root `index.html` is now the hosted build with a real `sw.js`, manifest and icons (offline works on the published page); labels for the two search fields; visible keyboard focus on all controls; text ≥ 12 px, larger footer links and no overflow of the control bar at 360 px; link-open confirmation uses the in-page dialog; when the catalogue cannot be loaded the message names each failing source (the official index answers 404/CORS on videoneat.com).
