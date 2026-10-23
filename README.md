@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 2.5.8 · **Last updated:** 2026-10-23
+**Version:** 2.5.9 · **Last updated:** 2026-10-23
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -102,6 +102,11 @@ Verified in the code:
 - The availability of P2P, AirPlay and Cast differs between browsers and devices.
 
 ## Changelog (2.3.0)
+
+### 2.5.9 — 2026-10-23
+
+- Security: favorites read from the browser storage or from an imported `.fff.json` backup are now validated (known key, valid video host and id, only http(s) links); a corrupt value (`null`) no longer stops start-up.
+- Tooling: `npm run lint` passes again (the `FFF` global of the shared kit is declared in `eslint.config.mjs`); `dist/app.json` and `deploy/site/app.json` describe the current build.
 
 ### 2.5.8 — 2026-10-23
 - fff-kit 1.2.0 (`store` and `dialog` modules): the confirmation shown before opening a direct link to an unknown video host now uses the kit's accessible dialog (`FFF.dialog.confirm`) instead of the browser's native `confirm` fallback. Browser keys were already prefixed (`vntv.*`), so no data migration is needed.

@@ -5,7 +5,7 @@ export default [
   {
     files: [".lint/bundle.js"],
     languageOptions: { ecmaVersion: 2023, sourceType: "script",
-      globals: { ...globals.browser, Translator: "readonly", MediaMetadata: "readonly" } },
+      globals: { ...globals.browser, Translator: "readonly", MediaMetadata: "readonly", FFF: "readonly" } },   // FFF = kitul comun fff (injectat în pagină de build/fff-kit)
     rules: {
       "no-undef": "error", "no-redeclare": "error", "no-dupe-keys": "error", "no-unreachable": "error",
       "no-unused-vars": ["warn", { args: "none", caughtErrors: "none" }], "no-const-assign": "error", "eqeqeq": ["warn", "smart"],
@@ -19,5 +19,5 @@ export default [
   },
   // testele rulează cod în pagină (page.evaluate), unde variabilele aplicației există: doar verificări de bază
   { files: ["tests/run.mjs"], languageOptions: { ecmaVersion: 2023, globals: { ...globals.node, ...globals.browser } },
-    rules: { "no-unused-vars": "warn" } },
+    rules: { "no-unused-vars": ["warn", { args: "none", caughtErrors: "none" }] } },
 ];

@@ -201,12 +201,24 @@ function parseVTT(s){
 }
 
 /* ---- favorite (cu migrarea formatului vechi) ---- */
+/* Favoritele vin din localStorage / dintr-o copie .fff.json importată: nu sunt de încredere. Se păstrează doar ce poate fi redat în siguranță:
+   cheie cunoscută, gazdă+id de video valide (altfel s-ar putea încărca în cadru o gazdă aleasă de cine a făcut copia) și adrese http(s). */
+function cleanFav(f){
+  if (!f || typeof f !== "object" || Array.isArray(f)) return null;
+  const v = f.v;
+  if (typeof f.key !== "string" || !/^(vn|pt):[A-Za-z0-9._:-]{1,200}$/.test(f.key)) return null;
+  if (!v || typeof v !== "object" || !okHost(v.host) || typeof v.id !== "string" || !/^[A-Za-z0-9_-]{1,64}$/.test(v.id)) return null;
+  const url = x => typeof x === "string" ? safeUrl(x) : null;
+  return {...f, v:{host:v.host, id:v.id}, link:url(f.link), sourceUrl:url(f.sourceUrl), img:url(f.img), preview:url(f.preview)};
+}
 function loadFavs(){
   const raw = store.get("favs", {}), out = {};
+  if (!raw || typeof raw !== "object") return out;   // valoare coruptă (null, număr, șir): pornim fără favorite, nu cu eroare la start
   for (const f of Object.values(raw)){
-    if (!f) continue;
-    if (f.key){ out[f.key] = f; continue; }
-    if (f.trailer) out["vn:" + f.id] = {...f, key:"vn:" + f.id, src:"vn", v:{host:VN_HOST, id:f.trailer}, source:f.src, sourceUrl:f.srcUrl, kind:"trailer"};
+    if (!f || typeof f !== "object") continue;
+    const it = f.key ? cleanFav(f)
+      : f.trailer ? cleanFav({...f, key:"vn:" + f.id, src:"vn", v:{host:VN_HOST, id:f.trailer}, source:f.src, sourceUrl:f.srcUrl, kind:"trailer"}) : null;
+    if (it) out[it.key] = it;
   }
   return out;
 }
