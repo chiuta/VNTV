@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.5.9 — 2026-10-23
+- Securitate: favoritele citite din stocarea browserului sau dintr-o copie `.fff.json` importată sunt validate (cheie cunoscută, gazdă și id de video valide, doar legături http(s)); o valoare coruptă (`null`) nu mai oprește pornirea.
+- Unelte: `npm run lint` trece din nou (globala `FFF` a kitului comun e declarată în `eslint.config.mjs`); `dist/app.json` și `deploy/site/app.json` descriu build-ul curent.
+
 ## 2.5.8 — 2026-10-23
 - fff-kit 1.2.0 (modulele `store` și `dialog`): confirmarea de dinaintea deschiderii unui link direct către o gazdă video necunoscută folosește acum dialogul accesibil al kitului (`FFF.dialog.confirm`), nu alternativa cu `confirm` nativ a browserului. Cheile din browser erau deja prefixate (`vntv.*`), deci nu e nevoie de migrarea datelor.
 

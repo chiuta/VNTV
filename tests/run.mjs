@@ -542,6 +542,27 @@ await test("Reziliență: butonul din Straturi copiază jurnalul local (fără t
   await ctx.close();
 });
 
+await test("Favorite: copie ostilă din localStorage (gazdă/adrese necontrolate, valoare coruptă) este curățată, aplicația pornește", async () => {
+  const hostile = {
+    "vn:1": {key:"vn:1", src:"vn", id:1, title:"<img src=x onerror=1>", link:"javascript:alert(1)", sourceUrl:"data:text/html,x", img:"javascript:1", v:{host:"evil.example/x?", id:"abc"}},
+    "vn:2": {key:"vn:2", src:"vn", id:2, title:"bun", link:"https://videoneat.com/x", sourceUrl:"https://example.org/s", v:{host:"videoneat.com", id:"abc123"}},
+    "x": {key:"__proto__", v:{host:"videoneat.com", id:"a"}},
+    "legacy": {id:3, trailer:"zzz", title:"vechi", srcUrl:"javascript:alert(2)"},
+    "str": "text", "nul": null,
+  };
+  const {ctx, page, errors} = await open({}, {}, "");
+  await page.evaluate(h => localStorage.setItem("vntv.favs", JSON.stringify(h)), hostile);
+  await page.reload(); await settle(page);
+  const r = await page.evaluate(() => ({keys:Object.keys(S.favs).sort(), l2:S.favs["vn:2"]?.link, ok:Object.values(S.favs).every(f => !f.link || /^https?:/.test(f.link)) && Object.values(S.favs).every(f => !f.sourceUrl || /^https?:/.test(f.sourceUrl)), legacy:S.favs["vn:3"]?.sourceUrl ?? null, proto:Object.getPrototypeOf(S.favs) === Object.prototype}));
+  ok(JSON.stringify(r.keys) === JSON.stringify(["vn:2", "vn:3"]), "au rămas: " + r.keys);
+  ok(r.l2 === "https://videoneat.com/x" && r.ok && r.legacy === null && r.proto, "adrese/prototip: " + JSON.stringify(r));
+  await page.evaluate(() => localStorage.setItem("vntv.favs", "null"));
+  await page.reload(); await settle(page);
+  ok(await page.evaluate(() => typeof S === "object" && Object.keys(S.favs).length === 0), "valoarea coruptă „null” a oprit pornirea");
+  ok(!errors.length, "erori: " + errors.join(" | "));
+  await ctx.close();
+});
+
 await browser.close();
 const failed = results.filter(r => r[1] !== "OK");
 console.log(`\n${results.length - failed.length}/${results.length} teste trecute`);
