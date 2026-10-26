@@ -14,20 +14,23 @@ function channelList(){
     ...VN_CATS.map((cat, i) => ({type:"vn", cat, i})),
     {type:"fav", i:14},
     ...P.sources.map(s => ({type:"pt", src:s})),
+    ...LISTS.filter(l => l.items.length).map(l => ({type:"pl", id:l.id})),   // listele proprii și abonamentele, după canalele vechi (indicii canalelor salvate rămân valabili)
   ];
 }
 function chName(ch){
   if (!ch) return "";
   if (ch.type === "search") return t("searchPre") + ch.q;
   if (ch.type === "pt") return ch.src.name || ch.src.handle;
+  if (ch.type === "pl") return (listById(ch.id) || {}).name || "";
   return L().ch[ch.i][0];
 }
 function chSub(ch){
   if (ch.type === "pt") return "PeerTube · " + ch.src.host;
+  if (ch.type === "pl"){ const l = listById(ch.id); return l && l.sub ? t("libSubBadge", {h:l.sub.host}) : t("libChSub"); }
   if (ch.type === "search") return t("searchCh");
   return L().ch[ch.i][1];
 }
-function chKey(ch){ return ch.type === "vn" ? "vn" + ch.cat : ch.type === "pt" ? "pt:" + srcKey(ch.src) : ch.type; }
+function chKey(ch){ return ch.type === "vn" ? "vn" + ch.cat : ch.type === "pt" ? "pt:" + srcKey(ch.src) : ch.type === "pl" ? "pl:" + ch.id : ch.type; }
 const chNo = () => S.search ? "—" : pad2(S.chIdx + 1);
 function catLabel(it){
   if (it.catLabel) return it.catLabel;
@@ -40,6 +43,7 @@ function catLabel(it){
 async function channelAll(ch){
   if (ch.type === "fav") return Object.values(S.favs).filter(x => x.v);
   if (ch.type === "pt") return ptAll(ch.src);
+  if (ch.type === "pl") return ((listById(ch.id) || {}).items || []).filter(x => x.v && !isDead(x));
   if (DATA.mode !== "index") return null;
   if (ch.type === "search"){ const q = norm(ch.q); return DATA.all.filter(x => norm(x.title + " " + x.ex + " " + tr(x.title)).includes(q)); }
   return DATA.all.filter(x => !ch.cat || x.cats.includes(ch.cat));
@@ -64,7 +68,7 @@ function buildSchedule(ch, all, now){
   items.forEach(it => { it._start = start; start += slot(it) * 1000; });
   return {items, offset:tt};
 }
-function canSync(ch){ return P.sync && ch.type !== "fav" && ch.type !== "search"; }
+function canSync(ch){ return P.sync && ch.type !== "fav" && ch.type !== "search" && ch.type !== "pl"; }
 
 /* ---- acordarea unui canal ---- */
 /* eroare la încărcarea listei: pe ecranul de start apare în pagină (nu se suprapune peste sigla VNTV), altfel ca notificare */
@@ -92,7 +96,7 @@ async function tune(opts = {}){
       return {offset: sc.offset};
     }
     const list = all.map(x => ({...x}));
-    S.items = P.shuffle ? shuffle(list) : list.sort((a, b) => (b.id > a.id ? 1 : -1));
+    S.items = ch.type === "pl" ? list : P.shuffle ? shuffle(list) : list.sort((a, b) => (b.id > a.id ? 1 : -1));   // listele se redau în ordinea lor
     S.idx = 0; renderLists(); updateLiveUI();
     return {offset:0};
   }

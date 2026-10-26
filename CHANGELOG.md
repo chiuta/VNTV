@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.0.0 — 2026-10-26
+- Biblioteca mea (tasta W): istoric local cu cutii de reluare (și pe ecranul de start), liste proprii redate ca un canal (ordine păstrată, export M3U/JSON, import validat), abonamente la liste publice PeerTube (reîmprospătare la cel mult 6 ore), verificarea automată a legăturilor (404/410 = indisponibil; erorile de rețea nu marchează nimic; titlurile dispărute sunt sărite la redare). Chei noi de stocare: `vntv.hist`, `vntv.lists`, `vntv.links`. Cererile noi merg doar către instanța PeerTube a fiecărui titlu sau a listei la care te abonezi. Neverificat pe o instanță PeerTube reală (testele folosesc date simulate).
+
 ## 2.5.9 — 2026-10-23
 - Securitate: favoritele citite din stocarea browserului sau dintr-o copie `.fff.json` importată sunt validate (cheie cunoscută, gazdă și id de video valide, doar legături http(s)); o valoare coruptă (`null`) nu mai oprește pornirea.
 - Unelte: `npm run lint` trece din nou (globala `FFF` a kitului comun e declarată în `eslint.config.mjs`); `dist/app.json` și `deploy/site/app.json` descriu build-ul curent.

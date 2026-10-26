@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 2.5.10 · **Last updated:** 2026-10-26
+**Version:** 3.0.0 · **Last updated:** 2026-10-26
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -39,6 +39,7 @@ VNTV plays the **trailers** of the documentaries in the VideoNeat collection (ho
 
 Verified in the code:
 
+- **My library (key W):** local watch history with **resume boxes** (“Continue watching”, also on the start screen), your own lists (reorderable, played as a channel, M3U/JSON export), **subscriptions to public PeerTube playlists** (`…/w/p/…`, refreshed at most every 6 hours) and **automatic link checking** (titles that vanished from their instance are flagged and skipped). Everything stays in the browser; the M3U export holds page addresses, not video files.
 - 14 channels by category, plus **Favorites** and the **TROM** channel; you can add PeerTube channels (Settings → Sources).
 - **Synchronized broadcast** (ON AIR): the schedule is computed from the date, so all viewers of the same channel see the same clip at the same moment (it needs the JSON catalog with durations; without it the app shows "NON-STOP", its own playlist).
 - TV guide, browsing the collection with search, a detail sheet, favorites, search as a "channel".

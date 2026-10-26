@@ -67,7 +67,7 @@ export async function install(page, opts = {}){
       if (u.pathname.startsWith("/wp-json/videoneat/v1/index") || u.pathname.endsWith("videoneat-index.json"))
         return opts.noIndex ? J(route, {code:"rest_no_route"}, 404) : J(route, indexJSON());
       const im = u.pathname.match(/\/wp-json\/videoneat\/v1\/item\/(\d+)/);
-      if (im){ const i = +im[1] - 1000; return J(route, {id:+im[1], desc:"Full description of " + TITLES[i][0] + "."}); }
+      if (im){ const i = +im[1] - 1000; return J(route, {id:+im[1], desc:"Full description of " + (TITLES[i] || ["video"])[0] + "."}); }
       const pm = u.pathname.match(/\/wp-json\/wp\/v2\/posts\/(\d+)/);
       if (pm) return J(route, wpPost(+pm[1] - 1000));
       if (u.pathname === "/wp-json/wp/v2/posts"){
@@ -83,7 +83,18 @@ export async function install(page, opts = {}){
       const cm = u.pathname.match(/\/api\/v1\/videos\/([^/]+)\/captions$/);
       if (cm) return J(route, {total:1, data:[{language:{id:"en", label:"English"}, captionPath:"/lazy-static/video-captions/x-en.vtt"}]});
       if (u.pathname.endsWith(".vtt")) return route.fulfill({status:200, headers:{"content-type":"text/vtt", "access-control-allow-origin":"*"}, body:VTT});
+      const plm = u.pathname.match(/^\/api\/v1\/video-playlists\/([^/]+)(\/videos)?$/);
+      if (plm){
+        if (plm[1] === "missing") return J(route, {error:"not found"}, 404);
+        if (!plm[2]) return J(route, {displayName:"Public Picks", id:5, uuid:plm[1]});
+        const vids = [1, 2, 3, 4].map(n => ({id:n, position:n, video:n === 3 ? null : {uuid:"pl-uuid-" + n, nsfw:n === 4, shortUUID:"q" + n, name:"Playlist clip " + n, duration:6,
+          truncatedDescription:"From a public playlist.", url:`https://${u.host}/w/q${n}`, previewPath:null, publishedAt:"2025-06-01", licence:{id:1, label:"CC BY"}, channel:{displayName:"Open Science Lab", url:`https://${u.host}/c/x`}}}));
+        if (opts.plMore) vids.push({id:9, position:9, video:{uuid:"pl-uuid-9", nsfw:false, name:"Playlist clip 9", duration:6, url:`https://${u.host}/w/q9`, channel:{displayName:"Open Science Lab"}}});
+        return J(route, {total:vids.length, data:vids});
+      }
       const vm = u.pathname.match(/\/api\/v1\/videos\/([^/]+)$/);
+      if (vm && (opts.dead || []).some(d => d === vm[1] || d === u.host + "/" + vm[1])) return J(route, {error:"gone"}, 404);
+      if (vm && opts.netFail && opts.netFail.includes(vm[1])) return route.abort();
       if (vm) return J(route, {uuid:vm[1], shortUUID:vm[1], name:"x", duration:6, description:"PeerTube description.", thumbnails:[], previewPath:null,
         streamingPlaylists:[{playlistUrl:`https://${u.host}/hls/master.m3u8`, files: opts.allBad ? [{resolution:{id:720}, fileUrl:`https://${u.host}/static/bad720.webm`, hasVideo:true}]
           : opts.badTop ? [{resolution:{id:720}, fileUrl:`https://${u.host}/static/bad720.webm`, hasVideo:true}, {resolution:{id:480}, fileUrl:`https://${u.host}/static/clip6.webm`, hasVideo:true}]

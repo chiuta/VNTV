@@ -133,6 +133,7 @@ document.addEventListener("keydown", e => {
     case "f": case "F": toggleFull(); break;
     case "g": case "G": case "ContextMenu": openPanel("guide"); break;
     case "b": case "B": openPanel("browse"); break;
+    case "w": case "W": openLib(); break;
     case "o": case "O": openPanel("layers"); break;
     case "i": case "I": openPanel("info"); break;
     case "s": case "S": toggleFav(); break;

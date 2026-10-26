@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 2.5.10 · **Ultima actualizare:** 2026-10-26
+**Versiune:** 3.0.0 · **Ultima actualizare:** 2026-10-26
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -38,6 +38,7 @@ Depozitul conține trei componente:
 
 Verificate în cod:
 
+- **Biblioteca mea (tasta W):** istoric local cu **cutii de reluare** („Continuă vizionarea”, inclusiv pe ecranul de start), liste proprii (ordonabile, redate ca un canal, export M3U/JSON), **abonamente la liste publice PeerTube** (`…/w/p/…`, reîmprospătate la cel mult 6 ore) și **verificarea automată a legăturilor** (titlurile dispărute de pe instanța lor sunt marcate și sărite la redare). Totul rămâne în browser; exportul M3U conține adrese de pagină, nu fișiere video.
 - 14 canale pe categorii, plus **Favorite** și canalul **TROM**; poți adăuga canale PeerTube (Setări → Surse).
 - **Emisie sincronizată** (ON AIR): programul se calculează din dată, deci toți spectatorii aceluiași canal văd același clip în același moment (cere catalogul JSON cu durate; fără el aplicația arată „NON-STOP”, listă proprie).
 - Ghid TV, răsfoirea colecției cu căutare, fișă de detalii, favorite, căutare ca „canal”.
@@ -76,7 +77,7 @@ Categoriile VideoNeat 1–14 (trailere) · 15 Favorite · **16 TROM** (documenta
 
 ## Confidențialitate și rețea
 
-- **Stocare locală (`localStorage`, doar în browserul tău):** `vntv.prefs` (limbă, canal, setări), `vntv.ov` (straturi), `vntv.favs` (favorite), `vntv.trc` (memoria traducerilor, max. 2500). Fără cookie-uri, conturi sau analitice. Dacă `localStorage` nu e disponibil, aplicația merge cu memorie temporară. În modul chioșc setările nu se salvează.
+- **Stocare locală (`localStorage`, doar în browserul tău):** `vntv.prefs` (limbă, canal, setări), `vntv.ov` (straturi), `vntv.favs` (favorite), `vntv.hist` (istoric, max. 200), `vntv.lists` (liste și abonamente), `vntv.links` (rezultatele verificării legăturilor), `vntv.trc` (memoria traducerilor, max. 2500). Fără cookie-uri, conturi sau analitice. Dacă `localStorage` nu e disponibil, aplicația merge cu memorie temporară. În modul chioșc setările nu se salvează.
 - **Gazde contactate implicit:** `www.videoneat.com` (catalogul JSON, imagini; ca rezervă, API-ul WordPress) și `videos.trom.tf` (detalii video, fișiere, subtitrări, playerul PeerTube încorporat). Fonturile sunt încorporate în fișier.
 - **În modul P2P**, playerul PeerTube încorporat se conectează și la alți spectatori (WebRTC), deci adresa ta IP le este vizibilă; aplicația te avertizează înainte de prima utilizare și oferă redarea directă.
 - **Doar la alegerea ta:** orice instanță PeerTube pe care o adaugi ca sursă; un server LibreTranslate a cărui adresă o introduci; serviciul comercial **MyMemory** (`api.mymemory.translated.net`), doar dacă îl alegi explicit, cu avertisment (textele traduse îi sunt trimise). Traducătorul din browser rulează pe dispozitiv.

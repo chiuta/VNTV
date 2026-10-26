@@ -42,6 +42,7 @@
       <button class="ib" id="bfav" data-it="tFav"></button>
       <button class="ib hide-s" id="binfo" data-it="tInfo"></button>
       <button class="ib hide-s" id="bbrowse" data-it="tBrowse"></button>
+      <button class="ib" id="blib" data-it="tLib"></button>
       <button class="ib" id="bguide" data-it="tGuide"></button>
       <button class="ib" id="blayers" data-it="tLayers"></button>
       <button class="ib" id="bscreen" data-it="tScreen"></button>
@@ -75,6 +76,12 @@
     <div class="body" id="ibody"></div>
   </aside>
 
+  <aside id="lib" class="panel" data-ia="libT">
+    <header><h2 data-i="libT"></h2><button class="x" data-close data-ia="close">×</button></header>
+    <div class="libtabs" id="libtabs" role="tablist"></div>
+    <div class="body" id="libbody"></div>
+  </aside>
+
   <section id="browse" class="panel" data-ia="browse">
     <header><div class="vntv"><span class="vn">VN</span><span class="tv">TV</span></div><h2 data-i="browse"></h2><button class="x" data-close data-ia="close">×</button></header>
     <form class="gsearch" id="bform"><input id="bq" type="search" data-ip="browsePh" data-ia="browsePh" autocomplete="off"><button class="btn pri" data-i="search"></button></form>
@@ -94,6 +101,7 @@
         <button id="go"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span data-i="go"></span></button>
         <button id="gobrowse" class="btn" data-i="browseAll"></button>
       </div>
+      <button id="resumebox" class="btn rsm" hidden></button>
       <div class="langs" id="slangs"></div>
       <div class="keys" id="skeys"></div>
       <p class="tvnote" data-i="splashTv"></p>

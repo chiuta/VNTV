@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · **Français** · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version :** 2.5.10 · **Dernière mise à jour :** 2026-10-26
+**Version :** 3.0.0 · **Dernière mise à jour :** 2026-10-26
 
 Langues de l'interface : **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -39,6 +39,7 @@ VNTV diffuse les **bandes-annonces** des documentaires de la collection VideoNea
 
 Vérifiées dans le code :
 
+- **Ma bibliothèque (touche W) :** historique local avec cartes de reprise, listes personnelles (M3U/JSON), abonnements à des listes PeerTube publiques et vérification automatique des liens.
 - 14 chaînes par catégories, plus les **Favoris** et la chaîne **TROM** ; vous pouvez ajouter des chaînes PeerTube (Réglages → Sources).
 - **Diffusion synchronisée** (ON AIR) : la programmation est calculée à partir de la date, de sorte que tous les spectateurs d'une même chaîne voient le même clip au même moment (elle exige le catalogue JSON avec les durées ; sans lui, l'application affiche « NON-STOP », sa propre liste de lecture).
 - Guide TV, navigation dans la collection avec recherche, fiche de détails, favoris, recherche comme « chaîne ».

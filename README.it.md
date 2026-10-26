@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · **Italiano** · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versione:** 2.5.10 · **Ultimo aggiornamento:** 2026-10-26
+**Versione:** 3.0.0 · **Ultimo aggiornamento:** 2026-10-26
 
 Lingue dell'interfaccia: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -39,6 +39,7 @@ VNTV riproduce i **trailer** dei documentari della collezione VideoNeat (ospitat
 
 Verificate nel codice:
 
+- **La mia libreria (tasto W):** cronologia locale con schede di ripresa, liste personali (M3U/JSON), iscrizioni a liste PeerTube pubbliche e verifica automatica dei link.
 - 14 canali per categoria, più i **Preferiti** e il canale **TROM**; puoi aggiungere canali PeerTube (Impostazioni → Fonti).
 - **Trasmissione sincronizzata** (ON AIR): il palinsesto è calcolato a partire dalla data, quindi tutti gli spettatori dello stesso canale vedono lo stesso clip nello stesso momento (richiede il catalogo JSON con le durate; senza di esso l'app mostra «NON-STOP», una propria playlist).
 - Guida TV, navigazione nella collezione con ricerca, scheda dei dettagli, preferiti, ricerca come «canale».

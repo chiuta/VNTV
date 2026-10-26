@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 2.5.10 · **Utolsó frissítés:** 2026-10-26
+**Verzió:** 3.0.0 · **Utolsó frissítés:** 2026-10-26
 
 A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -39,6 +39,7 @@ A VNTV a VideoNeat gyűjtemény dokumentumfilmjeinek **előzeteseit** (a TROM Pe
 
 A kódban ellenőrizve:
 
+- **Könyvtáram (W billentyű):** helyi előzmények folytatás-kártyákkal, saját listák (M3U/JSON), nyilvános PeerTube-listák követése és automatikus hivatkozás-ellenőrzés.
 - 14 kategóriák szerinti csatorna, valamint a **Kedvencek** és a **TROM** csatorna; PeerTube-csatornákat is hozzáadhatsz (Beállítások → Források).
 - **Szinkronizált adás** (ON AIR): a műsorrend a dátumból számítódik, így ugyanazon csatorna összes nézője ugyanabban a pillanatban ugyanazt a klipet látja (a időtartamokat tartalmazó JSON-katalógus szükséges hozzá; nélküle az alkalmazás a „NON-STOP” feliratot mutatja, saját lejátszási listával).
 - TV-műsorfüzet, a gyűjtemény böngészése kereséssel, részletlap, kedvencek, a keresés mint „csatorna”.

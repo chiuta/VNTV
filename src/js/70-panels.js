@@ -8,7 +8,7 @@ function openPanel(id){
   if (isOpen(id)){ closePanels(); return; }
   $$(".panel.open").forEach(p => p.classList.remove("open"));
   $("#" + id).classList.add("open"); showUI(true);
-  if (id === "guide") renderLists(); if (id === "info") renderInfo(); if (id === "layers") renderLayers(); if (id === "screen") renderScreen(); if (id === "browse") openBrowse();
+  if (id === "guide") renderLists(); if (id === "info") renderInfo(); if (id === "layers") renderLayers(); if (id === "screen") renderScreen(); if (id === "browse") openBrowse(); if (id === "lib"){ renderLib(); autoRefreshSubs(); runChecks(false); }
   if (history.state?.vntv !== "panel") try{ history.pushState({vntv:"panel"}, ""); }catch(e){}
   if (!TOUCH) setTimeout(() => { const p = $("#" + id);
     (p.querySelector(".q.now, .ch.on, .bc.on, .tg, .presets button, .btn, button:not(.x)") || p.querySelector(".x"))?.focus({preventScroll:true}); }, 60);
@@ -206,6 +206,7 @@ function detailHTML(it, idp){
       ${it.link ? `<a class="btn ${idp === "b" ? "" : "pri"}" href="${esc(it.link)}" target="_blank" rel="noopener">${esc(it.src === "pt" ? t("watchPT") : t("watch"))}</a>` : ""}
       ${it.sourceUrl && it.src === "vn" ? `<a class="btn" href="${esc(it.sourceUrl)}" target="_blank" rel="noopener">${esc(t("official"))}${it.source ? " (" + esc(it.source) + ")" : ""} ↗</a>` : ""}
       <button class="btn ${fav ? "on" : ""}" data-fav>${esc(fav ? t("inFav") : t("addFav"))}</button>
+      ${it.v ? pickHTML() : ""}
       ${shareUrl(it) ? `<button class="btn" data-share>${esc(t("shareBtn"))}</button>` : ""}
     </div>
     ${it.kind === "trailer" ? `<p class="note">${esc(t("note"))}</p>` : ""}`;
@@ -213,6 +214,7 @@ function detailHTML(it, idp){
 function bindDetail(root, it){
   root.querySelector("[data-fav]").onclick = () => { toggleFav(it); if (root.id !== "ibody") showBrowseDetail(it, true); };
   const sh = root.querySelector("[data-share]"); if (sh) sh.onclick = () => shareItem(it);
+  bindPick(root, () => it);
   const o = root.querySelector("[data-orig]"); if (o) o.onclick = () => { S.showOrig = !S.showOrig; applyLang(); if (!S.showOrig) requestTr(); };
   const pn = root.querySelector("[data-playnow]"); if (pn) pn.onclick = () => { closePanels(); if (!S.started) start({noplay:true}); playItemNow(it); };
 }
@@ -328,6 +330,8 @@ function applyLang(){
   if (isOpen("guide")) renderQueue(true);
   if (isOpen("info")) renderInfo();
   if (isOpen("browse")) openBrowse();
+  if (isOpen("lib")) renderLib();
+  syncResumeBox();
   const it = S.items[S.idx];
   if (it){ updateNow(it); renderTicker(); mediaSession(it); if ($("#lower").classList.contains("show")) showLower(it); SUB.last = null; subsAt(curTime()); }
 }

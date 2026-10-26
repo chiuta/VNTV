@@ -512,3 +512,35 @@ body.lower-on.ui #subs{bottom:calc(270px + var(--safe-b))}
 input[type=range]{min-height:24px}
 .src a{display:inline-block;padding:4px 2px;min-height:24px}
 @media (max-width:370px){ .row .ib{width:32px} .row .ib.big{width:44px;height:44px} .row .chbtn .ib{width:26px} }
+
+/* Biblioteca mea: istoric, liste, verificarea legăturilor */
+.libtabs{display:flex;gap:6px;padding:8px 18px 0;flex:none;overflow-x:auto}
+.libtabs button{flex:1;min-height:44px;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:#fff;font:700 13px/1.2 var(--ui);cursor:pointer;white-space:nowrap}
+.libtabs button.on{color:var(--acc);border-color:var(--acc)}
+.libtabs button:focus-visible,#libbody button:focus-visible,#libbody select:focus-visible,#libbody input:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+#libbody .th{flex:none;width:96px;aspect-ratio:16/9;border-radius:7px;background:#151a20 center/cover}
+#libbody .rbox,#libbody .lrow{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:12px;padding:8px 10px;margin:8px 0;background:rgba(255,255,255,.04)}
+#libbody .rt{flex:1;min-width:0}
+#libbody .rt b{display:block;font:700 14px/1.3 var(--ui);overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+#libbody .rt small{display:block;color:var(--mut);font-size:12px;margin-top:2px}
+#libbody .rbar{height:5px;border-radius:3px;background:rgba(255,255,255,.14);margin-top:6px;overflow:hidden}
+#libbody .rbar i{display:block;height:100%;background:var(--acc)}
+#libbody .btn,#libbody .x,#libbody select.libpick{min-height:44px;min-width:44px;justify-content:center}
+#libbody select.libpick{max-width:150px;color:#fff;background:rgba(255,255,255,.08)}
+#libbody select.libpick option{color:#000}
+#libbody .lcard{border:1px solid var(--line);border-radius:14px;padding:8px 10px;margin:10px 0;background:rgba(255,255,255,.03)}
+#libbody .lhead{display:flex;align-items:center;gap:10px}
+#libbody .lname{flex:1;min-width:0;text-align:left;background:none;border:0;color:#fff;cursor:pointer;padding:6px 4px;min-height:44px}
+#libbody .lname b{display:block;font:700 15px/1.3 var(--ui)}
+#libbody .lname small{display:block;color:var(--mut);font-size:12px}
+#libbody .lacts{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+#libbody .stat{font:700 13px/1.4 var(--ui);margin:8px 0}
+#libbody .gsearch{display:flex;gap:8px;padding:0;border:0;margin:6px 0}
+#libbody .gsearch input{flex:1;min-width:0;min-height:44px}
+#libbody .hintp{margin:6px 0}
+#resumebox{display:grid;gap:2px;margin:18px auto 0;max-width:420px;text-align:left;border-radius:14px;padding:12px 18px}
+#resumebox[hidden]{display:none}
+#resumebox .rk{font:800 11px/1 var(--ui);letter-spacing:.16em;text-transform:uppercase;color:var(--acc)}
+#resumebox b{font:700 15px/1.3 var(--ui)}
+#resumebox small{color:var(--mut)}
+@media (max-width:520px){#libbody .th{width:72px}#libbody select.libpick{max-width:110px}}

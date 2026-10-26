@@ -184,7 +184,7 @@ function playEmbed(it, offset){
   $("#bpip").hidden = true; $("#bcast").hidden = true;
 }
 function onPlaying(){
-  PL.started = true; S.errChain = 0; S.badRun = 0; S.halted = false; hideErr();
+  PL.started = true; histStart(S.items[S.idx]); S.errChain = 0; S.badRun = 0; S.halted = false; hideErr();
   clearTimeout(stallTimer); $("#spin").classList.remove("show"); V.style.opacity = 1;
   if (!S._lowerShown){ S._lowerShown = true; setTimeout(() => showLower(S.items[S.idx]), 700); }
   syncPlay();
@@ -199,12 +199,12 @@ function prev(){
   if (curTime() > 5){ leaveLive(); seekTo(0); return; }
   leaveLive(); S._lowerShown = false; play(S.idx - 1, {offset:0});
 }
-function playItemNow(it){
+function playItemNow(it, offset = 0){
   leaveLive();
   const i = S.idx + 1;
   S.items.splice(i, 0, {...it});
   S._lowerShown = false;
-  play(i, {offset:0});
+  play(i, {offset});
 }
 
 /* ---- evenimentele elementului <video> ---- */
@@ -224,6 +224,7 @@ V.addEventListener("timeupdate", () => { if (PL.mode === "direct") onTime(V.curr
 
 let seeking = false;
 function onTime(c, d){
+  histTick(c, d);
   const p = d ? c / d * 100 : 0;
   $("#bari").style.width = p + "%";
   if (!seeking){ $("#seek").value = Math.round(p * 10); $("#seek").style.setProperty("--p", p + "%"); }
