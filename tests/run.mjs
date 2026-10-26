@@ -508,7 +508,7 @@ await test("Reziliență: offline → așteaptă rețeaua, nu consumă programul
   await ctx.setOffline(true);
   await page.waitForFunction(() => navigator.onLine === false, null, {timeout:LT(10000)});   // pagina află de pierderea rețelei asincron; directFail o consultă
   await page.evaluate(() => { window.__i = S.idx; V.pause(); /* un clip scurt din mock ar putea ajunge singur la capăt între citire și verificare, sub încărcare */ directFail("error", 2); });
-  await page.waitForFunction(() => S.waitOnline, null, {timeout:LT(5000)});
+  await page.waitForFunction(() => S.waitOnline && !$("#errbar").hidden, null, {timeout:LT(15000)});   // bara apare asincron; sub încărcare întârzie
   const off = await page.evaluate(() => ({same:S.idx === window.__i, idx:S.idx, was:window.__i, chain:S.errChain, bar:!$("#errbar").hidden}));
   ok(off.same && off.chain === 0 && off.bar, "a sărit clipul sau lipsește mesajul offline: " + JSON.stringify(off));
   await ctx.setOffline(false);

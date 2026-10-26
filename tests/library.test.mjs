@@ -221,7 +221,7 @@ console.log("5. abonamente la liste publice PeerTube");
 console.log("6. verificarea legăturilor");
 {
   const seed = {lists:[{id:"lst1", name:"De verificat", items:[snap("pt:peertube.example:gone111"), snap("pt:peertube.example:alive22"), snap("pt:peertube.example:flaky33"), snap("pt:peertube.example:alt4444")]}]};
-  const {ctx, page, errors, opts} = await open({seed, mock:{dead:["gone111", "peertube.example/alt4444"], netFail:["flaky33"]}});
+  const {ctx, page, errors} = await open({seed, mock:{dead:["gone111", "peertube.example/alt4444"], netFail:["flaky33"]}});
   await start(page);
   await page.evaluate(() => { LISTS.splice(0, LISTS.length, ...JSON.parse(localStorage.getItem("vntv.lists")).map(cleanList)); });
   await openLib(page, "links");
@@ -240,7 +240,6 @@ console.log("6. verificarea legăturilor");
   const plk = await page.evaluate(() => S.items.map(x => x.key));
   check("redarea listei sare titlurile indisponibile, păstrând ordinea celorlalte", !plk.some(k => k.endsWith("gone111")) && ["alive22", "flaky33", "alt4444"].every(n => plk.some(k => k.endsWith(n))) && plk.filter(k => k.startsWith("pt:")).map(k => k.split(":")[2]).join() === "alive22,flaky33,alt4444", plk);
   // reverificare forțată doar la cerere
-  const reqs0 = page.evaluate(() => 0);
   await page.keyboard.press("w"); await until(page, () => document.querySelector("#lib.open"));
   await ck(page, "#libtabs [data-tab=links]");
   await ck(page, "[data-act=check]");
