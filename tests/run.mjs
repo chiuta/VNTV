@@ -508,9 +508,10 @@ await test("Reziliență: offline → așteaptă rețeaua, nu consumă programul
   await ctx.setOffline(true);
   await page.waitForFunction(() => navigator.onLine === false, null, {timeout:LT(10000)});   // pagina află de pierderea rețelei asincron; directFail o consultă
   await page.evaluate(() => { window.__i = S.idx; V.pause(); /* un clip scurt din mock ar putea ajunge singur la capăt între citire și verificare, sub încărcare */ directFail("error", 2); });
-  await page.waitForFunction(() => S.waitOnline && !$("#errbar").hidden, null, {timeout:LT(15000)});   // bara apare asincron; sub încărcare întârzie
+  /* starea „offline” (bară vizibilă, clipul neschimbat, lanțul de erori 0) trebuie observată pe condiție: sub încărcare un eveniment întârziat al elementului video poate ascunde bara scurt */
+  const offOk = await page.waitForFunction(() => S.waitOnline && !$("#errbar").hidden && S.idx === window.__i && S.errChain === 0, null, {timeout:LT(15000)}).then(() => true, () => false);
   const off = await page.evaluate(() => ({same:S.idx === window.__i, idx:S.idx, was:window.__i, chain:S.errChain, bar:!$("#errbar").hidden}));
-  ok(off.same && off.chain === 0 && off.bar, "a sărit clipul sau lipsește mesajul offline: " + JSON.stringify(off));
+  ok(offOk, "a sărit clipul sau lipsește mesajul offline: " + JSON.stringify(off));
   await ctx.setOffline(false);
   await page.waitForFunction(() => !S.waitOnline && V.currentTime > 0 && !V.paused, null, {timeout:LT(15000)});
   await ctx.close();

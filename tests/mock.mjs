@@ -69,7 +69,7 @@ export async function install(page, opts = {}){
       const im = u.pathname.match(/\/wp-json\/videoneat\/v1\/item\/(\d+)/);
       if (im){ const i = +im[1] - 1000; return J(route, {id:+im[1], desc:"Full description of " + (TITLES[i] || ["video"])[0] + "."}); }
       const pm = u.pathname.match(/\/wp-json\/wp\/v2\/posts\/(\d+)/);
-      if (pm) return J(route, wpPost(+pm[1] - 1000));
+      if (pm){ const pi = +pm[1] - 1000; return TITLES[pi] ? J(route, wpPost(pi)) : J(route, {code:"rest_post_invalid_id"}, 404); }   // id necunoscut → 404 (nu mai oprește procesul de test)
       if (u.pathname === "/wp-json/wp/v2/posts"){
         const cat = +u.searchParams.get("categories") || 0, q = (u.searchParams.get("search") || "").toLowerCase();
         const list = TITLES.map((_, i) => wpPost(i)).filter(p => (!cat || p.categories.includes(cat)) && (!q || p.title.rendered.toLowerCase().includes(q)));

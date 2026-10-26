@@ -260,12 +260,15 @@ function thumb(it){ return `<div class="th" style="background-image:url('${esc(c
 function renderLib(){
   const b = $("#libbody"); if (!b) return;
   const keep = b.scrollTop;
+  /* redesenarea (la sfârșitul unei verificări, al unei reîmprospătări etc.) nu trebuie să șteargă ce tastează utilizatorul în câmpurile de adăugare */
+  const typed = ["#nlName", "#subUrl"].map(sel => { const e = b.querySelector(sel); return e && {sel, v: e.value, f: e === document.activeElement, a: e.selectionStart, z: e.selectionEnd}; }).filter(Boolean);
   const tabs = [["resume", "libTabResume"], ["lists", "libTabLists"], ["links", "libTabLinks"]];
   $("#libtabs").innerHTML = tabs.map(([k, n]) => `<button role="tab" class="${LIB.tab === k ? "on" : ""}" aria-selected="${LIB.tab === k}" data-tab="${k}">${esc(t(n))}</button>`).join("");
   b.innerHTML = LIB.tab === "resume" ? libResumeHTML() : LIB.tab === "lists" ? libListsHTML() : libLinksHTML();
   bindPick(b, sel => { const row = sel.closest("[data-hi]"); const h = row && HIST[+row.dataset.hi]; return h ? h.it : null; });
   need([...HIST.slice(0, 12).map(h => h.it.title), ...LISTS.slice(0, 10).flatMap(l => l.items.slice(0, 6).map(x => x.title))]);
   b.scrollTop = keep;
+  for (const o of typed){ const e = b.querySelector(o.sel); if (!e) continue; if (o.v) e.value = o.v; if (o.f){ e.focus(); try{ e.setSelectionRange(o.a, o.z); }catch(x){} } }
 }
 function libResumeHTML(){
   const rs = resumables().slice(0, 6);

@@ -106,7 +106,8 @@ console.log("3. liste proprii: creare, adăugare, ordine, redare, M3U/JSON");
   await ck(page, "[data-act=addcur]");
   check("titlul curent adăugat", await page.evaluate(() => LISTS[0].items.length === 1 && LISTS[0].items[0].key === S.items[S.idx].key));
   // adaugă încă 2 titluri direct
-  await page.evaluate(() => { for (const n of [2, 3]) addToList(LISTS[0].id, {...S.items[0], key:"vn:100" + n, id:100 + n, title:"Titlu " + n, v:{host:"videos.trom.tf", id:"T100" + n}}); renderLib(); });
+  // două titluri reale din catalog, diferite de cel curent (programul e amestecat în funcție de timp: chei fixe se puteau suprapune cu titlul curent)
+  await page.evaluate(() => { const seen = new Set([S.items[S.idx].key]), pick = []; for (const x of S.items) if (x.v && !seen.has(x.key)){ seen.add(x.key); pick.push(x); if (pick.length === 2) break; } for (const o of pick) addToList(LISTS[0].id, {...o}); renderLib(); });
   check("3 titluri în listă", await page.evaluate(() => LISTS[0].items.length) === 3);
   await page.evaluate(() => addToList(LISTS[0].id, LISTS[0].items[1]));
   check("fără dubluri", await page.evaluate(() => LISTS[0].items.length) === 3);
@@ -123,6 +124,7 @@ console.log("3. liste proprii: creare, adăugare, ordine, redare, M3U/JSON");
   check("canalul listei, în ordinea ei, fără amestecare", JSON.stringify(await page.evaluate(() => S.items.map(x => x.key))) === JSON.stringify([k[0], k[2], k[1]]));
   check("canalul apare la sfârșitul ghidului și e nesincronizat", await page.evaluate(() => channelList().at(-1).type === "pl" && !S.live));
   await page.evaluate(() => closePanels());
+  await until(page, () => !document.querySelector(".panel.open") && history.state?.vntv !== "panel");   // history.back() asincron
   // M3U
   await page.keyboard.press("w"); await until(page, () => document.querySelector("#lib.open"));
   await ck(page, "#libtabs [data-tab=lists]");
@@ -135,21 +137,30 @@ console.log("3. liste proprii: creare, adăugare, ordine, redare, M3U/JSON");
   const [dj] = await Promise.all([page.waitForEvent("download"), ck(page, "[data-act=export]")]);
   const exp = JSON.parse(fs.readFileSync(await dj.path(), "utf8"));
   check("export JSON", exp.app === "vntv" && exp.kind === "lists" && exp.lists[0].items.length === 3);
+  await until(page, () => !LIB.chk || !LIB.chk.running);   // o verificare în fundal redesenează panoul și ar înlocui câmpul de fișier
   await page.setInputFiles("#libFile", {name:"l.json", mimeType:"application/json", buffer:Buffer.from(JSON.stringify(exp))});
   await until(page, () => LISTS.length === 2);
   check("import: a doua listă adăugată", await page.evaluate(() => LISTS[1].items.length === 3 && LISTS[1].id !== LISTS[0].id));
   const hostile = {app:"vntv", kind:"lists", version:1, lists:[{name:"x".repeat(500), items:[{key:"vn:1", v:{host:"evil.com/x", id:"a"}}, {key:"pt:h:1", v:{host:"ok.example", id:"../../x"}}, {key:"pt:ok.example:7", title:{toString:1}, v:{host:"ok.example", id:"v7"}, link:"javascript:alert(1)", img:"data:text/html,x", cats:["a", 3]}, null, 5]}, {name:"__proto__", items:"no"}], subs:[{name:"s", host:"evil host", pid:"abc"}, {name:"ok", host:"peertube.example", pid:"abcd1234"}]};
+  await until(page, () => !LIB.chk || !LIB.chk.running);   // o verificare în fundal redesenează panoul și ar înlocui câmpul de fișier
   await page.setInputFiles("#libFile", {name:"h.json", mimeType:"application/json", buffer:Buffer.from(JSON.stringify(hostile))});
   await until(page, () => LISTS.length >= 4);
   const hl = await page.evaluate(() => LISTS.slice(2).map(l => ({n:l.name.length, items:l.items.map(x => [x.key, x.link, x.img, x.title]), sub:l.sub && l.sub.host})));
   check("import ostil: doar elementul valid, adrese periculoase eliminate, nume tăiat", hl[0].n === 60 && hl[0].items.length === 1 && hl[0].items[0][1] === null && hl[0].items[0][2] === null && hl[0].items[0][3] === "", hl);
   check("import ostil: abonamentul cu gazdă invalidă respins", hl.filter(x => x.sub).length === 1 && hl.find(x => x.sub).sub === "peertube.example");
+  await until(page, () => !LIB.chk || !LIB.chk.running);   // o verificare în fundal redesenează panoul și ar înlocui câmpul de fișier
   await page.setInputFiles("#libFile", {name:"b.json", mimeType:"application/json", buffer:Buffer.from("{nu e json")});
   await page.waitForTimeout(300);
   check("fișier invalid respins fără erori", errors.length === 0, errors);
   // persistență
-  await page.reload(); await settle(page);
-  check("listele supraviețuiesc reîncărcării", await page.evaluate(() => LISTS.length >= 4 && LISTS[0].name === "Redenumită"));
+  // Chromium scrie localStorage către procesul browserului în loturi: o reîncărcare foarte rapidă poate citi o stare încă nepropagată (apare doar în teste, pe file://) → repetăm reîncărcarea pe condiție
+  let survived = false;
+  for (let tries = 0; tries < 6 && !survived; tries++){
+    await page.reload(); await settle(page);
+    survived = await page.evaluate(() => LISTS.length >= 4 && LISTS[0].name === "Redenumită");
+    if (!survived) console.log("  (reîncărcare " + (tries + 1) + ": listele încă lipsesc)");
+  }
+  check("listele supraviețuiesc reîncărcării", survived);
   // ștergere listă
   await page.evaluate(() => { LIB.tab = "lists"; LIB.open = LISTS[1].id; openPanel("lib"); });
   const nl0 = await page.evaluate(() => LISTS.length);
@@ -211,6 +222,7 @@ console.log("5. abonamente la liste publice PeerTube");
   // reîmprospătare automată după 6 ore
   await page.evaluate(() => { LISTS[0].sub.at = Date.now() - 7 * 36e5; closePanels(); });
   opts.plMore = false;
+  await until(page, () => !document.querySelector(".panel.open") && history.state?.vntv !== "panel");   // închiderea panoului face history.back() asincron: un „w” prea devreme ar fi închis de popstate
   await page.keyboard.press("w");
   await until(page, () => LISTS[0].items.length === 2, null, 15000);
   check("reîmprospătare automată a abonamentului vechi la deschiderea panoului", true);
@@ -242,8 +254,9 @@ console.log("6. verificarea legăturilor");
   // reverificare forțată doar la cerere
   await page.keyboard.press("w"); await until(page, () => document.querySelector("#lib.open"));
   await ck(page, "#libtabs [data-tab=links]");
+  await until(page, () => !LIB.chk || !LIB.chk.running);   // verificarea automată de la deschiderea panoului trebuie să se termine: cât timp rulează, cererea manuală e ignorată
   await ck(page, "[data-act=check]");
-  await until(page, () => LIB.chk && !LIB.chk.running);
+  await until(page, () => LIB.chk && !LIB.chk.running && LIB.chk.total >= 3);
   check("„Verifică acum” rulează din nou", await page.evaluate(() => LIB.chk.total) >= 3);
   // eliminarea celor indisponibile
   await ck(page, "[data-act=rmdead]"); await confirmYes(page);

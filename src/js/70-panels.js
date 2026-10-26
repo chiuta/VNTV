@@ -14,12 +14,14 @@ function openPanel(id){
     (p.querySelector(".q.now, .ch.on, .bc.on, .tg, .presets button, .btn, button:not(.x)") || p.querySelector(".x"))?.focus({preventScroll:true}); }, 60);
 }
 function closePanels(fromPop){
+  const fa = document.activeElement; if (fa && fa.closest && fa.closest(".panel")) try{ fa.blur(); }catch(e){}   // altfel focusul rămâne într-un câmp al panoului închis și tastele rapide (ex. „w”) sunt ignorate
   $$(".panel.open").forEach(p => p.classList.remove("open"));
   $("#bdet").hidden = true;
   if (fromPop !== true && history.state?.vntv === "panel") try{ history.back(); }catch(e){}
   kickUI();
 }
-addEventListener("popstate", () => { if (!$("#bdet").hidden){ $("#bdet").hidden = true; try{ history.pushState({vntv:"panel"}, ""); }catch(e){} return; } if (anyPanel()) closePanels(true); });
+addEventListener("popstate", () => { setAnchor(S.items[S.idx]);   /* „înapoi” (închiderea panoului) readuce ancora #v= veche și ar declanșa hashchange → redarea titlului anterior: o rescriem pe cea curentă */
+  if (!$("#bdet").hidden){ $("#bdet").hidden = true; try{ history.pushState({vntv:"panel"}, ""); }catch(e){} return; } if (anyPanel()) closePanels(true); });
 $$("[data-close]").forEach(b => b.onclick = () => closePanels());
 function panelNav(k){
   const pnl = $(".panel.open"); if (!pnl) return;

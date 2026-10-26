@@ -33,8 +33,8 @@
   "storageKeys": [
     "vntv."
   ],
-  "sizeBytes": 500551,
-  "sha256": "d25a6b4379eaad7bb368767c8542870fb3d9cf493af0438af2149ba3fd0e1b6a",
+  "sizeBytes": 501506,
+  "sha256": "f31f8b03dbb9b937c91ab6582235ded7f0ab28025edf5e9362429d9b83452ef0",
   "csp": {
     "present": true,
     "directives": {
