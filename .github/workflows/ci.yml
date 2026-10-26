@@ -11,6 +11,14 @@ jobs:
         with: { php-version: "8.3" }
       - run: npm ci || npm install
       - run: npx playwright install --with-deps chromium
-      - run: npm run test:all
+      - name: Teste (lint, aplicație, plugin PHP, addon)
+        shell: bash
+        run: |
+          set +e
+          npm run test:all 2>&1 | tee /tmp/test-all.log; rc=${PIPESTATUS[0]}
+          if [ "$rc" -ne 0 ]; then
+            tr '\r' '\n' < /tmp/test-all.log | grep -a -E "^✘|FAIL|rror:|Error|error " -A2 | head -12 | cut -c1-300 | while IFS= read -r l; do echo "::error::${l//%/%25}"; done
+          fi
+          exit $rc
       - uses: actions/upload-artifact@v4
         with: { name: vntv, path: "dist/vntv.html" }
