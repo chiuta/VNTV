@@ -32,7 +32,7 @@ async function test(name, fn){
   catch(e){ results.push([name, "FAIL: " + e.message.split("\n")[0], Date.now() - t0]); console.log("✘", name, "\n   ", e.message.split("\n").slice(0, 3).join("\n    ")); }
 }
 const ok = (c, m) => { if (!c) throw new Error(m); };
-const browser = await chromium.launch({...(process.env.CHROMIUM_PATH ? {executablePath:process.env.CHROMIUM_PATH} : {}),args:["--autoplay-policy=no-user-gesture-required"]});
+const browser = await chromium.launch({...(process.env.CHROMIUM_PATH ? {executablePath:process.env.CHROMIUM_PATH || undefined} : {}),args:["--autoplay-policy=no-user-gesture-required"]});
 // timeoutul implicit al oricărei acțiuni Playwright (click, waitForSelector…) crește și el cu încărcarea mașinii
 { const nc = browser.newContext.bind(browser); browser.newContext = async (...a) => { const c = await nc(...a); c.setDefaultTimeout(LT(30000)); return c; }; }
 // așteaptă să se termine animațiile de intrare (ecranul de start); altfel click-ul pe „Start” poate nimeri alt loc și testul pică intermitent
