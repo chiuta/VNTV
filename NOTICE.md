@@ -13,3 +13,5 @@ links torrent/magnet files.
 **Privacy:** no accounts, no analytics, no cookies, and by default no requests except to TROM's own hosts (www.videoneat.com and videos.trom.tf); other hosts are contacted only if the viewer adds a PeerTube channel, enters a LibreTranslate address or explicitly picks MyMemory. In P2P mode your IP address
 is visible to the other viewers you exchange video data with; the app says so before you use it and offers direct
 playback instead. Settings, favorites and translations stay in your browser.
+
+**Status clarification (2026-10-27):** this repository does not document any permission from the trailer producers or from TROM/VideoNeat for showing the trailers in VNTV, nor any endorsement of VNTV by them: to be clarified by the author. The relation to VideoNeat is described in README.md.

@@ -2,7 +2,11 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 3.0.0 · **Last updated:** 2026-10-26
+**Version:** 3.0.1 · **Last updated:** 2026-10-27
+
+**Status:** stable (3.0.1). The app was tested with simulated data, not on real devices; the rights status of the trailers is **to be clarified by the author** (see below).
+
+**Offline:** partial. The single file `dist/vntv.html` and the hosted variant open and keep your settings offline, but there is nothing to play without `videoneat.com` and `videos.trom.tf`.
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -94,6 +98,22 @@ Verified in the code:
 * **Permissions:** wake lock (screen kept on), full screen, picture-in-picture. It does not ask for camera, microphone or location.
 * The page contains a CSP policy (`<meta>`) that limits loading to HTTPS/HTTP and blocks objects and forms.
 
+## Relation to VideoNeat and rights status of the trailers
+
+- **Relation to VideoNeat/TROM:** VNTV is an independent client built on top of the public catalogue of [VideoNeat.com](https://www.videoneat.com) and the PeerTube instance `videos.trom.tf` (both run by TROM). This repository contains no statement that VideoNeat or TROM endorse, operate or have approved VNTV. The repository only holds a *draft* proposal to TROM (`docs/PROPOSAL-TROM.md`, to be adapted and sent by the author) and the WordPress plugin `wp-plugin/videoneat-index/`, which only works if TROM chooses to install it. Whether TROM has replied or agreed: **to be clarified by the author**.
+- **Rights status of the trailers:** the trailers belong to their producers (PBS, BBC and others). VNTV hosts no video and plays them from TROM's PeerTube instance, for discovery, with a link to the official source (see `NOTICE.md`). This repository does **not** document any permission from the producers, nor from TROM, for this use: **to be clarified by the author**. Do not read the presence of a trailer in VNTV as a licence to reuse it. For removal requests: [TROM](https://www.tromsite.com/contact/).
+
+## Stremio addon: installation
+
+The addon lives in `stremio-addon/` (Node 18 or newer, no dependencies). It is a separate piece from the web app and **no public instance is documented in this repository**: you run your own, or use one the author publishes (to be clarified by the author).
+
+1. `cd stremio-addon && node index.js` (or `PORT=8080 node index.js`).
+2. Open `http://127.0.0.1:7000/`, choose a language and press **Install in Stremio**; or in Stremio go to Addons and paste `http://127.0.0.1:7000/<lang>/manifest.json` (`en`, `ro`, `fr`, `es`, `de`, `it`, `pt`).
+3. Stremio desktop accepts `http://127.0.0.1`; **Stremio Web and the mobile apps require HTTPS**, so you need a reverse proxy with a certificate (see `docs/DEPLOY.en.md`, section 3, and `stremio-addon/README.md`, including the Docker image).
+4. Optional: `TRANSLATE_URL=<your LibreTranslate>` for translated titles and descriptions, `PEERTUBE_CHANNELS=<urls>` for extra channels.
+
+The addon contacts `www.videoneat.com` and `videos.trom.tf` (and the hosts you configure). It was tested only against mocks (`node test.js`), not with a real Stremio client in this review.
+
 ## Limits and warnings
 
 - The app depends on the availability of `videoneat.com` and `videos.trom.tf`; without them it has nothing to play.
@@ -103,6 +123,10 @@ Verified in the code:
 - The availability of P2P, AirPlay and Cast differs between browsers and devices.
 
 ## Changelog (2.3.0)
+
+### 3.0.1 — 2026-10-27
+
+- Text only: relation to VideoNeat and rights status of the trailers (to be clarified by the author), Stremio addon installation steps, Status / Offline lines. See `CHANGELOG.md`.
 
 ### 2.5.9 — 2026-10-23
 
