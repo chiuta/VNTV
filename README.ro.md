@@ -2,7 +2,11 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 3.0.0 · **Ultima actualizare:** 2026-10-26
+**Versiune:** 3.0.1 · **Ultima actualizare:** 2026-10-27
+
+**Stare:** stabilă (3.0.1). Aplicația a fost testată cu date simulate, nu pe dispozitive reale; statutul drepturilor asupra trailerelor este **de clarificat de autor** (vezi mai jos).
+
+**Offline:** parțial. Fișierul unic `dist/vntv.html` și varianta găzduită se deschid și își păstrează setările offline, dar fără `videoneat.com` și `videos.trom.tf` nu există nimic de redat.
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -85,6 +89,22 @@ Categoriile VideoNeat 1–14 (trailere) · 15 Favorite · **16 TROM** (documenta
 - **Permisiuni:** ecran aprins (wake lock), ecran complet, imagine în imagine. Nu cere cameră, microfon sau locație.
 - Pagina conține o politică CSP (`<meta>`) care limitează încărcările la HTTPS/HTTP și blochează obiecte și formulare.
 
+## Relația cu VideoNeat și statutul drepturilor asupra trailerelor
+
+- **Relația cu VideoNeat/TROM:** VNTV este un client independent, construit peste catalogul public de pe [VideoNeat.com](https://www.videoneat.com) și instanța PeerTube `videos.trom.tf` (ambele ținute de TROM). Acest depozit nu conține nicio declarație că VideoNeat sau TROM susțin, operează sau au aprobat VNTV. Depozitul conține doar o *ciornă* de propunere către TROM (`docs/PROPOSAL-TROM.md`, de adaptat și trimis de autor) și pluginul WordPress `wp-plugin/videoneat-index/`, care funcționează doar dacă TROM alege să-l instaleze. Dacă TROM a răspuns sau a fost de acord: **de clarificat de autor**.
+- **Statutul drepturilor asupra trailerelor:** trailerele aparțin producătorilor lor (PBS, BBC și alții). VNTV nu găzduiește video și le redă de pe instanța PeerTube a TROM, pentru descoperire, cu legătură spre sursa oficială (vezi `NOTICE.md`). Acest depozit **nu** documentează nicio permisiune de la producători sau de la TROM pentru această utilizare: **de clarificat de autor**. Prezența unui trailer în VNTV nu este o licență de reutilizare. Pentru cereri de eliminare: [TROM](https://www.tromsite.com/contact/).
+
+## Addon Stremio: instalare
+
+Addon-ul este în `stremio-addon/` (Node 18 sau mai nou, fără dependențe). Este o piesă separată de aplicația web, iar **în acest depozit nu este documentată nicio instanță publică**: îți pornești propria instanță sau folosești una publicată de autor (de clarificat de autor).
+
+1. `cd stremio-addon && node index.js` (sau `PORT=8080 node index.js`).
+2. Deschide `http://127.0.0.1:7000/`, alege limba și apasă **Install in Stremio**; sau în Stremio, la Addons, lipește `http://127.0.0.1:7000/<limbă>/manifest.json` (`en`, `ro`, `fr`, `es`, `de`, `it`, `pt`).
+3. Stremio desktop acceptă `http://127.0.0.1`; **Stremio Web și aplicațiile mobile cer HTTPS**, deci ai nevoie de un reverse proxy cu certificat (vezi `docs/DEPLOY.md`, secțiunea 3, și `stremio-addon/README.md`, inclusiv imaginea Docker).
+4. Opțional: `TRANSLATE_URL=<LibreTranslate-ul tău>` pentru titluri și descrieri traduse, `PEERTUBE_CHANNELS=<adrese>` pentru canale suplimentare.
+
+Addon-ul contactează `www.videoneat.com` și `videos.trom.tf` (și gazdele pe care le configurezi). A fost testat doar cu simulări (`node test.js`), nu cu un client Stremio real în această recenzie.
+
 ## Limite și avertismente
 
 - Aplicația depinde de disponibilitatea `videoneat.com` și `videos.trom.tf`; fără ele nu are ce reda.
@@ -111,6 +131,10 @@ npm run test:all               # lint + 25 end-to-end + 30 PHP + 33 teste addon,
 Publicare pe GitHub Pages: `Settings → Pages → Source: GitHub Actions`; workflow-ul `.github/workflows/pages.yml` construiește și publică `deploy/site` (plus `vntv.html` ca descărcare).
 
 ## Istoric / Changelog (2.3.0)
+
+### 3.0.1 — 2026-10-27
+
+- Doar text: relația cu VideoNeat și statutul drepturilor asupra trailerelor (de clarificat de autor), pașii de instalare a addon-ului Stremio, linii Stare / Offline. Vezi `CHANGELOG.md`.
 
 ### 2.5.8 — 2026-10-23
 - fff-kit 1.2.0 (modulele `store` și `dialog`): confirmarea de dinaintea deschiderii unui link direct către o gazdă video necunoscută folosește acum dialogul accesibil al kitului (`FFF.dialog.confirm`), nu alternativa cu `confirm` nativ a browserului. Cheile din browser erau deja prefixate (`vntv.*`), deci nu e nevoie de migrarea datelor.

@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.0.1 — 2026-10-27
+- Recenzie 2026-10-27, doar text; codul aplicației nu s-a schimbat funcțional.
+- README (EN, RO): secțiune despre relația cu VideoNeat/TROM (client independent; nicio aprobare documentată în depozit: de clarificat de autor) și despre statutul drepturilor asupra trailerelor (nu e documentată nicio permisiune: de clarificat de autor); pașii de instalare a addon-ului Stremio, cu avertismentul că nu e documentată o instanță publică; linii Stare / Offline. `NOTICE.md` completat cu aceeași precizare.
+- Metadate `app-status` / `app-offline`; versiune 3.0.1 în `package.json`, `app.json` (x3), build regenerat (`index.html`, `dist/vntv.html`, `deploy/site/`, `sw.js`).
+- Neschimbat: nimic șters; fără dependențe noi.
+
 ## 3.0.0 — 2026-10-26
 - Biblioteca mea (tasta W): istoric local cu cutii de reluare (și pe ecranul de start), liste proprii redate ca un canal (ordine păstrată, export M3U/JSON, import validat), abonamente la liste publice PeerTube (reîmprospătare la cel mult 6 ore), verificarea automată a legăturilor (404/410 = indisponibil; erorile de rețea nu marchează nimic; titlurile dispărute sunt sărite la redare). Chei noi de stocare: `vntv.hist`, `vntv.lists`, `vntv.links`. Cererile noi merg doar către instanța PeerTube a fiecărui titlu sau a listei la care te abonezi. Neverificat pe o instanță PeerTube reală (testele folosesc date simulate).
 
