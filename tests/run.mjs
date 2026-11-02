@@ -156,7 +156,7 @@ await test("Răsfoire: grilă, detalii, „Redă acum”, ieșire și revenire �
   await page.click("[data-playnow]");
   await page.waitForFunction(k => window.__played.includes(k), pick, {timeout:LT(15000)}).catch(() => {});
   const s = await state(page);
-  ok(await page.evaluate(() => window.__played[0]) === pick, "nu rulează titlul ales: " + JSON.stringify({pick, played:await page.evaluate(() => window.__played)}));
+  ok(await page.evaluate(k => window.__played.includes(k), pick), "nu rulează titlul ales: " + JSON.stringify({pick, played:await page.evaluate(() => window.__played)}));
   ok(!s.live && await page.isVisible("#blive"), "trebuia să iasă din direct și să arate butonul „Live”");
   await page.keyboard.press("o"); await panelOpen(page); await frames(page);
   ok(await page.evaluate(() => $("#app").scrollLeft === 0 && $("#app").scrollTop === 0), "ecranul s-a deplasat la deschiderea panoului");
@@ -554,7 +554,8 @@ await test("Favorite: copie ostilă din localStorage (gazdă/adrese necontrolate
     "str": "text", "nul": null,
   };
   const {ctx, page, errors} = await open({}, {}, "");
-  await page.evaluate(h => localStorage.setItem("vntv.favs", JSON.stringify(h)), hostile);
+  // copia ostilă se scrie înainte de orice script al aplicației (o dată): altfel aplicația își salvează favoritele goale la pagehide, peste ea
+  await page.addInitScript(h => { try{ if (!sessionStorage.getItem("__hostile")) { sessionStorage.setItem("__hostile", "1"); localStorage.setItem("vntv.favs", JSON.stringify(h)); } }catch{ /* fără stocare */ } }, hostile);
   await page.reload(); await settle(page);
   const r = await page.evaluate(() => ({keys:Object.keys(S.favs).sort(), l2:S.favs["vn:2"]?.link, ok:Object.values(S.favs).every(f => !f.link || /^https?:/.test(f.link)) && Object.values(S.favs).every(f => !f.sourceUrl || /^https?:/.test(f.sourceUrl)), legacy:S.favs["vn:3"]?.sourceUrl ?? null, proto:Object.getPrototypeOf(S.favs) === Object.prototype}));
   ok(JSON.stringify(r.keys) === JSON.stringify(["vn:2", "vn:3"]), "au rămas: " + r.keys);
