@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.0.1 — 2026-11-02 (reîmprospătare kit)
+
+- Nou (kit): **Sincronizare între dispozitive** (`FFF.sync`) — în dialogul «Transparență» (clic pe versiune → Copie de siguranță): conectezi două dispozitive direct (WebRTC, cod/QR, fără server și fără cont) și își schimbă datele aplicației; cea mai recentă valoare câștigă, secretele (chei API, parole) nu se trimit, ștergerile nu se propagă. Aplicarea trece prin importul kitului (confirmare, chei permise, rollback).
+- Nou (kit): **Istoric local — «mașina timpului»** (`FFF.history`) — instantanee automate ale datelor (IndexedDB, fără secrete), diferență față de starea curentă și restaurare reversibilă; «Șterge datele aplicației» șterge și istoricul.
+- Module adăugate: `qr`, `p2p`, `sync`, `history` (+~140 KB). Versiunea aplicației nu se schimbă.
+
 ## 3.0.1 — 2026-10-27
 - Recenzie 2026-10-27, doar text; codul aplicației nu s-a schimbat funcțional.
 - README (EN, RO): secțiune despre relația cu VideoNeat/TROM (client independent; nicio aprobare documentată în depozit: de clarificat de autor) și despre statutul drepturilor asupra trailerelor (nu e documentată nicio permisiune: de clarificat de autor); pașii de instalare a addon-ului Stremio, cu avertismentul că nu e documentată o instanță publică; linii Stare / Offline. `NOTICE.md` completat cu aceeași precizare.
