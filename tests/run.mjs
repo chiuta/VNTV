@@ -116,9 +116,11 @@ await test("Subtitrări traduse (română, prin LibreTranslate)", async () => {
   const {ctx, page, log} = await open({...devices["Pixel 7"]});
   await page.evaluate(() => { P.lang = "ro"; P.trEngine = "libre"; P.trUrl = "https://translate.test"; savePrefs(); });
   await page.reload(); await settle(page); await page.tap("#go"); await started(page);
-  await until(page, () => /^\[ro\]/.test($("#subt").textContent) && /^\[ro\]/.test($("#nowt").textContent)).catch(() => {});
-  const sub = await page.textContent("#subt");
+  // fiecare element se așteaptă separat: subtitrarea se schimbă la fiecare replică, deci nu pot fi traduse amândouă în același cadru
+  await until(page, () => /^\[ro\]/.test($("#nowt").textContent)).catch(() => {});
   const title = await page.textContent("#nowt");
+  await until(page, () => /^\[ro\]/.test($("#subt").textContent)).catch(() => {});
+  const sub = await page.textContent("#subt");
   ok(/^\[ro\]/.test(sub), "subtitrarea nu e tradusă: „" + sub + "”");
   ok(/^\[ro\]/.test(title), "titlul nu e tradus: „" + title + "”");
   ok(log.translate > 0, "LibreTranslate nu a fost apelat");
