@@ -33,8 +33,8 @@
   "storageKeys": [
     "vntv."
   ],
-  "sizeBytes": 501506,
-  "sha256": "f31f8b03dbb9b937c91ab6582235ded7f0ab28025edf5e9362429d9b83452ef0",
+  "sizeBytes": 642214,
+  "sha256": "880feb94c3e919adedeea6ff542f0bef4edcaea6085a92a6b454c0a9dd84d9e4",
   "csp": {
     "present": true,
     "directives": {
@@ -77,7 +77,11 @@
       "store",
       "dialog",
       "label",
-      "bundle"
+      "bundle",
+      "qr",
+      "p2p",
+      "sync",
+      "history"
     ]
   },
   "kit": {
@@ -87,7 +91,11 @@
       "store",
       "dialog",
       "label",
-      "bundle"
+      "bundle",
+      "qr",
+      "p2p",
+      "sync",
+      "history"
     ]
   },
   "selfSerializing": false
