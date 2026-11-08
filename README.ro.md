@@ -71,8 +71,8 @@ Verificate în cod:
 
 ## Redare
 
-* **P2P** (implicit pe computere și televizoare): playerul oficial PeerTube, care împarte sarcina între spectatori și reduce costurile serverului TROM. VNTV îl controlează prin API-ul de încorporare PeerTube.
-* **Directă** (implicit pe iOS și pe telefoane cu date mobile): fișierul MP4 într-un element `<video>` — necesar pentru imagine în imagine, AirPlay și Chromecast, și mai ușor pentru datele mobile.
+* **P2P** (opțional, în Setări): playerul oficial PeerTube, care împarte sarcina între spectatori și reduce costurile serverului TROM. VNTV îl controlează prin API-ul de încorporare PeerTube.
+* **Directă** (implicit): fișierul MP4 într-un element `<video>` — necesar pentru imagine în imagine, AirPlay și Chromecast, și mai ușor pentru datele mobile.
 * Înainte de prima utilizare a P2P, VNTV explică faptul că P2P face adresa IP a spectatorului vizibilă altor spectatori și oferă redarea directă în loc. Dacă playerul PeerTube nu răspunde în 10 s, VNTV trece la redarea directă.
 
 ## Canale

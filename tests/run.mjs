@@ -44,7 +44,7 @@ async function open(ctxOpts = {}, mockOpts = {}, query = ""){
   page.on("pageerror", e => errors.push(e.message));
   const log = await install(page, mockOpts);
   // implicit în teste: informarea P2P deja acceptată și toate setările vizibile (testele dedicate le verifică separat)
-  if (!mockOpts.fresh) await page.addInitScript(() => { try{ if (!localStorage.getItem("vntv.prefs")) localStorage.setItem("vntv.prefs", JSON.stringify({p2pAck:true, adv:true})); }catch{ /* fără localStorage */ } });
+  if (!mockOpts.fresh) await page.addInitScript(() => { try{ if (!localStorage.getItem("vntv.prefs")) localStorage.setItem("vntv.prefs", JSON.stringify({p2pAck:true, adv:true, net:(navigator.maxTouchPoints > 0 ? "direct" : "p2p")})); }catch{ /* fără localStorage */ } });
   await page.goto(APP + query);
   await settle(page);
   return {ctx, page, log, errors};
@@ -259,6 +259,25 @@ await test("Program pe cicluri: fără salt la miezul nopții, continuitate înt
   await ctx.close();
 });
 
+await test("Implicit: redare directă de pe server (fișier MP4), fără P2P și fără informarea P2P", async () => {
+  const {ctx, page} = await open({}, {fresh:true});
+  await page.click("#go");
+  await until(page, () => PL.started && PL.mode === "direct" && !V.paused && V.currentTime > 0, null, 30000).catch(() => {});
+  const s = await state(page);
+  ok(s.pl === "direct", "implicit trebuia redare directă: " + s.pl);
+  ok(await page.evaluate(() => P.net === "direct" && netMode() === "direct" && !document.body.classList.contains("p2p")), "modul implicit nu e „direct”");
+  await page.waitForTimeout(3000);
+  ok(!(await page.isVisible("#p2pnote")), "informarea P2P nu trebuia să apară la redarea directă");
+  await ctx.close();
+});
+await test("Preferință veche „auto” devine „direct”; ?net=p2p rămâne posibil", async () => {
+  const {ctx, page} = await open({}, {fresh:true});
+  await page.evaluate(() => localStorage.setItem("vntv.prefs", JSON.stringify({net:"auto", p2pAck:true})));
+  await page.reload(); await page.click("#go");
+  await until(page, () => PL.started, null, 30000).catch(() => {});
+  ok((await state(page)).pl === "direct", "„auto” trebuia să dea redare directă");
+  await ctx.close();
+});
 await test("P2P care nu răspunde → trecere automată la redarea directă", async () => {
   const {ctx, page} = await open({}, {deadEmbed:true});
   await page.click("#go");
@@ -272,7 +291,7 @@ await test("P2P care nu răspunde → trecere automată la redarea directă", as
 });
 
 await test("Informare P2P (IP vizibil) cu alegere: „Folosește fișierul direct”", async () => {
-  const {ctx, page} = await open({}, {fresh:true});
+  const {ctx, page} = await open({}, {fresh:true}, "?net=p2p");
   await page.click("#go");
   await page.waitForSelector("#p2pnote", {state:"visible", timeout:LT(15000)}).catch(() => {});
   ok(await page.isVisible("#p2pnote"), "informarea P2P nu apare");

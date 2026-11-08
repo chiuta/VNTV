@@ -120,7 +120,7 @@ function renderLayers(){
   h += tgl("sync", P.sync, L().syncT[0], L().syncT[1]);
   if (!P.sync) h += tgl("shuffle", P.shuffle, L().shuf[0], L().shuf[1]);
   if (DATA.mode === "wp") h += `<div class="hintp">${esc(t("syncNeedsIndex"))}</div>`;
-  h += `<div class="l sub">${esc(t("netT"))}</div>` + seg("net", P.net, [["auto", t("netAuto")], ["p2p", t("netP2P")], ["direct", t("netDirect")]]) +
+  h += `<div class="l sub">${esc(t("netT"))}</div>` + seg("net", P.net, [["direct", t("netDirect")], ["p2p", t("netP2P")]]) +
     `<div class="hintp">${esc(t("netHint"))} ${esc(t("netNow", {m: netMode() === "p2p" ? t("netP2P") : t("netDirect")}))}</div>`;
   h += `<div class="l sub">${esc(t("quality"))}</div>` + seg("quality", P.quality, [["auto", t("qAuto")], ["1080", "1080p"], ["720", "720p"], ["480", "480p"]]);
   h += `<div class="l sub">${esc(t("ecoT"))}</div>` + seg("eco", P.eco, [["auto", t("qAuto")], ["on", t("on")], ["off", t("off")]]) +

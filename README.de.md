@@ -71,9 +71,9 @@ Im Code überprüft:
 
 ## Wiedergabe
 
-* **P2P** (Standard auf Computern und Fernsehern): der offizielle PeerTube-Player, der die Last unter den Zuschauern verteilt und
+* **P2P** (optional, in den Einstellungen): der offizielle PeerTube-Player, der die Last unter den Zuschauern verteilt und
   die Serverkosten von TROM senkt. VNTV steuert ihn über die PeerTube-Embed-API.
-* **Direkt** (Standard auf iOS und auf Telefonen mit mobilen Daten): die MP4-Datei in einem `<video>`-Element — nötig für
+* **Direkt** (Standard): die MP4-Datei in einem `<video>`-Element — nötig für
   Bild-im-Bild, AirPlay und Chromecast, und schonender für mobile Daten.
 * Vor der ersten Nutzung von P2P erklärt VNTV, dass P2P die IP des Zuschauers für andere Zuschauer sichtbar macht, und bietet
   stattdessen die direkte Wiedergabe an. Reagiert der PeerTube-Player nicht innerhalb von 10 s, wechselt VNTV zur direkten Wiedergabe.

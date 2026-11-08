@@ -71,9 +71,9 @@ Vérifiées dans le code :
 
 ## Lecture
 
-* **P2P** (par défaut sur ordinateurs et téléviseurs) : le lecteur PeerTube officiel, qui répartit la charge entre les spectateurs et
+* **P2P** (en option, dans les Réglages) : le lecteur PeerTube officiel, qui répartit la charge entre les spectateurs et
   réduit les coûts de serveur de TROM. VNTV le pilote via l'API d'intégration PeerTube.
-* **Directe** (par défaut sur iOS et sur les téléphones utilisant les données mobiles) : le fichier MP4 dans un élément `<video>` — nécessaire pour
+* **Directe** (par défaut) : le fichier MP4 dans un élément `<video>` — nécessaire pour
   l'image dans l'image, AirPlay et Chromecast, et plus léger pour les données mobiles.
 * Avant la première utilisation du P2P, VNTV explique que le P2P rend l'adresse IP du spectateur visible par les autres spectateurs et propose
   la lecture directe à la place. Si le lecteur PeerTube ne répond pas en 10 s, VNTV passe à la lecture directe.

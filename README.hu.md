@@ -71,9 +71,9 @@ A kódban ellenőrizve:
 
 ## Lejátszás
 
-* **P2P** (alapértelmezett számítógépen és tévén): a hivatalos PeerTube-lejátszó, amely megosztja a terhelést a nézők között, és
+* **P2P** (választható, a Beállításokban): a hivatalos PeerTube-lejátszó, amely megosztja a terhelést a nézők között, és
   csökkenti a TROM szerverköltségeit. A VNTV a PeerTube beágyazási API-ján keresztül vezérli.
-* **Közvetlen** (alapértelmezett iOS-en és mobiladatot használó telefonokon): az MP4-fájl egy `<video>` elemben — szükséges a
+* **Közvetlen** (alapértelmezett): az MP4-fájl egy `<video>` elemben — szükséges a
   kép a képben, az AirPlay és a Chromecast használatához, és kíméletesebb a mobiladathoz.
 * A P2P első használata előtt a VNTV elmagyarázza, hogy a P2P láthatóvá teszi a néző IP-címét más nézők számára, és
   helyette a közvetlen lejátszást ajánlja. Ha a PeerTube-lejátszó 10 mp-en belül nem válaszol, a VNTV közvetlen lejátszásra vált.

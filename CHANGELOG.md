@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.0.4 — 2026-11-08
+- **Redarea implicită este acum directă, de pe server** (fișierul MP4 de pe `videos.trom.tf`), pe toate dispozitivele; înainte, „Automat” alegea P2P (playerul PeerTube) pe calculator, TV și Android pe Wi-Fi. P2P rămâne ca opțiune în Setări → Transmisie sau cu `?net=p2p`. O preferință veche „Automat” devine „Fișier direct”. Nu mai apare informarea despre adresa IP vizibilă decât la P2P ales explicit.
+- Opțiunea „Automat” a fost scoasă din Setări (rămân „Fișier direct” și „P2P”). Fără trecere automată la P2P dacă fișierul direct nu merge (se încearcă calitate mai mică / altă sursă, apoi clipul următor).
+- Butonul ✕ de închidere pe telefon (kit 1.3.0). Teste: 41/41.
+
 ## 3.0.1 — 2026-11-02 (reîmprospătare kit)
 
 - Nou (kit): **Sincronizare între dispozitive** (`FFF.sync`) — în dialogul «Transparență» (clic pe versiune → Copie de siguranță): conectezi două dispozitive direct (WebRTC, cod/QR, fără server și fără cont) și își schimbă datele aplicației; cea mai recentă valoare câștigă, secretele (chei API, parole) nu se trimit, ștergerile nu se propagă. Aplicarea trece prin importul kitului (confirmare, chei permise, rollback).

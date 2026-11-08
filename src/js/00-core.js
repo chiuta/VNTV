@@ -38,10 +38,11 @@ const O = Object.assign({}, PRESETS.tv.o, store.get("ov", {}));
 
 /* ---------- preferințe ---------- */
 const P = Object.assign({
-  lang:"en", ch:0, shuffle:true, sync:true, net:"auto", eco:"auto", quality:"auto", vol:1, muted:false,
+  lang:"en", ch:0, shuffle:true, sync:true, net:"direct", eco:"auto", quality:"auto", vol:1, muted:false,
   trOn:true, trEngine:"auto", trUrl:"", trKey:"", indexUrl:"", sources:[], subSize:"m", adv:false, p2pAck:false, srcInit:0,
 }, store.get("prefs", {}));
 if (!Array.isArray(P.sources)) P.sources = [];
+if (P.net !== "p2p") P.net = "direct";            // implicit: redare directă de pe server (fișier MP4); „auto” din versiunile vechi devine „direct”. P2P doar la alegerea spectatorului
 // canalul implicit cu documentarele TROM (complete, trade-free), adăugat o singură dată; spectatorul îl poate elimina
 const TROM_SRC = {host:"videos.trom.tf", kind:"video-channels", handle:"trom", name:"TROM"};
 if (!P.srcInit){ if (!P.sources.some(s => s.host === TROM_SRC.host && s.handle === TROM_SRC.handle)) P.sources.unshift({...TROM_SRC}); P.srcInit = 1; }
@@ -50,7 +51,7 @@ if (!P.srcInit){ if (!P.sources.some(s => s.host === TROM_SRC.host && s.handle =
   const l = QS.get("lang"); if (l) P.lang = l;
   const c = parseInt(QS.get("ch"), 10); if (c >= 1) P.ch = c - 1;
   if (QS.has("sync")) P.sync = QS.get("sync") !== "0";
-  if (QS.has("net")) P.net = QS.get("net");
+  if (QS.has("net")) P.net = QS.get("net") === "p2p" ? "p2p" : "direct";
   if (QS.has("eco")) P.eco = QS.get("eco");
   if (QS.has("muted")) P.muted = QS.get("muted") !== "0"; else if (KIOSK) P.muted = true;
   const pr = QS.get("preset"); if (pr && PRESETS[pr]) Object.assign(O, PRESETS[pr].o);

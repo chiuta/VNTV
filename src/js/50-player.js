@@ -6,13 +6,9 @@
    ===================================================================== */
 const PL = { mode:"direct", pos:0, dur:0, paused:false, lastUpd:0 };
 const frame = $("#frame");
-function onWifi(){ const c = navigator.connection; return !!(c && (c.type === "wifi" || c.type === "ethernet")); }
 function netMode(){
   if (S.p2pBroken) return "direct";                  // playerul PeerTube nu a răspuns: redare directă până la reîncărcare
-  if (P.net === "direct" || P.net === "p2p") return P.net;
-  if (p2pRecentlyBad()) return "direct";             // pe acest browser playerul P2P a eșuat de curând (ex. Edge cu WebRTC blocat): nu mai așteptăm degeaba
-  if (IS_IOS) return "direct";                     // iOS: imagine în imagine și AirPlay cer redare directă
-  return (!TOUCH || onWifi()) ? "p2p" : "direct";    // automat: P2P pe calculator/TV și pe telefoanele Android conectate la Wi-Fi
+  return P.net === "p2p" ? "p2p" : "direct";         // implicit „direct” (fișierul MP4 de pe server); P2P numai dacă spectatorul l-a ales în Setări sau cu ?net=p2p
 }
 
 /* ---- API-ul playerului PeerTube încorporat ---- */
