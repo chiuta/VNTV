@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 3.0.6 · **Ultima actualizare:** 2026-11-10
+**Versiune:** 3.0.7 · **Ultima actualizare:** 2026-11-10
 
 **Stare:** stabilă (3.0.1). Aplicația a fost testată cu date simulate, nu pe dispozitive reale; statutul drepturilor asupra trailerelor este **de clarificat de autor** (vezi mai jos).
 
