@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 3.0.5 · **Last updated:** 2026-11-10
+**Version:** 3.0.6 · **Last updated:** 2026-11-10
 
 **Status:** stable (3.0.1). The app was tested with simulated data, not on real devices; the rights status of the trailers is **to be clarified by the author** (see below).
 
