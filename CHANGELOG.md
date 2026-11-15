@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.0.9 — 2026-11-15
+
+- Nou: texturi fractale hiper-detaliate (fff-texturi 1.1.2) — fundalul și suprafețele mari (carduri, panouri, antete, butoane; filele și dialogurile ascunse la încărcare, când se deschid) primesc un material generat local (WebGL2, fără rețea și fără imagini), care se repetă fără cusătură; culorile aplicației rămân ale ei. Se oprește din dialogul „Transparență” sau cu `?notex=1`.
+
 ## 3.0.4 — 2026-11-08
 - **Redarea implicită este acum directă, de pe server** (fișierul MP4 de pe `videos.trom.tf`), pe toate dispozitivele; înainte, „Automat” alegea P2P (playerul PeerTube) pe calculator, TV și Android pe Wi-Fi. P2P rămâne ca opțiune în Setări → Transmisie sau cu `?net=p2p`. O preferință veche „Automat” devine „Fișier direct”. Nu mai apare informarea despre adresa IP vizibilă decât la P2P ales explicit.
 - Opțiunea „Automat” a fost scoasă din Setări (rămân „Fișier direct” și „P2P”). Fără trecere automată la P2P dacă fișierul direct nu merge (se încearcă calitate mai mică / altă sursă, apoi clipul următor).
