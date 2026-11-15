@@ -28,18 +28,19 @@
     "navigator.share",
     "clipboard",
     "serviceWorker",
-    "localStorage"
+    "localStorage",
+    "WebGL"
   ],
   "storageKeys": [
     "vntv."
   ],
-  "sizeBytes": 696121,
-  "sha256": "ae86aefa39c20d606827918869a2eab308c763f11c52e9106410808e78097a0b",
+  "sizeBytes": 748163,
+  "sha256": "e484a15de94ce2977e8bdca11524df4496720aaacd7de0d83002d908c956cffd",
   "csp": {
     "present": true,
     "directives": {
       "default-src": "'none'",
-      "script-src": "sha256×2",
+      "script-src": "sha256×3",
       "style-src": "'unsafe-inline'",
       "font-src": "data:",
       "img-src": "https: http: data: blob:",
