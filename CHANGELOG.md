@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.0.10 — 2026-11-15
+
+- Corectat: pe telefoane, rândul de comenzi din partea de jos nu mai iese din ecran (ținta tactilă de 44 px a kitului nu se mai aplică acelui rând, calibrat să încapă pe 390–412 px).
+- Sursa de construcție (src/index.template.html) conține acum și motorul de texturi: un build nou păstrează texturile, fără pas manual.
+
 ## 3.0.9 — 2026-11-15
 
 - Nou: texturi fractale hiper-detaliate (fff-texturi 1.1.2) — fundalul și suprafețele mari (carduri, panouri, antete, butoane; filele și dialogurile ascunse la încărcare, când se deschid) primesc un material generat local (WebGL2, fără rețea și fără imagini), care se repetă fără cusătură; culorile aplicației rămân ale ei. Se oprește din dialogul „Transparență” sau cu `?notex=1`.
