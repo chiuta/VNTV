@@ -11,7 +11,7 @@ function trcSave(){ clearTimeout(trcTimer); trcTimer = setTimeout(() => {
 const TX = { fn:null, name:"", kind:"", browser:{}, dl:{}, q:[], pend:new Set(), running:0, quotaWarned:false };
 const trOn = () => P.lang !== "en" && P.trOn && !S.showOrig;
 const trKey = s => P.lang + "\u0001" + s;
-function tr(s){ if (!s || !trOn()) return s; return TRC[trKey(s)] ?? s; }
+function tr(s){ var $c5; if (!s || !trOn()) return s; return (($c5 = TRC[trKey(s)]) != null ? $c5 : s); }
 function isTr(s){ return !!(s && trOn() && TRC[trKey(s)]); }
 
 async function browserTranslator(lang, gesture){
@@ -35,26 +35,26 @@ async function browserTranslator(lang, gesture){
 }
 async function viaLibre(text){
   const r = await within(fetch(P.trUrl.replace(/\/+$/, "") + "/translate", {method:"POST", headers:{"Content-Type":"application/json"},
-    body: JSON.stringify({q:text, source:"en", target:P.lang, format:"text", ...(P.trKey ? {api_key:P.trKey} : {})})}), 20000);
+    body: JSON.stringify(Object.assign({}, {q:text, source:"en", target:P.lang, format:"text"}, (P.trKey ? {api_key:P.trKey} : {})))}), 20000);
   if (!r.ok) throw new Error("HTTP " + r.status);
   const j = await r.json(); if (!j.translatedText) throw new Error("empty"); return j.translatedText;
 }
 function chunks(text, max){
   const out = []; let cur = "";
-  for (const part of text.split(/(?<=[.!?…])\s+|\n+/)){
+  for (const part of text.split($fffRx("(?<=[.!?…])\\s+|\\n+", ""))){
     if (!part) continue;
     if ((cur + " " + part).length > max && cur){ out.push(cur); cur = part; } else cur = cur ? cur + " " + part : part;
   }
   if (cur) out.push(cur);
   return out.flatMap(c => c.length <= max ? [c] : c.match(new RegExp(".{1," + max + "}(\\s|$)", "g")) || [c]);
 }
-async function viaMyMemory(text){
+async function viaMyMemory(text){ var $c6;
   const res = [];
   for (const para of text.split(/\n{2,}/)){
     const bits = [];
     for (const c of chunks(para, 450)){
       const j = await getJSON("https://api.mymemory.translated.net/get?langpair=en|" + P.lang + "&q=" + encodeURIComponent(c));
-      if (+j.responseStatus !== 200 || /MYMEMORY WARNING|QUOTA/i.test(j.responseData?.translatedText || "")){ const e = new Error("quota"); e.quota = true; throw e; }
+      if (+j.responseStatus !== 200 || /MYMEMORY WARNING|QUOTA/i.test((($c6 = j.responseData) == null ? void 0 : $c6.translatedText) || "")){ const e = new Error("quota"); e.quota = true; throw e; }
       bits.push(j.responseData.translatedText);
     }
     res.push(bits.join(" "));

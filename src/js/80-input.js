@@ -17,7 +17,7 @@ function toggleFull(auto){
   }
   if (!d.fullscreenElement && !d.webkitFullscreenElement){
     const el = d.documentElement, rq = el.requestFullscreen || el.webkitRequestFullscreen;
-    if (rq) Promise.resolve(rq.call(el, {navigationUI:"hide"})).then(() => { if (TOUCH && isPhone()) screen.orientation?.lock?.("landscape").catch(() => {}); }).catch(() => {});
+    if (rq) Promise.resolve(rq.call(el, {navigationUI:"hide"})).then(() => { var $c58, $c59; if (TOUCH && isPhone()) (($c58 = screen.orientation) == null || ($c59 = $c58.lock) == null ? void 0 : $c59.call($c58, "landscape").catch(() => {})); }).catch(() => {});
   } else (d.exitFullscreen || d.webkitExitFullscreen).call(d);
 }
 function togglePip(){
@@ -29,19 +29,19 @@ function togglePip(){
   }catch(e){}
 }
 let castInit = false;
-function setupCast(){
+function setupCast(){ var $c60;
   if (castInit) return; castInit = true;
   const b = $("#bcast");
   if (window.WebKitPlaybackTargetAvailabilityEvent){
     V.addEventListener("webkitplaybacktargetavailabilitychanged", e => { b.hidden = e.availability !== "available" || PL.mode !== "direct"; });
-  } else if (V.remote?.watchAvailability){
+  } else if ((($c60 = V.remote) == null ? void 0 : $c60.watchAvailability)){
     V.remote.watchAvailability(a => { b.hidden = !a || PL.mode !== "direct"; }).catch(() => { b.hidden = !IS_ANDROID || PL.mode !== "direct"; });
   }
 }
-function cast(){
+function cast(){ var $c61;
   if (PL.mode !== "direct") return;
   if (V.webkitShowPlaybackTargetPicker) return V.webkitShowPlaybackTargetPicker();
-  if (V.remote?.prompt) V.remote.prompt().catch(e => { if (e.name !== "AbortError") toast(t("noCast")); });
+  if ((($c61 = V.remote) == null ? void 0 : $c61.prompt)) V.remote.prompt().catch(e => { if (e.name !== "AbortError") toast(t("noCast")); });
 }
 function ripple(side){ const r = $(side === "l" ? "#ripL" : "#ripR"); r.classList.remove("go"); void r.offsetWidth; r.classList.add("go"); }
 
@@ -96,7 +96,7 @@ app.addEventListener("dblclick", e => { if (!TOUCH && !KIOSK && !e.target.closes
 
 /* ---- tastatură și telecomandă ---- */
 let digits = "", digitTimer = 0, kioskKeys = [];
-document.addEventListener("keydown", e => {
+document.addEventListener("keydown", e => { var $c62, $c63;
   if (KIOSK){  // în chioșc: doar M (sunet) și secvența K-K-K pentru a ieși
     if (e.key === "m" || e.key === "M") toggleMute();
     kioskKeys = [...kioskKeys, e.key.toLowerCase()].slice(-3);
@@ -114,7 +114,7 @@ document.addEventListener("keydown", e => {
   }
   const inPanel = anyPanel();
   switch (k){
-    case " ": case "k": case "K": case "MediaPlayPause": if (inPanel && e.target.closest?.(".panel")) return; e.preventDefault(); togglePlay(); break;
+    case " ": case "k": case "K": case "MediaPlayPause": if (inPanel && (($c63 = ($c62 = e.target).closest) == null ? void 0 : $c63.call($c62, ".panel"))) return; e.preventDefault(); togglePlay(); break;
     case "ArrowRight": case "ArrowLeft": case "ArrowUp": case "ArrowDown":
       if (inPanel){ e.preventDefault(); panelNav(k); return; }
       e.preventDefault();
@@ -141,7 +141,7 @@ document.addEventListener("keydown", e => {
     case "h": case "H": {
       const isClean = OVERLAYS.filter(x => x.k && x.k !== "ambient" && x.k !== "subs").every(x => !O[x.k]);
       if (isClean){ Object.assign(O, store.get("ovBeforeClean", PRESETS.tv.o)); toast(t("layersBack")); }
-      else { store.set("ovBeforeClean", {...O}); Object.assign(O, PRESETS.clean.o); toast(t("cleanOn")); }
+      else { store.set("ovBeforeClean", Object.assign({}, O)); Object.assign(O, PRESETS.clean.o); toast(t("cleanOn")); }
       applyOverlays(); if (isOpen("layers")) renderLayers(); break; }
     case "Escape": case "Backspace": case "BrowserBack": case "GoBack":
       if (inPanel){ e.preventDefault(); if (!$("#bdet").hidden) $("#bdet").hidden = true; else closePanels(); } break;

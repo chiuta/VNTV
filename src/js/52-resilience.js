@@ -14,11 +14,11 @@ S.errChain = 0; S.badRun = 0; S.halted = false; S.qCap = 0; S.clean = 0; S.waitO
 
 /* ---- jurnal local (max 60 de intrări, în localStorage) ---- */
 function errLog(){ const a = store.get("errLog", []); return Array.isArray(a) ? a : []; }
-function logErr(it, kind, code){
+function logErr(it, kind, code){ var $c30, $c31, $c32, $c33, $c34;
   try{
     const cn = navigator.connection || {};
-    const a = errLog(); a.push({t:new Date().toISOString(), host:it?._h || it?.v?.host || "", id:it?.v?.id || it?.key || "", kind, code:code ?? null,
-      res:it?._cands?.[it._ci]?.res ?? null, mode:PL.mode, net:cn.effectiveType || "", online:navigator.onLine, ver:BUILD.version || ""});
+    const a = errLog(); a.push({t:new Date().toISOString(), host:(it == null ? void 0 : it._h) || (it == null || ($c30 = it.v) == null ? void 0 : $c30.host) || "", id:(it == null || ($c31 = it.v) == null ? void 0 : $c31.id) || (it == null ? void 0 : it.key) || "", kind, code:(code != null ? code : null),
+      res:(($c34 = (it == null || ($c32 = it._cands) == null || ($c33 = $c32[it._ci]) == null ? void 0 : $c33.res)) != null ? $c34 : null), mode:PL.mode, net:cn.effectiveType || "", online:navigator.onLine, ver:BUILD.version || ""});
     store.set("errLog", a.slice(-LOG_MAX));
   }catch(e){ /* stocare indisponibilă */ }
 }
@@ -30,10 +30,10 @@ $("#lbody").addEventListener("click", async e => {
 });
 
 /* ---- clipuri „stricate” (24 h) ---- */
-const vidKey = it => (it?._h || it?.v?.host || "") + "/" + (it?.v?.id || it?.key || "");
-function isBadVid(it){ if (!it?.v) return false; const m = store.get("badVids", {}); const t0 = m && m[vidKey(it)]; return !!t0 && Date.now() - t0 < BAD_MS; }
+const vidKey = it => ((it == null ? void 0 : it._h) || (it == null || ($c35 = it.v) == null ? void 0 : $c35.host) || "") + "/" + ((it == null || ($c36 = it.v) == null ? void 0 : $c36.id) || (it == null ? void 0 : it.key) || "");
+function isBadVid(it){ if (!(it == null ? void 0 : it.v)) return false; const m = store.get("badVids", {}); const t0 = m && m[vidKey(it)]; return !!t0 && Date.now() - t0 < BAD_MS; }
 function markBad(it){
-  if (!it?.v) return;
+  if (!(it == null ? void 0 : it.v)) return;
   const m = store.get("badVids", {}) || {}, now = Date.now();
   for (const k of Object.keys(m)) if (now - m[k] > BAD_MS) delete m[k];
   m[vidKey(it)] = now; store.set("badVids", m);
@@ -52,11 +52,11 @@ const errWhy = (kind, code) => kind === "stall" ? t("errStall") : code === 2 ? t
 const resLbl = c => c && c.res ? c.res + "p" : "HLS";
 
 /* ---- altă instanță PeerTube pentru aceeași înregistrare ---- */
-async function videoFromAltHost(it){
-  if (!it?.v || it._hostTried) return null; it._hostTried = 1;
+async function videoFromAltHost(it){ var $c37, $c38;
+  if (!(it == null ? void 0 : it.v) || it._hostTried) return null; it._hostTried = 1;
   const hosts = [...new Set([VN_HOST, ...P.sources.map(s => s.host)])].filter(h => h !== it.v.host && okHost(h)).slice(0, 3);
   for (const h of hosts){
-    try{ const info = await getVideo({host:h, id:it.v.id}); if (info && (info.files?.length || info.streamingPlaylists?.length)) return {info, host:h}; }catch(e){ /* următoarea */ }
+    try{ const info = await getVideo({host:h, id:it.v.id}); if (info && ((($c37 = info.files) == null ? void 0 : $c37.length) || (($c38 = info.streamingPlaylists) == null ? void 0 : $c38.length))) return {info, host:h}; }catch(e){ /* următoarea */ }
   }
   return null;
 }
@@ -80,14 +80,14 @@ addEventListener("online", () => {
   const it = S.items[S.idx]; if (it){ resetItemErr(it); play(S.idx, {offset: S.live ? undefined : S._pos}); }
 });
 
-async function directFail(kind, code){
+async function directFail(kind, code){ var $c39;
   const it = S.items[S.idx]; if (!it || PL.mode !== "direct") return;
   const tok = S.playTok; clearTimeout(stallTimer);
   logErr(it, kind, code);
   if (navigator.onLine === false){ waitOnlinePlay(it); return; }
   const why = errWhy(kind, code);
   if (kind === "error" && code === 2 && !it._again){ it._again = 1; if (retryAt(it, it._ci, why)) return; }      // 1) aceeași sursă
-  if (kind === "stall"){ const c = it._cands?.[it._ci]; if (c && c.res){ S.qCap = Math.max(240, nextLowerRes(it, c.res)); S.clean = 0; } }
+  if (kind === "stall"){ const c = (($c39 = it._cands) == null ? void 0 : $c39[it._ci]); if (c && c.res){ S.qCap = Math.max(240, nextLowerRes(it, c.res)); S.clean = 0; } }
   if (it._cands && it._ci + 1 < it._cands.length && it._tries < 4){                                                 // 2) altă calitate/alt fișier
     it._tries++; if (retryAt(it, it._ci + 1, why)) return;
   }

@@ -45,7 +45,7 @@ if (!Array.isArray(P.sources)) P.sources = [];
 if (P.net !== "p2p") P.net = "direct";            // implicit: redare directă de pe server (fișier MP4); „auto” din versiunile vechi devine „direct”. P2P doar la alegerea spectatorului
 // canalul implicit cu documentarele TROM (complete, trade-free), adăugat o singură dată; spectatorul îl poate elimina
 const TROM_SRC = {host:"videos.trom.tf", kind:"video-channels", handle:"trom", name:"TROM"};
-if (!P.srcInit){ if (!P.sources.some(s => s.host === TROM_SRC.host && s.handle === TROM_SRC.handle)) P.sources.unshift({...TROM_SRC}); P.srcInit = 1; }
+if (!P.srcInit){ if (!P.sources.some(s => s.host === TROM_SRC.host && s.handle === TROM_SRC.handle)) P.sources.unshift(Object.assign({}, TROM_SRC)); P.srcInit = 1; }
 // parametri din adresă (legături directe și modul chioșc): ?ch=3&lang=ro&preset=cinema&sync=1&net=p2p&muted=1
 (function urlPrefs(){
   const l = QS.get("lang"); if (l) P.lang = l;
@@ -65,17 +65,17 @@ if (!P.subsInit){ P.subsInit = 1; if (!QS.has("subs")){ O.subs = 1; store.set("o
 
 /* ---------- limbă ---------- */
 const L = () => I18N[P.lang] || I18N.en;
-function t(k, v){ let x = L()[k] ?? I18N.en[k] ?? k; if (v) for (const n in v) x = String(x).split("{" + n + "}").join(v[n]); return x; }
-function fmtLen(s){
+function t(k, v){ var $c1, $c2; let x = (($c2 = (($c1 = L()[k]) != null ? $c1 : I18N.en[k])) != null ? $c2 : k); if (v) for (const n in v) x = String(x).split("{" + n + "}").join(v[n]); return x; }
+function fmtLen(s){ var $c3;
   if (!s) return s; const w = L().lw || {};
-  return s.replace(/\b(parts?|episodes?|minutes?|hours?|seasons?|lectures?|lessons?|and)\b/gi, m => w[m.toLowerCase()] ?? m);
+  return s.replace(/\b(parts?|episodes?|minutes?|hours?|seasons?|lectures?|lessons?|and)\b/gi, m => (($c3 = w[m.toLowerCase()]) != null ? $c3 : m));
 }
 
 /* ---------- utilitare ---------- */
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 function decode(h){ return new DOMParser().parseFromString("<!doctype html><body>" + (h || ""), "text/html").body.textContent.trim(); }
-function esc(s){ return String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function esc(s){ return String((s != null ? s : "")).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
 function safeUrl(u){ try{ const x = new URL(u); return /^https?:$/.test(x.protocol) ? x.href : null; }catch(e){ return null; } }
 function fmt(s){ s = Math.max(0, Math.floor(s || 0)); const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = String(s % 60).padStart(2, "0");
   return h ? `${h}:${String(m).padStart(2, "0")}:${x}` : `${m}:${x}`; }
@@ -122,4 +122,4 @@ function applyPlatform(){
   b.toggle("standalone", STANDALONE); b.toggle("nofs", !CAN_FS); b.toggle("eco", ecoOn()); b.toggle("kiosk", KIOSK);
   ["s", "m", "l", "xl"].forEach(z => b.toggle("subs-" + z, P.subSize === z));
 }
-mqTouch.addEventListener?.("change", e => { TOUCH = e.matches; applyPlatform(); });
+;(($c4 = mqTouch.addEventListener) == null ? void 0 : $c4.call(mqTouch, "change", e => { TOUCH = e.matches; applyPlatform(); }));

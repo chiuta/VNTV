@@ -37,7 +37,7 @@ function trustedHost(h){ return h === VN_HOST || P.sources.some(s => s.host === 
 async function itemFromDeepLink(dl){
   const same = x => x && x.v && x.v.host === dl.host && x.v.id === dl.id;
   const known = (S.items || []).find(same) || (DATA.all || []).find(same) || Object.values(DATA.pt || {}).flat().find(same);
-  if (known) return {...known};
+  if (known) return Object.assign({}, known);
   if (!trustedHost(dl.host)){
     const msg = t("dlConfirm", {h:dl.host});
     const yes = await FFF.dialog.confirm(msg, {danger:true});
@@ -46,7 +46,7 @@ async function itemFromDeepLink(dl){
   try{
     const j = await getVideo(dl);
     if (!j || j.isLive || !(j.duration > 0) || j.nsfw) return null;
-    return fromPT({...j, uuid:j.uuid || dl.id}, dl.host);
+    return fromPT(Object.assign({}, j, {uuid:j.uuid || dl.id}), dl.host);
   }catch(e){ return null; }
 }
 async function openDeepLink(force){

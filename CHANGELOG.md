@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.1.3 — 2026-11-20
+
+- fff-kit 1.8.1: când `localStorage`/`sessionStorage` aruncă sau lipsesc (cookie-uri și date de site blocate, WebView fără stocare, `<iframe sandbox>`), kitul pune în loc o stocare în memorie, iar pagina pornește în loc să se oprească; datele nu se păstrează după închiderea paginii
+- fff-kit 1.8.1: ghidajul care mărește controalele mici la 44 px măsoară acum și lățimea corpului paginii și a părintelui, deci un rând de butoane nu mai poate ieși din ecran (grupul rămâne neatins când mărirea l-ar depăși)
+- Construire: `node build.mjs` (rulat și de `pages.yml` la publicare) producea o pagină diferită de cea comisă și verificată — blocul de kit din șablon era cel vechi (fără modulele a11y și share), iar `src/js` nu era coborât la ES2017 (49 de `?.` în pagina construită față de 1 în cea comisă). Acum `src/js` conține codul ES2017, iar build-ul preia blocul de kit, `fff-info` și `data-fff-hash` din `index.html` comis; build-ul din sursă reproduce pagina verificată octet cu octet (verificat; singura diferență era un comentariu HTML cu o versiune veche)
+
 ## 3.1.2 — 2026-11-17
 
 - Compatibilitate cu browsere mai vechi (Chrome/Edge 55+, Firefox 52+, Safari 10.1+/iOS 10.3+): kitul 1.8.0 aduce stratul de compatibilitate (rezerve pentru API-urile care lipsesc în motoarele vechi), iar sintaxa JavaScript mai nouă decât ES2017 a fost înlocuită cu forme echivalente acolo unde exista; expresiile regulate noi și `import()` trec prin rezerve. Fără modificări de funcționalitate intenționate. Verificat cu parser ES2017 și într-un motor vechi simulat, nu pe dispozitive reale.

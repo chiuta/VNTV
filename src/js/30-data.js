@@ -56,16 +56,16 @@ function parseContent(html){
   r.desc = blocks.filter(b => b !== info).map(b => b.textContent.replace(/ /g, " ").trim()).filter(Boolean).join("\n\n");
   return r;
 }
-function fromWP(p){
-  const c = parseContent(p.content?.rendered);
+function fromWP(p){ var $c7, $c8, $c9, $c10, $c11, $c12;
+  const c = parseContent((($c7 = p.content) == null ? void 0 : $c7.rendered));
   const it = {
-    key:"vn:" + p.id, src:"vn", id:p.id, title:decode(p.title?.rendered), ex:decode(p.excerpt?.rendered), desc:null, link:safeUrl(p.link),
+    key:"vn:" + p.id, src:"vn", id:p.id, title:decode((($c8 = p.title) == null ? void 0 : $c8.rendered)), ex:decode((($c9 = p.excerpt) == null ? void 0 : $c9.rendered)), desc:null, link:safeUrl(p.link),
     cats:p.categories || [], img:null, year:c.year || (p.date || "").slice(0, 4), len:c.len, source:c.source, sourceUrl:c.sourceUrl,
     v:c.v, dur:null, preview:null, kind:"trailer",
   };
   it.desc = c.desc || it.ex;
-  const m = p._embedded?.["wp:featuredmedia"]?.[0];
-  if (m && !m.code){ const s = m.media_details?.sizes || {}; it.img = (s.medium_large || s.large || s.medium || {}).source_url || m.source_url || null; }
+  const m = (($c10 = p._embedded) == null || ($c11 = $c10["wp:featuredmedia"]) == null ? void 0 : $c11[0]);
+  if (m && !m.code){ const s = (($c12 = m.media_details) == null ? void 0 : $c12.sizes) || {}; it.img = (s.medium_large || s.large || s.medium || {}).source_url || m.source_url || null; }
   return it;
 }
 async function wpPage({cat = 0, q = "", page = 1, per = PER}){
@@ -80,13 +80,13 @@ async function wpPage({cat = 0, q = "", page = 1, per = PER}){
   return {items:data.map(fromWP), pages};
 }
 /* descrierea completă se încarcă doar când e nevoie */
-async function ensureDesc(it){
+async function ensureDesc(it){ var $c13;
   if (it.desc) return it.desc;
   try{
     if (it.src === "vn"){
       let d = null;
       if (DATA.mode === "index"){ try{ const j = await getJSON(`${DATA.indexUrl.replace(/\/index(\?.*)?$/, "")}/item/${it.id}`, 8000); d = j.desc; }catch(e){} }
-      if (!d){ const p = await getJSON(`${WP}/posts/${it.id}?_fields=content`, 12000); d = parseContent(p.content?.rendered).desc; }
+      if (!d){ const p = await getJSON(`${WP}/posts/${it.id}?_fields=content`, 12000); d = parseContent((($c13 = p.content) == null ? void 0 : $c13.rendered)).desc; }
       it.desc = d || it.ex;
     } else if (it.src === "pt"){
       const v = await getVideo(it.v); it.desc = v.description || it.ex;
@@ -105,8 +105,8 @@ function getVideo(v){
   return pr;
 }
 function ptImage(info, host){
-  const th = (info?.thumbnails || []).filter(x => x.fileUrl && x.aspectRatio !== "1:1").sort((a, b) => b.width - a.width)[0];
-  return th?.fileUrl || (info?.previewPath ? `https://${host}${info.previewPath}` : null);
+  const th = ((info == null ? void 0 : info.thumbnails) || []).filter(x => x.fileUrl && x.aspectRatio !== "1:1").sort((a, b) => b.width - a.width)[0];
+  return (th == null ? void 0 : th.fileUrl) || ((info == null ? void 0 : info.previewPath) ? `https://${host}${info.previewPath}` : null);
 }
 // containerul trebuie să fie redabil de acest browser (altfel nu-l mai oferim deloc: mai bine alt fișier decât „eroare de redare”)
 function canPlayFile(u){
@@ -121,23 +121,23 @@ function slowNet(){
   return !!(cn.saveData || /(^|-)?(2g|3g)$/.test(cn.effectiveType || "") || (cn.downlink && cn.downlink < 1.2) || cn.rtt > 900);
 }
 // lista ordonată de surse: întâi calitatea țintă, apoi calități tot mai mici, apoi cele mai mari; MP4 progresiv înaintea HLS la aceeași rezoluție
-function srcList(info){
+function srcList(info){ var $c14, $c15, $c16, $c17;
   const hls = (info.streamingPlaylists || [])[0];
-  const files = [...(info.files || []), ...(hls?.files || [])].filter(f => f.fileUrl && f.hasVideo !== false && canPlayFile(f.fileUrl))
-    .sort((a, b) => (b.resolution?.id || 0) - (a.resolution?.id || 0));
+  const files = [...(info.files || []), ...((hls == null ? void 0 : hls.files) || [])].filter(f => f.fileUrl && f.hasVideo !== false && canPlayFile(f.fileUrl))
+    .sort((a, b) => ((($c14 = b.resolution) == null ? void 0 : $c14.id) || 0) - ((($c15 = a.resolution) == null ? void 0 : $c15.id) || 0));
   const out = [];
   if (files.length){
     let tgt = P.quality === "auto"
       ? (slowNet() ? 480 : Math.max(innerWidth, innerHeight) * Math.min(devicePixelRatio || 1, 2) >= 1700 ? 1080 : 720) : +P.quality;
     if (ecoOn() && P.quality === "auto") tgt = Math.min(tgt, 720);
     if (P.quality === "auto" && S.qCap) tgt = Math.min(tgt, S.qCap);                // după un blocaj, rămânem la calitatea mai mică pentru câteva clipuri
-    let i = files.findIndex(f => (f.resolution?.id || 0) <= tgt); if (i < 0) i = files.length - 1;
-    for (const f of [...files.slice(i), ...files.slice(0, i).reverse()]) if (!out.some(o => o.url === f.fileUrl)) out.push({url:f.fileUrl, res:f.resolution?.id || 0});
+    let i = files.findIndex(f => ((($c16 = f.resolution) == null ? void 0 : $c16.id) || 0) <= tgt); if (i < 0) i = files.length - 1;
+    for (const f of [...files.slice(i), ...files.slice(0, i).reverse()]) if (!out.some(o => o.url === f.fileUrl)) out.push({url:f.fileUrl, res:(($c17 = f.resolution) == null ? void 0 : $c17.id) || 0});
   }
-  if (hls?.playlistUrl && V.canPlayType("application/vnd.apple.mpegurl")) out.push({url:hls.playlistUrl, res:0});
+  if ((hls == null ? void 0 : hls.playlistUrl) && V.canPlayType("application/vnd.apple.mpegurl")) out.push({url:hls.playlistUrl, res:0});
   return out;
 }
-function pickSrc(info){ return srcList(info)[0]?.url || null; }
+function pickSrc(info){ var $c18; return (($c18 = srcList(info)[0]) == null ? void 0 : $c18.url) || null; }
 
 /* ---- canale PeerTube adăugate de spectator (videouri complete, de regulă cu licențe libere) ---- */
 function parseSource(url){
@@ -154,14 +154,14 @@ async function ptSourceInfo(s){
   const j = await getJSON(`https://${s.host}/api/v1/${s.kind}/${encodeURIComponent(s.handle)}`, 10000);
   return {name:j.displayName || j.name || s.handle, desc:j.description || ""};
 }
-function fromPT(v, host){
+function fromPT(v, host){ var $c19, $c20, $c21, $c22, $c23, $c24;
   const img = v.previewPath ? `https://${host}${v.previewPath}` : v.thumbnailPath ? `https://${host}${v.thumbnailPath}` : null;
-  const lic = v.licence?.id ? v.licence.label : null;
+  const lic = (($c19 = v.licence) == null ? void 0 : $c19.id) ? v.licence.label : null;
   return {
     key:`pt:${host}:${v.uuid}`, src:"pt", id:v.uuid, title:v.name || "", ex:(v.truncatedDescription || v.description || "").slice(0, 400),
-    desc:null, link:safeUrl(v.url) || `https://${host}/w/${v.shortUUID || v.uuid}`, cats:[], catLabel:v.category?.label || null,
+    desc:null, link:safeUrl(v.url) || `https://${host}/w/${v.shortUUID || v.uuid}`, cats:[], catLabel:(($c20 = v.category) == null ? void 0 : $c20.label) || null,
     img, year:(v.originallyPublishedAt || v.publishedAt || "").slice(0, 4) || null, len:v.duration ? Math.round(v.duration / 60) + " min" : null,
-    source:v.channel?.displayName || v.account?.displayName || host, sourceUrl:safeUrl(v.channel?.url || v.account?.url),
+    source:(($c21 = v.channel) == null ? void 0 : $c21.displayName) || (($c22 = v.account) == null ? void 0 : $c22.displayName) || host, sourceUrl:safeUrl((($c23 = v.channel) == null ? void 0 : $c23.url) || (($c24 = v.account) == null ? void 0 : $c24.url)),
     v:{host, id:v.uuid}, dur:v.duration || null, preview:img, kind:"full", licence:lic,
   };
 }
@@ -180,9 +180,9 @@ async function ptAll(s){
 }
 
 /* ---- subtitrări PeerTube ---- */
-async function getCaptions(v){
+async function getCaptions(v){ var $c25, $c26;
   const j = await getJSON(`https://${v.host}/api/v1/videos/${encodeURIComponent(v.id)}/captions`, 8000);
-  return (j.data || []).map(c => ({lang:c.language?.id, label:c.language?.label, auto:!!c.automaticallyGenerated,
+  return (j.data || []).map(c => ({lang:(($c25 = c.language) == null ? void 0 : $c25.id), label:(($c26 = c.language) == null ? void 0 : $c26.label), auto:!!c.automaticallyGenerated,
     url:c.fileUrl || (c.captionPath ? `https://${v.host}${c.captionPath}` : null)})).filter(c => c.url);
 }
 function parseVTT(s){
@@ -209,7 +209,7 @@ function cleanFav(f){
   if (typeof f.key !== "string" || !/^(vn|pt):[A-Za-z0-9._:-]{1,200}$/.test(f.key)) return null;
   if (!v || typeof v !== "object" || !okHost(v.host) || typeof v.id !== "string" || !/^[A-Za-z0-9_-]{1,64}$/.test(v.id)) return null;
   const url = x => typeof x === "string" ? safeUrl(x) : null;
-  return {...f, v:{host:v.host, id:v.id}, link:url(f.link), sourceUrl:url(f.sourceUrl), img:url(f.img), preview:url(f.preview)};
+  return Object.assign({}, f, {v:{host:v.host, id:v.id}, link:url(f.link), sourceUrl:url(f.sourceUrl), img:url(f.img), preview:url(f.preview)});
 }
 function loadFavs(){
   const raw = store.get("favs", {}), out = {};
@@ -217,7 +217,7 @@ function loadFavs(){
   for (const f of Object.values(raw)){
     if (!f || typeof f !== "object") continue;
     const it = f.key ? cleanFav(f)
-      : f.trailer ? cleanFav({...f, key:"vn:" + f.id, src:"vn", v:{host:VN_HOST, id:f.trailer}, source:f.src, sourceUrl:f.srcUrl, kind:"trailer"}) : null;
+      : f.trailer ? cleanFav(Object.assign({}, f, {key:"vn:" + f.id, src:"vn", v:{host:VN_HOST, id:f.trailer}, source:f.src, sourceUrl:f.srcUrl, kind:"trailer"})) : null;
     if (it) out[it.key] = it;
   }
   return out;

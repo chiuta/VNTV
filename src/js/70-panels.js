@@ -3,38 +3,38 @@
    ===================================================================== */
 const isOpen = id => $("#" + id).classList.contains("open");
 const anyPanel = () => !!$(".panel.open");
-function openPanel(id){
+function openPanel(id){ var $c48;
   if (KIOSK) return;
   if (isOpen(id)){ closePanels(); return; }
   $$(".panel.open").forEach(p => p.classList.remove("open"));
   $("#" + id).classList.add("open"); showUI(true);
   if (id === "guide") renderLists(); if (id === "info") renderInfo(); if (id === "layers") renderLayers(); if (id === "screen") renderScreen(); if (id === "browse") openBrowse(); if (id === "lib"){ renderLib(); autoRefreshSubs(); runChecks(false); }
-  if (history.state?.vntv !== "panel") try{ history.pushState({vntv:"panel"}, ""); }catch(e){}
-  if (!TOUCH) setTimeout(() => { const p = $("#" + id);
-    (p.querySelector(".q.now, .ch.on, .bc.on, .tg, .presets button, .btn, button:not(.x)") || p.querySelector(".x"))?.focus({preventScroll:true}); }, 60);
+  if ((($c48 = history.state) == null ? void 0 : $c48.vntv) !== "panel") try{ history.pushState({vntv:"panel"}, ""); }catch(e){}
+  if (!TOUCH) setTimeout(() => { var $c49; const p = $("#" + id);
+    (($c49 = (p.querySelector(".q.now, .ch.on, .bc.on, .tg, .presets button, .btn, button:not(.x)") || p.querySelector(".x"))) == null ? void 0 : $c49.focus({preventScroll:true})); }, 60);
 }
-function closePanels(fromPop){
+function closePanels(fromPop){ var $c50;
   const fa = document.activeElement; if (fa && fa.closest && fa.closest(".panel")) try{ fa.blur(); }catch(e){}   // altfel focusul rămâne într-un câmp al panoului închis și tastele rapide (ex. „w”) sunt ignorate
   $$(".panel.open").forEach(p => p.classList.remove("open"));
   $("#bdet").hidden = true;
-  if (fromPop !== true && history.state?.vntv === "panel") try{ history.back(); }catch(e){}
+  if (fromPop !== true && (($c50 = history.state) == null ? void 0 : $c50.vntv) === "panel") try{ history.back(); }catch(e){}
   kickUI();
 }
 addEventListener("popstate", () => { setAnchor(S.items[S.idx]);   /* „înapoi” (închiderea panoului) readuce ancora #v= veche și ar declanșa hashchange → redarea titlului anterior: o rescriem pe cea curentă */
   if (!$("#bdet").hidden){ $("#bdet").hidden = true; try{ history.pushState({vntv:"panel"}, ""); }catch(e){} return; } if (anyPanel()) closePanels(true); });
 $$("[data-close]").forEach(b => b.onclick = () => closePanels());
-function panelNav(k){
+function panelNav(k){ var $c51, $c52, $c53, $c54;
   const pnl = $(".panel.open"); if (!pnl) return;
   const scope = !$("#bdet").hidden && pnl.id === "browse" ? $("#bdet") : pnl;
   const f = [...scope.querySelectorAll("button, [tabindex='0'], input, a[href]")].filter(e => e.offsetParent !== null && !e.disabled);
   let i = f.indexOf(document.activeElement);
   let step = (k === "ArrowDown" || k === "ArrowRight") ? 1 : -1;
-  if (pnl.id === "browse" && scope === pnl && document.activeElement?.classList.contains("card") && (k === "ArrowDown" || k === "ArrowUp")){
-    const g = $("#bgrid"), cols = Math.max(1, Math.round(g.clientWidth / (g.firstElementChild?.offsetWidth || 200)));
+  if (pnl.id === "browse" && scope === pnl && (($c51 = document.activeElement) == null ? void 0 : $c51.classList.contains("card")) && (k === "ArrowDown" || k === "ArrowUp")){
+    const g = $("#bgrid"), cols = Math.max(1, Math.round(g.clientWidth / ((($c52 = g.firstElementChild) == null ? void 0 : $c52.offsetWidth) || 200)));
     step *= cols;
   }
   i = i < 0 ? 0 : Math.max(0, Math.min(f.length - 1, i + step));
-  f[i]?.focus({preventScroll:true}); f[i]?.scrollIntoView({block:"nearest", inline:"nearest"}); resetAppScroll();
+  (($c53 = f[i]) == null ? void 0 : $c53.focus({preventScroll:true})); (($c54 = f[i]) == null ? void 0 : $c54.scrollIntoView({block:"nearest", inline:"nearest"})); resetAppScroll();
 }
 
 /* ---------- ghid TV ---------- */
@@ -54,7 +54,7 @@ function renderChannels(){
     el.prepend(b);
   }
 }
-function renderQueue(keep){
+function renderQueue(keep){ var $c55;
   if (!isOpen("guide")) return;
   const el = $("#qlist"), st = el.scrollTop;
   if (!S.items.length){ el.innerHTML = `<div class="empty">${S.loading ? t("loadingProg") : t("noTrCh")}</div>`; return; }
@@ -74,7 +74,7 @@ function renderQueue(keep){
   });
   if (S.pager && S.pager.more){ const m = document.createElement("button"); m.className = "btn"; m.style.margin = "12px auto"; m.style.display = "flex";
     m.textContent = t("more"); m.onclick = () => loadMore(); el.appendChild(m); }
-  if (keep) el.scrollTop = st; else { el.querySelector(".now")?.scrollIntoView({block:"nearest"}); requestTr(); }
+  if (keep) el.scrollTop = st; else { (($c55 = el.querySelector(".now")) == null ? void 0 : $c55.scrollIntoView({block:"nearest"})); requestTr(); }
 }
 $("#gform").onsubmit = e => {
   e.preventDefault(); const q = $("#gq").value.trim(); if (!q) return;
@@ -182,7 +182,7 @@ async function addSource(){
     const info = await ptSourceInfo(s);
     const list = await ptAll(s);
     if (!list.length){ toast(t("srcEmpty"), 3500); return; }
-    P.sources.push({...s, name:info.name}); savePrefs();
+    P.sources.push(Object.assign({}, s, {name:info.name})); savePrefs();
     toast(t("srcAdded", {n:info.name, c:list.length, ch:channelList().length}), 4000);
     renderLayers(); renderChannels();
   }catch(e){ toast(t("srcErr", {e:e.message}), 4500); }
@@ -230,12 +230,12 @@ function renderInfo(){
 }
 
 /* ---------- favorite ---------- */
-function toggleFav(it){
+function toggleFav(it){ var $c56;
   it = it || S.items[S.idx]; if (!it) return;
   if (S.favs[it.key]) delete S.favs[it.key]; else S.favs[it.key] = favSnapshot(it);
   store.set("favs", S.favs); syncFav();
   toast(S.favs[it.key] ? t("favAdd", {n:15}) : t("favRem"));
-  if (isOpen("info") && S.items[S.idx]?.key === it.key) renderInfo();
+  if (isOpen("info") && (($c56 = S.items[S.idx]) == null ? void 0 : $c56.key) === it.key) renderInfo();
 }
 function syncFav(){ const it = S.items[S.idx]; const on = !!(it && S.favs[it.key]); $("#bfav").innerHTML = icon(on ? "star" : "staro"); $("#bfav").classList.toggle("on", on); }
 
@@ -289,7 +289,7 @@ function renderBrowse(){
   need(items.slice(-BR.per).map(x => x.title));
 }
 function refreshBrowseTitles(){ $$("#bgrid .ct").forEach(e => { const it = BR.shown[+e.dataset.t]; if (it) e.textContent = tr(it.title); }); if (!$("#bdet").hidden && BR.cur) showBrowseDetail(BR.cur, true); }
-function showBrowseDetail(it, keepFocus){
+function showBrowseDetail(it, keepFocus){ var $c57;
   BR.cur = it;
   const d = $("#bdet"); d.hidden = false;
   d.innerHTML = `<div class="bdin"><button class="btn back" data-back>← ${esc(t("back"))}</button>${detailHTML(it, "b")}</div>`;
@@ -297,7 +297,7 @@ function showBrowseDetail(it, keepFocus){
   bindDetail(d, it);
   need([it.title, it.desc || it.ex], true);
   if (!it.desc) ensureDesc(it).then(() => { if (BR.cur === it && !d.hidden){ need([it.desc], true); showBrowseDetail(it, true); } });
-  if (!keepFocus && !TOUCH) setTimeout(() => d.querySelector("[data-playnow], .btn.pri")?.focus({preventScroll:true}), 30);
+  if (!keepFocus && !TOUCH) setTimeout(() => (($c57 = d.querySelector("[data-playnow], .btn.pri")) == null ? void 0 : $c57.focus({preventScroll:true})), 30);
 }
 $("#bmore").onclick = () => { if (BR.list){ BR.page++; renderBrowse(); } else brLoad(false); };
 $("#bform").onsubmit = e => { e.preventDefault(); BR.q = $("#bq").value.trim(); $("#bq").blur(); brLoad(true); };

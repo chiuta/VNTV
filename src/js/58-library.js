@@ -323,7 +323,7 @@ function libLinksHTML(){
   return h;
 }
 function libAsk(msg){ return FFF.dialog.confirm(msg, {danger:true}); }
-$("#libtabs").addEventListener("click", e => { const b = e.target.closest("[data-tab]"); if (!b) return; LIB.tab = b.dataset.tab; renderLib(); b.focus?.(); $("#libtabs [aria-selected=true]")?.focus({preventScroll:true}); });
+$("#libtabs").addEventListener("click", e => { var $c42, $c43; const b = e.target.closest("[data-tab]"); if (!b) return; LIB.tab = b.dataset.tab; renderLib(); (($c42 = b.focus) == null ? void 0 : $c42.call(b)); (($c43 = $("#libtabs [aria-selected=true]")) == null ? void 0 : $c43.focus({preventScroll:true})); });
 $("#libbody").addEventListener("submit", e => {
   e.preventDefault(); const f = e.target.dataset.form;
   if (f === "newlist"){ const l = newList($("#nlName").value); if (l){ LIB.open = l.id; renderLib(); } }
@@ -343,7 +343,7 @@ $("#libbody").addEventListener("change", e => {
     if (l && n && !l.sub){ l.name = n; listChanged(); renderLib(); }
   }
 });
-$("#libbody").addEventListener("click", async e => {
+$("#libbody").addEventListener("click", async e => { var $c44;
   const a = e.target.closest("[data-act]");
   const hrow = e.target.closest("[data-hi]"), lcard = e.target.closest("[data-li]"), irow = e.target.closest("[data-ii]");
   const H = hrow ? HIST[+hrow.dataset.hi] : null, l = lcard ? listById(lcard.dataset.li) : null;
@@ -372,7 +372,7 @@ $("#libbody").addEventListener("click", async e => {
   if ((act === "up" || act === "down") && i >= 0 && !l.sub){
     const j = act === "up" ? i - 1 : i + 1; if (j < 0 || j >= l.items.length) return;
     [l.items[i], l.items[j]] = [l.items[j], l.items[i]]; listChanged(); renderLib();
-    $(`#libbody [data-li="${l.id}"] [data-ii="${j}"] [data-act=${act}]`)?.focus({preventScroll:true}); return;
+    (($c44 = $(`#libbody [data-li="${l.id}"] [data-ii="${j}"] [data-act=${act}]`)) == null ? void 0 : $c44.focus({preventScroll:true})); return;
   }
 });
 $("#libbody").addEventListener("keydown", e => { if (e.key === "Enter" && e.target.matches("[data-rename]")) e.target.blur(); });
@@ -380,10 +380,10 @@ $("#libbody").addEventListener("click", e => {
   const x = e.target.closest(".tg[data-lib]"); if (!x) return;
   P.hist = P.hist === false ? true : false; savePrefs(); if (P.hist === false) histStop(); syncResumeBox(); renderLib();
 });
-$("#libbody").addEventListener("keydown", e => {
-  const x = e.target.closest?.(".tg[data-lib]"); if (!x || (e.key !== "Enter" && e.key !== " ")) return;
+$("#libbody").addEventListener("keydown", e => { var $c45, $c46, $c47;
+  const x = (($c46 = ($c45 = e.target).closest) == null ? void 0 : $c46.call($c45, ".tg[data-lib]")); if (!x || (e.key !== "Enter" && e.key !== " ")) return;
   e.preventDefault(); e.stopPropagation(); P.hist = P.hist === false ? true : false; savePrefs(); if (P.hist === false) histStop(); syncResumeBox(); renderLib();
-  $("#libbody .tg[data-lib]")?.focus({preventScroll:true});
+  (($c47 = $("#libbody .tg[data-lib]")) == null ? void 0 : $c47.focus({preventScroll:true}));
 });
 function openLib(){ openPanel("lib"); }
 $("#blib").onclick = openLib;

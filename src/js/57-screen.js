@@ -83,7 +83,7 @@ async function copyText(s){
   const ta = document.createElement("textarea"); ta.value = s; ta.setAttribute("readonly", ""); ta.style.cssText = "position:fixed;left:-9999px;opacity:0";
   document.body.appendChild(ta); ta.select(); let ok = false; try{ ok = document.execCommand("copy"); }catch(e){ /* indisponibil */ } ta.remove(); return ok;
 }
-function renderScreen(){
+function renderScreen(){ var $c40, $c41;
   const b = $("#scbody"), url = screenUrl();
   const canCast = !$("#bcast").hidden && PL.mode === "direct";
   let h = `<div class="grp">${esc(t("scrCastH"))}</div><div class="scr"><p>${esc(t("scrCastD"))}</p>` +
@@ -98,8 +98,8 @@ function renderScreen(){
     <canvas id="scQr" class="scqr" role="img" aria-label="${esc(t("scrQr"))}"></canvas>`;
   h += `</div>` + DONATE_PILL;
   b.innerHTML = h;
-  $("#scCast")?.addEventListener("click", cast);
-  $("#scPip")?.addEventListener("click", togglePip);
+  (($c40 = $("#scCast")) == null ? void 0 : $c40.addEventListener("click", cast));
+  (($c41 = $("#scPip")) == null ? void 0 : $c41.addEventListener("click", togglePip));
   $("#scWin").addEventListener("click", popOut);
   if (!url) return;
   const fill = () => { const u = screenUrl(); $("#scUrl").value = u; try{ drawQR($("#scQr"), u); }catch(e){ $("#scQr").hidden = true; } };

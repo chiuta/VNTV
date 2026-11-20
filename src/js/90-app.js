@@ -96,5 +96,5 @@ function makeIcons(){
     $("#appleicon").href = png;
   }catch(e){}
 }
-(document.fonts?.ready || Promise.resolve()).then(makeIcons);
+((($c64 = document.fonts) == null ? void 0 : $c64.ready) || Promise.resolve()).then(makeIcons);
 if (!KIOSK) $("#go").focus();

@@ -74,7 +74,7 @@ function togglePlay(){
 /* ---- redarea unui titlu ---- */
 let fallbackTimer = 0, stallTimer = 0;
 function armFallback(sec){ clearTimeout(fallbackTimer); fallbackTimer = setTimeout(() => next(true), sec * 1000); }
-async function play(i, opt = {}){
+async function play(i, opt = {}){ var $c28, $c29;
   if (!S.items.length){ if (S.pager) await loadMore(); if (!S.items.length){ toast(t("noTr"), 3500); return; } }
   if (i >= S.items.length){
     if (S.pager && S.pager.more){ await loadMore(); }
@@ -85,7 +85,7 @@ async function play(i, opt = {}){
   }
   if (i < 0) i = S.items.length - 1;
   if (S.live && opt.offset === undefined){ i = liveCatchUp(i); }
-  const offset = opt.offset ?? (S.live ? liveOffset(i) : 0);
+  const offset = (($c28 = opt.offset) != null ? $c28 : (S.live ? liveOffset(i) : 0));
   S.idx = i; const it = S.items[i]; const tok = ++S.playTok; S.clipCount++;
   if (opt.auto && isBadVid(it)){                                  // clip care a eșuat de curând: îl sărim fără să așteptăm (programul sincronizat rămâne neschimbat)
     if (++S.badRun <= 6){ logErr(it, "skip-bad"); return next(true); }
@@ -114,7 +114,7 @@ async function play(i, opt = {}){
   if (!it.desc) ensureDesc(it).then(() => { if (tok === S.playTok){ requestTr(); if (isOpen("info")) renderInfo(); } });
 
   it._cands = info ? srcList(info) : []; it._ci = it._preBad && it._cands.length > 1 ? 1 : 0;
-  const src = it._cands[it._ci]?.url || null;
+  const src = (($c29 = it._cands[it._ci]) == null ? void 0 : $c29.url) || null;
   it._src = src || null;
   const mode = netMode();
   if (mode === "p2p" || !src) playEmbed(it, offset);
@@ -198,7 +198,7 @@ function prev(){
 function playItemNow(it, offset = 0){
   leaveLive();
   const i = S.idx + 1;
-  S.items.splice(i, 0, {...it});
+  S.items.splice(i, 0, Object.assign({}, it));
   S._lowerShown = false;
   play(i, {offset});
 }

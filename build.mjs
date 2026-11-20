@@ -1,4 +1,7 @@
 // Construiește VNTV dintr-o singură sursă în două variante:
+// (Kitul comun fff-kit scrie direct în index.html comis — bloc de kit, bloc fff-info, data-fff-hash. Build-ul le PRELUA neschimbate din acea pagină,
+//  ca pagina construită în CI (pages.yml) și cea comisă să fie aceeași; sursa din src/js este deja coborâtă la ES2017. După schimbări de sursă sau
+//  după `node fff-kit/build.mjs release . --bump none --lax` (din hub): rulați `node build.mjs` de două ori și comiteți; vezi README, secțiunea „Construire”.)
 //   index.html              — varianta găzduită, în rădăcină (GitHub Pages „main /root”), cu sw.js, manifest și pictograme alături (offline real)
 //   dist/vntv.html          — un singur fișier, merge offline, se deschide direct din telefon sau calculator
 //   deploy/site/index.html  — pentru găzduire pe HTTPS, cu manifest, pictograme și lucru offline (sw.js)
@@ -28,6 +31,21 @@ unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+
 const jsFiles = fs.readdirSync(path.join(root, "src/js")).filter(f => f.endsWith(".js")).sort();
 const js = jsFiles.map(f => `/* ---- ${f} ---- */\n` + rd(`src/js/${f}`)).join("\n");
 
+// Preluare din pagina găzduită comisă (scrisă de fff-kit): blocul de kit (toate variantele), blocul fff-info și data-fff-hash (doar varianta găzduită:
+// hash-ul este al acelei pagini). Dacă nu există pagină comisă (primul build), rămâne blocul de kit din șablon.
+const prev = fs.existsSync(path.join(root, "index.html")) ? rd("index.html") : "";
+const KIT_RE = /<!--fff:kit:start[\s\S]*?<!--fff:kit:end-->\n?/, INFO_RE = /<!--fff:info:start-->[\s\S]*?<!--fff:info:end-->\n?/;
+const nl = x => x && (x.endsWith("\n") ? x : x + "\n");
+const carried = {kit: nl((prev.match(KIT_RE) || [null])[0]), info: nl((prev.match(INFO_RE) || [null])[0]), hash: (prev.match(/<html[^>]*\sdata-fff-hash="([0-9a-f]{64})"/) || [])[1] || null};
+function carryFromPage(html, hosted){
+  if (carried.kit) {
+    if (!KIT_RE.test(html)) throw new Error("șablonul nu are bloc de kit de înlocuit");
+    html = html.replace(KIT_RE, () => carried.kit + (hosted && carried.info ? carried.info : ""));
+  }
+  if (hosted && carried.hash) html = html.replace(/<html([^>]*)>/, (m, at) => /data-fff-hash=/.test(at) ? m : `<html${at} data-fff-hash="${carried.hash}">`);
+  return html;
+}
+
 // CSP: scriptul inline este permis prin hash SHA-256 (fără 'unsafe-inline' pentru script); recalculat la fiecare build
 function withScriptHash(html){
   const hashes = [...html.matchAll(/<script(?![^>]*\bsrc=)([^>]*)>([\s\S]*?)<\/script>/g)]
@@ -38,7 +56,7 @@ function withScriptHash(html){
 }
 function build(target, headLinks){
   const built = pkg.updated || new Date().toISOString().slice(0, 10);
-  return withScriptHash(rd("src/index.template.html")
+  return withScriptHash(carryFromPage(rd("src/index.template.html")
     .replace("{{HEAD_LINKS}}", headLinks)
     .replace("{{FONTS}}", () => fonts)
     .replace("{{CSS}}", () => rd("src/styles.css"))
@@ -46,7 +64,7 @@ function build(target, headLinks){
     .split("{{VERSION}}").join(pkg.version).split("{{BUILT}}").join(built)
     .replace("{{BUILD_JSON}}", JSON.stringify({version:pkg.version, target, built}))
     .replace("{{I18N}}", () => JSON.stringify(i18n))
-    .replace("{{JS}}", () => js));
+    .replace("{{JS}}", () => js), target === "hosted"));
 }
 fs.mkdirSync(path.join(root, "dist"), {recursive:true});
 fs.mkdirSync(path.join(root, "deploy/site"), {recursive:true});

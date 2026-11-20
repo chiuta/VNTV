@@ -32,10 +32,10 @@ function chSub(ch){
 }
 function chKey(ch){ return ch.type === "vn" ? "vn" + ch.cat : ch.type === "pt" ? "pt:" + srcKey(ch.src) : ch.type === "pl" ? "pl:" + ch.id : ch.type; }
 const chNo = () => S.search ? "—" : pad2(S.chIdx + 1);
-function catLabel(it){
+function catLabel(it){ var $c27;
   if (it.catLabel) return it.catLabel;
   const C = L().cats;
-  const c = (it.cats || []).find(c => c !== 2 && C[c]) ?? (it.cats || []).find(c => C[c]);
+  const c = (($c27 = (it.cats || []).find(c => c !== 2 && C[c])) != null ? $c27 : (it.cats || []).find(c => C[c]));
   return C[c] || (it.src === "pt" ? "PeerTube" : "VideoNeat");
 }
 
@@ -59,7 +59,7 @@ function buildSchedule(ch, all, now){
   const slot = it => (it.dur || DEF_DUR) + GAP;
   const cycle = base.reduce((a, it) => a + slot(it), 0);
   const el = (now - EPOCH) / 1000, k = Math.floor(el / cycle);
-  const order = n => shuffle(base.map(x => ({...x})), rng(chKey(ch) + "|" + n));
+  const order = n => shuffle(base.map(x => (Object.assign({}, x))), rng(chKey(ch) + "|" + n));
   const list = order(k);
   let tt = el - k * cycle, i = 0;
   while (i < list.length - 1 && tt >= slot(list[i])){ tt -= slot(list[i]); i++; }
@@ -95,7 +95,7 @@ async function tune(opts = {}){
       renderLists(); updateLiveUI();
       return {offset: sc.offset};
     }
-    const list = all.map(x => ({...x}));
+    const list = all.map(x => (Object.assign({}, x)));
     S.items = ch.type === "pl" ? list : P.shuffle ? shuffle(list) : list.sort((a, b) => (b.id > a.id ? 1 : -1));   // listele se redau în ordinea lor
     S.idx = 0; renderLists(); updateLiveUI();
     return {offset:0};

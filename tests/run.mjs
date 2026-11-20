@@ -114,8 +114,14 @@ await test("Telefon (Pixel): redare directă din fișier, cu subtitrări", async
 
 await test("Subtitrări traduse (română, prin LibreTranslate)", async () => {
   const {ctx, page, log} = await open({...devices["Pixel 7"]});
-  await page.evaluate(() => { P.lang = "ro"; P.trEngine = "libre"; P.trUrl = "https://translate.test"; savePrefs(); });
-  await page.reload(); await settle(page); await page.tap("#go"); await started(page);
+  // emulația de telefon din Chromium pierde uneori (≈5% la o pagină goală) o scriere în localStorage făcută chiar înainte de reload:
+  // preferințele se salvează și se verifică după reîncărcare, cu reluare (aserțiunile testului rămân aceleași)
+  for (let k = 0; k < 5; k++){
+    await page.evaluate(() => { P.lang = "ro"; P.trEngine = "libre"; P.trUrl = "https://translate.test"; savePrefs(); });
+    await page.reload(); await settle(page);
+    if (await page.evaluate(() => P.lang === "ro" && P.trEngine === "libre" && !!P.trUrl)) break;
+  }
+  await page.tap("#go"); await started(page);
   // fiecare element se așteaptă separat: subtitrarea se schimbă la fiecare replică, deci nu pot fi traduse amândouă în același cadru
   await until(page, () => /^\[ro\]/.test($("#nowt").textContent)).catch(() => {});
   const title = await page.textContent("#nowt");
