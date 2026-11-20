@@ -5,7 +5,8 @@ export default [
   {
     files: [".lint/bundle.js"],
     languageOptions: { ecmaVersion: 2023, sourceType: "script",
-      globals: { ...globals.browser, Translator: "readonly", MediaMetadata: "readonly", FFF: "readonly" } },   // FFF = kitul comun fff (injectat în pagină de build/fff-kit)
+      // when: "off" — Chrome nou are EventTarget.prototype.when (API Observable), moștenit de window; `const when` din pachet (formatare de dată) rămâne valid, nu e o redeclarare
+      globals: { ...globals.browser, when: "off", Translator: "readonly", MediaMetadata: "readonly", FFF: "readonly" } },   // FFF = kitul comun fff (injectat în pagină de build/fff-kit)
     rules: {
       "no-undef": "error", "no-redeclare": "error", "no-dupe-keys": "error", "no-unreachable": "error",
       "no-unused-vars": ["warn", { args: "none", caughtErrors: "none" }], "no-const-assign": "error", "eqeqeq": ["warn", "smart"],
