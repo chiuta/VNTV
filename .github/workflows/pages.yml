@@ -8,14 +8,14 @@ permissions: { contents: read, pages: write, id-token: write }
 concurrency: { group: pages, cancel-in-progress: true }
 jobs:
   deploy:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     environment:
       name: github-pages
       url: ${{ steps.d.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: 22 }
+        with: { node-version: 26 }
       - run: node build.mjs                      # nu cere npm install: build.mjs folosește doar Node
       - run: cp dist/vntv.html deploy/site/vntv.html   # varianta într-un singur fișier, de descărcat
       - uses: actions/configure-pages@v5
